@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/rathana/Desktop/24.06.2019/VSMS-usah/VSMS-Develope-Developer/build/Debug-iphonesimulator/Alamofire/Alamofire.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/rathana/Desktop/24.06.2019/VSMS-usah/VSMS-Develope-Developer/build/Pods.build/Debug-iphonesimulator/Alamofire.build/unextended-module.modulemap",
+    }]
+  }]
+}

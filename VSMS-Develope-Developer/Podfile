@@ -1,0 +1,35 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'VSMS' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+  # Swift 4.2
+ pod 'Alamofire'
+   pod 'GoogleMaps'
+   pod 'GooglePlaces'
+   pod 'SideMenuSwift', '= 1.0.0'
+   pod 'CollectionViewGridLayout'
+   pod 'SwiftyJSON', '~> 4.0'
+   pod 'TLPhotoPicker', '1.8.3'
+   pod 'Toast-Swift', '~> 4.0.0'
+   pod 'RSSelectionMenu'
+   pod 'SCLAlertView'
+   
+   # Firebase & Facebook
+   pod 'Firebase/Analytics'
+   pod 'Firebase/Core'
+   pod 'Firebase/Auth'
+   pod 'Firebase/Database'
+   pod 'Firebase/Messaging'
+   
+   pod 'FacebookCore'
+   pod 'FacebookLogin'
+   
+   #  pod 'LGSideMenuController'
+   # pod 'Chatto', '= 3.4.0'
+#  pod 'ChattoAdditions', '= 3.4.0' # if you want to use the cells or the input component
+
+  # Pods for VSMS
+
+end

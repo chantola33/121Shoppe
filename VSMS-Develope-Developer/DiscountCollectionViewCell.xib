@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imgediscount" id="gTV-IL-0wX" customClass="DiscountCollectionViewCell" customModule="VSMS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="280" height="222"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="280" height="222"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qVC-S8-kgT">
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="222"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5H-Kv-bcH" customClass="BorderView" customModule="VSMS" customModuleProvider="target">
+                                <rect key="frame" x="2" y="5" width="276" height="212"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kPU-VV-FNg" customClass="CustomImage" customModule="VSMS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="276" height="165.5"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9e-hQ-9D4">
+                                        <rect key="frame" x="5" y="169.5" width="266" height="19.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19.5" id="IU0-PB-VRp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNb-cO-BXE">
+                                        <rect key="frame" x="5" y="194" width="33" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="dLw-OG-448"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOA-NY-mGk">
+                                        <rect key="frame" x="238" y="196" width="33" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="cNb-cO-BXE" secondAttribute="bottom" id="2Pu-dB-w8b"/>
+                                    <constraint firstAttribute="bottom" secondItem="VOA-NY-mGk" secondAttribute="bottom" id="3aa-zG-J2s"/>
+                                    <constraint firstItem="kPU-VV-FNg" firstAttribute="top" secondItem="Q5H-Kv-bcH" secondAttribute="top" id="7DJ-4Y-qzf"/>
+                                    <constraint firstItem="Q9e-hQ-9D4" firstAttribute="leading" secondItem="Q5H-Kv-bcH" secondAttribute="leading" constant="5" id="9Vz-jm-OSb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q9e-hQ-9D4" secondAttribute="trailing" constant="5" id="LSj-Zt-6Yi"/>
+                                    <constraint firstAttribute="trailing" secondItem="VOA-NY-mGk" secondAttribute="trailing" constant="5" id="O6K-HI-dKb"/>
+                                    <constraint firstItem="cNb-cO-BXE" firstAttribute="top" secondItem="Q9e-hQ-9D4" secondAttribute="bottom" constant="5" id="XKk-zZ-5LD"/>
+                                    <constraint firstAttribute="trailing" secondItem="kPU-VV-FNg" secondAttribute="trailing" id="gMZ-SW-uZX"/>
+                                    <constraint firstItem="kPU-VV-FNg" firstAttribute="leading" secondItem="Q5H-Kv-bcH" secondAttribute="leading" id="qRx-pf-1h8"/>
+                                    <constraint firstItem="Q9e-hQ-9D4" firstAttribute="top" secondItem="kPU-VV-FNg" secondAttribute="bottom" constant="4" id="xfS-sm-fT6"/>
+                                    <constraint firstItem="cNb-cO-BXE" firstAttribute="leading" secondItem="Q5H-Kv-bcH" secondAttribute="leading" constant="5" id="y22-Td-cRX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Q5H-Kv-bcH" firstAttribute="leading" secondItem="qVC-S8-kgT" secondAttribute="leading" constant="2" id="CyK-Ll-9KO"/>
+                            <constraint firstItem="Q5H-Kv-bcH" firstAttribute="top" secondItem="qVC-S8-kgT" secondAttribute="top" constant="5" id="QNG-f0-Fh5"/>
+                            <constraint firstAttribute="bottom" secondItem="Q5H-Kv-bcH" secondAttribute="bottom" constant="5" id="XgY-JQ-EWN"/>
+                            <constraint firstAttribute="trailing" secondItem="Q5H-Kv-bcH" secondAttribute="trailing" constant="2" id="zJF-Qd-8fu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qVC-S8-kgT" secondAttribute="trailing" id="2rK-mI-cn8"/>
+                <constraint firstItem="qVC-S8-kgT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7U2-bT-PTV"/>
+                <constraint firstItem="qVC-S8-kgT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="OA3-Fa-VyW"/>
+                <constraint firstAttribute="bottom" secondItem="qVC-S8-kgT" secondAttribute="bottom" id="znb-mz-veD"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="276" height="450"/>
+            <connections>
+                <outlet property="MotoDiscount" destination="VOA-NY-mGk" id="pOZ-My-S2A"/>
+                <outlet property="MotoName" destination="Q9e-hQ-9D4" id="89O-mC-Fpd"/>
+                <outlet property="MotoPrice" destination="cNb-cO-BXE" id="SbO-zR-15w"/>
+                <outlet property="imgProduct" destination="kPU-VV-FNg" id="gJ1-xA-i5b"/>
+            </connections>
+            <point key="canvasLocation" x="-725" y="-33"/>
+        </collectionViewCell>
+    </objects>
+</document>

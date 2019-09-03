@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  VSMS
+
+  Created by Rathana on 8/6/19.
+  Copyright © 2019 121. All rights reserved.
+*/
+"aboutus" = "About Us";
+
+"buy" = "BUY";
+"brand" = "Brand";
+"bestdeal" = "Best Deal";
+
+"category" = "Caterogy";
+
+
+"language" = "English";
+
+
+"newpost" = "New Post";
+
+"rent" = "RENT";
+
+
+
+"sell" = "SELL";
+"search" = "Search here.......";
+
+
+
+"year" = "Year";
+"yourprofile" = "Your Profile";
+"yourposts" = "Your Posts";
+"yourlike" = "Your Likes";
+"yourloan" = "Your Loan";
+
+
+"setting" = "Setting";
+
+"termofprivancy" = "Term of Privancy";

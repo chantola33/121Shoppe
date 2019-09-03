@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  VSMS
+
+  Created by Rathana on 8/6/19.
+  Copyright © 2019 121. All rights reserved.
+*/
+"language" = "ភាសា";
+"buy" = "ទិញ";
+"rent" = "ជួល";
+"sell" = "លក់";
+"search" = "ស្វែងរក";
+"category" = "ប្រភេទទំនិញ";
+"brand" = "ម៉ាក";
+"bestdeal" = " កាផ្តល់ជូនពិសេស";
+
+"newpost" = " ការប្រកាសថ្មីៗ";
+
+
+"yourprofile" = "គណនីរបស់អ្នក";
+"yourposts" = "កាប្រកាសរបស់អ្នក";
+"yourlike" = "ការចូលចិត្តរបស់អ្នក";
+"yourloan" = "ឥណាទានរបស់អ្នក";
+"setting" = "ការកំណត់";
+"aboutus" = "អំពីយើង";
+"termofprivancy" = "លក្ខខណ្ឌ";
+"year" = "ឆ្នាំផលិត";
+
