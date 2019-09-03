@@ -23,6 +23,14 @@ func IsNilorEmpty(value: String?) -> Bool
 
 extension String {
     
+    func getFirstPhoneNumber() -> String
+    {
+        let splitString = self.split(separator: ",")
+        if let firstString = splitString.get(at: 0) {
+            return String(firstString)
+        }
+        return ""
+    }
     
     func base64Encoded() -> String? {
         return data(using: .utf8)?.base64EncodedString()

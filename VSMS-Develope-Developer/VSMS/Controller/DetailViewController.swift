@@ -169,7 +169,12 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func clickSms(_ sender: Any) {
-       PresentController.PushToMessageViewController(from: self)
+        let chatdata = MessageViewModel()
+        chatdata.username = userdetail?.PhoneNumber
+        chatdata.proImage = ProductDetail.front_image_url
+        chatdata.proName = ProductDetail.title
+        chatdata.proPrice = ProductDetail.cost
+        PresentController.PushToMessageViewController(from: self, chatData: chatdata)
     }
     
     @IBAction func clickLike(_ sender: Any) {

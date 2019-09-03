@@ -92,6 +92,7 @@
 		86F4DEE122E30BDE000ACA12 /* ListFromNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F4DEDF22E30BDE000ACA12 /* ListFromNavigationViewController.xib */; };
 		86F65C6F22FAD8D200F01555 /* LoanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F65C6D22FAD8D200F01555 /* LoanTableViewCell.swift */; };
 		86F65C7022FAD8D200F01555 /* LoanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F65C6E22FAD8D200F01555 /* LoanTableViewCell.xib */; };
+		86FD6F28231E2C6D009C7D07 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FD6F27231E2C6C009C7D07 /* MessageViewModel.swift */; };
 		C40213A822574D08007920C4 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40213A322574D08007920C4 /* HomePageController.swift */; };
 		C456204022D0BAE300DBF21D /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456203F22D0BAE300DBF21D /* ProfileModel.swift */; };
 		C45661B322CE6D6200973945 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45661B122CE6D6200973945 /* PostsTableViewCell.swift */; };
@@ -210,6 +211,7 @@
 		86F4DEDF22E30BDE000ACA12 /* ListFromNavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListFromNavigationViewController.xib; sourceTree = "<group>"; };
 		86F65C6D22FAD8D200F01555 /* LoanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanTableViewCell.swift; sourceTree = "<group>"; };
 		86F65C6E22FAD8D200F01555 /* LoanTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoanTableViewCell.xib; sourceTree = "<group>"; };
+		86FD6F27231E2C6C009C7D07 /* MessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		C402139B22574CD4007920C4 /* VSMS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VSMS-Bridging-Header.h"; sourceTree = "<group>"; };
 		C40213A322574D08007920C4 /* HomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
 		C456203F22D0BAE300DBF21D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 		C402139822574BE2007920C4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				86FD6F27231E2C6C009C7D07 /* MessageViewModel.swift */,
 				C4CCAE4622F9660700E21EC4 /* String+Extension.swift */,
 				C456203F22D0BAE300DBF21D /* ProfileModel.swift */,
 				86E8F0B122CCBE4D0093D7A9 /* Protocol.swift */,
@@ -791,6 +794,7 @@
 				86F4DEDB22E2D42C000ACA12 /* SearchViewController.swift in Sources */,
 				86D6FC2522CDA4F500B27B25 /* Functions.swift in Sources */,
 				86022E0D22D445FC00D4C9C2 /* ExtensionHelper.swift in Sources */,
+				86FD6F28231E2C6D009C7D07 /* MessageViewModel.swift in Sources */,
 				D54C4811224223BD004FE033 /* LoginController.swift in Sources */,
 				86E8F0B222CCBE4D0093D7A9 /* Protocol.swift in Sources */,
 				863D30B623010F3B002C2725 /* CusDropDownUIView.swift in Sources */,

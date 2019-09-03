@@ -105,10 +105,11 @@ class PresentController
         }
     }
     
-    static func PushToMessageViewController(from: UIViewController)
+    static func PushToMessageViewController(from: UIViewController, chatData: MessageViewModel)
     {
         if let messageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewMessageViewController") as? NewMessageViewController
         {
+            messageVC.chatInfo = chatData
             from.navigationController?.pushViewController(messageVC, animated: true)
         }
     }

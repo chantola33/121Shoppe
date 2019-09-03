@@ -24,6 +24,15 @@ class NewMessageViewController: UIViewController {
     
     //Helper Properties
     var yVal: CGFloat = 0
+    var chatInfo: MessageViewModel?
+    
+    func initailize()
+    {
+        self.navigationItem.title = chatInfo?.username?.getFirstPhoneNumber()
+        imgProduct.ImageLoadFromURL(url: chatInfo?.proImage ?? "")
+        lblProductName.text = chatInfo?.proName
+        lblPrice.text = chatInfo?.proPrice?.toCurrency()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +40,7 @@ class NewMessageViewController: UIViewController {
         //Calling any function here
         config()
         hideKeyboardWhenTappedAround()
+        initailize()
     }
     
     ///Function, Selector and configuration
@@ -39,10 +49,20 @@ class NewMessageViewController: UIViewController {
         let leftBarButtonItem = UIBarButtonItem.init(title: "Cancel", style: .plain, target: self, action: #selector(BackHandle))
         self.navigationItem.leftBarButtonItem = leftBarButtonItem
         
+        viewContainer.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(BackHandle)))
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         self.yVal = self.chatContainer.frame.origin.y
+    }
+    
+    func initialize()
+    {
+        self.navigationItem.title = chatInfo?.username?.getFirstPhoneNumber()
+        imgProduct.ImageLoadFromURL(url: chatInfo?.proImage ?? "")
+        lblProductName.text = chatInfo?.proName
+        lblPrice.text = chatInfo?.proPrice?.toCurrency()
     }
     
     @objc func BackHandle()
