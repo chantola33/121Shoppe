@@ -31,7 +31,7 @@ class AboutUsandTermOfTableViewController: UIViewController, UITableViewDelegate
         if listType == "About Us" {
             return 468
         }else if listType == "Term of Privacy" {
-            return 1285
+            return 1300
         }
         return 0
     }
