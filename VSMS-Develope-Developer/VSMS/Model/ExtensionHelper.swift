@@ -23,6 +23,17 @@ func IsNilorEmpty(value: String?) -> Bool
 
 extension String {
     
+    func estimateFrame() -> CGRect
+    {
+        let size = CGSize(width: 250, height: 1000)
+        
+        return NSString(string: self).boundingRect(
+            with: size,
+            options: .usesLineFragmentOrigin,
+            attributes: [.font: UIFont.systemFont(ofSize: 16)],
+            context: nil)
+    }
+    
     func getFirstPhoneNumber() -> String
     {
         let splitString = self.split(separator: ",")

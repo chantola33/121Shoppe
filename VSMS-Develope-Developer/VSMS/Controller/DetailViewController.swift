@@ -10,11 +10,13 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import GoogleMaps
-import MapKit
+import GooglePlaces
+import CoreLocation
 
 
 
-class DetailViewController: UIViewController {
+
+class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewDelegate {
     
     //Internal Properties
     var ProductID:Int = -1
@@ -56,8 +58,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var lblUserEmail: UILabel!
     @IBOutlet weak var lblAddress: UILabel!
     
-    @IBOutlet weak var mapView: MKMapView!
-    lazy var geocoder = CLGeocoder()
+    
+    
+    @IBOutlet weak var mapView: GMSMapView!
+     lazy var geocoder = CLGeocoder()
+     let locationManager = CLLocationManager()
     
     @IBOutlet weak var txtTerm: UITextField!
     @IBOutlet weak var txtdeposit: UITextField!
@@ -87,7 +92,6 @@ class DetailViewController: UIViewController {
         InitailDetail()
         LoadUserDetail()
         XibRegister()
-        map()
         tblView.reloadData()
         tblView.delegate = self
         tblView.dataSource = self
@@ -113,29 +117,57 @@ class DetailViewController: UIViewController {
         txtprice.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
         txtinterestRate.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
         txtTerm.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+        mapView.delegate = self
+        mapView.settings.setAllGesturesEnabled(false)
         
-//        if(ProductDetail.post_type == "sell"){
-//            LoanView.isHidden = true
+        //self.locationManager.requestWhenInUseAuthorization()
+        //self.locationManager.requestAlwaysAuthorization()
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager.startUpdatingLocation()
+//            mapView.settings.setAllGesturesEnabled(false)
 //
-//        }
-        
-//        ProductDetail.post_type = "rent"
-//        ProductDetail.post_type = "buy"
-//        ProductDetail.post_type = "sell"
+       }
+
     }
     
-    
-    func map(){
-        
-        let location = CLLocation(latitude: 11.562108, longitude: 104.888535)
-        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
-            self.processResponse(withPlacemarks: placemarks, error: error)
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations Locations: [CLLocation]){
+           // guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+           // print("location = \(locValue.latitude) \(locValue.longitude)")
+            let Address = ProductDetail.contact_address
+            let fullAddress = Address.components(separatedBy: ",")
+            let latitude = fullAddress[0].toDouble() //First
+            let Longtitude = fullAddress[1].toDouble() //Last
+            showSpecificPath(latitude: latitude, Longtitude: Longtitude)
+
         }
-        
-    }
     
-    private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?){
-        
+        func showSpecificPath(latitude: CLLocationDegrees, Longtitude: CLLocationDegrees){
+            let Address = ProductDetail.contact_address
+            let fullAddress = Address.components(separatedBy: ",")
+            let latitude = fullAddress[0].toDouble() //First
+            let Longtitude = fullAddress[1].toDouble() //Last
+            //print(fullAddress)
+            let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: Longtitude, zoom: 16)
+           // let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
+            self.mapView?.animate(to: camera)
+            self.locationManager.stopUpdatingLocation()
+            
+            let location = CLLocation(latitude: latitude, longitude: Longtitude)
+            geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+                self.processResponse(withPlacemarks: placemarks, error: error)
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: Longtitude)
+                marker.map = self.mapView
+               
+            }
+            
+            
+        }
+    
+     private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?){
+
         if let error = error {
             print("Unable to Reverse Geocode Location (\(error))")
             lblAddress.text = "Unable to Find Address for Location"
@@ -146,7 +178,7 @@ class DetailViewController: UIViewController {
                 lblAddress.text = "No Maching Address Found"
             }
         }
-        
+    
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer){
@@ -286,7 +318,7 @@ class DetailViewController: UIViewController {
             self.lblProfileName.text = Profile.Name
             self.lblUserPhoneNumber.text = "Tel: \(Profile.PhoneNumber)"
             self.lblUserEmail.text = "Email: \(Profile.email)"
-            self.lblAddress.text = "Address: \(Profile.Address)"
+            self.lblAddress.text = "Address: \(self.ProductDetail.vin_code)"
         }
     }
     

@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-class MessageViewModel
+class MessageViewModel: NSObject
 {
+    var postID: String?
     var username: String?
     var proImage: String?
     var proName: String?
@@ -18,5 +19,5 @@ class MessageViewModel
     var toID: String?
     var fromID: String?
     
-    init(){}
+    override init(){}
 }

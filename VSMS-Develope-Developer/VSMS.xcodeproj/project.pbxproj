@@ -58,6 +58,7 @@
 		86763E1F22D4A70700391237 /* DiscountInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86763E1D22D4A70700391237 /* DiscountInputTableViewCell.swift */; };
 		86763E2022D4A70700391237 /* DiscountInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86763E1E22D4A70700391237 /* DiscountInputTableViewCell.xib */; };
 		8679B8A32317B508005CC6D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8679B8A22317B508005CC6D9 /* Assets.xcassets */; };
+		867B4EE5231FBC0C00D03757 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867B4EE4231FBC0B00D03757 /* CoreLocation.framework */; };
 		86AAF0C722C081C3003C46F3 /* DiscountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAF0BD22C081C2003C46F3 /* DiscountCollectionViewCell.swift */; };
 		86AAF0C822C081C3003C46F3 /* DiscountCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86AAF0BE22C081C3003C46F3 /* DiscountCollectionViewCell.xib */; };
 		86AAF0D722C0C4D4003C46F3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAF0D622C0C4D4003C46F3 /* MenuViewController.swift */; };
@@ -93,6 +94,9 @@
 		86F65C6F22FAD8D200F01555 /* LoanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F65C6D22FAD8D200F01555 /* LoanTableViewCell.swift */; };
 		86F65C7022FAD8D200F01555 /* LoanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F65C6E22FAD8D200F01555 /* LoanTableViewCell.xib */; };
 		86FD6F28231E2C6D009C7D07 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FD6F27231E2C6C009C7D07 /* MessageViewModel.swift */; };
+		86FD6F2C231E478B009C7D07 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FD6F2A231E478B009C7D07 /* ChatTableViewCell.swift */; };
+		86FD6F2D231E478B009C7D07 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86FD6F2B231E478B009C7D07 /* ChatTableViewCell.xib */; };
+		86FD6F2F231E5F2E009C7D07 /* ChatHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FD6F2E231E5F2E009C7D07 /* ChatHandle.swift */; };
 		C40213A822574D08007920C4 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40213A322574D08007920C4 /* HomePageController.swift */; };
 		C456204022D0BAE300DBF21D /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456203F22D0BAE300DBF21D /* ProfileModel.swift */; };
 		C45661B322CE6D6200973945 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45661B122CE6D6200973945 /* PostsTableViewCell.swift */; };
@@ -176,6 +180,7 @@
 		86763E1D22D4A70700391237 /* DiscountInputTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountInputTableViewCell.swift; sourceTree = "<group>"; };
 		86763E1E22D4A70700391237 /* DiscountInputTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscountInputTableViewCell.xib; sourceTree = "<group>"; };
 		8679B8A22317B508005CC6D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		867B4EE4231FBC0B00D03757 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		86AAF0BD22C081C2003C46F3 /* DiscountCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		86AAF0BE22C081C3003C46F3 /* DiscountCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		86AAF0D622C0C4D4003C46F3 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +217,9 @@
 		86F65C6D22FAD8D200F01555 /* LoanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanTableViewCell.swift; sourceTree = "<group>"; };
 		86F65C6E22FAD8D200F01555 /* LoanTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoanTableViewCell.xib; sourceTree = "<group>"; };
 		86FD6F27231E2C6C009C7D07 /* MessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		86FD6F2A231E478B009C7D07 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		86FD6F2B231E478B009C7D07 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
+		86FD6F2E231E5F2E009C7D07 /* ChatHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHandle.swift; sourceTree = "<group>"; };
 		C402139B22574CD4007920C4 /* VSMS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VSMS-Bridging-Header.h"; sourceTree = "<group>"; };
 		C40213A322574D08007920C4 /* HomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
 		C456203F22D0BAE300DBF21D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
@@ -246,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867B4EE5231FBC0C00D03757 /* CoreLocation.framework in Frameworks */,
 				5A40B576ABDEBD0C0DDE15E0 /* Pods_VSMS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +365,7 @@
 		865B5DC7221FDD6400864F7E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				86FD6F29231E476E009C7D07 /* Chats */,
 				C4726A972306CD2A00C5B381 /* Password */,
 				86EE08B622FFC68A001EF3A8 /* AboutandTermofprivancy */,
 				C49A53EB22FDADD20017E122 /* Input */,
@@ -425,6 +435,7 @@
 				866C2DB72305175B004B7682 /* PresentController.swift */,
 				86F48B6D230EAD2B00B2622A /* FirebaseHandle.swift */,
 				86D7E61B2318C58C00B2035A /* FacebookHandle.swift */,
+				86FD6F2E231E5F2E009C7D07 /* ChatHandle.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -458,6 +469,15 @@
 			name = Navigation;
 			sourceTree = "<group>";
 		};
+		86FD6F29231E476E009C7D07 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				86FD6F2A231E478B009C7D07 /* ChatTableViewCell.swift */,
+				86FD6F2B231E478B009C7D07 /* ChatTableViewCell.xib */,
+			);
+			name = Chats;
+			sourceTree = "<group>";
+		};
 		921D21CDE67B0CC389C8D671 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +490,7 @@
 		9D8395D53B002605959ABBAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				867B4EE4231FBC0B00D03757 /* CoreLocation.framework */,
 				422454760A29C3178F1F4F7C /* Pods_VSMS.framework */,
 			);
 			name = Frameworks;
@@ -666,6 +687,7 @@
 				C49A53EF22FDAEB90017E122 /* CusInputUIView.xib in Resources */,
 				865B5DBF221FDD3700864F7E /* LaunchScreen.storyboard in Resources */,
 				866C2DB62304F222004B7682 /* ImagePickerUIView.xib in Resources */,
+				86FD6F2D231E478B009C7D07 /* ChatTableViewCell.xib in Resources */,
 				86F4DEDC22E2D42C000ACA12 /* SearchViewController.xib in Resources */,
 				864222B522DEFB44002E41E7 /* ProductListTableViewCell.xib in Resources */,
 				C4826FC923000FD100494DB0 /* TermofprivacyTableViewCell.xib in Resources */,
@@ -762,6 +784,7 @@
 				86EE08B522FFC607001EF3A8 /* AboutUsandTermOfTableViewController.swift in Sources */,
 				861A6FCD22E1732D0028D81D /* ListAllPostByTypeViewController.swift in Sources */,
 				C4CCAE4722F9660700E21EC4 /* String+Extension.swift in Sources */,
+				86FD6F2C231E478B009C7D07 /* ChatTableViewCell.swift in Sources */,
 				D54C48132242249D004FE033 /* RegisterController.swift in Sources */,
 				86EE08B922FFC6B7001EF3A8 /* AboutUsTableViewCell.swift in Sources */,
 				8613E8E4231CB150006C9D60 /* NotificationViewController.swift in Sources */,
@@ -791,6 +814,7 @@
 				86B94E1622E83FEC00C793D2 /* CustomCell_Instagram.swift in Sources */,
 				86D6FC2722CDE1BF00B27B25 /* PostViewModel.swift in Sources */,
 				8615106022D5845800A37835 /* ContactInputTableViewCell.swift in Sources */,
+				86FD6F2F231E5F2E009C7D07 /* ChatHandle.swift in Sources */,
 				86F4DEDB22E2D42C000ACA12 /* SearchViewController.swift in Sources */,
 				86D6FC2522CDA4F500B27B25 /* Functions.swift in Sources */,
 				86022E0D22D445FC00D4C9C2 /* ExtensionHelper.swift in Sources */,

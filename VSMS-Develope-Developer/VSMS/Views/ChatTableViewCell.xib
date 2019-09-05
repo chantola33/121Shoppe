@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="154" id="KGk-i7-Jjw" customClass="ChatTableViewCell" customModule="VSMS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="267" height="154"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="267" height="153.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZh-g3-obv" userLabel="OwnChatView">
+                        <rect key="frame" x="7" y="5" width="250" height="143.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello! It's me" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKJ-PW-YzD">
+                                <rect key="frame" x="10" y="5" width="230" height="133.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DKJ-PW-YzD" firstAttribute="top" secondItem="PZh-g3-obv" secondAttribute="top" constant="5" id="8MK-yk-sW8"/>
+                            <constraint firstAttribute="trailing" secondItem="DKJ-PW-YzD" secondAttribute="trailing" constant="10" id="ISe-15-LcR"/>
+                            <constraint firstAttribute="width" constant="250" id="J0F-i8-3wE"/>
+                            <constraint firstItem="DKJ-PW-YzD" firstAttribute="centerY" secondItem="PZh-g3-obv" secondAttribute="centerY" id="RHW-oz-KcV"/>
+                            <constraint firstAttribute="bottom" secondItem="DKJ-PW-YzD" secondAttribute="bottom" constant="5" id="Y8Q-8I-UTy"/>
+                            <constraint firstItem="DKJ-PW-YzD" firstAttribute="leading" secondItem="PZh-g3-obv" secondAttribute="leading" constant="10" id="gO2-dJ-nr9"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D32-Ub-JbQ" userLabel="SomeoneChatView">
+                        <rect key="frame" x="10" y="5" width="250" height="143.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello! It's me" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Urv-KE-KF0">
+                                <rect key="frame" x="10" y="5" width="230" height="133.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Urv-KE-KF0" secondAttribute="trailing" constant="10" id="EdS-RG-CZe"/>
+                            <constraint firstItem="Urv-KE-KF0" firstAttribute="leading" secondItem="D32-Ub-JbQ" secondAttribute="leading" constant="10" id="N3F-Kz-RoU"/>
+                            <constraint firstItem="Urv-KE-KF0" firstAttribute="top" secondItem="D32-Ub-JbQ" secondAttribute="top" constant="5" id="cZF-U7-dp7"/>
+                            <constraint firstAttribute="bottom" secondItem="Urv-KE-KF0" secondAttribute="bottom" constant="5" id="eN2-Vc-yJI"/>
+                            <constraint firstAttribute="width" constant="250" id="lhJ-hl-Qca"/>
+                            <constraint firstItem="Urv-KE-KF0" firstAttribute="centerY" secondItem="D32-Ub-JbQ" secondAttribute="centerY" id="zQE-Mc-dpc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="PZh-g3-obv" secondAttribute="bottom" constant="5" id="0Je-TH-e1n"/>
+                    <constraint firstItem="D32-Ub-JbQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="0lm-qz-P68"/>
+                    <constraint firstItem="PZh-g3-obv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VuO-AG-MEF"/>
+                    <constraint firstItem="PZh-g3-obv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="bhM-im-30C"/>
+                    <constraint firstItem="D32-Ub-JbQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="gTZ-zp-4lT"/>
+                    <constraint firstAttribute="trailing" secondItem="PZh-g3-obv" secondAttribute="trailing" constant="10" id="lNf-Qd-zIG"/>
+                    <constraint firstAttribute="bottom" secondItem="D32-Ub-JbQ" secondAttribute="bottom" constant="5" id="q6E-ZK-Oah"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="OwnChatView" destination="PZh-g3-obv" id="M8h-yH-EeP"/>
+                <outlet property="SomeoneChatView" destination="D32-Ub-JbQ" id="Sfk-qK-dXL"/>
+                <outlet property="ownText" destination="DKJ-PW-YzD" id="57R-iI-X9E"/>
+                <outlet property="someoneText" destination="Urv-KE-KF0" id="oAw-XR-w20"/>
+            </connections>
+            <point key="canvasLocation" x="-176.08695652173915" y="58.258928571428569"/>
+        </tableViewCell>
+    </objects>
+</document>

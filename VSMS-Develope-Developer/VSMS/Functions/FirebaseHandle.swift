@@ -206,18 +206,6 @@ class PostFireBase
     }
 }
 
-class MessageFireBase: NSObject
-{
-    var isseen: String?
-    var message: String?
-    var post: String?
-    var receiver: String?
-    var sender: String?
-    var type: String?
-    
-    
-}
-
 
 private extension String
 {
