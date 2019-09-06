@@ -133,8 +133,6 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     }
     
         func locationManager(_ manager: CLLocationManager, didUpdateLocations Locations: [CLLocation]){
-           // guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-           // print("location = \(locValue.latitude) \(locValue.longitude)")
             let Address = ProductDetail.contact_address
             let fullAddress = Address.components(separatedBy: ",")
             let latitude = fullAddress[0].toDouble() //First
@@ -148,9 +146,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             let fullAddress = Address.components(separatedBy: ",")
             let latitude = fullAddress[0].toDouble() //First
             let Longtitude = fullAddress[1].toDouble() //Last
-            //print(fullAddress)
             let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: Longtitude, zoom: 16)
-           // let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
             self.mapView?.animate(to: camera)
             self.locationManager.stopUpdatingLocation()
             
@@ -162,8 +158,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
                 marker.map = self.mapView
                
             }
-            
-            
+
         }
     
      private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?){
@@ -186,6 +181,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ContectViewController") as! ContectViewController
         vc.UserPostID = ProductDetail.created_by
         vc.userdetail = self.userdetail
+        vc.ProductDetail = self.ProductDetail
 
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -201,6 +197,13 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     }
     
     @IBAction func clickSms(_ sender: Any) {
+        
+        if !User.IsUserAuthorized()
+        {
+            PresentController.LogInandRegister()
+            return
+        }
+        
         let chatdata = MessageViewModel()
         chatdata.username = userdetail?.PhoneNumber
         chatdata.proImage = ProductDetail.front_image_url
@@ -211,22 +214,48 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     
     @IBAction func clickLike(_ sender: Any) {
         
+        if !User.IsUserAuthorized()
+        {
+            PresentController.LogInandRegister()
+            return
+        }
+
         if condtionlike == true {
-            Message.AlertMessage(message: "You have like this product already.", header: "LIKE", View: self){}
+            let alert = UIAlertController(title: "LIKE", message: "You have like this product already.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         else
         {
-            Message.AlertMessage(message: "Like Successful.", header: "LIKE", View: self){
+            let refreshAlert = UIAlertController(title: "LIKE", message: "Like successfully.", preferredStyle: UIAlertController.Style.alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
                 self.Btnlikebyuser()
                 self.condtionlike = true
+                let alert = UIAlertController(title: "LIKE", message: "Like Successfully.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 self.tblView.reloadData()
-            }
+            }))
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+               // self.condtionlike = false
+                self.tblView.reloadData()
+            }))
+            
+            present(refreshAlert, animated: true, completion: nil)
         }
 
 }
     
     
     @IBAction func clickLoan(_ sender: Any) {
+        
+        if !User.IsUserAuthorized()
+        {
+            PresentController.LogInandRegister()
+            return
+        }
+        
         let loanVC:LoanViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoanViewController") as! LoanViewController
         loanVC.Loan.loan_to = ProductDetail.created_by
         loanVC.Loan.post = ProductDetail.id
@@ -319,6 +348,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             self.lblUserPhoneNumber.text = "Tel: \(Profile.PhoneNumber)"
             self.lblUserEmail.text = "Email: \(Profile.email)"
             self.lblAddress.text = "Address: \(self.ProductDetail.vin_code)"
+
         }
     }
     

@@ -17,16 +17,22 @@ class ProductListTableViewCell: UITableViewCell {
     @IBOutlet weak var lblProductPrice: UILabel!
     @IBOutlet weak var lblPostType: UILabel!
     @IBOutlet weak var lblView: UILabel!
+    @IBOutlet weak var profileuser: UIImageView!
     
+    var UserPro = DetailViewModel()
+    var userdetail: Profile?
     var ProductID: Int?
     var ProductData = HomePageModel()
     weak var delegate: CellClickProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
+        profileuser.layer.cornerRadius = profileuser.frame.width * 0.5
+        profileuser.clipsToBounds = true
         // Initialization code
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handerCellClick)))
+   self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handerCellClick)))
+        lblDuration.isHidden = true
     }
     
     func reload()
@@ -34,16 +40,18 @@ class ProductListTableViewCell: UITableViewCell {
         imgProductImage.LoadFromURL(url: ProductData.imagefront)
         lblProductname.text = ProductData.title.capitalizingFirstLetter()
         lblProductPrice.text = ProductData.cost.toCurrency()
-        lblDuration.text = ProductData.create_at?.getDuration()
+       // lblDuration.text = ProductData.create_at?.getDuration()
         lblPostType.SetPostType(postType: ProductData.postType)
-        
         RequestHandle.CountView(postID: self.ProductData.product) { (count) in
             performOn(.Main, closure: {
-                self.lblView.text = count.toString()+" Views"
+                self.lblView.text = "Views "+count.toString()
             })
+            
+            
         }
     }
-
+    
+   
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state

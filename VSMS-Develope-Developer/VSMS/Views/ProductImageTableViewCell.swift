@@ -26,6 +26,7 @@ class ProductImageTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handerCellClick)))
+        lblDuration.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,9 +36,9 @@ class ProductImageTableViewCell: UITableViewCell {
         imgProduct.LoadFromURL(url: data.imagefront)
         lblProductName.text = data.title.capitalizingFirstLetter()
         lblProductPrice.text = data.cost.toCurrency()
-        lblDuration.text = data.create_at?.getDuration()
+       // lblDuration.text = data.create_at?.getDuration()
         RequestHandle.CountView(postID: data.product) { (count) in
-            self.lblViews.text = count.toString()+" Views"
+            self.lblViews.text = "Views "+count.toString()
         }
         lblPostType.SetPostType(postType: data.postType)
     }

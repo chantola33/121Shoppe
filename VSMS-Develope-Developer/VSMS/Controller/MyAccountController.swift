@@ -10,13 +10,19 @@ import UIKit
 import RSSelectionMenu
 import Alamofire
 import SwiftyJSON
+import GoogleMaps
+import GooglePlaces
+import CoreLocation
+import MapKit
 
-class MyAccountController: UITableViewController {
+class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSMapViewDelegate {
     
     //Storyboard Properties
     @IBOutlet weak var lblUserGroup: UILabel!
     @IBOutlet weak var txtUsername: UITextField!
 
+    
+    @IBOutlet weak var txtaddress: UITextField!
     @IBOutlet weak var lblGender: UILabel!
     @IBOutlet weak var txtDob: UITextField!
     @IBOutlet weak var lblPOB: UILabel!
@@ -26,6 +32,25 @@ class MyAccountController: UITableViewController {
     @IBOutlet weak var txtPhoneNumber: UITextField!
     @IBOutlet weak var lblLocation: UILabel!
     
+    
+    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var btnPin: UIButton!
+    //    lazy var geocoder = CLGeocoder()
+    //   let locationManager = CLLocationManager()
+    var latlog: String = ""
+   
+    var currentLocation:CLLocationCoordinate2D!
+    var finalPositionAfterDragging:CLLocationCoordinate2D?
+    var locationMarker:GMSMarker!
+    
+    lazy var locationManager: CLLocationManager = {
+        var _locationManager = CLLocationManager()
+        _locationManager.delegate = self
+        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        _locationManager.activityType = .automotiveNavigation
+        _locationManager.distanceFilter = 10.0
+        return _locationManager
+    }()
     
     //Internal Properties
     var UserAccount = AccountViewModel()
@@ -64,6 +89,7 @@ class MyAccountController: UITableViewController {
         UserAccount.LoadUserAccount {
             self.view.hideToastActivity()
             self.setUpAccountData()
+            self.isAuthorizedtoGetUserLocation()
         }
 
         ///Add done keyboard
@@ -72,8 +98,84 @@ class MyAccountController: UITableViewController {
         txtWingName.addDoneButtonOnKeyboard()
         txtWingNumber.addDoneButtonOnKeyboard()
         
+        ///Currentlocationuser and search
+        mapView.delegate = self
+       // lblAddress.layer.zPosition  = 1
+        self.mapView?.isMyLocationEnabled = true
+        
         ////configfunction
         configDateOfBirthOption()
+
+    }
+    
+    func isAuthorizedtoGetUserLocation() {
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse     {
+            locationManager.requestWhenInUseAuthorization()
+            
+        }
+    }
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition){
+        wrapperFunctionToShowPosition(mapView: mapView)
+    }
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        wrapperFunctionToShowPosition(mapView: mapView)
+    }
+    
+    
+    
+    func wrapperFunctionToShowPosition(mapView:GMSMapView){
+        let geocoder = GMSGeocoder()
+        let latitute = mapView.camera.target.latitude
+        let longitude = mapView.camera.target.longitude
+        let position = CLLocationCoordinate2DMake(latitute, longitude)
+
+        geocoder.reverseGeocodeCoordinate(position) { response , error in
+            if error != nil {
+                print("GMSReverseGeocode Error: \(String(describing: error?.localizedDescription))")
+            }else {
+                let result = response?.results()?.first
+                let address = result?.lines?.reduce("") { $0 == "" ? $1 : $0 + ", " + $1 }
+                self.txtaddress.text = address
+                
+                let lat = latitute
+                let long = longitude
+                self.latlog = ("\(lat),\(long)")
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+       
+        if IsNilorEmpty(value: UserAccount.ProfileData.address)
+        {
+            let userLocation:CLLocation = locations[0] as CLLocation
+            self.currentLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
+        }
+        else{
+            let fullAddress = UserAccount.ProfileData.address.components(separatedBy: ",")
+            let latitude = fullAddress[0].toDouble() //First
+            let Longtitude = fullAddress[1].toDouble() //Last
+            self.currentLocation = CLLocationCoordinate2D(latitude: latitude,longitude: Longtitude)
+        }
+        
+        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 14)
+        let position = CLLocationCoordinate2D(latitude:  currentLocation.latitude, longitude: currentLocation.longitude)
+        self.setupLocationMarker(coordinate: position)
+        self.mapView.camera = camera
+        self.mapView?.animate(to: camera)
+        manager.stopUpdatingLocation()
+    }
+    
+    func setupLocationMarker(coordinate: CLLocationCoordinate2D) {
+    
+        print("setup location")
+    if locationMarker != nil {
+            locationMarker.map = nil
+        }
 
     }
     
@@ -89,6 +191,7 @@ class MyAccountController: UITableViewController {
         txtPhoneNumber.text = UserAccount.ProfileData.telephone
         txtWingName.text = UserAccount.ProfileData.wing_account_name
         txtWingNumber.text = UserAccount.ProfileData.wing_account_number
+        txtaddress.text = UserAccount.ProfileData.responsible_officer
         
     }
 
@@ -144,6 +247,7 @@ class MyAccountController: UITableViewController {
     
     @IBAction func btnSubmitHandle(_ sender: UIButton)
     {
+        
         if txtUsername.text == ""
         {
             return
@@ -158,6 +262,8 @@ class MyAccountController: UITableViewController {
         UserAccount.ProfileData.telephone = txtPhoneNumber.text!
         UserAccount.ProfileData.wing_account_name = txtWingName.text!
         UserAccount.ProfileData.wing_account_number = txtWingNumber.text!
+        UserAccount.ProfileData.address = latlog
+        UserAccount.ProfileData.responsible_officer = txtaddress.text!
         UserAccount.UpdateUserAccount {
             alertMessage.dismissActivityIndicator()
         }
@@ -288,7 +394,6 @@ extension UILabel {
         }
     }
 }
-
 
 
 

@@ -18,6 +18,7 @@ target 'VSMS' do
    pod 'Toast-Swift', '~> 4.0.0'
    pod 'RSSelectionMenu'
    pod 'SCLAlertView'
+   pod 'LGButton'
    
    # Firebase & Facebook
    pod 'Firebase/Analytics'

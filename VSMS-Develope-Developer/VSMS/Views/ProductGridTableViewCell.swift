@@ -42,8 +42,10 @@ class ProductGridTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.firstView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handerCellClick1)))
+        lbl_1_duration.isHidden = true
         
         self.secondView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handerCellClick2)))
+        lbl_2_duration.isHidden = true
     }
     
     @objc
@@ -63,7 +65,7 @@ class ProductGridTableViewCell: UITableViewCell {
             img_1_Product.LoadFromURL(url: data1!.imagefront)
             lbl_1_Productname.text = data1?.title
             lbl_1_Productprice.text = data1?.cost.toCurrency()
-            lbl_1_duration.text = data1?.create_at?.getDuration()
+            //lbl_1_duration.text = data1?.create_at?.getDuration()
             lbl_1_postTy.SetPostType(postType: data1!.postType)
             RequestHandle.CountView(postID: (data1?.product)!) { (count) in
                 self.lbl_1_Views.text = count.toString()+" Views"
@@ -75,7 +77,7 @@ class ProductGridTableViewCell: UITableViewCell {
             img_2_Product.LoadFromURL(url: data2!.imagefront)
             lbl_2_Productname.text = data2?.title
             lbl_2_productprice.text = data2?.cost.toCurrency()
-            lbl_2_duration.text = data2?.create_at?.getDuration()
+           // lbl_2_duration.text = data2?.create_at?.getDuration()
             lbl_2_postTy.SetPostType(postType: data2!.postType)
             RequestHandle.CountView(postID: (data2?.product)!) { (count) in
                 self.lbl_2_Views.text = count.toString()+" Views"

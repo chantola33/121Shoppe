@@ -49,6 +49,7 @@ struct Profile {
     var Profile: UIImage
     var email: String
     var Address: String
+    var Address_Name: String
 }
 
 class ImageProfileModel {
@@ -58,6 +59,7 @@ class ImageProfileModel {
     var firstName: String = ""
     var email: String = ""
     var address: String = ""
+    var address_Name: String = ""
     var profile: ImageSubClass = ImageSubClass()
     
     init(){}
@@ -69,6 +71,7 @@ class ImageProfileModel {
         self.profile = ImageSubClass(json: json["profile"])
         self.email = json["email"].stringValue
         self.address = json["address"].stringValue
+        self.address_Name = json["responsible_officer"].stringValue
     }
     
 }
@@ -79,6 +82,7 @@ class ImageSubClass {
     var profile_image: String = ""
     var cover_image: String = ""
     var address: String = ""
+    var address_name: String = ""
     
     init(){}
     
@@ -87,6 +91,7 @@ class ImageSubClass {
         self.profile_image = json["profile_photo"].stringValue
         self.cover_image = json["cover_photo"].stringValue
         self.address = json["address"].stringValue
+        self.address_name = json["responsible_officer"].stringValue
     }
 }
 

@@ -37,9 +37,9 @@ class VerifyViewController: UIViewController {
         self.account.ProfileData.telephone  = self.account.username
     }
     
-    @IBAction func verifyHandle(_ sender: Any) {
-        verify()
-    }
+//    @IBAction func verifyHandle(_ sender: Any) {
+//        verify()
+//    }
     
     @IBAction func resendHandle(_ sender: Any) {
         

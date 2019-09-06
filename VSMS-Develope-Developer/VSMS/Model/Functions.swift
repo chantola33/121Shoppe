@@ -97,6 +97,9 @@ class PROJECT_API {
         return "\(http_absoluteString)/countview/?post=\(ProID)"
     }
     
+    static func USER_PRO(UserID: String) -> String {
+        return "\(http_absoluteString)/api/v1/users/\(User.getUserID())/profilephoto/"
+    }
 }
 
 func httpHeader() -> HTTPHeaders
@@ -208,11 +211,14 @@ class User {
             switch respone.result {
             case .success(let value):
                 let json = JSON(value)
+                print(value)
                 let profile = json["profile"]
                 completion(Profile(ID: json["id"].stringValue,
                                    Name: json["username"].stringValue,
                                    PhoneNumber: profile["telephone"].stringValue,
-                                   Profile: profile["base64_profile_image"].stringValue.base64ToImage() ?? UIImage(), email: json["email"].stringValue, Address: json["address"].stringValue))
+                                   Profile: profile["base64_profile_image"].stringValue.base64ToImage() ?? UIImage(), email: json["email"].stringValue,
+                                        Address: profile["address"].stringValue,
+                                        Address_Name: profile["responsible_officer"].stringValue))
             case .failure(let error):
                 print(error.localizedDescription)
             }

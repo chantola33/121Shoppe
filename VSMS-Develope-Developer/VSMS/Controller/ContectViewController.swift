@@ -23,12 +23,14 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var labelName: UILabel!
     var listtype = true
     var index = 0
-    var tel = ImageSubClass()
+   // var tel = ImageSubClass()
     var imgprofile = ImageProfileModel()
     var postArr: [HomePageModel] = []
     var UserPostID: Int?
-     var ProductDetail = DetailViewModel()
+    var ProductDetail = DetailViewModel()
     var userdetail:Profile?
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +68,8 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let post = UINib(nibName: "ProductListTableViewCell", bundle: nil)
         tableView.register(post, forCellReuseIdentifier: "ProductListCell")
-        
+        let map = UINib(nibName: "MapTableViewCell", bundle: nil)
+        tableView.register(map, forCellReuseIdentifier: "Map")
     }
     
 
@@ -133,16 +136,19 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if listtype == true {
-            return 125
+            return 85
+        }else {
+            if indexPath.row == 2 {
+                return 320
+            }
+            return 65
         }
-        return 85
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if listtype == true {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProductListCell", for: indexPath) as! ProductListTableViewCell
-
             cell.ProductData = postArr[indexPath.row]
             cell.reload()
             return cell
@@ -158,11 +164,16 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 cell?.textLabel?.text = "Email"
                 cell?.detailTextLabel?.text = userdetail?.email
             } else {
-                cell?.textLabel?.text = "Address"
-                cell?.detailTextLabel?.text = tel.address
+                let map = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath) as! MapTableViewCell
+                map.userdetail = userdetail
+                map.ProductDetail = ProductDetail
+                return map
+
             }
+            
             return cell ?? UITableViewCell()
         }
+       
     }
 
 }

@@ -8,9 +8,12 @@
 
 import UIKit
 import RSSelectionMenu
+import GoogleMaps
+import GooglePlaces
+import MapKit
 
 
-class PostViewController: UITableViewController {
+class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMapViewDelegate {
     
     ///Image Picker
     @IBOutlet weak var imagePicker: ImagePickerUIView!
@@ -36,7 +39,11 @@ class PostViewController: UITableViewController {
     @IBOutlet weak var txtEmail: CusInputUIView!
     //submit
     @IBOutlet weak var btnSubmit: UIButton!
+    @IBOutlet weak var txtaddress: UITextField!
+    //map
     
+    
+    @IBOutlet weak var mapView: GMSMapView!
     
     /////
     var post_arr = [DropDownTemplate]()
@@ -63,6 +70,20 @@ class PostViewController: UITableViewController {
     //Internal Properties
     var post_obj = PostAdViewModel()
     var dispatch = DispatchGroup()
+    var latlog: String = ""
+    
+    var currentLocation:CLLocationCoordinate2D!
+    var finalPositionAfterDragging:CLLocationCoordinate2D?
+    var locationMarker:GMSMarker!
+    
+    lazy var locationManager: CLLocationManager = {
+        var _locationManager = CLLocationManager()
+        _locationManager.delegate = self
+        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        _locationManager.activityType = .automotiveNavigation
+        _locationManager.distanceFilter = 10.0
+        return _locationManager
+    }()
     
     var is_edit = false
     var post_id: Int?
@@ -75,8 +96,79 @@ class PostViewController: UITableViewController {
         ShowDefaultNavigation()
         Prepare()
         PrepareToEdit()
+        
+        mapView.delegate = self
+        isAuthorizedtoGetUserLocation()
+        self.mapView?.isMyLocationEnabled = true
     }
-
+   
+    func isAuthorizedtoGetUserLocation() {
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse     {
+            locationManager.requestWhenInUseAuthorization()
+            
+        }
+    }
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition){
+        wrapperFunctionToShowPosition(mapView: mapView)
+    }
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        wrapperFunctionToShowPosition(mapView: mapView)
+    }
+    
+    func wrapperFunctionToShowPosition(mapView:GMSMapView){
+        let geocoder = GMSGeocoder()
+        let latitute = mapView.camera.target.latitude
+        let longitude = mapView.camera.target.longitude
+        let position = CLLocationCoordinate2DMake(latitute, longitude)
+        geocoder.reverseGeocodeCoordinate(position) { response , error in
+            if error != nil {
+                print("GMSReverseGeocode Error: \(String(describing: error?.localizedDescription))")
+            }else {
+                let result = response?.results()?.first
+                let address = result?.lines?.reduce("") { $0 == "" ? $1 : $0 + ", " + $1 }
+                self.txtaddress.text = address
+                
+                let lat = latitute
+                let long = longitude
+                self.latlog = ("\(lat),\(long)")
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if IsNilorEmpty(value: post_obj.contact_address)
+        {
+            let userLocation:CLLocation = locations[0] as CLLocation
+            self.currentLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
+        }
+        else{
+            let fullAddress = post_obj.contact_address.components(separatedBy: ",")
+            let latitude = fullAddress[0].toDouble() //First
+            let Longtitude = fullAddress[1].toDouble() //Last
+            self.currentLocation = CLLocationCoordinate2D(latitude: latitude,longitude: Longtitude)
+        }
+        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 16)
+        let position = CLLocationCoordinate2D(latitude:  currentLocation.latitude, longitude: currentLocation.longitude)
+        self.setupLocationMarker(coordinate: position)
+        self.mapView.camera = camera
+        self.mapView?.animate(to: camera)
+        manager.stopUpdatingLocation()
+    }
+    
+    func setupLocationMarker(coordinate: CLLocationCoordinate2D) {
+        print("setup location")
+        if locationMarker != nil {
+            locationMarker.map = nil
+        }
+        
+        
+    }
+    
     // MARK: - Table view data source
     
     @IBAction func SubmitHandler(_ sender: UIButton) {
@@ -91,6 +183,8 @@ class PostViewController: UITableViewController {
         post_obj.name = txtName.Value
         post_obj.contact_phone = txtPhoneNumber.Value
         post_obj.contact_email = txtEmail.Value
+        post_obj.vin_code = txtaddress.text!
+        post_obj.contact_address = latlog
         
         post_obj.machine_code = txtName.Value
         
@@ -135,6 +229,8 @@ class PostViewController: UITableViewController {
     }
     
     
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 5
@@ -177,7 +273,7 @@ class PostViewController: UITableViewController {
             }
             return 2
         case 3:
-            return 3
+            return 4
         case 4:
             return 1
         default:
@@ -268,7 +364,7 @@ extension PostViewController {
         
         is_edit = true
         btnSubmit.setTitle("Update", for: .normal)
-        
+        isAuthorizedtoGetUserLocation()
         dispatch.notify(queue: .main) {
             self.post_obj.Load(PostID: ProductID) { (data) in
                 self.post_obj = data
@@ -497,6 +593,11 @@ extension PostViewController {
         if indexpath.section == 1 && indexpath.row == 3 && isMotorBike()
         {
             return CGFloat.leastNonzeroMagnitude
+        }
+        
+        if indexpath.section == 3 && indexpath.row == 3
+        {
+            return 260
         }
         return 50
     }

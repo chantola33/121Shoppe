@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SideMenuSwift
 
 
 class TestViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
@@ -30,6 +31,8 @@ class TestViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var BorderActiveLike: UILabel!
     @IBOutlet weak var BorderActiveLoan: UILabel!
     
+    var KhmerFlatButton: UIBarButtonItem!
+    var EnglishFlatButton: UIBarButtonItem!
     
     var ProfileHandleRequest = UserProfileRequestHandle()
     var post = ["Posts","Likes"]
@@ -80,7 +83,8 @@ class TestViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         //Check User is Log in
         super.viewDidLoad()
-      
+        setupNavigationBarItem()
+        SlidingPhoto()
         tableView.reloadData()
         
         if !User.IsUserAuthorized() {
@@ -148,6 +152,92 @@ class TestViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     
     ///functions and Selectors
+    
+    func SlidingPhoto(){
+//        self.timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
+        
+        let menuBarButton = UIBarButtonItem(image: UIImage(named: "HamburgarIcon"), style: .done, target: self, action: #selector(menutap))
+        self.navigationItem.leftBarButtonItem = menuBarButton
+    }
+    
+    @objc func menutap() {
+        if User.IsUserAuthorized() {
+            self.viewDidAppear(true)
+            // self.tabBarController?.tabBar.isHidden = true
+            sideMenuController?.revealMenu()
+        }
+    }
+    
+    @objc
+    func btnswicthLanguage(_ sender: UIButton){
+        
+        if UserDefaults.standard.string(forKey: currentLangKey) == "en"
+        {
+            LanguageManager.setLanguage(lang: .khmer)
+            self.navigationItem.rightBarButtonItem = EnglishFlatButton //KhmerFlatButton
+            
+        }
+        else{
+            LanguageManager.setLanguage(lang: .english)
+            self.navigationItem.rightBarButtonItem = KhmerFlatButton //EnglishFlatButton
+        }
+    }
+    
+    private func setupNavigationBarItem() {
+        
+        let logo = UIImage(named: "HamburgarIcon")
+        let menu = UIButton(type: .system)
+        menu.setImage(logo, for: .normal)
+        
+        // navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menu)
+        menu.frame = CGRect(x: 0, y: 0, width: 38, height: 38)
+        //menu.tintColor = UIColor.lightGray
+        
+        //logo
+        let menubutton = UIBarButtonItem(customView: menu)
+        let logoImage = UIImage.init(named: "121logo")
+        let logoImageView = UIImageView.init(image: logoImage)
+        logoImageView.contentMode = .scaleAspectFit
+        logoImageView.frame = CGRect(x:0, y: 0, width: 0, height: 0)
+        logoImageView.widthAnchor.constraint(equalToConstant: 38).isActive = true
+        logoImageView.heightAnchor.constraint(equalToConstant: 38).isActive = true
+        
+        //   (-40, 0, 150, 25)
+        logoImageView.contentMode = .scaleAspectFit
+        let imageItem = UIBarButtonItem.init(customView: logoImageView)
+        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -25
+        navigationItem.leftBarButtonItems = [menubutton, imageItem]
+        
+        
+        //set image for button
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "flatenglish"), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 38, height: 38)
+        button.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 30).isActive =  true
+        button.addTarget(self, action: #selector(btnswicthLanguage(_:)), for: .touchUpInside)
+        EnglishFlatButton = UIBarButtonItem(customView: button)
+        
+        let buttonKH = UIButton(type: .custom)
+        buttonKH.setImage(UIImage(named: "flatkhmer"), for: .normal)
+        buttonKH.frame = CGRect(x: 0, y: 0, width: 38, height: 38)
+        buttonKH.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        buttonKH.heightAnchor.constraint(equalToConstant: 30).isActive =  true
+        buttonKH.addTarget(self, action: #selector(btnswicthLanguage(_:)), for: .touchUpInside)
+        KhmerFlatButton = UIBarButtonItem(customView: buttonKH)
+        //assign button to navigationbar
+        
+        if UserDefaults.standard.string(forKey: currentLangKey) == "en"
+        {
+            self.navigationItem.rightBarButtonItem = EnglishFlatButton
+        }
+        else{
+            self.navigationItem.rightBarButtonItem = KhmerFlatButton
+        }
+        
+    }
+    
     func XibRegister(){
         let posts = UINib(nibName: "PostsTableViewCell", bundle: nil)
         tableView.register(posts, forCellReuseIdentifier: "Postcell")
