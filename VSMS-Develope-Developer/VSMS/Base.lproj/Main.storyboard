@@ -169,7 +169,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="MyAccountController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cFA-Fw-ZFk" customClass="MyAccountController" customModule="VSMS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="8" sectionFooterHeight="1" id="iX5-BX-bpN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -475,12 +475,24 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Address" id="kNv-dr-VLk">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="166" id="Gsp-Ge-8rr">
-                                        <rect key="frame" x="0.0" y="583.33333333333337" width="375" height="166"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="256" id="Gsp-Ge-8rr" userLabel="Address">
+                                        <rect key="frame" x="0.0" y="583.33333333333337" width="375" height="256"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gsp-Ge-8rr" id="CJD-1x-fPc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="165.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="255.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pz4-UZ-Eet" customClass="GMSMapView">
+                                                    <rect key="frame" x="16" y="11" width="343" height="234"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Pz4-UZ-Eet" secondAttribute="trailing" id="6oc-Er-h2q"/>
+                                                <constraint firstItem="Pz4-UZ-Eet" firstAttribute="leading" secondItem="CJD-1x-fPc" secondAttribute="leadingMargin" id="7Kk-5N-snU"/>
+                                                <constraint firstItem="Pz4-UZ-Eet" firstAttribute="bottom" secondItem="CJD-1x-fPc" secondAttribute="bottomMargin" id="bXf-M8-nfO"/>
+                                                <constraint firstItem="Pz4-UZ-Eet" firstAttribute="top" secondItem="CJD-1x-fPc" secondAttribute="topMargin" id="nTM-cH-gnl"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -488,7 +500,7 @@
                             <tableViewSection id="Blb-m7-3Sc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CKA-W7-R7e">
-                                        <rect key="frame" x="0.0" y="758.33333333333337" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="848.33333333333337" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CKA-W7-R7e" id="Xre-jx-O6Y">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44.666666666666664"/>
@@ -521,7 +533,7 @@
                             <outlet property="delegate" destination="cFA-Fw-ZFk" id="5fr-fQ-fSm"/>
                         </connections>
                     </tableView>
-                    <size key="freeformSize" width="375" height="900"/>
+                    <size key="freeformSize" width="375" height="1200"/>
                     <connections>
                         <outlet property="lblGender" destination="RXC-XJ-Gd3" id="N9E-jq-yIm"/>
                         <outlet property="lblLocation" destination="An9-Iv-fdW" id="woz-eN-hI2"/>

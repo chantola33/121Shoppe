@@ -201,6 +201,13 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     }
     
     @IBAction func clickSms(_ sender: Any) {
+        
+        if !User.IsUserAuthorized()
+        {
+            PresentController.LogInandRegister()
+            return
+        }
+        
         let chatdata = MessageViewModel()
         chatdata.username = userdetail?.PhoneNumber
         chatdata.proImage = ProductDetail.front_image_url
@@ -211,6 +218,12 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     
     @IBAction func clickLike(_ sender: Any) {
         
+        if !User.IsUserAuthorized()
+        {
+            PresentController.LogInandRegister()
+            return
+        }
+
         if condtionlike == true {
             Message.AlertMessage(message: "You have like this product already.", header: "LIKE", View: self){}
         }
@@ -227,6 +240,13 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     
     
     @IBAction func clickLoan(_ sender: Any) {
+        
+        if !User.IsUserAuthorized()
+        {
+            PresentController.LogInandRegister()
+            return
+        }
+        
         let loanVC:LoanViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoanViewController") as! LoanViewController
         loanVC.Loan.loan_to = ProductDetail.created_by
         loanVC.Loan.post = ProductDetail.id
