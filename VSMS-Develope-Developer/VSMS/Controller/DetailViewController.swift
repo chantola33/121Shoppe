@@ -225,15 +225,28 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         }
 
         if condtionlike == true {
-            Message.AlertMessage(message: "You have like this product already.", header: "LIKE", View: self){}
+            let alert = UIAlertController(title: "LIKE", message: "You have like this product already.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         else
         {
-            Message.AlertMessage(message: "Like Successful.", header: "LIKE", View: self){
+            let refreshAlert = UIAlertController(title: "LIKE", message: "Like successfully.", preferredStyle: UIAlertController.Style.alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
                 self.Btnlikebyuser()
                 self.condtionlike = true
+                let alert = UIAlertController(title: "LIKE", message: "Like Successfully.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 self.tblView.reloadData()
-            }
+            }))
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                self.condtionlike = false
+                self.tblView.reloadData()
+            }))
+            
+            present(refreshAlert, animated: true, completion: nil)
         }
 
 }

@@ -10,8 +10,11 @@ import UIKit
 import RSSelectionMenu
 import Alamofire
 import SwiftyJSON
+import GoogleMaps
+import GooglePlaces
+import CoreLocation
 
-class MyAccountController: UITableViewController {
+class MyAccountController: UITableViewController, CLLocationManagerDelegate {
     
     //Storyboard Properties
     @IBOutlet weak var lblUserGroup: UILabel!
@@ -26,6 +29,7 @@ class MyAccountController: UITableViewController {
     @IBOutlet weak var txtPhoneNumber: UITextField!
     @IBOutlet weak var lblLocation: UILabel!
     
+    @IBOutlet weak var mapView: GMSMapView!
     
     //Internal Properties
     var UserAccount = AccountViewModel()

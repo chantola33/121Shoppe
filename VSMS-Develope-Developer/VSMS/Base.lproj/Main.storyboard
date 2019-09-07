@@ -540,6 +540,7 @@
                         <outlet property="lblMarritalStatus" destination="RsS-54-GON" id="rqx-7D-aLu"/>
                         <outlet property="lblPOB" destination="s3q-JF-IPT" id="5U1-ag-dHK"/>
                         <outlet property="lblUserGroup" destination="l4q-74-qzQ" id="LsU-D2-TDh"/>
+                        <outlet property="mapView" destination="Pz4-UZ-Eet" id="9hS-7k-REF"/>
                         <outlet property="txtDob" destination="IYb-dv-eV4" id="KHL-fe-Zj9"/>
                         <outlet property="txtPhoneNumber" destination="e3j-RW-HT0" id="DFo-WQ-vOO"/>
                         <outlet property="txtUsername" destination="Hi6-Jd-OVS" id="56T-xK-1Jv"/>
