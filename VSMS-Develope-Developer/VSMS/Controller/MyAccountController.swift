@@ -14,12 +14,13 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 
-class MyAccountController: UITableViewController, CLLocationManagerDelegate {
+class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSMapViewDelegate {
     
     //Storyboard Properties
     @IBOutlet weak var lblUserGroup: UILabel!
     @IBOutlet weak var txtUsername: UITextField!
 
+    @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var lblGender: UILabel!
     @IBOutlet weak var txtDob: UITextField!
     @IBOutlet weak var lblPOB: UILabel!
@@ -29,7 +30,24 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate {
     @IBOutlet weak var txtPhoneNumber: UITextField!
     @IBOutlet weak var lblLocation: UILabel!
     
+    
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var btnPin: UIButton!
+    //    lazy var geocoder = CLGeocoder()
+//    let locationManager = CLLocationManager()
+    
+    var currentLocation:CLLocationCoordinate2D!
+    var finalPositionAfterDragging:CLLocationCoordinate2D?
+    var locationMarker:GMSMarker!
+    
+    lazy var locationManager: CLLocationManager = {
+        var _locationManager = CLLocationManager()
+        _locationManager.delegate = self
+        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        _locationManager.activityType = .automotiveNavigation
+        _locationManager.distanceFilter = 10.0
+        return _locationManager
+    }()
     
     //Internal Properties
     var UserAccount = AccountViewModel()
@@ -76,9 +94,74 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate {
         txtWingName.addDoneButtonOnKeyboard()
         txtWingNumber.addDoneButtonOnKeyboard()
         
+        ///Currentlocationuser and search
+        mapView.delegate = self
+        lblAddress.layer.zPosition  = 1
+        isAuthorizedtoGetUserLocation()
+        self.mapView?.isMyLocationEnabled = true
+        
         ////configfunction
         configDateOfBirthOption()
 
+    }
+    
+    func isAuthorizedtoGetUserLocation() {
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse     {
+            locationManager.requestWhenInUseAuthorization()
+            
+        }
+    }
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition){
+        wrapperFunctionToShowPosition(mapView: mapView)
+    }
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        wrapperFunctionToShowPosition(mapView: mapView)
+    }
+   
+    func wrapperFunctionToShowPosition(mapView:GMSMapView){
+        let geocoder = GMSGeocoder()
+        let latitute = mapView.camera.target.latitude
+        let longitude = mapView.camera.target.longitude
+        let position = CLLocationCoordinate2DMake(latitute, longitude)
+        geocoder.reverseGeocodeCoordinate(position) { response , error in
+            if error != nil {
+                print("GMSReverseGeocode Error: \(String(describing: error?.localizedDescription))")
+            }else {
+                let result = response?.results()?.first
+                let address = result?.lines?.reduce("") { $0 == "" ? $1 : $0 + ", " + $1 }
+                self.lblAddress.text = address
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("didupdate location")
+        let userLocation:CLLocation = locations[0] as CLLocation
+        self.currentLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
+        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 15)
+        let position = CLLocationCoordinate2D(latitude:  currentLocation.latitude, longitude: currentLocation.longitude)
+        self.setupLocationMarker(coordinate: position)
+        self.mapView.camera = camera
+        self.mapView?.animate(to: camera)
+        manager.stopUpdatingLocation()
+    }
+    
+    func setupLocationMarker(coordinate: CLLocationCoordinate2D) {
+        print("setup location")
+        if locationMarker != nil {
+            locationMarker.map = nil
+        }
+//        locationMarker = GMSMarker(position: coordinate)
+//        locationMarker.map = mapView
+//        locationMarker.appearAnimation =  .pop
+//        locationMarker.icon = GMSMarker.markerImage(with: UIColor.blue)
+//        locationMarker.opacity = 0.75
+//        locationMarker.isFlat = true
+        
     }
     
     func setUpAccountData()
@@ -292,7 +375,6 @@ extension UILabel {
         }
     }
 }
-
 
 
 

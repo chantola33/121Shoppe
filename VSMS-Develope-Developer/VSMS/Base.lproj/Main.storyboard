@@ -475,23 +475,45 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Address" id="kNv-dr-VLk">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="256" id="Gsp-Ge-8rr" userLabel="Address">
-                                        <rect key="frame" x="0.0" y="583.33333333333337" width="375" height="256"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="338" id="Gsp-Ge-8rr" userLabel="Address">
+                                        <rect key="frame" x="0.0" y="583.33333333333337" width="375" height="338"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gsp-Ge-8rr" id="CJD-1x-fPc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="255.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="337.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p37-Q1-yxu">
+                                                    <rect key="frame" x="16" y="11" width="343" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="TSx-5p-Rlr"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pz4-UZ-Eet" customClass="GMSMapView">
-                                                    <rect key="frame" x="16" y="11" width="343" height="234"/>
+                                                    <rect key="frame" x="16" y="51" width="343" height="276"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jp-6Y-StZ">
+                                                    <rect key="frame" x="167.66666666666666" y="149" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="NJJ-G2-Yui"/>
+                                                        <constraint firstAttribute="width" constant="40" id="YEZ-w5-Ar4"/>
+                                                    </constraints>
+                                                    <state key="normal" image="pinMarker"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Pz4-UZ-Eet" secondAttribute="trailing" id="6oc-Er-h2q"/>
-                                                <constraint firstItem="Pz4-UZ-Eet" firstAttribute="leading" secondItem="CJD-1x-fPc" secondAttribute="leadingMargin" id="7Kk-5N-snU"/>
-                                                <constraint firstItem="Pz4-UZ-Eet" firstAttribute="bottom" secondItem="CJD-1x-fPc" secondAttribute="bottomMargin" id="bXf-M8-nfO"/>
-                                                <constraint firstItem="Pz4-UZ-Eet" firstAttribute="top" secondItem="CJD-1x-fPc" secondAttribute="topMargin" id="nTM-cH-gnl"/>
+                                                <constraint firstItem="Pz4-UZ-Eet" firstAttribute="top" secondItem="p37-Q1-yxu" secondAttribute="bottom" id="5A7-tT-VNt"/>
+                                                <constraint firstItem="4jp-6Y-StZ" firstAttribute="centerX" secondItem="CJD-1x-fPc" secondAttribute="centerX" id="5eU-uO-0bF"/>
+                                                <constraint firstItem="4jp-6Y-StZ" firstAttribute="centerY" secondItem="CJD-1x-fPc" secondAttribute="centerY" id="L7M-rL-F9D"/>
+                                                <constraint firstItem="Pz4-UZ-Eet" firstAttribute="trailing" secondItem="CJD-1x-fPc" secondAttribute="trailingMargin" id="LJr-GW-aXa"/>
+                                                <constraint firstItem="Pz4-UZ-Eet" firstAttribute="leading" secondItem="CJD-1x-fPc" secondAttribute="leadingMargin" id="QA9-PX-T3T"/>
+                                                <constraint firstItem="p37-Q1-yxu" firstAttribute="trailing" secondItem="CJD-1x-fPc" secondAttribute="trailingMargin" id="jwN-RL-ee5"/>
+                                                <constraint firstItem="p37-Q1-yxu" firstAttribute="top" secondItem="CJD-1x-fPc" secondAttribute="topMargin" id="oPP-yP-e7h"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Pz4-UZ-Eet" secondAttribute="bottom" id="pRP-Gd-u2g"/>
+                                                <constraint firstItem="p37-Q1-yxu" firstAttribute="leading" secondItem="CJD-1x-fPc" secondAttribute="leadingMargin" id="xZu-Xj-oFG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -500,7 +522,7 @@
                             <tableViewSection id="Blb-m7-3Sc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CKA-W7-R7e">
-                                        <rect key="frame" x="0.0" y="848.33333333333337" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="930.33333333333337" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CKA-W7-R7e" id="Xre-jx-O6Y">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44.666666666666664"/>
@@ -535,6 +557,8 @@
                     </tableView>
                     <size key="freeformSize" width="375" height="1200"/>
                     <connections>
+                        <outlet property="btnPin" destination="4jp-6Y-StZ" id="GTM-at-sL2"/>
+                        <outlet property="lblAddress" destination="p37-Q1-yxu" id="U5p-r5-5yY"/>
                         <outlet property="lblGender" destination="RXC-XJ-Gd3" id="N9E-jq-yIm"/>
                         <outlet property="lblLocation" destination="An9-Iv-fdW" id="woz-eN-hI2"/>
                         <outlet property="lblMarritalStatus" destination="RsS-54-GON" id="rqx-7D-aLu"/>
@@ -3672,7 +3696,7 @@
                                 <rect key="frame" x="15" y="713" width="345" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGV-er-qIY">
-                                        <rect key="frame" x="44.666666666666657" y="5.6666666666666288" width="255.99999999999997" height="24"/>
+                                        <rect key="frame" x="48.666666666666657" y="8.6666666666666288" width="247.99999999999997" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="  Log in or Register with Facebook" image="icons8-facebook-old-filled-24">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4202,6 +4226,7 @@
         <image name="loan" width="144" height="144"/>
         <image name="messaging" width="144" height="144"/>
         <image name="phone" width="144" height="144"/>
+        <image name="pinMarker" width="48" height="48"/>
         <image name="registration-50" width="25" height="25"/>
         <image name="thumnail" width="16.666666030883789" height="16.666666030883789"/>
     </resources>

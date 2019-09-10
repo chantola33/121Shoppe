@@ -242,7 +242,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
                 self.tblView.reloadData()
             }))
             refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-                self.condtionlike = false
+               // self.condtionlike = false
                 self.tblView.reloadData()
             }))
             
