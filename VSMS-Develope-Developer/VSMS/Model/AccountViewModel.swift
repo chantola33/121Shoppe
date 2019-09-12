@@ -102,7 +102,8 @@ class AccountViewModel {
             ).responseJSON { (respone) in
                 switch respone.result
                 {
-                case .success:
+                case .success(let value):
+                    print(value)
                     User.setNewFirstName(firstName: self.firstname)
                     completion()
                 case .failure(let error):

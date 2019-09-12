@@ -13,6 +13,7 @@ import SwiftyJSON
 import GoogleMaps
 import GooglePlaces
 import CoreLocation
+import MapKit
 
 class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSMapViewDelegate {
     
@@ -20,7 +21,8 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
     @IBOutlet weak var lblUserGroup: UILabel!
     @IBOutlet weak var txtUsername: UITextField!
 
-    @IBOutlet weak var lblAddress: UILabel!
+    
+    @IBOutlet weak var txtaddress: UITextField!
     @IBOutlet weak var lblGender: UILabel!
     @IBOutlet weak var txtDob: UITextField!
     @IBOutlet weak var lblPOB: UILabel!
@@ -34,7 +36,8 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var btnPin: UIButton!
     //    lazy var geocoder = CLGeocoder()
-//    let locationManager = CLLocationManager()
+    //   let locationManager = CLLocationManager()
+    var latlog: String = ""
     
     var currentLocation:CLLocationCoordinate2D!
     var finalPositionAfterDragging:CLLocationCoordinate2D?
@@ -96,7 +99,7 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
         
         ///Currentlocationuser and search
         mapView.delegate = self
-        lblAddress.layer.zPosition  = 1
+       // lblAddress.layer.zPosition  = 1
         isAuthorizedtoGetUserLocation()
         self.mapView?.isMyLocationEnabled = true
         
@@ -121,7 +124,9 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         wrapperFunctionToShowPosition(mapView: mapView)
     }
-   
+    
+    
+    
     func wrapperFunctionToShowPosition(mapView:GMSMapView){
         let geocoder = GMSGeocoder()
         let latitute = mapView.camera.target.latitude
@@ -133,16 +138,21 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
             }else {
                 let result = response?.results()?.first
                 let address = result?.lines?.reduce("") { $0 == "" ? $1 : $0 + ", " + $1 }
-                self.lblAddress.text = address
+                self.txtaddress.text = address
+                
+                let lat = latitute
+                let long = longitude
+                self.latlog = ("\(lat),\(long)")
             }
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         print("didupdate location")
         let userLocation:CLLocation = locations[0] as CLLocation
         self.currentLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
-        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 15)
+        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 14)
         let position = CLLocationCoordinate2D(latitude:  currentLocation.latitude, longitude: currentLocation.longitude)
         self.setupLocationMarker(coordinate: position)
         self.mapView.camera = camera
@@ -155,12 +165,7 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
         if locationMarker != nil {
             locationMarker.map = nil
         }
-//        locationMarker = GMSMarker(position: coordinate)
-//        locationMarker.map = mapView
-//        locationMarker.appearAnimation =  .pop
-//        locationMarker.icon = GMSMarker.markerImage(with: UIColor.blue)
-//        locationMarker.opacity = 0.75
-//        locationMarker.isFlat = true
+
         
     }
     
@@ -176,7 +181,6 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
         txtPhoneNumber.text = UserAccount.ProfileData.telephone
         txtWingName.text = UserAccount.ProfileData.wing_account_name
         txtWingNumber.text = UserAccount.ProfileData.wing_account_number
-        
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -231,6 +235,7 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
     
     @IBAction func btnSubmitHandle(_ sender: UIButton)
     {
+        
         if txtUsername.text == ""
         {
             return
@@ -245,6 +250,7 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
         UserAccount.ProfileData.telephone = txtPhoneNumber.text!
         UserAccount.ProfileData.wing_account_name = txtWingName.text!
         UserAccount.ProfileData.wing_account_number = txtWingNumber.text!
+        UserAccount.ProfileData.address = latlog
         UserAccount.UpdateUserAccount {
             alertMessage.dismissActivityIndicator()
         }
