@@ -141,10 +141,18 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        print("didupdate location")
-        let userLocation:CLLocation = locations[0] as CLLocation
-        self.currentLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
-        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 14)
+        if IsNilorEmpty(value: post_obj.contact_address)
+        {
+            let userLocation:CLLocation = locations[0] as CLLocation
+            self.currentLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
+        }
+        else{
+            let fullAddress = post_obj.contact_address.components(separatedBy: ",")
+            let latitude = fullAddress[0].toDouble() //First
+            let Longtitude = fullAddress[1].toDouble() //Last
+            self.currentLocation = CLLocationCoordinate2D(latitude: latitude,longitude: Longtitude)
+        }
+        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 17)
         let position = CLLocationCoordinate2D(latitude:  currentLocation.latitude, longitude: currentLocation.longitude)
         self.setupLocationMarker(coordinate: position)
         self.mapView.camera = camera
@@ -356,7 +364,7 @@ extension PostViewController {
         
         is_edit = true
         btnSubmit.setTitle("Update", for: .normal)
-        
+        isAuthorizedtoGetUserLocation()
         dispatch.notify(queue: .main) {
             self.post_obj.Load(PostID: ProductID) { (data) in
                 self.post_obj = data

@@ -482,7 +482,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="337.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nzg-8b-imk">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nzg-8b-imk">
                                                     <rect key="frame" x="10" y="0.0" width="339" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="hkp-oj-XFJ"/>
@@ -3740,7 +3740,7 @@
                                 <rect key="frame" x="15" y="713" width="345" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGV-er-qIY">
-                                        <rect key="frame" x="48.666666666666657" y="8.6666666666666288" width="247.99999999999997" height="18"/>
+                                        <rect key="frame" x="44.666666666666657" y="5.6666666666666288" width="255.99999999999997" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="  Log in or Register with Facebook" image="icons8-facebook-old-filled-24">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

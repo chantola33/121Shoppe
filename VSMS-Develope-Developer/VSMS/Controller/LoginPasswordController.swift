@@ -90,7 +90,10 @@ class LoginPasswordController: UIViewController {
         account.LogInUser { (result) in
             performOn(.Main, closure: {
                 if result {
-                   self.verifyPhoneNumber()
+                   //self.verifyPhoneNumber()
+                    Message.SuccessMessage(message: "Log in successfully.", View: self) {
+                        PresentController.ProfileController(animate: true)
+                    }
                 }
                 else{
                     Message.WarningMessage(message: "Incorrect Username and Password", View: self, callback: {

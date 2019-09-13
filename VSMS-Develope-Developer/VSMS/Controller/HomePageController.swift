@@ -95,12 +95,17 @@ class HomePageController: BaseViewController {
         SideMenuController.preferences.basic.defaultCacheKey = "0"
         SideMenuController.preferences.basic.statusBarBehavior = .hideOnMenu
         
+        
         configuration()
         setupNavigationBarItem()
         ShowDefaultNavigation()
         RegisterXib()
         SlidingPhoto()
-      
+        if UserDefaults.standard.string(forKey: currentLangKey) == "en"{
+            navigationItem.rightBarButtonItem = KhmerFlatButton
+        }else{
+            navigationItem.rightBarButtonItem = EnglishFlatButton
+        }
         performOn(.Main) {
             RequestHandle.LoadBestDeal(completion: { (val) in
                 self.bestDealArr = val
@@ -228,14 +233,16 @@ class HomePageController: BaseViewController {
     
     @objc
     func btnswicthLanguage(_ sender: UIButton){
+        
         if UserDefaults.standard.string(forKey: currentLangKey) == "en"
         {
             LanguageManager.setLanguage(lang: .khmer)
-            self.navigationItem.rightBarButtonItem = KhmerFlatButton
+            self.navigationItem.rightBarButtonItem = EnglishFlatButton //KhmerFlatButton
+            
         }
         else{
             LanguageManager.setLanguage(lang: .english)
-            self.navigationItem.rightBarButtonItem = EnglishFlatButton
+            self.navigationItem.rightBarButtonItem = KhmerFlatButton //EnglishFlatButton
         }
     }
     

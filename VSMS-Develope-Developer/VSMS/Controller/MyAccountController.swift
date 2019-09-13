@@ -38,7 +38,7 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
     //    lazy var geocoder = CLGeocoder()
     //   let locationManager = CLLocationManager()
     var latlog: String = ""
-    
+   
     var currentLocation:CLLocationCoordinate2D!
     var finalPositionAfterDragging:CLLocationCoordinate2D?
     var locationMarker:GMSMarker!
@@ -89,6 +89,7 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
         UserAccount.LoadUserAccount {
             self.view.hideToastActivity()
             self.setUpAccountData()
+            self.isAuthorizedtoGetUserLocation()
         }
 
         ///Add done keyboard
@@ -100,7 +101,6 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
         ///Currentlocationuser and search
         mapView.delegate = self
        // lblAddress.layer.zPosition  = 1
-        isAuthorizedtoGetUserLocation()
         self.mapView?.isMyLocationEnabled = true
         
         ////configfunction
@@ -132,6 +132,7 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
         let latitute = mapView.camera.target.latitude
         let longitude = mapView.camera.target.longitude
         let position = CLLocationCoordinate2DMake(latitute, longitude)
+
         geocoder.reverseGeocodeCoordinate(position) { response , error in
             if error != nil {
                 print("GMSReverseGeocode Error: \(String(describing: error?.localizedDescription))")
@@ -148,11 +149,20 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+       
+        if IsNilorEmpty(value: UserAccount.ProfileData.address)
+        {
+            let userLocation:CLLocation = locations[0] as CLLocation
+            self.currentLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
+        }
+        else{
+            let fullAddress = UserAccount.ProfileData.address.components(separatedBy: ",")
+            let latitude = fullAddress[0].toDouble() //First
+            let Longtitude = fullAddress[1].toDouble() //Last
+            self.currentLocation = CLLocationCoordinate2D(latitude: latitude,longitude: Longtitude)
+        }
         
-        print("didupdate location")
-        let userLocation:CLLocation = locations[0] as CLLocation
-        self.currentLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
-        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 14)
+        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 17)
         let position = CLLocationCoordinate2D(latitude:  currentLocation.latitude, longitude: currentLocation.longitude)
         self.setupLocationMarker(coordinate: position)
         self.mapView.camera = camera
@@ -161,12 +171,12 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
     }
     
     func setupLocationMarker(coordinate: CLLocationCoordinate2D) {
+    
         print("setup location")
-        if locationMarker != nil {
+    if locationMarker != nil {
             locationMarker.map = nil
         }
 
-        
     }
     
     func setUpAccountData()
@@ -181,6 +191,8 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
         txtPhoneNumber.text = UserAccount.ProfileData.telephone
         txtWingName.text = UserAccount.ProfileData.wing_account_name
         txtWingNumber.text = UserAccount.ProfileData.wing_account_number
+        txtaddress.text = UserAccount.ProfileData.responsible_officer
+        
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -251,6 +263,7 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
         UserAccount.ProfileData.wing_account_name = txtWingName.text!
         UserAccount.ProfileData.wing_account_number = txtWingNumber.text!
         UserAccount.ProfileData.address = latlog
+        UserAccount.ProfileData.responsible_officer = txtaddress.text!
         UserAccount.UpdateUserAccount {
             alertMessage.dismissActivityIndicator()
         }
