@@ -163,12 +163,13 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 cell?.textLabel?.text = "Email"
                 cell?.detailTextLabel?.text = userdetail?.email
             } else {
-               
+                let map = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath) as! MapTableViewCell
+                map.lblAddress.text = "Hello"
+                return map
 //                cell?.textLabel?.text = "Address"
 //                cell?.detailTextLabel?.text = tel.address
             }
-            let map = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath) as! MapTableViewCell
-            map.lblAddress.text = "Hello"
+            
             return cell ?? UITableViewCell()
         }
        

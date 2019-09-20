@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LM1-tX-UsK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LM1-tX-UsK">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -2318,7 +2318,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Gb-lZ-lCJ">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="IaJ-s8-lSH">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="246"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3740,7 +3740,7 @@
                                 <rect key="frame" x="15" y="713" width="345" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGV-er-qIY">
-                                        <rect key="frame" x="48.666666666666657" y="8.6666666666666288" width="247.99999999999997" height="18"/>
+                                        <rect key="frame" x="44.666666666666657" y="5.6666666666666288" width="255.99999999999997" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="  Log in or Register with Facebook" image="icons8-facebook-old-filled-24">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3961,7 +3961,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="111" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qze-TO-Hwl">
-                                                                <rect key="frame" x="0.0" y="0.0" width="379" height="101"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="379" height="100.66666666666667"/>
                                                                 <accessibility key="accessibilityConfiguration">
                                                                     <bool key="isElement" value="YES"/>
                                                                 </accessibility>
@@ -3980,152 +3980,36 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efe-HH-e9O">
                                             <rect key="frame" x="0.0" y="90" width="375" height="45"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PMX-iV-Tb7">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fkB-z1-GuP">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="jWT-ui-Ox3">
-                                                        <size key="itemSize" width="98" height="35"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4aW-JQ-5pL">
+                                                        <size key="itemSize" width="50" height="50"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BtnPost" id="vpc-xa-Qg4" customClass="SectionCell" customModule="VSMS" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="me7-Ng-W8r">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOr-Uy-BsJ">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                        <state key="normal" title="All Posts"/>
-                                                                    </button>
-                                                                </subviews>
                                                             </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="yOr-Uy-BsJ" secondAttribute="trailing" id="3px-ws-UOL"/>
-                                                                <constraint firstAttribute="bottom" secondItem="yOr-Uy-BsJ" secondAttribute="bottom" id="Dss-Pj-93M"/>
-                                                                <constraint firstItem="yOr-Uy-BsJ" firstAttribute="top" secondItem="vpc-xa-Qg4" secondAttribute="top" id="FZl-l1-lnC"/>
-                                                                <constraint firstItem="yOr-Uy-BsJ" firstAttribute="leading" secondItem="vpc-xa-Qg4" secondAttribute="leading" id="wU4-MV-qmF"/>
-                                                            </constraints>
-                                                            <size key="customSize" width="70" height="35"/>
-                                                            <connections>
-                                                                <outlet property="btnAllpost" destination="yOr-Uy-BsJ" id="fS5-uY-t1g"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BtnCategory" id="VZD-K8-oyM" customClass="SectionCell" customModule="VSMS" customModuleProvider="target">
-                                                            <rect key="frame" x="76.333333333333329" y="0.0" width="70" height="35"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMP-hx-oPd">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                        <state key="normal" title="Categorys"/>
-                                                                    </button>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="DMP-hx-oPd" secondAttribute="bottom" id="3Bm-a3-L4b"/>
-                                                                <constraint firstItem="DMP-hx-oPd" firstAttribute="top" secondItem="VZD-K8-oyM" secondAttribute="top" id="D8h-OH-m1U"/>
-                                                                <constraint firstAttribute="trailing" secondItem="DMP-hx-oPd" secondAttribute="trailing" id="MGT-Xn-C75"/>
-                                                                <constraint firstItem="DMP-hx-oPd" firstAttribute="leading" secondItem="VZD-K8-oyM" secondAttribute="leading" id="XhY-Vz-Opj"/>
-                                                            </constraints>
-                                                            <size key="customSize" width="70" height="35"/>
-                                                            <connections>
-                                                                <outlet property="btnCategory" destination="DMP-hx-oPd" id="DeY-Rd-Ymu"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BtnBrands" id="5QU-Er-dXH" customClass="SectionCell" customModule="VSMS" customModuleProvider="target">
-                                                            <rect key="frame" x="152.66666666666666" y="0.0" width="70" height="35"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSB-eS-o3H">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                        <state key="normal" title="Brands"/>
-                                                                    </button>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstItem="XSB-eS-o3H" firstAttribute="top" secondItem="5QU-Er-dXH" secondAttribute="top" id="0a7-x5-neU"/>
-                                                                <constraint firstAttribute="trailing" secondItem="XSB-eS-o3H" secondAttribute="trailing" id="5Y9-HA-DW3"/>
-                                                                <constraint firstAttribute="bottom" secondItem="XSB-eS-o3H" secondAttribute="bottom" id="JVD-IW-JYH"/>
-                                                                <constraint firstItem="XSB-eS-o3H" firstAttribute="leading" secondItem="5QU-Er-dXH" secondAttribute="leading" id="qnE-gL-Mob"/>
-                                                            </constraints>
-                                                            <size key="customSize" width="70" height="35"/>
-                                                            <connections>
-                                                                <outlet property="btnBrand" destination="XSB-eS-o3H" id="bPJ-Tn-ShW"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BtnYears" id="JUH-HS-GxM" customClass="SectionCell" customModule="VSMS" customModuleProvider="target">
-                                                            <rect key="frame" x="228.66666666666666" y="0.0" width="70" height="35"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1L-Q8-cza">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                        <state key="normal" title="Years"/>
-                                                                    </button>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="D1L-Q8-cza" secondAttribute="bottom" id="5qW-9L-jbV"/>
-                                                                <constraint firstItem="D1L-Q8-cza" firstAttribute="top" secondItem="JUH-HS-GxM" secondAttribute="top" id="BFr-gF-aYK"/>
-                                                                <constraint firstAttribute="trailing" secondItem="D1L-Q8-cza" secondAttribute="trailing" id="UzE-a5-w1O"/>
-                                                                <constraint firstItem="D1L-Q8-cza" firstAttribute="leading" secondItem="JUH-HS-GxM" secondAttribute="leading" id="qI4-5v-9HU"/>
-                                                            </constraints>
-                                                            <size key="customSize" width="70" height="35"/>
-                                                            <connections>
-                                                                <outlet property="btnYears" destination="D1L-Q8-cza" id="s5C-y2-zdu"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BtnPrices" id="CN9-bp-p67" customClass="SectionCell" customModule="VSMS" customModuleProvider="target">
-                                                            <rect key="frame" x="305" y="0.0" width="70" height="35"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8k-Ig-j8d">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="35"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                        <state key="normal" title="Prices"/>
-                                                                    </button>
-                                                                </subviews>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="h8k-Ig-j8d" secondAttribute="bottom" id="7dy-Qa-z4F"/>
-                                                                <constraint firstItem="h8k-Ig-j8d" firstAttribute="top" secondItem="CN9-bp-p67" secondAttribute="top" id="KLl-aV-IP0"/>
-                                                                <constraint firstAttribute="trailing" secondItem="h8k-Ig-j8d" secondAttribute="trailing" id="iJU-W6-zQb"/>
-                                                                <constraint firstItem="h8k-Ig-j8d" firstAttribute="leading" secondItem="CN9-bp-p67" secondAttribute="leading" id="tFY-cI-RdK"/>
-                                                            </constraints>
-                                                            <size key="customSize" width="70" height="35"/>
-                                                            <connections>
-                                                                <outlet property="btnPrices" destination="h8k-Ig-j8d" id="izV-g7-Gaa"/>
-                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
-                                                        <outlet property="delegate" destination="efe-HH-e9O" id="SHh-92-ITS"/>
+                                                        <outlet property="dataSource" destination="VTm-R6-05o" id="iMb-Qe-God"/>
+                                                        <outlet property="delegate" destination="VTm-R6-05o" id="Cke-lh-d3J"/>
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="PMX-iV-Tb7" secondAttribute="bottom" id="3Q1-je-fpo"/>
-                                                <constraint firstItem="PMX-iV-Tb7" firstAttribute="leading" secondItem="efe-HH-e9O" secondAttribute="leading" id="Nu1-c1-t6p"/>
-                                                <constraint firstAttribute="trailing" secondItem="PMX-iV-Tb7" secondAttribute="trailing" id="P3K-ZS-9pS"/>
-                                                <constraint firstItem="PMX-iV-Tb7" firstAttribute="top" secondItem="efe-HH-e9O" secondAttribute="top" id="VhM-VQ-fk9"/>
+                                                <constraint firstItem="fkB-z1-GuP" firstAttribute="leading" secondItem="efe-HH-e9O" secondAttribute="leading" id="NSo-UZ-GpT"/>
+                                                <constraint firstItem="fkB-z1-GuP" firstAttribute="top" secondItem="efe-HH-e9O" secondAttribute="top" id="hEc-Q7-WhC"/>
+                                                <constraint firstAttribute="trailing" secondItem="fkB-z1-GuP" secondAttribute="trailing" id="sfZ-De-kHQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="fkB-z1-GuP" secondAttribute="bottom" id="ttL-mY-yeZ"/>
                                                 <constraint firstAttribute="height" constant="45" id="wMH-FP-gwm"/>
                                             </constraints>
                                         </view>
@@ -4284,7 +4168,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="BtnCollection" destination="PMX-iV-Tb7" id="Qqe-rs-jRd"/>
+                        <outlet property="ButtonFilterCollection" destination="fkB-z1-GuP" id="ytk-5u-obL"/>
                         <outlet property="DiscountCollection" destination="ehx-G0-8il" id="ll9-96-nyQ"/>
                         <outlet property="SliderCollection" destination="XXV-jN-mrF" id="bx4-jD-Arr"/>
                         <outlet property="btnGrid" destination="bgU-Al-gaW" id="2P7-rl-PKn"/>
@@ -4340,7 +4224,7 @@
     </scenes>
     <resources>
         <image name="121logo" width="120" height="69"/>
-        <image name="Cover_Default" width="85.333335876464844" height="85.333335876464844"/>
+        <image name="Cover_Default" width="85" height="85"/>
         <image name="Dream191" width="1500" height="1000"/>
         <image name="Dream192" width="1500" height="1000"/>
         <image name="Icon-Camera-20x20" width="20" height="20"/>
@@ -4351,14 +4235,14 @@
         <image name="icons8-home-50" width="25" height="25"/>
         <image name="icons8-more-than-50 (2)" width="50" height="50"/>
         <image name="icons8-sent-filled-50" width="50" height="50"/>
-        <image name="img" width="16.666666030883789" height="16.666666030883789"/>
+        <image name="img" width="16" height="16"/>
         <image name="like" width="144" height="144"/>
-        <image name="list_active" width="16.666666030883789" height="16.666666030883789"/>
+        <image name="list_active" width="16" height="16"/>
         <image name="loan" width="144" height="144"/>
         <image name="messaging" width="144" height="144"/>
         <image name="phone" width="144" height="144"/>
         <image name="pinMarker" width="48" height="48"/>
         <image name="registration-50" width="25" height="25"/>
-        <image name="thumnail" width="16.666666030883789" height="16.666666030883789"/>
+        <image name="thumnail" width="16" height="16"/>
     </resources>
 </document>
