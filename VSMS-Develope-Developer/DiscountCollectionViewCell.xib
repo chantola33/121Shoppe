@@ -93,7 +93,7 @@
                 <outlet property="MotoPrice" destination="cNb-cO-BXE" id="SbO-zR-15w"/>
                 <outlet property="imgProduct" destination="kPU-VV-FNg" id="gJ1-xA-i5b"/>
             </connections>
-            <point key="canvasLocation" x="-725" y="-33"/>
+            <point key="canvasLocation" x="-726.39999999999998" y="-33.283358320839582"/>
         </collectionViewCell>
     </objects>
 </document>

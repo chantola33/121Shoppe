@@ -152,7 +152,7 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
             let Longtitude = fullAddress[1].toDouble() //Last
             self.currentLocation = CLLocationCoordinate2D(latitude: latitude,longitude: Longtitude)
         }
-        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 17)
+        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 16)
         let position = CLLocationCoordinate2D(latitude:  currentLocation.latitude, longitude: currentLocation.longitude)
         self.setupLocationMarker(coordinate: position)
         self.mapView.camera = camera

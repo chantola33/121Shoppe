@@ -117,6 +117,7 @@ class RequestHandle {
         
     }
     
+   
     static func CountView(postID: Int, completion: @escaping (Int) -> Void){
         Alamofire.request(PROJECT_API.COUNT_VIEWS(ProID: postID),
                           method: .get,
@@ -133,6 +134,23 @@ class RequestHandle {
                 }
         }
         
+    }
+    
+    static func UserProfile(UserID: String, completion: @escaping (UIImage) -> Void){
+        Alamofire.request(PROJECT_API.USER_PRO(UserID: UserID),
+                          method: .get,
+                          encoding: JSONEncoding.default
+            ).responseJSON
+            { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    // print(json)
+                    completion(json["profile_photo"].stringValue.base64ToImage() ?? UIImage())
+                case .failure:
+                    print("error")
+                }
+        }
     }
     
     static func LoadAllPostByPostTypeAndCategory(filter: RelatedFilter, completion: @escaping ([HomePageModel]) -> Void) {

@@ -162,7 +162,7 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
             self.currentLocation = CLLocationCoordinate2D(latitude: latitude,longitude: Longtitude)
         }
         
-        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 17)
+        let camera = GMSCameraPosition.camera(withLatitude: self.currentLocation.latitude, longitude:currentLocation.longitude, zoom: 14)
         let position = CLLocationCoordinate2D(latitude:  currentLocation.latitude, longitude: currentLocation.longitude)
         self.setupLocationMarker(coordinate: position)
         self.mapView.camera = camera

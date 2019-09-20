@@ -66,7 +66,8 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let post = UINib(nibName: "ProductListTableViewCell", bundle: nil)
         tableView.register(post, forCellReuseIdentifier: "ProductListCell")
-        
+        let map = UINib(nibName: "MapTableViewCell", bundle: nil)
+        tableView.register(map, forCellReuseIdentifier: "Map")
     }
     
 
@@ -133,9 +134,13 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if listtype == true {
-            return 125
+            return 85
+        }else {
+            if indexPath.row == 2 {
+                return 250
+            }
+            return 65
         }
-        return 85
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -158,11 +163,15 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 cell?.textLabel?.text = "Email"
                 cell?.detailTextLabel?.text = userdetail?.email
             } else {
-                cell?.textLabel?.text = "Address"
-                cell?.detailTextLabel?.text = tel.address
+               
+//                cell?.textLabel?.text = "Address"
+//                cell?.detailTextLabel?.text = tel.address
             }
+            let map = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath) as! MapTableViewCell
+            map.lblAddress.text = "Hello"
             return cell ?? UITableViewCell()
         }
+       
     }
 
 }

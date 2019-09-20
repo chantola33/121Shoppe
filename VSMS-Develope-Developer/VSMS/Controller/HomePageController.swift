@@ -39,12 +39,12 @@ class HomePageController: BaseViewController {
     @IBOutlet weak var btnList: UIButton!
     @IBOutlet weak var lblNewpost: UILabel!
     @IBOutlet weak var lblbestDeal: UILabel!
+    @IBOutlet weak var BtnCollection: UICollectionView!
     
     
-    @IBOutlet weak var txtSearch: UISearchBar!
-    @IBOutlet weak var btnBuy: UIButton!
-    @IBOutlet weak var btnRent: UIButton!
-    @IBOutlet weak var btnSell: UIButton!
+    
+//    @IBOutlet weak var txtSearch: UISearchBar!
+   
     
     
     var KhmerFlatButton: UIBarButtonItem!
@@ -55,6 +55,7 @@ class HomePageController: BaseViewController {
     var imgArr = [  UIImage(named:"Dream191"),
                     UIImage(named:"Dream192"),
                     UIImage(named:"Dream193")]
+    var buttonFilter = ["All Post","Category","Brand","Years","Prices"]
     
     var timer = Timer()
     var counter = 0
@@ -148,11 +149,11 @@ class HomePageController: BaseViewController {
     }
     
     
-    @IBAction func Searchclick(_ sender: Any) {
-        let searchVC = SearchViewController()
-        searchVC.parameter = self.searchFilter
-        self.navigationController?.pushViewController(searchVC, animated: true)
-    }
+//    @IBAction func Searchclick(_ sender: Any) {
+//        let searchVC = SearchViewController()
+//        searchVC.parameter = self.searchFilter
+//        self.navigationController?.pushViewController(searchVC, animated: true)
+//    }
     
     
     ///////////////////functions & Selectors
@@ -169,11 +170,11 @@ class HomePageController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        txtSearch.delegate = self
+      //  txtSearch.delegate = self
         
-        btnBuy.addTarget(self, action: #selector(btnPostTypeHandler(_:)), for: .touchUpInside)
-        btnRent.addTarget(self, action: #selector(btnPostTypeHandler(_:)), for: .touchUpInside)
-        btnSell.addTarget(self, action: #selector(btnPostTypeHandler(_:)), for: .touchUpInside)
+//        btnBuy.addTarget(self, action: #selector(btnPostTypeHandler(_:)), for: .touchUpInside)
+//        btnRent.addTarget(self, action: #selector(btnPostTypeHandler(_:)), for: .touchUpInside)
+//        btnSell.addTarget(self, action: #selector(btnPostTypeHandler(_:)), for: .touchUpInside)
         
         
         //config best deal flow layout
@@ -211,25 +212,25 @@ class HomePageController: BaseViewController {
         }
     }
     
-    @objc
-    func btnPostTypeHandler(_ sender: UIButton){
-        switch sender {
-        case btnBuy:
-            let buyVC = ListAllPostByTypeViewController()
-            buyVC.parameter.type = "buy"
-            self.navigationController?.pushViewController(buyVC, animated: true)
-        case btnRent:
-            let buyVC = ListAllPostByTypeViewController()
-            buyVC.parameter.type = "rent"
-            self.navigationController?.pushViewController(buyVC, animated: true)
-        case btnSell:
-            let buyVC = ListAllPostByTypeViewController()
-            buyVC.parameter.type = "sell"
-            self.navigationController?.pushViewController(buyVC, animated: true)
-        default:
-            print("default")
-        }
-    }
+//    @objc
+//    func btnPostTypeHandler(_ sender: UIButton){
+//        switch sender {
+//        case btnBuy:
+//            let buyVC = ListAllPostByTypeViewController()
+//            buyVC.parameter.type = "buy"
+//            self.navigationController?.pushViewController(buyVC, animated: true)
+//        case btnRent:
+//            let buyVC = ListAllPostByTypeViewController()
+//            buyVC.parameter.type = "rent"
+//            self.navigationController?.pushViewController(buyVC, animated: true)
+//        case btnSell:
+//            let buyVC = ListAllPostByTypeViewController()
+//            buyVC.parameter.type = "sell"
+//            self.navigationController?.pushViewController(buyVC, animated: true)
+//        default:
+//            print("default")
+//        }
+//    }
     
     @objc
     func btnswicthLanguage(_ sender: UIButton){
@@ -350,9 +351,9 @@ extension HomePageController
 {
     func Prepare()
     {
-        btnBuy.setTitle("buy".localizable(), for: .normal)
-        btnSell.setTitle("sell".localizable(), for: .normal)
-        btnRent.setTitle("rent".localizable(), for: .normal)
+//        btnBuy.setTitle("buy".localizable(), for: .normal)
+//        btnSell.setTitle("sell".localizable(), for: .normal)
+//        btnRent.setTitle("rent".localizable(), for: .normal)
         //btnCategory.setTitle("category".localizable(), for: .normal)
         //btnBrand.setTitle("brand".localizable(), for: .normal)
        // btnYear.setTitle("year".localizable(), for: .normal)
@@ -379,7 +380,10 @@ extension HomePageController: UICollectionViewDataSource, UICollectionViewDelega
             }
             return cell
         }
-        else {
+        else if collectionView == BtnCollection {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BtnPost", for: indexPath)  as! SectionCell
+            return cell
+        }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imgediscount", for: indexPath) as! DiscountCollectionViewCell
             cell.data = bestDealArr[indexPath.row]
             cell.delegate = self
@@ -387,6 +391,9 @@ extension HomePageController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
         }
     }
+    
+
+  
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == DiscountCollection
@@ -463,7 +470,7 @@ extension HomePageController: UITableViewDelegate, UITableViewDataSource {
             return 220
         }
         else {
-            return 140
+            return 100
         }
     }
     
@@ -502,27 +509,27 @@ extension HomePageController : CellClickProtocol {
     }
 }
 
-extension HomePageController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.txtSearch.endEditing(false)
-        
-        self.searchFilter.search = searchBar.text ?? ""
-        let searchVC = SearchViewController()
-        searchVC.parameter = self.searchFilter
-        self.navigationController?.pushViewController(searchVC, animated: true)
-    }
-    
-    
-}
+//extension HomePageController: UISearchBarDelegate {
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        self.txtSearch.endEditing(false)
+//
+//        self.searchFilter.search = searchBar.text ?? ""
+//        let searchVC = SearchViewController()
+//        searchVC.parameter = self.searchFilter
+//        self.navigationController?.pushViewController(searchVC, animated: true)
+//    }
+//
+//
+//}
 
 extension HomePageController: navigationToHomepage {
     func menuClick(list: String) {
         sideMenuController?.hideMenu()
         switch list {
         case "profile":
-            let profileVC:TestViewController = self.storyboard?.instantiateViewController(withIdentifier: "TestViewController") as! TestViewController
-            let navi = UINavigationController(rootViewController: profileVC)
-            self.present(navi, animated: false,completion: nil)
+            let profileVC: MyAccountController = self.storyboard?.instantiateViewController(withIdentifier: "MyAccountController") as! MyAccountController
+            self.navigationController?.pushViewController(profileVC, animated: true)
+           // self.present(navi, animated: false,completion: nil)
         case "Setting":
             let settingVC: SettingTableController =
                 self.storyboard?.instantiateViewController(withIdentifier: "SettingTableController") as! SettingTableController
@@ -549,7 +556,14 @@ extension HomePageController: navigationToHomepage {
 }
 
 
-    
+class SectionCell: UICollectionViewCell
+{
+    @IBOutlet weak var btnAllpost: UIButton!
+    @IBOutlet weak var btnCategory: UIButton!
+    @IBOutlet weak var btnBrand: UIButton!
+    @IBOutlet weak var btnYears: UIButton!
+    @IBOutlet weak var btnPrices: UIButton!
+}
 
 
 

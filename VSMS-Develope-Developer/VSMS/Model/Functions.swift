@@ -97,6 +97,9 @@ class PROJECT_API {
         return "\(http_absoluteString)/countview/?post=\(ProID)"
     }
     
+    static func USER_PRO(UserID: String) -> String {
+        return "\(http_absoluteString)/api/v1/users/\(User.getUserID())/profilephoto/"
+    }
 }
 
 func httpHeader() -> HTTPHeaders
