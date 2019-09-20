@@ -116,6 +116,7 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.2)
   - leveldb-library (1.20)
+  - LGButton (1.1.6)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -142,6 +143,7 @@ DEPENDENCIES:
   - GoogleMaps (= 3.0.3.0)
   - GooglePlacePicker (= 3.0.3.0)
   - GooglePlaces (= 3.0.3.0)
+  - LGButton
   - RSSelectionMenu
   - SCLAlertView
   - SideMenuSwift (= 1.0.0)
@@ -171,6 +173,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
+    - LGButton
     - nanopb
     - Protobuf
     - RSSelectionMenu
@@ -217,6 +220,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: e7dc37039b19df7fe543479d3e4a02ac8d11bb69
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  LGButton: 9f0a7f9d3030e3f504108342f6b66d64a429371b
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   RSSelectionMenu: decee83e020ee9d63e53995eb7f1ea5ca75f0667
@@ -226,6 +230,6 @@ SPEC CHECKSUMS:
   TLPhotoPicker: 9955e20e4d59cf4a3accc2d3b320e1bf08f453bf
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
 
-PODFILE CHECKSUM: 66fd738f4836a1caafcac1198f8d0b5b4a42eb42
+PODFILE CHECKSUM: 3c37981ddc29ff0fbecc186452e51e1dd1b6ad82
 
 COCOAPODS: 1.8.0.beta.1

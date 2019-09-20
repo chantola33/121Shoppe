@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SideMenuSwift
+import RSSelectionMenu
 
 class MyNavigation: UINavigationController, leftMenuClick {
     
@@ -32,6 +33,7 @@ class MyNavigation: UINavigationController, leftMenuClick {
 class HomePageController: BaseViewController {
    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var ButtonFilterCollection: UICollectionView!
     @IBOutlet weak var SliderCollection: UICollectionView!
     @IBOutlet weak var DiscountCollection: UICollectionView!
     @IBOutlet weak var btnImag: UIButton!
@@ -56,6 +58,7 @@ class HomePageController: BaseViewController {
                     UIImage(named:"Dream192"),
                     UIImage(named:"Dream193")]
     var buttonFilter = ["All Post","Category","Brand","Years","Prices"]
+    
     
     var timer = Timer()
     var counter = 0
@@ -158,25 +161,24 @@ class HomePageController: BaseViewController {
     
     ///////////////////functions & Selectors
     func configuration(){
-        
-        
         SliderCollection.delegate = self
         SliderCollection.dataSource = self
         
         DiscountCollection.delegate = self
         DiscountCollection.dataSource = self
-        //DiscountCollection.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
         tableView.delegate = self
         tableView.dataSource = self
         
-      //  txtSearch.delegate = self
+        //Button Filter
+        let filterLayout = UICollectionViewFlowLayout()
+        filterLayout.scrollDirection = .horizontal
         
-//        btnBuy.addTarget(self, action: #selector(btnPostTypeHandler(_:)), for: .touchUpInside)
-//        btnRent.addTarget(self, action: #selector(btnPostTypeHandler(_:)), for: .touchUpInside)
-//        btnSell.addTarget(self, action: #selector(btnPostTypeHandler(_:)), for: .touchUpInside)
-        
-        
+        filterLayout.minimumLineSpacing = 0
+        filterLayout.itemSize = CGSize(width: (self.ButtonFilterCollection.frame.width / 4), height: self.ButtonFilterCollection.frame.height)
+        filterLayout.sectionInset = UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
+        ButtonFilterCollection.collectionViewLayout = filterLayout
+        ButtonFilterCollection.showsHorizontalScrollIndicator = false
         //config best deal flow layout
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -275,6 +277,7 @@ class HomePageController: BaseViewController {
         tableView.register(UINib(nibName: "ProductListTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductListCell")
         tableView.register(UINib(nibName: "ProductImageTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductImageCell")
         tableView.register(UINib(nibName: "ProductGridTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductGridCell")
+         ButtonFilterCollection.register(UINib(nibName: "BtnFilterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BtnFilterCollectionViewCell")
     }
     
     func SlidingPhoto(){
@@ -351,21 +354,40 @@ extension HomePageController
 {
     func Prepare()
     {
-//        btnBuy.setTitle("buy".localizable(), for: .normal)
-//        btnSell.setTitle("sell".localizable(), for: .normal)
-//        btnRent.setTitle("rent".localizable(), for: .normal)
-        //btnCategory.setTitle("category".localizable(), for: .normal)
-        //btnBrand.setTitle("brand".localizable(), for: .normal)
-       // btnYear.setTitle("year".localizable(), for: .normal)
         lblbestDeal.text = "bestdeal".localizable()
         lblNewpost.text = "newpost".localizable()
     }
+    
+    func handleFilterClick(btnIndex: Int)
+    {
+        ShowCategoryOption()
+    }
+    
+    func ShowCategoryOption()
+    {
+        let selectionMenu = RSSelectionMenu<Any>(dataSource: ["Data1", "Data2"])
+        { (cell, item, indexPath) in
+            cell.textLabel?.text = item as? String
+        }
+        
+        selectionMenu.setSelectedItems(items: [])
+        { [weak self] (text, index, isSelected, selectedItems) in
+            self?.tableView.reloadData()
+        }
+        
+        selectionMenu.cellSelectionStyle = .checkbox
+        selectionMenu.show(style: .actionSheet(title: "Category", action: nil, height: nil), from: self)
+    }
+    
 }
     
 extension HomePageController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == SliderCollection {
             return imgArr.count
+        }
+        else if collectionView == ButtonFilterCollection {
+            return buttonFilter.count
         }
         else {
             return bestDealArr.count
@@ -380,8 +402,13 @@ extension HomePageController: UICollectionViewDataSource, UICollectionViewDelega
             }
             return cell
         }
-        else if collectionView == BtnCollection {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BtnPost", for: indexPath)  as! SectionCell
+        else if collectionView == ButtonFilterCollection {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BtnFilterCollectionViewCell", for: indexPath)  as! BtnFilterCollectionViewCell
+            cell.btnFilter.titleString = buttonFilter[indexPath.row]
+            cell.indexButton = indexPath.row
+            cell.clickRespone = { index in
+                self.handleFilterClick(btnIndex: index)
+            }
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imgediscount", for: indexPath) as! DiscountCollectionViewCell
@@ -400,7 +427,12 @@ extension HomePageController: UICollectionViewDataSource, UICollectionViewDelega
         {
             return CGSize(width: (self.view.frame.width / 2) - 8, height: collectionView.frame.height)
         }
-        return CGSize(width: self.view.frame.width, height: collectionView.frame.height)
+        else if collectionView == ButtonFilterCollection {
+            return CGSize(width: (self.view.frame.width / 4) - 8, height: collectionView.frame.height)
+        }
+        else {
+            return CGSize(width: self.view.frame.width, height: collectionView.frame.height)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -508,19 +540,6 @@ extension HomePageController : CellClickProtocol {
         PushToDetailProductViewController(productID: ID)
     }
 }
-
-//extension HomePageController: UISearchBarDelegate {
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        self.txtSearch.endEditing(false)
-//
-//        self.searchFilter.search = searchBar.text ?? ""
-//        let searchVC = SearchViewController()
-//        searchVC.parameter = self.searchFilter
-//        self.navigationController?.pushViewController(searchVC, animated: true)
-//    }
-//
-//
-//}
 
 extension HomePageController: navigationToHomepage {
     func menuClick(list: String) {
