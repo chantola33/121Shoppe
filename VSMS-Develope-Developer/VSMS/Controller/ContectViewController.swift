@@ -23,12 +23,14 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var labelName: UILabel!
     var listtype = true
     var index = 0
-    var tel = ImageSubClass()
+   // var tel = ImageSubClass()
     var imgprofile = ImageProfileModel()
     var postArr: [HomePageModel] = []
     var UserPostID: Int?
-     var ProductDetail = DetailViewModel()
+    var ProductDetail = DetailViewModel()
     var userdetail:Profile?
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,7 +139,7 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
             return 85
         }else {
             if indexPath.row == 2 {
-                return 250
+                return 320
             }
             return 65
         }
@@ -147,7 +149,6 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         if listtype == true {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProductListCell", for: indexPath) as! ProductListTableViewCell
-
             cell.ProductData = postArr[indexPath.row]
             cell.reload()
             return cell
@@ -164,10 +165,10 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 cell?.detailTextLabel?.text = userdetail?.email
             } else {
                 let map = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath) as! MapTableViewCell
-                map.lblAddress.text = "Hello"
+                map.userdetail = userdetail
+                map.ProductDetail = ProductDetail
                 return map
-//                cell?.textLabel?.text = "Address"
-//                cell?.detailTextLabel?.text = tel.address
+
             }
             
             return cell ?? UITableViewCell()

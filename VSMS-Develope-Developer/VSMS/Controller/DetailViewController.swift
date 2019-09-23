@@ -133,8 +133,6 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     }
     
         func locationManager(_ manager: CLLocationManager, didUpdateLocations Locations: [CLLocation]){
-           // guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-           // print("location = \(locValue.latitude) \(locValue.longitude)")
             let Address = ProductDetail.contact_address
             let fullAddress = Address.components(separatedBy: ",")
             let latitude = fullAddress[0].toDouble() //First
@@ -148,9 +146,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             let fullAddress = Address.components(separatedBy: ",")
             let latitude = fullAddress[0].toDouble() //First
             let Longtitude = fullAddress[1].toDouble() //Last
-            //print(fullAddress)
             let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: Longtitude, zoom: 16)
-           // let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
             self.mapView?.animate(to: camera)
             self.locationManager.stopUpdatingLocation()
             
@@ -162,8 +158,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
                 marker.map = self.mapView
                
             }
-            
-            
+
         }
     
      private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?){
@@ -186,6 +181,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ContectViewController") as! ContectViewController
         vc.UserPostID = ProductDetail.created_by
         vc.userdetail = self.userdetail
+        vc.ProductDetail = self.ProductDetail
 
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -352,6 +348,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             self.lblUserPhoneNumber.text = "Tel: \(Profile.PhoneNumber)"
             self.lblUserEmail.text = "Email: \(Profile.email)"
             self.lblAddress.text = "Address: \(self.ProductDetail.vin_code)"
+
         }
     }
     
