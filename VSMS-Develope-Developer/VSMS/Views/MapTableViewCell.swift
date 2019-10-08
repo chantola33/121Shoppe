@@ -26,7 +26,7 @@ class MapTableViewCell: UITableViewCell,CLLocationManagerDelegate,GMSMapViewDele
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
             locationManager.startUpdatingLocation()
-            mapView.settings.setAllGesturesEnabled(false)
+            //mapView.settings.setAllGesturesEnabled(false)
             
         }
     }

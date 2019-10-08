@@ -98,7 +98,7 @@ class HomePageController: BaseViewController {
         SideMenuController.preferences.basic.menuWidth = 240
         SideMenuController.preferences.basic.defaultCacheKey = "0"
         SideMenuController.preferences.basic.statusBarBehavior = .hideOnMenu
-        
+        ButtonFilterCollection.allowsMultipleSelection = true
         
         configuration()
         setupNavigationBarItem()
@@ -360,25 +360,31 @@ extension HomePageController
     
     func handleFilterClick(btnIndex: Int)
     {
-        ShowCategoryOption()
+        //print("Click")
+        if btnIndex == 0 {
+            PresentController.popUpFilterUIView(filterIndex: btnIndex, from: self)
+        }else {
+            PresentController.popUpFilterUIView(filterIndex: btnIndex, from: self)
+        }
+       // PresentController.popUpFilterUIView(filterIndex: btnIndex, from: self)
     }
     
-    func ShowCategoryOption()
-    {
-        let selectionMenu = RSSelectionMenu<Any>(dataSource: ["Data1", "Data2"])
-        { (cell, item, indexPath) in
-            cell.textLabel?.text = item as? String
-        }
-        
-        selectionMenu.setSelectedItems(items: [])
-        { [weak self] (text, index, isSelected, selectedItems) in
-            self?.tableView.reloadData()
-        }
-        
-        selectionMenu.cellSelectionStyle = .checkbox
-        selectionMenu.show(style: .actionSheet(title: "Category", action: nil, height: nil), from: self)
-    }
-    
+//    func ShowYearOption()
+//    {
+//        let selectionMenu = RSSelectionMenu<Any>(dataSource: ["Data1", "Data2"])
+//        { (cell, item, indexPath) in
+//            cell.textLabel?.text = item as? String
+//        }
+//
+//        selectionMenu.setSelectedItems(items: [])
+//        { [weak self] (text, index, isSelected, selectedItems) in
+//            self?.tableView.reloadData()
+//        }
+//
+//        selectionMenu.cellSelectionStyle = .checkbox
+//        selectionMenu.show(style: .actionSheet(title: "Years", action: nil, height: nil), from: self)
+//    }
+   
 }
     
 extension HomePageController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -393,6 +399,8 @@ extension HomePageController: UICollectionViewDataSource, UICollectionViewDelega
             return bestDealArr.count
         }
     }
+    
+   
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == SliderCollection {
@@ -575,14 +583,7 @@ extension HomePageController: navigationToHomepage {
 }
 
 
-class SectionCell: UICollectionViewCell
-{
-    @IBOutlet weak var btnAllpost: UIButton!
-    @IBOutlet weak var btnCategory: UIButton!
-    @IBOutlet weak var btnBrand: UIButton!
-    @IBOutlet weak var btnYears: UIButton!
-    @IBOutlet weak var btnPrices: UIButton!
-}
+
 
 
 

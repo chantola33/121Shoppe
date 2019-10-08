@@ -27,6 +27,7 @@
 		861A6FD222E17C970028D81D /* ListCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 861A6FD022E17C970028D81D /* ListCategoryTableViewCell.xib */; };
 		861A6FD522E195580028D81D /* ListAllProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861A6FD322E195570028D81D /* ListAllProductViewController.swift */; };
 		861A6FD622E195580028D81D /* ListAllProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 861A6FD422E195570028D81D /* ListAllProductViewController.xib */; };
+		862F6B02233A0FA40009DC4D /* FilterBottonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862F6B00233A0FA40009DC4D /* FilterBottonViewController.swift */; };
 		8632208223039DDF002B9DF6 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632208123039DDF002B9DF6 /* PostViewController.swift */; };
 		863220842303B0F5002B9DF6 /* StructTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863220832303B0F5002B9DF6 /* StructTemplate.swift */; };
 		863220862303F7EF002B9DF6 /* CusTextAreaInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 863220852303F7EE002B9DF6 /* CusTextAreaInput.xib */; };
@@ -151,6 +152,7 @@
 		861A6FD022E17C970028D81D /* ListCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		861A6FD322E195570028D81D /* ListAllProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAllProductViewController.swift; sourceTree = "<group>"; };
 		861A6FD422E195570028D81D /* ListAllProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListAllProductViewController.xib; sourceTree = "<group>"; };
+		862F6B00233A0FA40009DC4D /* FilterBottonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBottonViewController.swift; sourceTree = "<group>"; };
 		8632208123039DDF002B9DF6 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		863220832303B0F5002B9DF6 /* StructTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructTemplate.swift; sourceTree = "<group>"; };
 		863220852303F7EE002B9DF6 /* CusTextAreaInput.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CusTextAreaInput.xib; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 				8613E8E3231CB150006C9D60 /* NotificationViewController.swift */,
 				8613E8E5231CB585006C9D60 /* ChatViewController.swift */,
 				8613E8EC231CFB1B006C9D60 /* NewMessageViewController.swift */,
+				862F6B00233A0FA40009DC4D /* FilterBottonViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -841,6 +844,7 @@
 				C4CCAE4B22F9679300E21EC4 /* LanguageManager.swift in Sources */,
 				86AAF0C722C081C3003C46F3 /* DiscountCollectionViewCell.swift in Sources */,
 				864F7A5D222E607C00437C24 /* AppDelegate.swift in Sources */,
+				862F6B02233A0FA40009DC4D /* FilterBottonViewController.swift in Sources */,
 				C48E11172306794F007E52A8 /* ChangePasswordController.swift in Sources */,
 				863AFE0022F7E8C8002D3D5D /* LoadingTableViewCell.swift in Sources */,
 				C4726A992306CD5700C5B381 /* HideShowTextField.swift in Sources */,
