@@ -45,7 +45,7 @@ class PostsTableViewCell: UITableViewCell {
         PostImage.LoadFromURL(url: Data.imagefront)
         lblName.text = Data.title.capitalizingFirstLetter()
         lblPrice.text = Data.cost.toCurrency()
-        lblDuration.text = Data.create_at?.getDuration()
+//        lblDuration.text = Data.create_at?.getDuration()
         lblPostType.SetPostType(postType: Data.postType)
         btnStatus.setTextByRecordStatus(status: Data.status!)
     }

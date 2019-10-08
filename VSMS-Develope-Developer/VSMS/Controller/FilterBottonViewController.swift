@@ -53,7 +53,6 @@ extension FilterBottonViewController: UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! NameType
         if(indexPath.row == selectedIndex)
         {
-            cell.lblName.text = "All"
             cell.img.image = check
         }
         else

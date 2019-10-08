@@ -341,7 +341,9 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         lblColor.text = ProductDetail.color
         lblDescription.text = ProductDetail.description
         lblPrice.text = ProductDetail.cost.toCurrency()
-        lblDuration.text = ProductDetail.create_at?.getDuration()
+
+//        lblDuration.text = ProductDetail.create_at?.getDuration()
+
         
         var create_by = ProductDetail.created_by
         var userid = User.getUserID()
@@ -349,7 +351,6 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             self.buttonView.isHidden = true
         }
         
-      
     }
     
     func LoadUserDetail(){
