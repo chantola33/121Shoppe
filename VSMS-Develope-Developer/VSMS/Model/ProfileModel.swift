@@ -45,6 +45,7 @@ class ProfileModel {
 struct Profile {
     var ID: String
     var Name: String
+    var FirstName: String
     var PhoneNumber: String
     var Profile: UIImage
     var email: String

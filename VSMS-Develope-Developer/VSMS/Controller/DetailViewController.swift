@@ -12,6 +12,7 @@ import SwiftyJSON
 import GoogleMaps
 import GooglePlaces
 import CoreLocation
+import FirebaseDatabase
 
 
 
@@ -58,6 +59,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     @IBOutlet weak var lblUserEmail: UILabel!
     @IBOutlet weak var lblAddress: UILabel!
     
+    @IBOutlet weak var buttonView: UIView!
     
     
     @IBOutlet weak var mapView: GMSMapView!
@@ -71,6 +73,8 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     
     @IBOutlet weak var LoanView: UIView!
     @IBOutlet weak var lblmonthlypayment: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -338,19 +342,39 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         lblDescription.text = ProductDetail.description
         lblPrice.text = ProductDetail.cost.toCurrency()
         lblDuration.text = ProductDetail.create_at?.getDuration()
+        
+        var create_by = ProductDetail.created_by
+        var userid = User.getUserID()
+        if create_by == userid {
+            self.buttonView.isHidden = true
+        }
+        
+      
     }
     
     func LoadUserDetail(){
         User.getUserInfo(id: ProductDetail.created_by) { (Profile) in
             self.userdetail = Profile
             self.imgProfilePic.image = Profile.Profile
-            self.lblProfileName.text = Profile.Name
-            self.lblUserPhoneNumber.text = "Tel: \(Profile.PhoneNumber)"
+            self.lblProfileName.text = Profile.FirstName
             self.lblUserEmail.text = "Email: \(Profile.email)"
             self.lblAddress.text = "Address: \(self.ProductDetail.vin_code)"
+            
+            var Phonenumber = Profile.PhoneNumber
+            var SplitNumber = Phonenumber.components(separatedBy: ",")
+            print(SplitNumber.count)
+            if SplitNumber.count == 2 {
+               self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0] + " / " + SplitNumber[1]
+            }else if SplitNumber.count == 3 {
+                 self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0] + " / " + SplitNumber[1]  + " / " + SplitNumber[2]
+            }else {
+                  self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0]
+            }
 
         }
+        
     }
+    
     
     func ImageSlideConfig(){
         CollectView.dataSource = self

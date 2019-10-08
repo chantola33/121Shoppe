@@ -125,6 +125,7 @@
 		D54C48132242249D004FE033 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C48122242249D004FE033 /* RegisterController.swift */; };
 		D54C481522422F20004FE033 /* MyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C481422422F20004FE033 /* MyAccountController.swift */; };
 		D55FA97B223EBD34005B0C8D /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FA97A223EBD34005B0C8D /* SettingController.swift */; };
+		D581EFC1234B8BFE00C89A2D /* laonn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D581EFC0234B8BFA00C89A2D /* laonn.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -255,6 +256,7 @@
 		D54C48122242249D004FE033 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		D54C481422422F20004FE033 /* MyAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
 		D55FA97A223EBD34005B0C8D /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		D581EFC0234B8BFA00C89A2D /* laonn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = laonn.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +376,7 @@
 				86E63AF2230D184200421EAB /* GoogleService-Info.plist */,
 				C402139B22574CD4007920C4 /* VSMS-Bridging-Header.h */,
 				C4CCAE5122F9732C00E21EC4 /* Localizable.strings */,
+				D581EFC0234B8BFA00C89A2D /* laonn.jpg */,
 				8679B8A22317B508005CC6D9 /* Assets.xcassets */,
 			);
 			path = VSMS;
@@ -707,6 +710,7 @@
 				864997DE22F2E109005BD2DF /* HelperTableViewCell.xib in Resources */,
 				861A6FCE22E1732E0028D81D /* ListAllPostByTypeViewController.xib in Resources */,
 				C4CCAE5322F9732C00E21EC4 /* Localizable.strings in Resources */,
+				D581EFC1234B8BFE00C89A2D /* laonn.jpg in Resources */,
 				8615106122D5845800A37835 /* ContactInputTableViewCell.xib in Resources */,
 				C45661B822CE6D9200973945 /* LikesTableViewCell.xib in Resources */,
 				86F4017D22DF12B400AB9ECD /* ProductGridTableViewCell.xib in Resources */,

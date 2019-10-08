@@ -22,6 +22,7 @@ class DetailViewModel {
     var brand: Int = -1
     var modeling: Int = -1
     var type: Int = -1
+    var create_by: Int = 0
     var description: String = ""
     var cost: String = ""
     var post_type: String = ""
@@ -72,6 +73,7 @@ class DetailViewModel {
         self.brand = json["brand"].stringValue.toInt()
         self.modeling = json["modeling"].stringValue.toInt()
         self.type = json["modeling"].stringValue.toInt()
+        self.create_by = json["create_by"].stringValue.toInt()
         self.color = json["color"].stringValue
         self.description = json["description"].stringValue
         self.cost = json["cost"].stringValue

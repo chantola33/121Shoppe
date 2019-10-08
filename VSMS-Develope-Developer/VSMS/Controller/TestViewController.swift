@@ -87,6 +87,12 @@ class TestViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         SlidingPhoto()
         tableView.reloadData()
         
+        if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
+            navigationItem.rightBarButtonItem = KhmerFlatButton
+        }else{
+            navigationItem.rightBarButtonItem = EnglishFlatButton
+        }
+        
         if !User.IsUserAuthorized() {
             PresentController.LogInandRegister()
         }
