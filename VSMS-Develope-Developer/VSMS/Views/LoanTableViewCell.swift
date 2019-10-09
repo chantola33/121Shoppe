@@ -31,7 +31,7 @@ class LoanTableViewCell: UITableViewCell {
             performOn(.Main, closure: {
                 self.imgProduct.LoadFromURL(url: val.imagefront)
                 self.lblProductName.text = val.title.capitalizingFirstLetter()
-                self.lblDuration.text = val.create_at?.getDuration()
+//                self.lblDuration.text = val.create_at?.getDuration()
                 self.lblProductPrice.text = val.cost.toCurrency()
                 self.lblPostType.SetPostType(postType: val.postType)
                 self.lblView.text = "5 views"

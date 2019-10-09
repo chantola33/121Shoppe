@@ -214,7 +214,7 @@ class User {
                 print(value)
                 let profile = json["profile"]
                 completion(Profile(ID: json["id"].stringValue,
-                                   Name: json["username"].stringValue,
+                                   Name: json["username"].stringValue, FirstName: json["first_name"].stringValue,
                                    PhoneNumber: profile["telephone"].stringValue,
                                    Profile: profile["base64_profile_image"].stringValue.base64ToImage() ?? UIImage(), email: json["email"].stringValue,
                                         Address: profile["address"].stringValue,

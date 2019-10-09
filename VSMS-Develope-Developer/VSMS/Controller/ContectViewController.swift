@@ -61,7 +61,7 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
             imageprofile.image = img
         }
 
-        labelName.text = self.userdetail?.Name
+        labelName.text = self.userdetail?.FirstName
     }
     
     func XibRegister(){
@@ -104,7 +104,8 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if (btnpost != nil){
             linepost.alpha = 1
             linecontact.alpha = 0
-        }else{
+        }
+        else{
             linepost.alpha = 0
             linecontact.alpha = 1
         }

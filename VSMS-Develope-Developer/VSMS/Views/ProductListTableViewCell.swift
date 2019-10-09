@@ -18,7 +18,9 @@ class ProductListTableViewCell: UITableViewCell {
     @IBOutlet weak var lblPostType: UILabel!
     @IBOutlet weak var lblView: UILabel!
     @IBOutlet weak var profileuser: UIImageView!
-    
+    //
+    var ProfileHandleRequest = UserProfileRequestHandle()
+    //
     var UserPro = DetailViewModel()
     var userdetail: Profile?
     var ProductID: Int?
@@ -37,6 +39,15 @@ class ProductListTableViewCell: UITableViewCell {
     
     func reload()
     {
+        profileuser.ImageLoadFromURL(url: ProfileHandleRequest.Profile.profile.profile_image)
+        UserFireBase.Load { (user) in
+            if user != nil {
+                performOn(.Main, closure: {
+                    self.profileuser.ImageLoadFromURL(url: user.imageURL)
+                })
+            }
+        }
+        
         imgProductImage.LoadFromURL(url: ProductData.imagefront)
         lblProductname.text = ProductData.title.capitalizingFirstLetter()
         lblProductPrice.text = ProductData.cost.toCurrency()
@@ -49,6 +60,7 @@ class ProductListTableViewCell: UITableViewCell {
             
             
         }
+        
     }
     
    
@@ -64,3 +76,4 @@ class ProductListTableViewCell: UITableViewCell {
     }
     
 }
+
