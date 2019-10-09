@@ -14,13 +14,16 @@ import Firebase
 class RegisterController: UIViewController {
     
     var defaultUser = UserDefaults.standard
+    var user_group = 0
     @IBOutlet weak var txtPhoneNumber: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtConfirmPassword: UITextField!
     
+    var account = AccountViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         configuration()
     }
     
@@ -81,6 +84,15 @@ class RegisterController: UIViewController {
             txtConfirmPassword.becomeFirstResponder()
             return
         }
+        else if user_group == 1{
+            if self.validateNumber(value: confirmPassword) == false{
+                print("Fail")
+                Message.AlertMessage(message: "Password must be 4 digits and Numbers only.", header: "Warning", View: self, callback: {
+                    return
+                })
+              return
+            }
+        }
 
         
         //Check if User is existing
@@ -93,22 +105,55 @@ class RegisterController: UIViewController {
             }
             else
             {
-                PhoneAuthProvider.provider().verifyPhoneNumber(phonenumber.ISOTelephone(), uiDelegate: nil) { (verificationID, error) in
-                    if let error = error {
-                        print(error)
-                        Message.AlertMessage(message: "\(error)", header: "Error", View: self, callback: {
-                            self.resetInput()
-                        })
-                        return
-                    }
-                    
-                    UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                    PresentController.PushToVerifyViewController(telelphone: phonenumber, password: confirmPassword, from: self, isLogin: false, FBData: nil)
+//       close by samang         PhoneAuthProvider.provider().verifyPhoneNumber(phonenumber.ISOTelephone(), uiDelegate: nil) { (verificationID, error) in
+//                    if let error = error {
+//                        print(error)
+//                        Message.AlertMessage(message: "\(error)", header: "Error", View: self, callback: {
+//                            self.resetInput()
+//                        })
+//                        return
+//                    }
+//
+//                    UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+//                    PresentController.PushToVerifyViewController(telelphone: phonenumber, password: confirmPassword, from: self, isLogin: false, FBData: nil)
+//                }
+                self.account.username = self.txtPhoneNumber.text!
+                self.account.ProfileData.telephone = self.txtPhoneNumber.text!
+                self.account.password = self.txtConfirmPassword.text!
+                self.account.ProfileData.group = self.user_group
+                self.account.RegisterUser { (result) in
+                    performOn(.Main, closure: {
+                        if result {
+                            Message.SuccessMessage(message: "Your Account has been registered.", View: self, callback: {
+                                if self.user_group == 1 {
+                                      PresentController.ProfileController(animate: true)
+                                }else {
+                                  
+                                        print("account")
+                                        print(self.user_group)
+                                        let profileVC: MyAccountController = self.storyboard?.instantiateViewController(withIdentifier: "MyAccountController") as! MyAccountController
+                                    self.navigationController?.pushViewController(profileVC, animated: true)
+                                
+                                }
+                            })
+                        }
+                        else{
+                            Message.AlertMessage(message: "User is already exist. Please try agian later.", header: "Warning", View: self, callback: {
+                                self.navigationController?.popViewController(animated: true)
+                            })
+                        }
+                    })
                 }
             }
         }
     }
-    
+    func validateNumber(value: String) -> Bool{
+        let PHONE_REGEX = "^[0-9]{4,14}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+        let result = phoneTest.evaluate(with: value)
+        print(result)
+        return result
+    }
     func resetInput()
     {
         self.txtPhoneNumber.text = ""

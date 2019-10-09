@@ -181,7 +181,11 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
     
     func setUpAccountData()
     {
-        lblUserGroup.getUserGroupFromAPI(userGroupID: UserAccount.group[0])
+        let group = UserAccount.ProfileData.group
+        print(group)
+        
+//        lblUserGroup.getUserGroupFromAPI(userGroupID: UserAccount.group[0])
+        lblUserGroup.getUserGroupFromAPI(userGroupID: UserAccount.ProfileData.group ?? 0)
         txtUsername.text = UserAccount.firstname == "" ? UserAccount.username : UserAccount.firstname
         lblGender.text = UserAccount.ProfileData.gender.capitalizingFirstLetter()
         txtDob.text = UserAccount.ProfileData.date_of_birth.DateFormat()
@@ -266,6 +270,7 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
         UserAccount.ProfileData.responsible_officer = txtaddress.text!
         UserAccount.UpdateUserAccount {
             alertMessage.dismissActivityIndicator()
+            
         }
     }
     
@@ -383,10 +388,14 @@ extension UILabel {
                 switch respone.result {
                 case .success(let value):
                     let json = JSON(value)
-                    let groups = JSON(json["results"].arrayValue.first(where: { $0["id"].stringValue == userGroupID.toString() })!)
+//                    let groups = JSON(json["results"].arrayValue.first(where: { $0["id"].stringValue == userGroupID.toString() })!)
                     
-                    performOn(.Main, closure: {
-                        self.text = groups["name"].stringValue
+//                    performOn(.Main, closure: {
+//                        self.text = groups["name"].stringValue
+//                    })
+                    let group = json["name"].stringValue
+                    performOn(.Main,closure: {
+                        self.text = group
                     })
                 case .failure(let error):
                     print(error.localizedDescription)
