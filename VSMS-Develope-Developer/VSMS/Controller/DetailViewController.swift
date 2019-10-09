@@ -343,6 +343,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         lblPrice.text = ProductDetail.cost.toCurrency()
 
 //        lblDuration.text = ProductDetail.create_at?.getDuration()
+
         
         var create_by = ProductDetail.created_by
         var userid = User.getUserID()
