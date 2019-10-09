@@ -136,7 +136,7 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if listtype == true {
-            return 85
+            return 100
         }else {
             if indexPath.row == 2 {
                 return 320

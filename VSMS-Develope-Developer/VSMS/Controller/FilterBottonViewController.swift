@@ -9,12 +9,18 @@
 import UIKit
 
 class FilterBottonViewController: UIViewController {
+  
+    let check = UIImage(named: "ic_radio_button_checked_white")
+    let uncheck = UIImage(named: "ic_radio_button_unchecked_white")
     
+    var selectedIndex: Int?
+    var link: NameType?
     
     var labelData: FilterButtonEnum?
    
     @IBOutlet weak var lblList: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +35,7 @@ class FilterBottonViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-   
+    
     
 }
 
@@ -38,43 +44,39 @@ extension FilterBottonViewController: UITableViewDataSource, UITableViewDelegate
         return labelData?.rowRowCount ?? 0
     }
     
-   
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        tableView.reloadData()
+    }
+  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! NameType
-        let row = indexPath.row
-       
-        if row == 0 {
+        if(indexPath.row == selectedIndex)
+        {
             cell.lblName.text = "All"
-            cell.btnClick.setImage(UIImage(named: "ic_radio_button_checked_white"), for:.normal)
-            cell.btnClick.addTarget(self, action: #selector(methodname), for: .touchUpInside)
-        }else if row == 1 {
-            cell.lblName.text = "Sale"
-            cell.btnClick.setImage(UIImage(named: "ic_radio_button_unchecked_white"), for:.normal)
-            cell.btnClick.addTarget(self, action: #selector(methodname), for: .touchUpInside)
-        }else {
-            cell.lblName.text = "Rent"
-            cell.btnClick.setImage(UIImage(named: "ic_radio_button_unchecked_white"), for:.normal)
-            cell.btnClick.addTarget(self, action: #selector(methodname), for: .touchUpInside)
+            cell.img.image = check
         }
-      
-       // cell.lblName.text = "tesing"
+        else
+        {
+            cell.img.image = uncheck
+        }
         return cell
     }
     
-   
-    
-    @objc func methodname()
-    {
-       print("Click")
-    }
 }
+
 
 
 class NameType: UITableViewCell{
-    @IBOutlet weak var btnClick: UIButton!
+    
+    
+    @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var lblName: UILabel!
+    
+    
 }
+
+
 
 enum FilterButtonEnum:Int, CustomStringConvertible {
     case allPost

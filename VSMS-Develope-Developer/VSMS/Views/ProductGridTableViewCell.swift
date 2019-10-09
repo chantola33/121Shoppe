@@ -68,7 +68,7 @@ class ProductGridTableViewCell: UITableViewCell {
             //lbl_1_duration.text = data1?.create_at?.getDuration()
             lbl_1_postTy.SetPostType(postType: data1!.postType)
             RequestHandle.CountView(postID: (data1?.product)!) { (count) in
-                self.lbl_1_Views.text = count.toString()+" Views"
+                self.lbl_1_Views.text = "Views: "+count.toString() 
             }
         }
         
@@ -80,7 +80,7 @@ class ProductGridTableViewCell: UITableViewCell {
            // lbl_2_duration.text = data2?.create_at?.getDuration()
             lbl_2_postTy.SetPostType(postType: data2!.postType)
             RequestHandle.CountView(postID: (data2?.product)!) { (count) in
-                self.lbl_2_Views.text = count.toString()+" Views"
+                self.lbl_2_Views.text = "Views: "+count.toString()
             }
             
         }

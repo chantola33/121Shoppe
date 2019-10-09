@@ -8,6 +8,7 @@
 
 import UIKit
 import LGButton
+import RSSelectionMenu
 
 
 class BtnFilterCollectionViewCell: UICollectionViewCell {
@@ -26,4 +27,5 @@ class BtnFilterCollectionViewCell: UICollectionViewCell {
     @IBAction func clickHandle(_ sender: LGButton) {
         self.clickRespone?(indexButton!)
     }
+   
 }

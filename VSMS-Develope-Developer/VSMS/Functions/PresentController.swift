@@ -113,4 +113,14 @@ class PresentController
             from.navigationController?.pushViewController(messageVC, animated: true)
         }
     }
+    
+    //////
+    static func popUpFilterUIView(filterIndex: Int, from: UIViewController)
+    {
+        if let VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FilterBottonViewController") as? FilterBottonViewController
+        {
+            VC.labelData = FilterButtonEnum(rawValue: filterIndex)
+            from.present(VC, animated: true)
+        }
+    }
 }

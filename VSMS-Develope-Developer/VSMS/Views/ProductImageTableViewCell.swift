@@ -38,7 +38,7 @@ class ProductImageTableViewCell: UITableViewCell {
         lblProductPrice.text = data.cost.toCurrency()
        // lblDuration.text = data.create_at?.getDuration()
         RequestHandle.CountView(postID: data.product) { (count) in
-            self.lblViews.text = "Views "+count.toString()
+            self.lblViews.text = "Views: "+count.toString()
         }
         lblPostType.SetPostType(postType: data.postType)
     }
