@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LM1-tX-UsK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LM1-tX-UsK">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -981,7 +981,7 @@
                                         <rect key="frame" x="0.0" y="85" width="375" height="474"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="54" id="vf5-6c-gKz" customClass="NameType" customModule="VSMS" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="54" id="vf5-6c-gKz" customClass="BtnFilter" customModule="VSMS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="54"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vf5-6c-gKz" id="NaJ-Be-YB6">
@@ -2034,7 +2034,7 @@
                                                             <action selector="clickLoan:" destination="Hns-w0-5FY" eventType="touchUpInside" id="wwp-sy-Wig"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loann" translatesAutoresizingMaskIntoConstraints="NO" id="1VC-Av-10c">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loan1" translatesAutoresizingMaskIntoConstraints="NO" id="1VC-Av-10c">
                                                         <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="50"/>
                                                     </imageView>
                                                 </subviews>
@@ -4526,7 +4526,7 @@
     </scenes>
     <resources>
         <image name="121logo" width="120" height="69"/>
-        <image name="Cover_Default" width="85" height="85"/>
+        <image name="Cover_Default" width="85.333335876464844" height="85.333335876464844"/>
         <image name="Dream191" width="1500" height="1000"/>
         <image name="Dream192" width="1500" height="1000"/>
         <image name="Icon-Camera-20x20" width="20" height="20"/>
@@ -4537,14 +4537,14 @@
         <image name="icons8-home-50" width="25" height="25"/>
         <image name="icons8-more-than-50 (2)" width="50" height="50"/>
         <image name="icons8-sent-filled-50" width="50" height="50"/>
-        <image name="img" width="16" height="16"/>
+        <image name="img" width="16.666666030883789" height="16.666666030883789"/>
         <image name="like" width="144" height="144"/>
-        <image name="list_active" width="16" height="16"/>
-        <image name="loann" width="16" height="16"/>
+        <image name="list_active" width="16.666666030883789" height="16.666666030883789"/>
+        <image name="loan1" width="140" height="140"/>
         <image name="messaging" width="144" height="144"/>
         <image name="phone" width="144" height="144"/>
         <image name="pinMarker" width="48" height="48"/>
         <image name="registration-50" width="25" height="25"/>
-        <image name="thumnail" width="16" height="16"/>
+        <image name="thumnail" width="16.666666030883789" height="16.666666030883789"/>
     </resources>
 </document>

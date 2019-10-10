@@ -9,11 +9,13 @@
 import UIKit
 import LGButton
 import RSSelectionMenu
+import Alamofire
+import SwiftyJSON
 
 
 class BtnFilterCollectionViewCell: UICollectionViewCell {
 
-    
+    var AL = HomepageRequestHandler()
     @IBOutlet weak var btnFilter: LGButton!
     
     var indexButton: Int?
@@ -26,6 +28,20 @@ class BtnFilterCollectionViewCell: UICollectionViewCell {
 
     @IBAction func clickHandle(_ sender: LGButton) {
         self.clickRespone?(indexButton!)
+        switch indexButton {
+        case 0:
+            print("Post")
+        case 1:
+            print("Category")
+        case 2:
+            print("Brand")
+        case 3:
+            print("Years")
+        case 4:
+            print("Prices")
+        default:
+            break
+        }
     }
    
 }

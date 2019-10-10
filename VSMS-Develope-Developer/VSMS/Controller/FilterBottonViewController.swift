@@ -9,15 +9,16 @@
 import UIKit
 
 class FilterBottonViewController: UIViewController {
-  
+    
     let check = UIImage(named: "ic_radio_button_checked_white")
     let uncheck = UIImage(named: "ic_radio_button_unchecked_white")
     
     var selectedIndex: Int?
-    var link: NameType?
-    
+    var link: BtnFilter?
     var labelData: FilterButtonEnum?
-   
+    
+    
+    
     @IBOutlet weak var lblList: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,14 +29,16 @@ class FilterBottonViewController: UIViewController {
         tableView.dataSource = self
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         //function
-        
+        RegisterXib()
         lblList.text = labelData?.description
     }
     @IBAction func back_click(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
+    func RegisterXib(){
+        tableView.register(UINib(nibName: "ProductListTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductListCell")
+    }
     
 }
 
@@ -50,7 +53,8 @@ extension FilterBottonViewController: UITableViewDataSource, UITableViewDelegate
     }
   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! NameType
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! BtnFilter
+        
         if(indexPath.row == selectedIndex)
         {
             cell.img.image = check
@@ -66,13 +70,10 @@ extension FilterBottonViewController: UITableViewDataSource, UITableViewDelegate
 
 
 
-class NameType: UITableViewCell{
-    
+class BtnFilter: UITableViewCell{
     
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var lblName: UILabel!
-    
-    
 }
 
 
@@ -83,8 +84,9 @@ enum FilterButtonEnum:Int, CustomStringConvertible {
     case brand
     case year
     case price
-
+    
     var description: String {
+       
         switch self {
         case .allPost:
             return "All Post"
@@ -100,6 +102,7 @@ enum FilterButtonEnum:Int, CustomStringConvertible {
     }
         
         var rowRowCount: Int {
+            
             switch self {
             case .allPost:
                 return 3
