@@ -126,6 +126,7 @@
 		D54C48132242249D004FE033 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C48122242249D004FE033 /* RegisterController.swift */; };
 		D54C481522422F20004FE033 /* MyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C481422422F20004FE033 /* MyAccountController.swift */; };
 		D55FA97B223EBD34005B0C8D /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FA97A223EBD34005B0C8D /* SettingController.swift */; };
+		D56B83C9234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */; };
 		D581EFC1234B8BFE00C89A2D /* laonn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D581EFC0234B8BFA00C89A2D /* laonn.jpg */; };
 /* End PBXBuildFile section */
 
@@ -258,6 +259,7 @@
 		D54C48122242249D004FE033 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		D54C481422422F20004FE033 /* MyAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
 		D55FA97A223EBD34005B0C8D /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTypeViewController.swift; sourceTree = "<group>"; };
 		D581EFC0234B8BFA00C89A2D /* laonn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = laonn.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -428,6 +430,7 @@
 				8613E8E5231CB585006C9D60 /* ChatViewController.swift */,
 				8613E8EC231CFB1B006C9D60 /* NewMessageViewController.swift */,
 				862F6B00233A0FA40009DC4D /* FilterBottonViewController.swift */,
+				D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -825,6 +828,7 @@
 				D54C48132242249D004FE033 /* RegisterController.swift in Sources */,
 				86EE08B922FFC6B7001EF3A8 /* AboutUsTableViewCell.swift in Sources */,
 				8613E8E4231CB150006C9D60 /* NotificationViewController.swift in Sources */,
+				D56B83C9234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift in Sources */,
 				8632208223039DDF002B9DF6 /* PostViewController.swift in Sources */,
 				86763E1F22D4A70700391237 /* DiscountInputTableViewCell.swift in Sources */,
 				866C2DB42304F20A004B7682 /* ImagePickerUIView.swift in Sources */,

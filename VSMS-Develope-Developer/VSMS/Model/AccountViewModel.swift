@@ -229,6 +229,7 @@ class AccountSubProfile{
     var wing_account_number: String = ""
     var place_of_birth: Int?
     var responsible_officer: String = ""
+    var group:Int?
     
     var asDictionary : [String:Any] {
         let mirror = Mirror(reflecting: self)
