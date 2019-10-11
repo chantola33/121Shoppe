@@ -182,9 +182,7 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
     func setUpAccountData()
     {
         let group = UserAccount.ProfileData.group
-        print(group)
         
-//        lblUserGroup.getUserGroupFromAPI(userGroupID: UserAccount.group[0])
         lblUserGroup.getUserGroupFromAPI(userGroupID: UserAccount.ProfileData.group ?? 0)
         txtUsername.text = UserAccount.firstname == "" ? UserAccount.username : UserAccount.firstname
         lblGender.text = UserAccount.ProfileData.gender.capitalizingFirstLetter()
