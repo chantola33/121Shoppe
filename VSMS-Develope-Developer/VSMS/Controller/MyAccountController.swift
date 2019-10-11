@@ -379,7 +379,7 @@ extension UILabel {
     
     func getUserGroupFromAPI(userGroupID: Int)
     {
-        Alamofire.request("\(PROJECT_API.GROUPS)",
+        Alamofire.request("\(PROJECT_API.GROUPS)\(userGroupID)/",
             method: .get,
             encoding: JSONEncoding.default
             ).responseJSON { (respone) in

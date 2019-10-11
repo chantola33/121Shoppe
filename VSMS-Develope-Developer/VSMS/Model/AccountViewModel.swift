@@ -84,6 +84,7 @@ class AccountViewModel {
                     self.ProfileData.wing_account_name = profile["wing_account_name"].stringValue
                     self.ProfileData.wing_account_number = profile["wing_account_number"].stringValue
                     self.ProfileData.place_of_birth = profile["place_of_birth"].stringValue.toInt()
+                    self.ProfileData.group = profile["group"].stringValue.toInt()
                     self.ProfileData.responsible_officer = profile["responsible_officer"].stringValue
                     completion()
                 case .failure(let error):
