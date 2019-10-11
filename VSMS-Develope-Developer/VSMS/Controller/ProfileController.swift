@@ -13,7 +13,7 @@ import SwiftyJSON
 import SideMenuSwift
 
 
-class TestViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ProfileController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var CoverView: UIView!
     @IBOutlet weak var CoverImage: UIImageView!
@@ -616,7 +616,7 @@ class TestViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
 }
 
-extension TestViewController {
+extension ProfileController {
     func DeleteLoanHandler(LoanID: Int)
     {
         let alertMessage = UIAlertController(title: nil, message: "Deleting Loan...", preferredStyle: .alert)
@@ -691,7 +691,7 @@ extension TestViewController {
     }
 }
 
-extension TestViewController: ProfileCellClickProtocol {
+extension ProfileController: ProfileCellClickProtocol {
     func cellClickToDelete(ID: Int) {
         PostAdViewModel.Delete(PostID: ID) { (result) in
             Message.AlertMessage(message: "Post has been deleted successfully.", header: "Successfully", View: self, callback: {
@@ -709,7 +709,7 @@ extension TestViewController: ProfileCellClickProtocol {
     }
 }
 
-extension TestViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ProfileController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
@@ -734,7 +734,7 @@ extension TestViewController: UIImagePickerControllerDelegate, UINavigationContr
     }
 }
 
-extension TestViewController: CellClickProtocol
+extension ProfileController: CellClickProtocol
 {
     func cellXibClick(ID: Int) {
         self.PushToDetailProductViewController(productID: ID)

@@ -125,7 +125,7 @@ class TabBarButton: UIView {
         
         if let currentView = UIApplication.topViewController() {
             let ProfileTab: UINavigationController = {
-                let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestViewController") as! TestViewController
+                let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
                 return UINavigationController(rootViewController: profile)
             }()
             currentView.present(ProfileTab, animated: false, completion: nil)

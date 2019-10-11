@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         configuration()
-        SearchHandle()
+       // SearchHandle()
     }
     
     
@@ -43,23 +43,23 @@ class SearchViewController: UIViewController {
 
     }
     
-    func SearchHandle(){
-        if parameter.brand == "" {
-            RequestHandle.SearchProduct(filter: self.parameter) { (val) in
-                self.resultArr = val
-                self.tableView.reloadData()
-            }
-        }
-        else {
-            for model in parameter.modelings {
-                self.parameter.model = model
-                RequestHandle.SearchProduct(filter: self.parameter) { (val) in
-                    self.resultArr += val
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
+//    func SearchHandle(){
+//        if parameter.brand == "" {
+//            RequestHandle.SearchProduct(filter: self.parameter) { (val) in
+//                self.resultArr = val
+//                self.tableView.reloadData()
+//            }
+//        }
+//        else {
+//            for model in parameter.modelings {
+//                self.parameter.model = model
+//                RequestHandle.SearchProduct(filter: self.parameter) { (val) in
+//                    self.resultArr += val
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }
+//    }
 
 }
 
@@ -68,7 +68,7 @@ extension SearchViewController: UISearchBarDelegate {
         self.txtSearchBar.endEditing(false)
         
         self.parameter.search = searchBar.text ?? ""
-        self.SearchHandle()
+      //  self.SearchHandle()
     }
 }
 

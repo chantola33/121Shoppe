@@ -45,7 +45,7 @@ class CustomTabBarController: UITabBarController {
     }()
     
     let ProfileTab: UINavigationController = {
-        let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestViewController") as! TestViewController
+        let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
         return UINavigationController(rootViewController: profile)
     }()
     

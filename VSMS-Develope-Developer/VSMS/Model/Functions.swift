@@ -57,8 +57,17 @@ class PROJECT_API {
     static func RELATED_PRODUCT(postType: String, category: String, modeling: String) -> String {
         return "\(http_absoluteString)/relatedpost/?post_type=\(postType)&category=\(category)&modeling=\(modeling)&min_price=&max_price="
     }
-    static func SEARCH_PRODUCT(filter: SearchFilter) -> String {
-        return "\(http_absoluteString)/postsearch/?search=\(filter.search)&category=\(filter.category)&modeling=\(filter.model)&year=\(filter.year)"
+//    static func SEARCH_PRODUCT(filter: SearchFilter) -> String {
+//        return "\(http_absoluteString)/postsearch/?search=\(filter.search)&category=\(filter.category)&modeling=\(filter.model)&year=\(filter.year)"
+//    }
+    
+//    static func FILTER_BUTTON(postType: String, category: String, modeling: String, min_price: String, max_price: String, years: String) -> String {
+//        return "\(http_absoluteString)/relatedpost/??post_type=\(postType)&category=\(category)&modeling\(modeling)&min_price=\(min_price)&max_price=\(max_price)&year=\(years)"
+//    }
+    
+    static func FILTERBUTTON(filterbtn: RelatedFilter) -> String {
+        return
+"\(http_absoluteString)relatepost/?post_type=\(filterbtn.type)&category=\(filterbtn.category)&modeling\(filterbtn.modeling)&min_price=\(filterbtn.min_price)&max_price=\(filterbtn.max_price)&year=\(filterbtn.years)"
     }
     
     //Post Ad
@@ -395,7 +404,7 @@ class Functions {
     static func getDropDownList(key: Int ,completion: @escaping ([dropdownData]) -> ()){
         switch key{
         case 0:
-            completion([dropdownData(ID: "buy", Text: "Buy", FKKey: ""),
+            completion([//dropdownData(ID: "buy", Text: "Buy", FKKey: ""),
                         dropdownData(ID: "rent", Text: "Rent", FKKey: ""),
                         dropdownData(ID: "sell", Text: "Sell", FKKey: "")])
             break
@@ -513,7 +522,7 @@ class GenerateList
 {
     static func getPostType() -> [DropDownTemplate]
     {
-        return [DropDownTemplate(ID: "buy", Text: "Buy", Fkey: nil),
+        return [//DropDownTemplate(ID: "buy", Text: "Buy", Fkey: nil),
                 DropDownTemplate(ID: "rent", Text: "Rent", Fkey: nil),
                 DropDownTemplate(ID: "sell", Text: "Sell", Fkey: nil)]
     }

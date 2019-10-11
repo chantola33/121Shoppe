@@ -177,30 +177,33 @@ class RequestHandle {
         }
     }
     
+//    static func FilterButton(filter: RelatedFilter, completion: @escaping ([HomePageModel]) -> Void) {
+//        var result: [HomePageModel] = []
+//        Alamofire.request(PROJECT_API.RELATED_PRODUCT(postType: , category: <#T##String#>, modeling: <#T##String#>))
+//    }
     
-    
-    static func SearchProduct(filter: SearchFilter, completion: @escaping ([HomePageModel]) -> Void) {
-        var result: [HomePageModel] = []
-        Alamofire.request(PROJECT_API.SEARCH_PRODUCT(filter: filter),
-                          method: .get,
-                          encoding: JSONEncoding.default
-            ).responseJSON
-            { (response) in
-                switch response.result{
-                case .success(let value):
-                    let json = JSON(value)
-                    result = (json["results"].array?.map{
-                        HomePageModel(json: $0)
-                        }) ?? []
-                    
-                    performOn(.Main, closure: {
-                        completion(result)
-                    })
-                case .failure:
-                    print("error")
-                }
-        }
-    }
+//    static func SearchProduct(filter: SearchFilter, completion: @escaping ([HomePageModel]) -> Void) {
+//        var result: [HomePageModel] = []
+//        Alamofire.request(PROJECT_API.SEARCH_PRODUCT(filter: filter),
+//                          method: .get,
+//                          encoding: JSONEncoding.default
+//            ).responseJSON
+//            { (response) in
+//                switch response.result{
+//                case .success(let value):
+//                    let json = JSON(value)
+//                    result = (json["results"].array?.map{
+//                        HomePageModel(json: $0)
+//                        }) ?? []
+//                    
+//                    performOn(.Main, closure: {
+//                        completion(result)
+//                    })
+//                case .failure:
+//                    print("error")
+//                }
+//        }
+//    }
     
     static func LoadAllPostByUser(completion: @escaping ([HomePageModel]) -> Void){
         var result: [HomePageModel] = []

@@ -16,7 +16,11 @@ class FilterBottonViewController: UIViewController {
     var selectedIndex: Int?
     var link: BtnFilter?
     var labelData: FilterButtonEnum?
-    
+    var all: String = ""
+    var Category: String = ""
+    var Brand: String = ""
+    var Years: String = ""
+    var Prices: String = ""
     
     
     @IBOutlet weak var lblList: UILabel!
@@ -48,6 +52,18 @@ extension FilterBottonViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row{
+        case 0:
+            print("1")
+        case 1:
+            print("2")
+        case 2:
+            print("3")
+        default:
+            print("default")
+        }
+       
+        
         selectedIndex = indexPath.row
         tableView.reloadData()
     }
