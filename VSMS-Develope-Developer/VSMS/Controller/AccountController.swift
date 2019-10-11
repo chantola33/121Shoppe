@@ -181,7 +181,6 @@ class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMap
     
     func setUpAccountData()
     {
-        let group = UserAccount.ProfileData.group
         
         lblUserGroup.getUserGroupFromAPI(userGroupID: UserAccount.ProfileData.group ?? 0)
         txtUsername.text = UserAccount.firstname == "" ? UserAccount.username : UserAccount.firstname
@@ -379,22 +378,19 @@ extension UILabel {
     
     func getUserGroupFromAPI(userGroupID: Int)
     {
-        Alamofire.request("\(PROJECT_API.GROUPS)\(userGroupID)/",
+        Alamofire.request("\(PROJECT_API.GROUPS)",
             method: .get,
             encoding: JSONEncoding.default
             ).responseJSON { (respone) in
                 switch respone.result {
                 case .success(let value):
                     let json = JSON(value)
-//                    let groups = JSON(json["results"].arrayValue.first(where: { $0["id"].stringValue == userGroupID.toString() })!)
-                    
-//                    performOn(.Main, closure: {
-//                        self.text = groups["name"].stringValue
-//                    })
-                    let group = json["name"].stringValue
-                    performOn(.Main,closure: {
-                        self.text = group
+                    let groups = JSON(json["results"].arrayValue.first(where: { $0["id"].stringValue == userGroupID.toString() })!)
+
+                    performOn(.Main, closure: {
+                        self.text = groups["name"].stringValue
                     })
+
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
