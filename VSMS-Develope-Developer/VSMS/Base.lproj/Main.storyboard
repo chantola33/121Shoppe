@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LM1-tX-UsK">
-
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -638,10 +636,10 @@
             </objects>
             <point key="canvasLocation" x="2584.8000000000002" y="1769.7044334975369"/>
         </scene>
-        <!--Test View Controller-->
+        <!--Profile Controller-->
         <scene sceneID="Fwa-39-INw">
             <objects>
-                <viewController storyboardIdentifier="TestViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pSc-hu-Y4H" customClass="TestViewController" customModule="VSMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pSc-hu-Y4H" customClass="ProfileController" customModule="VSMS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="epR-zL-ij8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3890,43 +3888,43 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgG-3k-gNg">
-                                                <rect key="frame" x="60" y="233.33333333333331" width="133" height="36"/>
+                                                <rect key="frame" x="60" y="233.33333333333331" width="113" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="B0e-Af-8rH"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <state key="normal" title="Public User" image="ic_radio_button_unchecked_white">
+                                                <state key="normal" title="Public User" image="Registeruncheck">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <state key="selected" image="ic_radio_button_checked_white"/>
+                                                <state key="selected" image="Registercheck"/>
                                                 <connections>
                                                     <action selector="btnPublicAction:" destination="Dc5-El-fz8" eventType="touchUpInside" id="Q4p-td-u23"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Account Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhM-sn-7GK">
-                                                <rect key="frame" x="60" y="188" width="168" height="20.333333333333343"/>
+                                                <rect key="frame" x="59.999999999999986" y="188" width="157.66666666666663" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOm-nP-DAv">
-                                                <rect key="frame" x="60" y="294.66666666666669" width="154" height="30"/>
+                                                <rect key="frame" x="60" y="294.66666666666669" width="134" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="r78-Gi-i1W"/>
                                                 </constraints>
-                                                <state key="normal" title="Other Dealer" image="ic_radio_button_unchecked_white">
+                                                <state key="normal" title="Other Dealer" image="Registeruncheck">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
-                                                <state key="selected" image="ic_radio_button_checked_white"/>
+                                                <state key="selected" image="Registercheck"/>
                                                 <connections>
                                                     <action selector="btnDealerAction:" destination="Dc5-El-fz8" eventType="touchUpInside" id="hQI-LI-fIK"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2o-ma-vqe">
-                                                <rect key="frame" x="16" y="384.66666666666669" width="343" height="30"/>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2o-ma-vqe">
+                                                <rect key="frame" x="16" y="384.66666666666669" width="343" height="35"/>
                                                 <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="r6H-9Y-CpZ"/>
+                                                    <constraint firstAttribute="height" constant="35" id="r6H-9Y-CpZ"/>
                                                 </constraints>
                                                 <state key="normal" title="NEXT">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3947,11 +3945,13 @@
                                             <constraint firstItem="MgG-3k-gNg" firstAttribute="top" secondItem="OhM-sn-7GK" secondAttribute="bottom" constant="25" id="M54-Io-C0l"/>
                                             <constraint firstAttribute="trailing" secondItem="cJA-ep-jW9" secondAttribute="trailing" id="Owd-aT-3eZ"/>
                                             <constraint firstItem="v2o-ma-vqe" firstAttribute="top" secondItem="qOm-nP-DAv" secondAttribute="bottom" constant="60" id="P3l-8y-cfK"/>
-                                            <constraint firstAttribute="trailing" secondItem="OhM-sn-7GK" secondAttribute="trailing" constant="147" id="YWh-xf-feT"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OhM-sn-7GK" secondAttribute="trailing" constant="20" symbolic="YES" id="YWh-xf-feT"/>
                                             <constraint firstItem="cJA-ep-jW9" firstAttribute="leading" secondItem="Tch-hk-yla" secondAttribute="leading" id="hjL-h4-VR4"/>
                                             <constraint firstItem="cJA-ep-jW9" firstAttribute="top" secondItem="Tch-hk-yla" secondAttribute="top" id="i6l-r3-Yj8"/>
                                             <constraint firstItem="OhM-sn-7GK" firstAttribute="leading" secondItem="Tch-hk-yla" secondAttribute="leading" constant="60" id="qKG-ei-1A4"/>
                                             <constraint firstItem="qOm-nP-DAv" firstAttribute="leading" secondItem="Tch-hk-yla" secondAttribute="leading" constant="60" id="sFz-XL-UFL"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MgG-3k-gNg" secondAttribute="trailing" constant="20" symbolic="YES" id="srM-2K-pOy"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qOm-nP-DAv" secondAttribute="trailing" constant="20" symbolic="YES" id="yHt-aT-qgs"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -4556,9 +4556,9 @@
         <image name="Dream192" width="1500" height="1000"/>
         <image name="Icon-Camera-20x20" width="20" height="20"/>
         <image name="Profile_Default" width="100" height="100"/>
+        <image name="Registercheck" width="30" height="30"/>
+        <image name="Registeruncheck" width="30" height="30"/>
         <image name="gear-50" width="25" height="25"/>
-        <image name="ic_radio_button_checked_white" width="48" height="48"/>
-        <image name="ic_radio_button_unchecked_white" width="50" height="50"/>
         <image name="icons8-customer-filled-50" width="25" height="25"/>
         <image name="icons8-facebook-old-filled-24" width="24" height="24"/>
         <image name="icons8-home-50" width="25" height="25"/>
@@ -4575,4 +4575,3 @@
         <image name="thumnail" width="16.666666030883789" height="16.666666030883789"/>
     </resources>
 </document>
-

@@ -15,7 +15,7 @@ import SwiftyJSON
 
 class BtnFilterCollectionViewCell: UICollectionViewCell {
 
-    var AL = HomepageRequestHandler()
+    var ProductDetail = DetailViewModel()
     @IBOutlet weak var btnFilter: LGButton!
     
     var indexButton: Int?

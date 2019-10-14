@@ -100,6 +100,7 @@ class RelatedFilter {
     var modeling: String = ""
     var min_price: String = ""
     var max_price: String = ""
+    var years: String = ""
     
     init() {}
 }

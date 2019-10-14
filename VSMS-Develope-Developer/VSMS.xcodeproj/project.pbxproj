@@ -54,7 +54,7 @@
 		865B5DBF221FDD3700864F7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865B5DBD221FDD3700864F7E /* LaunchScreen.storyboard */; };
 		865C543822C5B1810081FBC5 /* LoginPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C543722C5B1810081FBC5 /* LoginPasswordController.swift */; };
 		86626B9B229C464C00FE25DD /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86626B96229C464B00FE25DD /* LocationService.swift */; };
-		86626B9E229C464C00FE25DD /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86626B99229C464C00FE25DD /* TestViewController.swift */; };
+		86626B9E229C464C00FE25DD /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86626B99229C464C00FE25DD /* ProfileController.swift */; };
 		866C2DB42304F20A004B7682 /* ImagePickerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866C2DB32304F20A004B7682 /* ImagePickerUIView.swift */; };
 		866C2DB62304F222004B7682 /* ImagePickerUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866C2DB52304F222004B7682 /* ImagePickerUIView.xib */; };
 		866C2DB82305175B004B7682 /* PresentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866C2DB72305175B004B7682 /* PresentController.swift */; };
@@ -183,7 +183,7 @@
 		865B5DC0221FDD3700864F7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		865C543722C5B1810081FBC5 /* LoginPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordController.swift; sourceTree = "<group>"; };
 		86626B96229C464B00FE25DD /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		86626B99229C464C00FE25DD /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		86626B99229C464C00FE25DD /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		866C2DB32304F20A004B7682 /* ImagePickerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerUIView.swift; sourceTree = "<group>"; };
 		866C2DB52304F222004B7682 /* ImagePickerUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePickerUIView.xib; sourceTree = "<group>"; };
 		866C2DB72305175B004B7682 /* PresentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentController.swift; sourceTree = "<group>"; };
@@ -414,7 +414,7 @@
 				C4CCAE4822F9676A00E21EC4 /* BaseViewController.swift */,
 				D55FA97A223EBD34005B0C8D /* SettingController.swift */,
 				C4CCAE4A22F9679300E21EC4 /* LanguageManager.swift */,
-				86626B99229C464C00FE25DD /* TestViewController.swift */,
+				86626B99229C464C00FE25DD /* ProfileController.swift */,
 				86AAF0D622C0C4D4003C46F3 /* MenuViewController.swift */,
 				865C543722C5B1810081FBC5 /* LoginPasswordController.swift */,
 				86D6C40E22C74D1F003B952E /* CustomTabBarController.swift */,
@@ -884,7 +884,7 @@
 				86E5494C22D6F596002B2980 /* Message.swift in Sources */,
 				C45661B722CE6D9200973945 /* LikesTableViewCell.swift in Sources */,
 				8613E8EA231CDB61006C9D60 /* NoConverstaionTableViewCell.swift in Sources */,
-				86626B9E229C464C00FE25DD /* TestViewController.swift in Sources */,
+				86626B9E229C464C00FE25DD /* ProfileController.swift in Sources */,
 				863220842303B0F5002B9DF6 /* StructTemplate.swift in Sources */,
 				86F0FB1922D1CF1500DF6559 /* PostList.swift in Sources */,
 				86D6C40F22C74D1F003B952E /* CustomTabBarController.swift in Sources */,
