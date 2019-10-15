@@ -131,7 +131,7 @@ class RegisterController: UIViewController {
                                   
                                         print("account")
                                         print(self.user_group)
-                                        let profileVC: MyAccountController = self.storyboard?.instantiateViewController(withIdentifier: "MyAccountController") as! MyAccountController
+                                        let profileVC: AccountController = self.storyboard?.instantiateViewController(withIdentifier: "AccountController") as! AccountController
                                     self.navigationController?.pushViewController(profileVC, animated: true)
                                 
                                 }

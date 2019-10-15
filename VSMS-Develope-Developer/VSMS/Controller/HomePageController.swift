@@ -554,7 +554,7 @@ extension HomePageController: navigationToHomepage {
         sideMenuController?.hideMenu()
         switch list {
         case "profile":
-            let profileVC: MyAccountController = self.storyboard?.instantiateViewController(withIdentifier: "MyAccountController") as! MyAccountController
+            let profileVC: AccountController = self.storyboard?.instantiateViewController(withIdentifier: "AccountController") as! AccountController
             self.navigationController?.pushViewController(profileVC, animated: true)
            // self.present(navi, animated: false,completion: nil)
         case "Setting":

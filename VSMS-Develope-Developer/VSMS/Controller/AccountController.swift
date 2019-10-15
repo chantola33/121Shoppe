@@ -15,7 +15,7 @@ import GooglePlaces
 import CoreLocation
 import MapKit
 
-class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSMapViewDelegate {
+class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMapViewDelegate {
     
     //Storyboard Properties
     @IBOutlet weak var lblUserGroup: UILabel!
@@ -276,7 +276,7 @@ class MyAccountController: UITableViewController, CLLocationManagerDelegate,GMSM
 
 
 
-extension MyAccountController {
+extension AccountController {
     
     func ShowMarritalStatusOption(style: PresentationStyle)
     {

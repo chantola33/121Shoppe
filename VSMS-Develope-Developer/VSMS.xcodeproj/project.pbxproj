@@ -124,7 +124,7 @@
 		C4CCAE5322F9732C00E21EC4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4CCAE5122F9732C00E21EC4 /* Localizable.strings */; };
 		D54C4811224223BD004FE033 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C4810224223BD004FE033 /* LoginController.swift */; };
 		D54C48132242249D004FE033 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C48122242249D004FE033 /* RegisterController.swift */; };
-		D54C481522422F20004FE033 /* MyAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C481422422F20004FE033 /* MyAccountController.swift */; };
+		D54C481522422F20004FE033 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C481422422F20004FE033 /* AccountController.swift */; };
 		D55FA97B223EBD34005B0C8D /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FA97A223EBD34005B0C8D /* SettingController.swift */; };
 		D56B83C9234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */; };
 		D581EFC1234B8BFE00C89A2D /* laonn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D581EFC0234B8BFA00C89A2D /* laonn.jpg */; };
@@ -257,7 +257,7 @@
 		C4CCAE5422F9734000E21EC4 /* km-KH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "km-KH"; path = "km-KH.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D54C4810224223BD004FE033 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D54C48122242249D004FE033 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
-		D54C481422422F20004FE033 /* MyAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountController.swift; sourceTree = "<group>"; };
+		D54C481422422F20004FE033 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		D55FA97A223EBD34005B0C8D /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTypeViewController.swift; sourceTree = "<group>"; };
 		D581EFC0234B8BFA00C89A2D /* laonn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = laonn.jpg; sourceTree = "<group>"; };
@@ -409,7 +409,7 @@
 				C40213A322574D08007920C4 /* HomePageController.swift */,
 				86626B96229C464B00FE25DD /* LocationService.swift */,
 				D54C4810224223BD004FE033 /* LoginController.swift */,
-				D54C481422422F20004FE033 /* MyAccountController.swift */,
+				D54C481422422F20004FE033 /* AccountController.swift */,
 				D54C48122242249D004FE033 /* RegisterController.swift */,
 				C4CCAE4822F9676A00E21EC4 /* BaseViewController.swift */,
 				D55FA97A223EBD34005B0C8D /* SettingController.swift */,
@@ -888,7 +888,7 @@
 				863220842303B0F5002B9DF6 /* StructTemplate.swift in Sources */,
 				86F0FB1922D1CF1500DF6559 /* PostList.swift in Sources */,
 				86D6C40F22C74D1F003B952E /* CustomTabBarController.swift in Sources */,
-				D54C481522422F20004FE033 /* MyAccountController.swift in Sources */,
+				D54C481522422F20004FE033 /* AccountController.swift in Sources */,
 				86F48B6E230EAD2B00B2622A /* FirebaseHandle.swift in Sources */,
 				C4826FC823000FD000494DB0 /* TermofprivacyTableViewCell.swift in Sources */,
 				8613E8ED231CFB1B006C9D60 /* NewMessageViewController.swift in Sources */,

@@ -72,7 +72,7 @@ class PresentController
     
     static func PushToEditProfileViewController(from: UIViewController)
     {
-        if let editVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MyAccountController") as? MyAccountController
+        if let editVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AccountController") as? AccountController
         {
             from.navigationController?.pushViewController(editVC, animated: true)
         }
