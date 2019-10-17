@@ -61,9 +61,18 @@ class ProductGridTableViewCell: UITableViewCell {
     func reload()
     {
         if data1 != nil {
-            lbl_1_Productname.text = data1!.title.capitalizingFirstLetter()
+            let ProductName = data1!.post_sub_title
+            var SplitName = ProductName.components(separatedBy: ",")
+            print(SplitName.count)
+            if SplitName.count > 1 {
+                if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
+                    lbl_1_Productname.text = SplitName[0]
+                }else {
+                    lbl_1_Productname.text = SplitName[1]
+                }
+            }
+//            lbl_1_Productname.text = data1!.title.capitalizingFirstLetter()
             img_1_Product.LoadFromURL(url: data1!.imagefront)
-            lbl_1_Productname.text = data1?.title
             lbl_1_Productprice.text = data1?.cost.toCurrency()
             //lbl_1_duration.text = data1?.create_at?.getDuration()
             lbl_1_postTy.SetPostType(postType: data1!.postType)
@@ -73,9 +82,18 @@ class ProductGridTableViewCell: UITableViewCell {
         }
         
         if data2 != nil {
-            lbl_2_Productname.text = data2!.title.capitalizingFirstLetter()
+            let ProductName = data2!.post_sub_title
+            var SplitName = ProductName.components(separatedBy: ",")
+            print(SplitName.count)
+            if SplitName.count > 1 {
+                if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
+                    lbl_2_Productname.text = SplitName[0]
+                }else {
+                    lbl_2_Productname.text = SplitName[1]
+                }
+            }
+//            lbl_2_Productname.text = data2!.title.capitalizingFirstLetter()
             img_2_Product.LoadFromURL(url: data2!.imagefront)
-            lbl_2_Productname.text = data2?.title
             lbl_2_productprice.text = data2?.cost.toCurrency()
            // lbl_2_duration.text = data2?.create_at?.getDuration()
             lbl_2_postTy.SetPostType(postType: data2!.postType)

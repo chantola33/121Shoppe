@@ -22,26 +22,29 @@ class HomePageModel {
     var create_at: String?
     var status: Int?
     var loanID: Int?
+    var post_sub_title: String = ""
         
     init() {}
     
-    init(id: Int, name: String, cost: String, imagefront: String){
+    init(id: Int, name: String, cost: String, imagefront: String, postSubTitle: String){
         self.product = id
         self.title = name
         self.cost = cost
         self.imagefront = imagefront
+        self.post_sub_title = postSubTitle
     }
     
-    init(id: Int, name: String, cost: String, imagefront: String,discount: String, postType: String){
+    init(id: Int, name: String, cost: String, imagefront: String,discount: String, postType: String, postSubTitle: String){
         self.product = id
         self.title = name
         self.cost = cost
         self.imagefront = imagefront
         self.discount = discount
         self.postType = postType
+        self.post_sub_title = postSubTitle
     }
     
-    init(id: Int, name: String, cost: String, imagefront: String,discount: String, postType: String, createdat: String){
+    init(id: Int, name: String, cost: String, imagefront: String,discount: String, postType: String, createdat: String, postSubTitle: String){
         self.product = id
         self.title = name
         self.cost = cost
@@ -49,9 +52,10 @@ class HomePageModel {
         self.discount = discount
         self.postType = postType
         self.create_at = createdat
+        self.post_sub_title = postSubTitle
     }
     
-    init(loanID: Int, postID: Int, title: String, cost: String, discount: String, imageFront: String, postType: String, created_by: String)
+    init(loanID: Int, postID: Int, title: String, cost: String, discount: String, imageFront: String, postType: String, created_by: String, postSubTitle: String)
     {
         self.loanID = loanID
         self.product = postID
@@ -61,6 +65,7 @@ class HomePageModel {
         self.imagefront = imageFront
         self.postType = postType
         self.create_at = created_by
+        self.post_sub_title = postSubTitle
     }
     
     init(postID: Int){
@@ -74,6 +79,7 @@ class HomePageModel {
                 self.postType = val.postType
                 self.imagefront = val.imagefront
                 self.create_at = val.create_at
+                self.post_sub_title = val.post_sub_title
             }
         }
         print("out")
@@ -88,6 +94,7 @@ class HomePageModel {
         self.postType = json["post_type"].stringValue
         self.create_at = json["created"].stringValue
         self.status = json["status"].stringValue.toInt()
+        self.post_sub_title = json["post_sub_title"].stringValue
     }
     
 }

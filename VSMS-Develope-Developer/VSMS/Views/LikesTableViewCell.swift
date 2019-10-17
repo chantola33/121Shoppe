@@ -49,8 +49,17 @@ class LikesTableViewCell: UITableViewCell {
         
         RequestHandle.LoadListProductByPostID(postID: ProductData.post) { (val) in
             performOn(.Main, closure: {
+                let ProductName = val.post_sub_title
+                var SplitName = ProductName.components(separatedBy: ",")
+                if SplitName.count > 1 {
+                    if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
+                        self.lblName.text = SplitName[0]
+                    }else {
+                        self.lblName.text = SplitName[1]
+                    }
+                }
                 self.LikesImage.LoadFromURL(url: val.imagefront)
-                self.lblName.text = val.title.capitalizingFirstLetter()
+//                self.lblName.text = val.post_sub_title.capitalizingFirstLetter()
                 self.lblPrice.text = val.cost.toCurrency()
                 self.lblDuration.text = val.create_at?.getDuration()
                 self.lblPostType.SetPostType(postType: val.postType)

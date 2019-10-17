@@ -487,11 +487,11 @@ extension UILabel {
     {
         if postType == "sell"
         {
-            self.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            self.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         }
         else if postType == "rent"
         {
-            self.backgroundColor = #colorLiteral(red: 0.16155532, green: 0.6208058596, blue: 0.002179143718, alpha: 1)
+            self.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         }
         else{
             self.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
