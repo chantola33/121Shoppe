@@ -320,10 +320,17 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     }
     
     func InitailDetail(){
-        lblProductName.text = ProductDetail.title.capitalizingFirstLetter()
+        let ProductName = ProductDetail.post_sub_title
+        var SplitName = ProductName.components(separatedBy: ",")
+        if SplitName.count > 1 {
+            if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
+                lblProductName.text = SplitName[0]
+            }else {
+                lblProductName.text = SplitName[1]
+            }
+        }
+
         lblProductPrice.text = ProductDetail.cost.toCurrency()
-        
-        
         if ProductDetail.discount.toDouble() != 0.0
         {
             lblOldPrice.attributedText = ProductDetail.cost.toCurrency().strikeThrough()
@@ -361,7 +368,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             self.lblUserEmail.text = "Email: \(Profile.email)"
             self.lblAddress.text = "Address: \(self.ProductDetail.vin_code)"
             
-            var Phonenumber = Profile.PhoneNumber
+            let Phonenumber = Profile.PhoneNumber
             var SplitNumber = Phonenumber.components(separatedBy: ",")
             print(SplitNumber.count)
             if SplitNumber.count == 2 {

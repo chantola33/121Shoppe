@@ -55,7 +55,8 @@ class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMap
     //Internal Properties
     var UserAccount = AccountViewModel()
     let datePicker = UIDatePicker()
-    
+    var ShopData : [AccountViewModel] = []
+    var putshop = AccountViewModel()
     //Dropdown Array
     let genderArr = ["Male", "Female"]
     var gender = [String]()
@@ -66,7 +67,7 @@ class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMap
     
     var maritalStatusArr: [DropDownTemplate] = []
     var maritalStatusSelected = [DropDownTemplate]()
-    
+    var shop_Name: String = ""
 
     //selected Data
     
@@ -193,7 +194,10 @@ class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMap
         txtWingName.text = UserAccount.ProfileData.wing_account_name
         txtWingNumber.text = UserAccount.ProfileData.wing_account_number
         txtaddress.text = UserAccount.ProfileData.responsible_officer
-        
+       
+//        shop_Name =  UserAccount.shop_name
+    
+        print( UserAccount.shops)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -201,12 +205,15 @@ class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMap
         switch indexPath.row
         {
         case 1:
+            
+            self.SelectShopNameOption()
+        case 2:
             self.ShowGenderOption(style: .push)
-        case 3:
-            self.ShowProvinceOption(style: .push)
         case 4:
-            self.ShowMarritalStatusOption(style: .push)
+            self.ShowProvinceOption(style: .push)
         case 5:
+            self.ShowMarritalStatusOption(style: .push)
+        case 6:
             self.ShowLocationOption(style: .push)
         default:
             break
@@ -266,6 +273,22 @@ class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMap
         UserAccount.ProfileData.address = latlog
         UserAccount.ProfileData.responsible_officer = txtaddress.text!
         UserAccount.UpdateUserAccount {
+            if self.ShopData.count > 0 {
+            for putshop in self.ShopData {
+                self.UserAccount.user = putshop.user!
+                self.UserAccount.shop_name = putshop.shop_name
+                self.UserAccount.shop_address = putshop.shop_address
+                self.UserAccount.shop_image = putshop.shop_image
+                self.UserAccount.record_status = 1
+                self.UserAccount.Shop { (result) in
+                    performOn(.Main, closure: {
+                        if result {
+                            print("Successful")
+                        }
+                    })
+                }
+              }
+            }
             alertMessage.dismissActivityIndicator()
             
         }
@@ -292,6 +315,45 @@ extension AccountController {
             self?.tableView.reloadData()
         }
         selectionMenu.show(style: style, from: self)
+    }
+    
+    func SelectShopNameOption (){
+        let alertShopName = UIAlertController(title: "Shop Name", message: "", preferredStyle: .alert)
+        alertShopName.addTextField()
+        alertShopName.addTextField()
+        alertShopName.textFields![0].placeholder = "Shop Name"
+        alertShopName.textFields![1].placeholder = "Address"
+        let image = UIImage(named: "121logo")
+//        let imgView = UIImageView(frame: CGRect(x: 75, y: 75, width:30, height: 30))
+//        imgView.image = image
+//        alertShopName.view.addSubview(imgView)
+        alertShopName.addAction(UIAlertAction( title: "Cancel", style: .cancel, handler: {(action) in
+            print("Canceled....")
+        }))
+        alertShopName.addAction(UIAlertAction( title: "Submit", style: .default, handler: {(action) in
+            print("Submitted....")
+            let user = User.getUserID()
+            let shop = alertShopName.textFields![0].text
+            let address = alertShopName.textFields![1].text
+            print(user)
+//            self.UserAccount.user = user
+//            self.UserAccount.shop_name = shop!
+//            self.UserAccount.shop_address = address!
+//            self.UserAccount.shop_image = (image?.toBase64())!
+//            self.UserAccount.Shop { (result) in
+//                performOn(.Main, closure: {
+//                    if result {
+//                        print("Successful")
+//                    }
+//                })
+//            }
+            self.putshop = AccountViewModel(user: user, shop_name: shop!, shop_address: address!, shop_image: (image?.toBase64())!)
+            self.ShopData.append(self.putshop)
+           
+            }))
+        self.present(alertShopName, animated: true)
+        
+      
     }
     
     func ShowGenderOption(style: PresentationStyle)

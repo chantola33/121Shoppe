@@ -12,6 +12,7 @@ import SwiftyJSON
 import Photos
 
 var http_absoluteString = "http://103.205.26.103:8000"
+//var http_absoluteString = "http://121shoppe.com"
 
 class PROJECT_API {
     /////
@@ -24,12 +25,14 @@ class PROJECT_API {
     static var PROVINCES = "\(http_absoluteString)/api/v1/provinces/"
     static var GROUPS = "\(http_absoluteString)/api/v1/groups/"
     static var POSTLIKEBYUSER = "\(http_absoluteString)/like/?post&like_by"
+    static var SHOP = "\(http_absoluteString)/api/v1/shop/"
    
     
     //Profile
     static var POST_BYUSER = "\(http_absoluteString)/postbyuser/"
     static var USER = "\(http_absoluteString)/api/v1/users/\(User.getUserID())/"
     static var POSTBYUSERACTIVE = "\(http_absoluteString)/postbyuser/"
+    static var POSTBYUSERACTIVEFILTER = "\(http_absoluteString)/postbyuserfilter/"
     static var POSTBYUSERHISTORY = "\(http_absoluteString)/posybyuserhistory/?status=2"
     static var PROFILE_PIC = "\(http_absoluteString)/api/v1/users/\(User.getUserID())/profilephoto/"
     static var COVER_PIC = "\(http_absoluteString)/api/v1/users/\(User.getUserID())/coverphoto/"

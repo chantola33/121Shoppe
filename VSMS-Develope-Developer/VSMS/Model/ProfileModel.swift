@@ -19,15 +19,17 @@ class ProfileModel {
     var cost: String = "0.0"
     var base64Img: String = ""
     var frontImage: UIImage?
+    var post_sub_title: String = ""
    
     
     init() {}
     
-    init(id: Int, name: String, cost: String, base64Img: String){
+    init(id: Int, name: String, cost: String, base64Img: String, postSubTitle: String){
         self.PosID = id
         self.title = name
         self.cost = cost
         self.base64Img = base64Img
+        self.post_sub_title = postSubTitle
         
     }
     
@@ -37,6 +39,7 @@ class ProfileModel {
         self.category = json["category"].stringValue.toInt()
         self.cost = json["cost"].stringValue
         self.base64Img = json["front_image_base64"].stringValue
+        self.post_sub_title = json["post_sub_title"].stringValue
         
     }
 }

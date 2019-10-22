@@ -33,8 +33,18 @@ class ProductImageTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        let ProductName = data.post_sub_title
+        let SplitName = ProductName.components(separatedBy: ",")
+        print(SplitName.count)
+        if SplitName.count > 1 {
+            if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
+                lblProductName.text = SplitName[0]
+            }else {
+                lblProductName.text = SplitName[1]
+            }
+        }
         imgProduct.LoadFromURL(url: data.imagefront)
-        lblProductName.text = data.title.capitalizingFirstLetter()
+//        lblProductName.text = data.title.capitalizingFirstLetter()
         lblProductPrice.text = data.cost.toCurrency()
        // lblDuration.text = data.create_at?.getDuration()
         RequestHandle.CountView(postID: data.product) { (count) in

@@ -47,9 +47,18 @@ class ProductListTableViewCell: UITableViewCell {
                 })
             }
         }
-        
+        let ProductName = ProductData.post_sub_title
+        let SplitName = ProductName.components(separatedBy: ",")
+        print(SplitName.count)
+        if SplitName.count > 1 {
+        if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
+            lblProductname.text = SplitName[0]
+        }else {
+            lblProductname.text = SplitName[1]
+        }
+        }
         imgProductImage.LoadFromURL(url: ProductData.imagefront)
-        lblProductname.text = ProductData.title.capitalizingFirstLetter()
+       
         lblProductPrice.text = ProductData.cost.toCurrency()
        // lblDuration.text = ProductData.create_at?.getDuration()
         lblPostType.SetPostType(postType: ProductData.postType)

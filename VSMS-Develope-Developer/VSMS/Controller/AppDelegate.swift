@@ -31,8 +31,9 @@ class AppDelegate: UIResponder,
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        
         //Config Firebase
-        if #available(iOS 10.0, *) {
+        if #available(iOS 3.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
 

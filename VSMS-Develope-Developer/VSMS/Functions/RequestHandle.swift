@@ -47,7 +47,8 @@ class RequestHandle {
                                       cost: $0["cost"].stringValue,
                                       imagefront: $0["front_image_base64"].stringValue,
                                       discount: $0["discount"].stringValue,
-                                      postType: $0["post_type"].stringValue)
+                                      postType: $0["post_type"].stringValue,
+                                      postSubTitle: $0["post_sub_title"].stringValue)
                         }) ?? []
                     
                     performOn(.Main, closure: {
@@ -207,7 +208,7 @@ class RequestHandle {
     
     static func LoadAllPostByUser(completion: @escaping ([HomePageModel]) -> Void){
         var result: [HomePageModel] = []
-        Alamofire.request(PROJECT_API.POSTBYUSERACTIVE,
+        Alamofire.request(PROJECT_API.POSTBYUSERACTIVEFILTER,
                           method: .get,
                           encoding: JSONEncoding.default,
                           headers: httpHeader()
