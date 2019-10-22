@@ -62,7 +62,7 @@ class ProductGridTableViewCell: UITableViewCell {
     {
         if data1 != nil {
             let ProductName = data1!.post_sub_title
-            var SplitName = ProductName.components(separatedBy: ",")
+            let SplitName = ProductName.components(separatedBy: ",")
             print(SplitName.count)
             if SplitName.count > 1 {
                 if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
@@ -83,7 +83,8 @@ class ProductGridTableViewCell: UITableViewCell {
         
         if data2 != nil {
             let ProductName = data2!.post_sub_title
-            var SplitName = ProductName.components(separatedBy: ",")
+
+            let SplitName = ProductName.components(separatedBy: ",")
             print(SplitName.count)
             if SplitName.count > 1 {
                 if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
