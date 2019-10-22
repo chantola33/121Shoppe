@@ -51,6 +51,7 @@ class LikesTableViewCell: UITableViewCell {
             performOn(.Main, closure: {
                 let ProductName = val.post_sub_title
                 let SplitName = ProductName.components(separatedBy: ",")
+
                 if SplitName.count > 1 {
                     if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
                         self.lblName.text = SplitName[0]

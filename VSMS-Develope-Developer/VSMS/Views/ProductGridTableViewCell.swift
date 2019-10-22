@@ -83,6 +83,7 @@ class ProductGridTableViewCell: UITableViewCell {
         
         if data2 != nil {
             let ProductName = data2!.post_sub_title
+
             let SplitName = ProductName.components(separatedBy: ",")
             print(SplitName.count)
             if SplitName.count > 1 {

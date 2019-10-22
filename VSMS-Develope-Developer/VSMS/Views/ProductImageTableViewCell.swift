@@ -35,6 +35,7 @@ class ProductImageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
         let ProductName = data.post_sub_title
         let SplitName = ProductName.components(separatedBy: ",")
+
         print(SplitName.count)
         if SplitName.count > 1 {
             if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
