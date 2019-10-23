@@ -42,12 +42,21 @@ class PostsTableViewCell: UITableViewCell {
     
     func reload()
     {
+        let ProductName = Data.post_sub_title
+        let SplitName = ProductName.components(separatedBy: ",")
+        if SplitName.count > 1 {
+            if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
+                lblName.text = SplitName[0]
+            }else {
+                lblName.text = SplitName[1]
+            }
+        }
         PostImage.LoadFromURL(url: Data.imagefront)
-        lblName.text = Data.title.capitalizingFirstLetter()
         lblPrice.text = Data.cost.toCurrency()
 //        lblDuration.text = Data.create_at?.getDuration()
         lblPostType.SetPostType(postType: Data.postType)
         btnStatus.setTextByRecordStatus(status: Data.status!)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
