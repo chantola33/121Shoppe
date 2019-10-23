@@ -25,8 +25,17 @@ class LoanHistoryTableViewCell: UITableViewCell {
         RequestHandle.LoadListProductByPostID(postID: ProductID) { (val) in
 
             performOn(.Main, closure: {
+                let ProductName = val.post_sub_title
+                let SplitName = ProductName.components(separatedBy: ",")
+                if SplitName.count > 1 {
+                    if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
+                        self.lblProductName.text = SplitName[0]
+                    }else {
+                        self.lblProductName.text = SplitName[1]
+                    }
+                }
                 self.imgProduct.LoadFromURL(url: val.imagefront)
-                self.lblProductName.text = val.title.capitalizingFirstLetter()
+//                self.lblProductName.text = val.title.capitalizingFirstLetter()
 //                self.lblDuration.text = val.create_at?.getDuration()
                 self.lblPrice.text = val.cost.toCurrency()
                 self.lblPostType.SetPostType(postType: val.postType)

@@ -30,7 +30,7 @@ class LoanTableViewCell: UITableViewCell {
         RequestHandle.LoadListProductByPostID(postID: ProductID) { (val) in
             performOn(.Main, closure: {
                 let ProductName = val.post_sub_title
-                var SplitName = ProductName.components(separatedBy: ",")
+                let SplitName = ProductName.components(separatedBy: ",")
                 if SplitName.count > 1 {
                     if UserDefaults.standard.string(forKey: currentLangKey) == "en"{
                          self.lblProductName.text = SplitName[0]
