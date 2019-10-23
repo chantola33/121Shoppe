@@ -57,11 +57,11 @@
 	<key>NSCameraUsageDescription</key>
 	<string>YES</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>App needs Location</string>
+	<string>Turn on your location to determine your current location.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This app required to Always Using Permission for location service to view your current location.</string>
+	<string>This app requires access to your location when the screen is on and the app is displayed.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>App needs Location</string>
+	<string>Turn on your location to determine your current location.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This App</string>
 	<key>UIBackgroundModes</key>
