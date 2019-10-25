@@ -30,6 +30,16 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
     @IBOutlet weak var cboColor: CusDropDownUIView!
     @IBOutlet weak var txtDescription: CusTextAreaInput!
     @IBOutlet weak var txtPrice: CusInputUIView!
+    // machine section
+    @IBOutlet weak var txtWhole_ink: CusInputUIView!
+    @IBOutlet weak var txtFront_rear_wheelsets: CusInputUIView!
+    @IBOutlet weak var txtWhole_screw: UIView!
+    @IBOutlet weak var txtFront_rear_pumps: CusInputUIView!
+    @IBOutlet weak var txtLeftRight_engine: CusInputUIView!
+    @IBOutlet weak var txtEngineHead: CusInputUIView!
+    @IBOutlet weak var txtEngine_Assembly: CusInputUIView!
+    @IBOutlet weak var txtConsole: CusInputUIView!
+    @IBOutlet weak var txtAccessories: CusInputUIView!
     //Discount
     @IBOutlet weak var cboDiscountType: CusDropDownUIView!
     @IBOutlet weak var txtDiscountAmount: CusInputUIView!
@@ -233,11 +243,15 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 5
+        return 6
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 2 && isBuy()
+        if section == 2 && isMotorBike_Used()
+        {
+            return UIView()
+        }
+        if section == 3 && isBuy()
         {
             return UIView()
         }
@@ -249,10 +263,17 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
         {
             return CGFloat.leastNonzeroMagnitude
         }
-        if section == 2 && isBuy()
+        
+        if section == 2 && isMotorBike_Used()
         {
             return CGFloat.leastNonzeroMagnitude
         }
+        
+        if section == 3 && isBuy()
+        {
+            return CGFloat.leastNonzeroMagnitude
+        }
+        
         return 40
     }
     
@@ -268,14 +289,20 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
         case 1:
             return 11
         case 2:
+            if isMotorBike_Used() {
+                return 0
+            }
+            return 11
+        case 3:
             if isBuy() {
                 return 0
             }
             return 2
-        case 3:
-            return 4
         case 4:
+            return 4
+        case 5:
             return 1
+      
         default:
             return 0
         }
@@ -569,7 +596,14 @@ extension PostViewController {
         }
         return false
     }
-    
+    func isMotorBike_Used() -> Bool
+    {
+        if self.post_obj.category == 2 && self.post_obj.condition == "used"
+        {
+            return false
+        }
+        return true
+    }
     func isMotorBike() -> Bool
     {
         if self.post_obj.category == 2
@@ -578,6 +612,7 @@ extension PostViewController {
         }
         return false
     }
+    
     
     //////// Table
     func getHeightbyIndexPath(indexpath: IndexPath) -> CGFloat
@@ -598,6 +633,10 @@ extension PostViewController {
         if indexpath.section == 3 && indexpath.row == 3
         {
             return 260
+        }
+        if indexpath.section == 4 && indexpath.row == 3
+        {
+            return 200
         }
         return 50
     }
