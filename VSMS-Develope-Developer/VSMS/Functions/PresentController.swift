@@ -26,6 +26,7 @@ class PresentController
                     menuViewController: menuViewController)
                 return sideMenuController
             }()
+            SideMenuTab.modalPresentationStyle = .fullScreen
             currentView.present(SideMenuTab, animated: false, completion: nil)
         }
     }
@@ -38,6 +39,7 @@ class PresentController
                 let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
                 return UINavigationController(rootViewController: profile)
             }()
+            ProfileTab.modalPresentationStyle = .fullScreen
             currentView.present(ProfileTab, animated: animate, completion: nil)
         }
     }
@@ -57,6 +59,7 @@ class PresentController
                 let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginController") as! LoginController
                 return UINavigationController(rootViewController: profile)
             }()
+            ProfileTab.modalPresentationStyle = .fullScreen
             currentView.present(ProfileTab, animated: true, completion: nil)
         }
     }

@@ -77,7 +77,7 @@ open class SideMenuController: UIViewController {
                 delegate?.sideMenuController(self, didShow: contentViewController, animated: false)
             }
 
-            setNeedsStatusBarAppearanceUpdate()
+            //setNeedsStatusBarAppearanceUpdate()
         }
     }
 
@@ -185,7 +185,7 @@ open class SideMenuController: UIViewController {
         }
 
         // Forwarding status bar style/hidden status to content view controller
-        setNeedsStatusBarAppearanceUpdate()
+        //setNeedsStatusBarAppearanceUpdate()
 
         if let key = preferences.basic.defaultCacheKey {
             lazyCachedViewControllers[key] = contentViewController
@@ -502,36 +502,37 @@ open class SideMenuController: UIViewController {
         // So we need to manipulate the windows of status bar manually.
 
         let behavior = self.preferences.basic.statusBarBehavior
-        guard let sbw = UIWindow.sb, sbw.isStatusBarHidden(with: behavior) != hidden else {
-            return
-        }
-
-        if animate && behavior != .hideOnMenu {
-            UIView.animate(withDuration: 0.4, animations: {
-                sbw.setStatusBarHidden(hidden, with: behavior)
-            })
-        } else {
-            sbw.setStatusBarHidden(hidden, with: behavior)
-        }
-
-        if behavior == .hideOnMenu {
-            if !hidden {
-                statusBarScreenShotView?.removeFromSuperview()
-                statusBarScreenShotView = nil
-            } else if statusBarScreenShotView == nil, let newStatusBarScreenShot = statusBarScreenShot() {
-                statusBarScreenShotView = newStatusBarScreenShot
-                contentContainerView.insertSubview(newStatusBarScreenShot, aboveSubview: contentViewController.view)
-            }
-        }
+//        guard let sbw = UIWindow.sb, sbw.isStatusBarHidden(with: behavior) != hidden else {
+//            return
+//        }
+//
+//        if animate && behavior != .hideOnMenu {
+//            UIView.animate(withDuration: 0.4, animations: {
+//                sbw.setStatusBarHidden(hidden, with: behavior)
+//            })
+//        } else {
+//            sbw.setStatusBarHidden(hidden, with: behavior)
+//        }
+//
+//        if behavior == .hideOnMenu {
+//            if !hidden {
+//                statusBarScreenShotView?.removeFromSuperview()
+//                statusBarScreenShotView = nil
+//            } else if statusBarScreenShotView == nil, let newStatusBarScreenShot = statusBarScreenShot() {
+//                statusBarScreenShotView = newStatusBarScreenShot
+//                contentContainerView.insertSubview(newStatusBarScreenShot, aboveSubview: contentViewController.view)
+//            }
+//        }
     }
 
     private func statusBarScreenShot() -> UIView? {
-        let statusBarFrame = UIApplication.shared.statusBarFrame
-        let screenshot = UIScreen.main.snapshotView(afterScreenUpdates: false)
-        screenshot.frame = statusBarFrame
-        screenshot.contentMode = .top
-        screenshot.clipsToBounds = true
-        return screenshot
+//        let statusBarFrame = UIApplication.shared.statusBarFrame
+//        let screenshot = UIScreen.main.snapshotView(afterScreenUpdates: false)
+//        screenshot.frame = statusBarFrame
+//        screenshot.contentMode = .top
+//        screenshot.clipsToBounds = true
+//        return screenshot
+        return UIView()
     }
 
     open override var childForStatusBarStyle: UIViewController? {

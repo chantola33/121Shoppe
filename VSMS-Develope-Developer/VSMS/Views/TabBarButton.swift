@@ -106,6 +106,7 @@ class TabBarButton: UIView {
                     menuViewController: menuViewController)
                 return sideMenuController
             }()
+            SideMenuTab.modalPresentationStyle = .fullScreen
             currentView.present(SideMenuTab, animated: false, completion: nil)
         }
     }
@@ -128,6 +129,7 @@ class TabBarButton: UIView {
                 let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
                 return UINavigationController(rootViewController: profile)
             }()
+            ProfileTab.modalPresentationStyle = .fullScreen
             currentView.present(ProfileTab, animated: false, completion: nil)
         }
     }
@@ -146,6 +148,7 @@ class TabBarButton: UIView {
                 let postVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
                 return UINavigationController(rootViewController: postVC)
             }()
+            PostAD.modalPresentationStyle = .fullScreen
             currentView.present(PostAD, animated: false, completion: nil)
         }
     }
@@ -168,6 +171,7 @@ class TabBarButton: UIView {
                 let postVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NotificationViewController") as! NotificationViewController
                 return UINavigationController(rootViewController: postVC)
             }()
+            notificationVC.modalPresentationStyle = .fullScreen
             currentView.present(notificationVC, animated: false, completion: nil)
         }
     }
@@ -190,6 +194,7 @@ class TabBarButton: UIView {
                 let postVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
                 return UINavigationController(rootViewController: postVC)
             }()
+            chatVC.modalPresentationStyle = .fullScreen
             currentView.present(chatVC, animated: false, completion: nil)
         }
     }
