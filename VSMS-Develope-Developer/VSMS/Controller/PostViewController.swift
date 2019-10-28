@@ -33,7 +33,7 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
     // machine section
     @IBOutlet weak var txtWhole_ink: CusInputUIView!
     @IBOutlet weak var txtFront_rear_wheelsets: CusInputUIView!
-    @IBOutlet weak var txtWhole_screw: UIView!
+    @IBOutlet weak var txtWhole_screw: CusInputUIView!
     @IBOutlet weak var txtFront_rear_pumps: CusInputUIView!
     @IBOutlet weak var txtLeftRight_engine: CusInputUIView!
     @IBOutlet weak var txtEngineHead: CusInputUIView!
@@ -186,7 +186,7 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
         alertMessage.addActivityIndicator()
         self.present(alertMessage, animated: true, completion: nil)
         
-        post_obj.title = txtTitle.Value
+        post_obj.post_sub_title = txtTitle.Value
         post_obj.cost = txtPrice.Value
         post_obj.description = txtDescription.Value
         post_obj.discount = txtDiscountAmount.Value == "" ? "0": txtDiscountAmount.Value
@@ -194,9 +194,19 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
         post_obj.contact_phone = txtPhoneNumber.Value
         post_obj.contact_email = txtEmail.Value
         post_obj.vin_code = txtaddress.text!
-        post_obj.contact_address = latlog
-        
+        post_obj.contact_address = latlog        
         post_obj.machine_code = txtName.Value
+        
+        //machine section by samangy 24/10/19
+        post_obj.whole_ink = txtWhole_ink.Value
+        post_obj.front_rear_wheekset = txtFront_rear_wheelsets.Value
+        post_obj.whole_screw = txtWhole_screw.Value
+        post_obj.front_rear_pumps = txtFront_rear_pumps.Value
+        post_obj.left_right_enginecounter = txtLeftRight_engine.Value
+        post_obj.engine_head = txtEngineHead.Value
+        post_obj.machine_assembly = txtEngine_Assembly.Value
+        post_obj.console = txtConsole.Value
+        post_obj.accessories = txtAccessories.Value
         
         post_obj.front_image_path = imagePicker.front_image
         post_obj.left_image_path = imagePicker.left_image
@@ -220,6 +230,7 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
             post_obj.Save { (result) in
                 alertMessage.dismissActivityIndicator()
                 if result{
+                    print("Post jol hz")
                     Message.SuccessMessage(message: "Product uploaded successfully.", View: self, callback: {
                         PresentController.ProfileController()
                     })
@@ -337,7 +348,7 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
                 break
             }
         }
-        if indexPath.section == 2 && indexPath.row == 0
+        if indexPath.section == 3 && indexPath.row == 0
         {
             self.ShowDiscountTypeOption(style: .push)
         }
@@ -354,6 +365,7 @@ extension PostViewController {
         self.color_arr = GenerateList.getColor()
         self.discount_type_arr = GenerateList.getDiscountType()
         self.condition_arr = GenerateList.getCondition()
+        
         
         dispatch.enter()
         GenerateList.getCategory { (val) in

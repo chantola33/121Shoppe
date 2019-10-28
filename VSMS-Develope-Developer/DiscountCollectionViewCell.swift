@@ -29,7 +29,7 @@ class DiscountCollectionViewCell: UICollectionViewCell {
     func reload()
     {
         imgProduct.LoadFromURL(url: data.imagefront)
-        MotoName.text = data.title
+        MotoName.text = data.post_sub_title
         MotoPrice.text = "\(data.cost.toDouble() - data.discount.toDouble())".toCurrency()
         MotoDiscount.attributedText = data.cost.strikeThrough()
     }

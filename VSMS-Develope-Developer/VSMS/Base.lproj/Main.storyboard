@@ -3535,7 +3535,7 @@
                         <outlet property="txtPrice" destination="Aqy-ao-gJ0" id="CVm-qe-kr7"/>
                         <outlet property="txtTitle" destination="efi-8b-TxV" id="0f1-6H-a67"/>
                         <outlet property="txtWhole_ink" destination="1AG-pw-dEq" id="LzQ-jk-1pK"/>
-                        <outlet property="txtWhole_screw" destination="dIZ-FI-n3b" id="zkZ-Qt-hw9"/>
+                        <outlet property="txtWhole_screw" destination="ZX3-93-laN" id="ItS-05-xbA"/>
                         <outlet property="txtaddress" destination="ohm-ye-IyJ" id="YvO-tt-zTR"/>
                     </connections>
                 </tableViewController>
