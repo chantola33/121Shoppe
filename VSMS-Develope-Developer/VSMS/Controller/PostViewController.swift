@@ -31,13 +31,14 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
     @IBOutlet weak var txtDescription: CusTextAreaInput!
     @IBOutlet weak var txtPrice: CusInputUIView!
     // machine section
-    @IBOutlet weak var txtWhole_ink: CusInputUIView!
-    @IBOutlet weak var txtFront_rear_wheelsets: CusInputUIView!
-    @IBOutlet weak var txtWhole_screw: CusInputUIView!
-    @IBOutlet weak var txtFront_rear_pumps: CusInputUIView!
-    @IBOutlet weak var txtLeftRight_engine: CusInputUIView!
-    @IBOutlet weak var txtEngineHead: CusInputUIView!
-    @IBOutlet weak var txtEngine_Assembly: CusInputUIView!
+    @IBOutlet weak var txtWholeink: CusInputUIView!
+    @IBOutlet weak var txtFrontWheelset: CusInputUIView!
+    @IBOutlet weak var txtWholeScrew: CusInputUIView!
+    @IBOutlet weak var txtFrontrearpump: CusInputUIView!
+    
+    @IBOutlet weak var txtLeftRightengine: CusInputUIView!
+    @IBOutlet weak var txtEnginehead: CusInputUIView!
+    @IBOutlet weak var txtMachineassembly: CusInputUIView!
     @IBOutlet weak var txtConsole: CusInputUIView!
     @IBOutlet weak var txtAccessories: CusInputUIView!
     //Discount
@@ -198,15 +199,15 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
         post_obj.machine_code = txtName.Value
         
         //machine section by samangy 24/10/19
-        post_obj.whole_ink = txtWhole_ink.Value
-        post_obj.front_rear_wheekset = txtFront_rear_wheelsets.Value
-        post_obj.whole_screw = txtWhole_screw.Value
-        post_obj.front_rear_pumps = txtFront_rear_pumps.Value
-        post_obj.left_right_enginecounter = txtLeftRight_engine.Value
-        post_obj.engine_head = txtEngineHead.Value
-        post_obj.machine_assembly = txtEngine_Assembly.Value
-        post_obj.console = txtConsole.Value
-        post_obj.accessories = txtAccessories.Value
+        post_obj.used_eta1 = txtWholeink.Value
+        post_obj.used_eta2 = txtFrontWheelset.Value
+        post_obj.used_eta3 = txtWholeScrew.Value
+        post_obj.used_eta4 = txtFrontrearpump.Value
+        post_obj.used_machine1 = txtLeftRightengine.Value
+        post_obj.used_machine2 = txtEnginehead.Value
+        post_obj.used_machine3 = txtMachineassembly.Value
+        post_obj.used_machine4 = txtConsole.Value
+        post_obj.used_other1 = txtAccessories.Value
         
         post_obj.front_image_path = imagePicker.front_image
         post_obj.left_image_path = imagePicker.left_image

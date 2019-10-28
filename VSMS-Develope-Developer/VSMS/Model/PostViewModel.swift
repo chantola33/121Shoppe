@@ -370,10 +370,16 @@ class PostAdViewModel
     var description: String = ""
     var cost: String = "0"
     // machine section
-    var whole_ink: String = "0"
-    var front_rear_wheekset: String = "0"
-    var whole_screw: String = "0"
-    var front_rear_pumps: String = "0"
+    var used_eta1: String = "0"
+    var used_eta2: String = "0"
+    var used_eta3: String = "0"
+    var used_eta4: String = "0"
+    
+    var used_machine1: String = "0"
+    var used_machine2: String = "0"
+    var used_machine3: String = "0"
+    var used_machine4: String = "0"
+    var used_other1: String = "0"
     
     var left_right_enginecounter: String = "0"
     var engine_head: String = "0"
@@ -453,15 +459,15 @@ class PostAdViewModel
         
         self.post_sub_title = json["post_sub_title"].stringValue
         // machine section
-        self.whole_ink = json["used_eta1"].stringValue
-        self.front_rear_wheekset = json["used_eta2"].stringValue
-        self.whole_screw = json["used_eta3"].stringValue
-        self.front_rear_pumps = json["used_eta4"].stringValue
+        self.used_eta1 = json["used_eta1"].stringValue
+        self.used_eta2 = json["used_eta2"].stringValue
+        self.used_eta3 = json["used_eta3"].stringValue
+        self.used_eta4 = json["used_eta4"].stringValue
         
-        self.left_right_enginecounter = json["used_machine1"].stringValue
-        self.engine_head = json["used_machine2"].stringValue
-        self.machine_assembly = json["used_machine3"].stringValue
-        self.console = json["used_machine4"].stringValue
+        self.used_machine1 = json["used_machine1"].stringValue
+        self.used_machine2 = json["used_machine2"].stringValue
+        self.used_machine3 = json["used_machine3"].stringValue
+        self.used_machine4 = json["used_machine4"].stringValue
         
         self.accessories = json["used_other1"].stringValue
         //Discount
