@@ -369,7 +369,18 @@ class PostAdViewModel
     var color: String = ""
     var description: String = ""
     var cost: String = "0"
+    // machine section
+    var whole_ink: String = "0"
+    var front_rear_wheekset: String = "0"
+    var whole_screw: String = "0"
+    var front_rear_pumps: String = "0"
     
+    var left_right_enginecounter: String = "0"
+    var engine_head: String = "0"
+    var machine_assembly: String = "0"
+    var console: String = "0"
+    
+    var accessories: String = "0"
     //Discount
     var discount_type: String = "amount"
     var discount: String = "0"
@@ -386,7 +397,7 @@ class PostAdViewModel
     var contact_phone: String = User.getUsername()
     var contact_email: String = ""
     var contact_address: String = ""
-    
+    var post_sub_title: String = ""
     //Image
     var front_image_path: String?
     var front_image_base64: String?
@@ -440,6 +451,19 @@ class PostAdViewModel
         self.description = json["description"].stringValue
         self.cost = json["cost"].stringValue
         
+        self.post_sub_title = json["post_sub_title"].stringValue
+        // machine section
+        self.whole_ink = json["used_eta1"].stringValue
+        self.front_rear_wheekset = json["used_eta2"].stringValue
+        self.whole_screw = json["used_eta3"].stringValue
+        self.front_rear_pumps = json["used_eta4"].stringValue
+        
+        self.left_right_enginecounter = json["used_machine1"].stringValue
+        self.engine_head = json["used_machine2"].stringValue
+        self.machine_assembly = json["used_machine3"].stringValue
+        self.console = json["used_machine4"].stringValue
+        
+        self.accessories = json["used_other1"].stringValue
         //Discount
         self.discount_type = json["discount_type"].stringValue
         self.discount = json["discount"].stringValue
@@ -457,7 +481,8 @@ class PostAdViewModel
         self.left_image_path = json["left_image_path"].stringValue
         self.right_image_path = json["right_image_path"].stringValue
         self.back_image_path = json["back_image_path"].stringValue
-        
+        self.extra_image1 = json["extra_image1"].stringValue
+        self.extra_image2 = json["extra_image2"].stringValue
         //record
         self.user = json["user"].stringValue.toInt()
         self.status = json["status"].stringValue.toInt()
