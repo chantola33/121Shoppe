@@ -199,15 +199,15 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
         post_obj.machine_code = txtName.Value
         
         //machine section by samangy 24/10/19
-        post_obj.used_eta1 = txtWholeink.Value
-        post_obj.used_eta2 = txtFrontWheelset.Value
-        post_obj.used_eta3 = txtWholeScrew.Value
-        post_obj.used_eta4 = txtFrontrearpump.Value
-        post_obj.used_machine1 = txtLeftRightengine.Value
-        post_obj.used_machine2 = txtEnginehead.Value
-        post_obj.used_machine3 = txtMachineassembly.Value
-        post_obj.used_machine4 = txtConsole.Value
-        post_obj.used_other1 = txtAccessories.Value
+        post_obj.used_eta1 = txtWholeink.Value == "" ? "0": txtWholeink.Value
+        post_obj.used_eta2 = txtFrontWheelset.Value == "" ? "0": txtFrontWheelset.Value
+        post_obj.used_eta3 = txtWholeScrew.Value == "" ? "0": txtWholeScrew.Value
+        post_obj.used_eta4 = txtFrontrearpump.Value == "" ? "0": txtFrontrearpump.Value
+        post_obj.used_machine1 = txtLeftRightengine.Value == "" ? "0": txtLeftRightengine.Value
+        post_obj.used_machine2 = txtEnginehead.Value == "" ? "0": txtEnginehead.Value
+        post_obj.used_machine3 = txtMachineassembly.Value == "" ? "0": txtMachineassembly.Value
+        post_obj.used_machine4 = txtConsole.Value == "" ? "0": txtConsole.Value
+        post_obj.used_other1 = txtAccessories.Value == "" ? "0": txtAccessories.Value
         
         post_obj.front_image_path = imagePicker.front_image
         post_obj.left_image_path = imagePicker.left_image
@@ -229,13 +229,13 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
         }
         else{
             post_obj.Save { (result) in
-                alertMessage.dismissActivityIndicator()
-                if result{
-                    print("Post jol hz")
-                    Message.SuccessMessage(message: "Product uploaded successfully.", View: self, callback: {
-                        PresentController.ProfileController()
-                    })
-                }
+                    alertMessage.dismissActivityIndicator()
+                    if result{
+                        Message.SuccessMessage(message: "Product uploaded successfully.", View: self, callback: {
+                            PresentController.ProfileController()
+                        })
+                    }
+                    
             }
         }
     }
@@ -367,7 +367,6 @@ extension PostViewController {
         self.discount_type_arr = GenerateList.getDiscountType()
         self.condition_arr = GenerateList.getCondition()
         
-        
         dispatch.enter()
         GenerateList.getCategory { (val) in
             self.category_arr = val
@@ -432,7 +431,19 @@ extension PostViewController {
                 self.txtName.Value = data.machine_code
                 self.txtPhoneNumber.Value = data.contact_phone
                 self.txtEmail.Value = data.contact_email
-                
+              // section machine by samang 28/10/19
+                self.txtWholeink.Value = data.used_eta1
+                self.txtFrontWheelset.Value = data.used_eta2
+                self.txtWholeScrew.Value = data.used_eta3
+                self.txtFrontrearpump.Value = data.used_eta4
+                self.txtLeftRightengine.Value = data.used_machine1
+                self.txtEnginehead.Value = data.used_machine2
+                self.txtMachineassembly.Value = data.used_machine3
+                self.txtConsole.Value = data.used_machine4
+                self.txtAccessories.Value = data.used_other1
+               
+                self.imagePicker.front_image = data.front_image_path
+                self.imagePicker.back_image = data.back_image_path
                 self.tableView.reloadData()
             }
         }
