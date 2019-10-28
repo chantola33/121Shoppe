@@ -469,7 +469,7 @@ class PostAdViewModel
         self.used_machine3 = json["used_machine3"].stringValue
         self.used_machine4 = json["used_machine4"].stringValue
         
-        self.accessories = json["used_other1"].stringValue
+        self.used_other1 = json["used_other1"].stringValue
         //Discount
         self.discount_type = json["discount_type"].stringValue
         self.discount = json["discount"].stringValue
@@ -553,10 +553,10 @@ class PostAdViewModel
                                     return
                                 }
                                 //Save post to Firebase
-                                let pfb = PostFireBase(PostJson: data)
-                                pfb.Save {
-                                    completion(true)
-                                } 
+//                                let pfb = PostFireBase(PostJson: data)
+//                                pfb.Save {
+//                                    completion(true)
+//                                }
                             case .failure(let error):
                                 print(error)
                                 completion(false)
@@ -583,10 +583,10 @@ class PostAdViewModel
                                     return
                                 }
                                 //Update post to Firebase
-                                let pfb = PostFireBase(PostJson: data)
-                                pfb.Update {
-                                    completion(true)
-                                }
+//                                let pfb = PostFireBase(PostJson: data)
+//                                pfb.Update {
+//                                    completion(true)
+//                                }
                             case .failure(let error):
                                 print(error)
                                 completion(false)
