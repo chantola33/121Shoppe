@@ -342,18 +342,18 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             lblProductPrice.text = ProductDetail.cost.toCurrency()
         }
         
-        lblBrand.text = ProductDetail.getBrand
-        lblYear.text = ProductDetail.getYear
+        lblBrand.text = ProductDetail.post_code
+//        lblYear.text = ProductDetail.getYear
         lblCondition.text = ProductDetail.condition
-        lblColor.text = ProductDetail.color
+//        lblColor.text = ProductDetail.post_code
         lblDescription.text = ProductDetail.description
-        lblPrice.text = ProductDetail.cost.toCurrency()
+//        lblPrice.text = ProductDetail.cost.toCurrency()
 
 //        lblDuration.text = ProductDetail.create_at?.getDuration()
 
         
-        var create_by = ProductDetail.created_by
-        var userid = User.getUserID()
+        let create_by = ProductDetail.created_by
+        let userid = User.getUserID()
         if create_by == userid {
             self.buttonView.isHidden = true
         }

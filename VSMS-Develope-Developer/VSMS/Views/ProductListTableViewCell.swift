@@ -41,6 +41,8 @@ class ProductListTableViewCell: UITableViewCell {
     {
         profileuser.ImageLoadFromURL(url: ProfileHandleRequest.Profile.profile.profile_image)
         UserFireBase.Load { (user) in
+            print("User")
+            print(user)
             if user != nil {
                 performOn(.Main, closure: {
                     self.profileuser.ImageLoadFromURL(url: user.imageURL)
