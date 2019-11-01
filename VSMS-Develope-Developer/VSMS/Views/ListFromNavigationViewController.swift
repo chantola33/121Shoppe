@@ -15,7 +15,10 @@ class ListFromNavigationViewController: UIViewController {
     var listType = ""
     var dataArr: [HomePageModel] = []
     var postIDArr: [String] = []
-    
+    var index = 0
+    var tabActive = 0
+    var btnMenu = false
+  
     override func viewWillAppear(_ animated: Bool) {
         //self.tabBarController?.tabBar.isHidden = true
         hideTabBar()
@@ -33,30 +36,67 @@ class ListFromNavigationViewController: UIViewController {
         tableView.register(UINib(nibName: "ProductListTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductListCell")
         
         if listType == "Your Post" {
-            RequestHandle.LoadAllPostByUser { (val) in
-                self.dataArr = val
-                self.tableView.reloadData()
+//            RequestHandle.LoadAllPostByUser { (val) in
+//                self.dataArr = val
+//                self.tableView.reloadData()
+//            }
+            if let currentView = UIApplication.topViewController() {
+                index = 0
+                let ProfileTab: UINavigationController = {
+                    let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+                    profile.index = index
+                    return UINavigationController(rootViewController: profile)
+                }()
+                ProfileTab.modalPresentationStyle = .fullScreen
+                currentView.present(ProfileTab, animated: false, completion: nil)
             }
         }
         else if listType == "Your Like" {
-            performOn(.HighPriority) {
-                RequestHandle.LoadAllPostLikeByUser { (val) in
-                    self.postIDArr = val
+            if let currentView = UIApplication.topViewController() {
+                index = 1
+                tabActive = 2
+                let ProfileTab: UINavigationController = {
+                    let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+                    profile.index = index
+                    profile.tabActive = tabActive
                     
-                    performOn(.Main, closure: {
-                        for post in self.postIDArr {
-                            RequestHandle.LoadListProductByPostID(postID: post.toInt(), completion: { (val) in
-                                print(post)
-                                self.dataArr.append(val)
-                                self.tableView.reloadData()
-                            })
-                        }
-                    })
-                
-                }
+                    return UINavigationController(rootViewController: profile)
+                }()
+                ProfileTab.modalPresentationStyle = .fullScreen
+                currentView.present(ProfileTab, animated: false, completion: nil)
+            }
+//            performOn(.HighPriority) {
+//                RequestHandle.LoadAllPostLikeByUser { (val) in
+//                    self.postIDArr = val
+//
+//                    performOn(.Main, closure: {
+//                        for post in self.postIDArr {
+//                            RequestHandle.LoadListProductByPostID(postID: post.toInt(), completion: { (val) in
+//                                print(post)
+//                                self.dataArr.append(val)
+//                                self.tableView.reloadData()
+//                            })
+//                        }
+//                    })
+//
+//                }
+//            }
+        }
+        else if listType == "Your Loan" {
+            if let currentView = UIApplication.topViewController() {
+                index = 2
+                tabActive = 3
+                let ProfileTab: UINavigationController = {
+                    let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+                    profile.index = index
+                    profile.tabActive = tabActive
+                    return UINavigationController(rootViewController: profile)
+                }()
+                ProfileTab.modalPresentationStyle = .fullScreen
+                currentView.present(ProfileTab, animated: false, completion: nil)
             }
         }
-    }
+     }
 }
 
 extension ListFromNavigationViewController: UITableViewDelegate, UITableViewDataSource {

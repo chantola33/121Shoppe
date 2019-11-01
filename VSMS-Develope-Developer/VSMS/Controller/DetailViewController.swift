@@ -350,7 +350,14 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
 //        lblPrice.text = ProductDetail.cost.toCurrency()
 
 //        lblDuration.text = ProductDetail.create_at?.getDuration()
-
+        RequestHandle.CountView(postID: self.ProductDetail.id) { (count) in
+            performOn(.Main, closure: {
+                let view = "Views: "+count.toString()
+                print(view)
+            })
+            
+            
+        }
         
         let create_by = ProductDetail.created_by
         let userid = User.getUserID()

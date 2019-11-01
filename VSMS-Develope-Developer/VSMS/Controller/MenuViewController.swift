@@ -63,7 +63,6 @@ class MenuViewController: BaseViewController,UITableViewDelegate,UITableViewData
         case 2:
             self.delegate?.cellClick(list: "Your Like")
         case 3:
-            break
             self.delegate?.cellClick(list: "Your Loan")
             //self.delegate?.cellClick(list: "share")
         case 4:
