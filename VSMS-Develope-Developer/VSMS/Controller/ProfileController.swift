@@ -471,7 +471,7 @@ class ProfileController: UIViewController,UITableViewDelegate,UITableViewDataSou
             return 140
         }
     }
-    
+// select tab from menu by samang 01/11/19
     func tabActivefromMenu(tabActive: Int){
         switch tabActive
         {
