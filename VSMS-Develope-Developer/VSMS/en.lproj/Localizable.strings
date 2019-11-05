@@ -27,7 +27,6 @@
 "search" = "Search here.......";
 
 
-
 "year" = "Year";
 "yourprofile" = "Your Profile";
 "yourposts" = "Your Posts";
@@ -38,3 +37,4 @@
 "setting" = "Setting";
 
 "termofprivancy" = "Term of Privancy";
+"views" = "Views: ";

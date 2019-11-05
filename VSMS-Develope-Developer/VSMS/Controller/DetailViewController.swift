@@ -231,7 +231,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         }
         else
         {
-            let refreshAlert = UIAlertController(title: "LIKE", message: "Like successfully.", preferredStyle: UIAlertController.Style.alert)
+            let refreshAlert = UIAlertController(title: "LIKE", message: "Are you sure to like this Product.", preferredStyle: UIAlertController.Style.alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
                 self.Btnlikebyuser()
@@ -321,7 +321,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     
     func InitailDetail(){
         let ProductName = ProductDetail.post_sub_title
-        var SplitName = ProductName.components(separatedBy: ",")
+        let SplitName = ProductName.components(separatedBy: ",")
         if SplitName.count > 1 {
             if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
                 lblProductName.text = SplitName[0]
@@ -352,8 +352,8 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
 //        lblDuration.text = ProductDetail.create_at?.getDuration()
 
         
-        var create_by = ProductDetail.created_by
-        var userid = User.getUserID()
+        let create_by = ProductDetail.created_by
+        let userid = User.getUserID()
         if create_by == userid {
             self.buttonView.isHidden = true
         }
@@ -369,7 +369,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             self.lblAddress.text = "Address: \(self.ProductDetail.vin_code)"
             
             let Phonenumber = Profile.PhoneNumber
-            var SplitNumber = Phonenumber.components(separatedBy: ",")
+            let SplitNumber = Phonenumber.components(separatedBy: ",")
             print(SplitNumber.count)
             if SplitNumber.count == 2 {
                self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0] + " / " + SplitNumber[1]

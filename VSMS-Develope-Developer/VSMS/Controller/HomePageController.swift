@@ -88,6 +88,7 @@ class HomePageController: BaseViewController {
     
     override func localizeUI() {
         self.Prepare()
+        tableView.reloadData()
     }
     
     

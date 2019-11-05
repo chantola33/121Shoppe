@@ -36,7 +36,6 @@ class ProductImageTableViewCell: UITableViewCell {
         let ProductName = data.post_sub_title
         let SplitName = ProductName.components(separatedBy: ",")
 
-        print(SplitName.count)
         if SplitName.count > 1 {
             if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
                 lblProductName.text = SplitName[0]
@@ -49,7 +48,7 @@ class ProductImageTableViewCell: UITableViewCell {
         lblProductPrice.text = data.cost.toCurrency()
        // lblDuration.text = data.create_at?.getDuration()
         RequestHandle.CountView(postID: data.product) { (count) in
-            self.lblViews.text = "Views: "+count.toString()
+            self.lblViews.text = "views".localizable()+count.toString()
         }
         lblPostType.SetPostType(postType: data.postType)
     }

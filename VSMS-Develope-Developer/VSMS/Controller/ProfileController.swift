@@ -13,11 +13,14 @@ import SwiftyJSON
 import SideMenuSwift
 
 
-class ProfileController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDataSource {
     
     @IBOutlet weak var CoverView: UIView!
+    
     @IBOutlet weak var CoverImage: UIImageView!
+    
     @IBOutlet weak var LabelName: UILabel!
+   
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mysegmentControl: UISegmentedControl!
@@ -72,14 +75,16 @@ class ProfileController: UIViewController,UITableViewDelegate,UITableViewDataSou
         "Authorization" : User.getUserEncoded(),
         ]
     
-    
     override func viewWillAppear(_ animated: Bool) {
-
         self.ShowDefaultNavigation()
         super.viewWillAppear(true)
         tableView.reloadData()
     }
-
+    
+    override func localizeUI() {
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         //Check User is Log in
         super.viewDidLoad()

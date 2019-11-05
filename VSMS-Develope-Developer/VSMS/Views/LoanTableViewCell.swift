@@ -43,7 +43,7 @@ class LoanTableViewCell: UITableViewCell {
 //                self.lblDuration.text = val.create_at?.getDuration()
                 self.lblProductPrice.text = val.cost.toCurrency()
                 self.lblPostType.SetPostType(postType: val.postType)
-                self.lblView.text = "5 views"
+                //self.lblView.text = "5 views"
             })
         }
     }

@@ -1,10 +1,3 @@
-//
-//  BaseViewController.swift
-//  Locoalization
-//
-//  Created by kosal pen on 8/4/19.
-//  Copyright © 2019 kosal pen. All rights reserved.
-//
 
 import UIKit
 

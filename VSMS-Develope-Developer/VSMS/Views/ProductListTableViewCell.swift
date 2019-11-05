@@ -64,7 +64,7 @@ class ProductListTableViewCell: UITableViewCell {
         lblPostType.SetPostType(postType: ProductData.postType)
         RequestHandle.CountView(postID: self.ProductData.product) { (count) in
             performOn(.Main, closure: {
-                self.lblView.text = "Views: "+count.toString()
+                self.lblView.text = "views".localizable()+count.toString()
             })
             
             

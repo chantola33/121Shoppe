@@ -70,7 +70,7 @@ class LikesTableViewCell: UITableViewCell {
         }
         RequestHandle.CountView(postID: self.ProductData.post) { (count) in
             performOn(.Main, closure: {
-                self.lblViewCount.text = count.toString()+" Views"
+                self.lblViewCount.text = "views".localizable()+count.toString()
             })
         }
     }
@@ -79,12 +79,9 @@ class LikesTableViewCell: UITableViewCell {
         self.delegate?.cellClickToDetail(ID: ProductData.post)
     }
     
-
     @IBAction func btnlikeTapped(_ sender: Any) {
         Message.ConfirmUnlike(message: "Are you suer to unlike this product?") {
             self.DeleteHandle!(self.ProductData.id)
         }
     }
-    
-   
 }
