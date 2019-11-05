@@ -36,13 +36,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNb-cO-BXE">
-                                        <rect key="frame" x="5" y="110" width="31" height="14.5"/>
+                                        <rect key="frame" x="5" y="108" width="31" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOA-NY-mGk">
-                                        <rect key="frame" x="58" y="110" width="31" height="14.5"/>
+                                        <rect key="frame" x="51" y="108" width="31" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -55,8 +55,8 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjZ-qB-pTC">
-                                        <rect key="frame" x="240" y="120" width="31" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <rect key="frame" x="244.5" y="122" width="26.5" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -65,10 +65,10 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="hjZ-qB-pTC" secondAttribute="trailing" constant="5" id="3OP-5D-8lz"/>
                                     <constraint firstItem="hCa-dk-6X4" firstAttribute="leading" secondItem="Q9e-hQ-9D4" secondAttribute="trailing" constant="5" id="DE8-TP-jXh"/>
-                                    <constraint firstItem="VOA-NY-mGk" firstAttribute="leading" secondItem="cNb-cO-BXE" secondAttribute="trailing" constant="22" id="K4u-bx-bz8"/>
+                                    <constraint firstItem="VOA-NY-mGk" firstAttribute="leading" secondItem="cNb-cO-BXE" secondAttribute="trailing" constant="15" id="K4u-bx-bz8"/>
                                     <constraint firstAttribute="trailing" secondItem="hCa-dk-6X4" secondAttribute="trailing" constant="3" id="NdM-1o-xaf"/>
-                                    <constraint firstItem="hjZ-qB-pTC" firstAttribute="top" secondItem="Q9e-hQ-9D4" secondAttribute="bottom" constant="15" id="V8n-U8-brO"/>
-                                    <constraint firstItem="VOA-NY-mGk" firstAttribute="top" secondItem="Q9e-hQ-9D4" secondAttribute="bottom" constant="5" id="XSQ-Fh-ZFK"/>
+                                    <constraint firstItem="hjZ-qB-pTC" firstAttribute="top" secondItem="Q9e-hQ-9D4" secondAttribute="bottom" constant="17" id="V8n-U8-brO"/>
+                                    <constraint firstItem="VOA-NY-mGk" firstAttribute="top" secondItem="Q9e-hQ-9D4" secondAttribute="bottom" constant="3" id="XSQ-Fh-ZFK"/>
                                     <constraint firstAttribute="trailing" secondItem="kPU-VV-FNg" secondAttribute="trailing" id="akJ-uR-5kq"/>
                                     <constraint firstItem="Q9e-hQ-9D4" firstAttribute="top" secondItem="kPU-VV-FNg" secondAttribute="bottom" id="dyn-7r-9yO"/>
                                     <constraint firstItem="kPU-VV-FNg" firstAttribute="leading" secondItem="Q5H-Kv-bcH" secondAttribute="leading" id="g8O-za-eke"/>
@@ -76,7 +76,7 @@
                                     <constraint firstItem="Q9e-hQ-9D4" firstAttribute="leading" secondItem="Q5H-Kv-bcH" secondAttribute="leading" constant="5" id="jBp-0L-nSv"/>
                                     <constraint firstItem="cNb-cO-BXE" firstAttribute="leading" secondItem="Q5H-Kv-bcH" secondAttribute="leading" constant="5" id="kUw-Cg-jSk"/>
                                     <constraint firstItem="hCa-dk-6X4" firstAttribute="top" secondItem="kPU-VV-FNg" secondAttribute="bottom" id="qUg-Jl-Ymj"/>
-                                    <constraint firstItem="cNb-cO-BXE" firstAttribute="top" secondItem="Q9e-hQ-9D4" secondAttribute="bottom" constant="5" id="qYl-Hs-pe1"/>
+                                    <constraint firstItem="cNb-cO-BXE" firstAttribute="top" secondItem="Q9e-hQ-9D4" secondAttribute="bottom" constant="3" id="qYl-Hs-pe1"/>
                                 </constraints>
                             </view>
                         </subviews>

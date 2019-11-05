@@ -33,16 +33,23 @@ class DiscountCollectionViewCell: UICollectionViewCell {
     
     func reload()
     {
+        
+        let ProductName = data.post_sub_title
+       
+        let SplitName = ProductName.components(separatedBy: ",")
+        if SplitName.count > 1 {
+            if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
+                MotoName.text = SplitName[0]
+            }else {
+                MotoName.text = SplitName[1]
+            }
+        }
         imgProduct.LoadFromURL(url: data.imagefront)
-        MotoName.text = data.post_sub_title
+       // MotoName.text = data.post_sub_title
         MotoPrice.text = "\(data.cost.toDouble() - data.discount.toDouble())".toCurrency()
         MotoDiscount.attributedText = data.cost.strikeThrough()
-        print("discount id")
-        print(data.product)
         RequestHandle.CountView(postID: self.data.product ){ (count) in
             performOn(.Main, closure: {
-                print("count")
-                print(count.toString())
                 self.lblView.text = "views".localizable()+count.toString()
             })
         }
