@@ -36,6 +36,7 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
     
     var KhmerFlatButton: UIBarButtonItem!
     var EnglishFlatButton: UIBarButtonItem!
+    var swicthBtn = 0
     
     var ProfileHandleRequest = UserProfileRequestHandle()
     var post = ["Posts","Likes"]
@@ -55,6 +56,7 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
     var isLoanHistory = true
     
     var index = 0
+    var tabActive = 0
     var productDetail: DetailViewModel?
     //var ProductDetail = ProfileModel()
     var dpatch = DispatchGroup()
@@ -102,7 +104,6 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
             PresentController.LogInandRegister()
         }
 
-        
         profileImage.CirleWithWhiteBorder(thickness: 3)
         CoverView.addBorder(toSide: .Bottom, withColor: UIColor.white.cgColor, andThickness: 3)
         CoverView.bringSubviewToFront(profileImage)
@@ -123,6 +124,8 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
         profileImage.clipsToBounds = true
         
         /////// Calling Functions
+        tabActivefromMenu(tabActive: tabActive)
+        
         XibRegister()
         InitailizeProfile()
         
@@ -392,6 +395,8 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
     }
     @IBAction func btnLikeHandler(_ sender: UIButton) {
         tabActive(buttonActive: sender)
+        
+        
     }
     @IBAction func btnLoanHandler(_ sender: UIButton) {
         tabActive(buttonActive: sender)
@@ -469,6 +474,23 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
                 return 170
             }
             return 140
+        }
+    }
+// select tab from menu by samang 01/11/19
+    func tabActivefromMenu(tabActive: Int){
+        switch tabActive
+        {
+       
+        case 2:
+            BorderActivePost.isHidden = true
+            BorderActiveLike.isHidden = false
+            BorderActiveLoan.isHidden = true
+        case 3:
+            BorderActivePost.isHidden = true
+            BorderActiveLike.isHidden = true
+            BorderActiveLoan.isHidden = false
+        default:
+            break
         }
     }
     
@@ -694,6 +716,7 @@ extension ProfileController {
             break
         }
     }
+    
 }
 
 extension ProfileController: ProfileCellClickProtocol {

@@ -32,6 +32,14 @@ class DiscountCollectionViewCell: UICollectionViewCell {
         MotoName.text = data.post_sub_title
         MotoPrice.text = "\(data.cost.toDouble() - data.discount.toDouble())".toCurrency()
         MotoDiscount.attributedText = data.cost.strikeThrough()
+        print("discount id")
+        print(data.product)
+        RequestHandle.CountView(postID: self.data.product ){ (count) in
+            performOn(.Main, closure: {
+                print("count")
+                print(count.toString())
+            })
+        }
     }
     
     @objc

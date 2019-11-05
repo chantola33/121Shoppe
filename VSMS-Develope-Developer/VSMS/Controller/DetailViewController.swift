@@ -197,7 +197,37 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     
     //Events Handler
     @IBAction func clickCall(_ sender: Any) {
-        makeAPhoneCall(phoneNumber: self.ProductDetail.contact_phone)
+        print("click call")
+//        makeAPhoneCall(phoneNumber: self.ProductDetail.contact_phone)
+        let Phone_number = ProductDetail.contact_phone
+        let Splitphone = Phone_number.components(separatedBy: ",")
+        let phone2 = Splitphone[1]
+        let phone3 = Splitphone[2]
+        let alert = UIAlertController(title: "Call to the Seller", message: nil, preferredStyle: .actionSheet )
+        
+        alert.addAction(UIAlertAction(title: Splitphone[0], style: .default, handler: { (_) in
+              print(Splitphone[0])
+             makeAPhoneCall(phoneNumber: Splitphone[0])
+           
+        }))
+        if phone2 != "" {
+        alert.addAction(UIAlertAction(title: Splitphone[1], style: .default, handler: { (_) in
+              print(Splitphone[1])
+             makeAPhoneCall(phoneNumber: Splitphone[1])
+
+        }))
+        }
+        if phone3 != ""{
+        alert.addAction(UIAlertAction(title: Splitphone[2], style: .default, handler: { (_) in
+            print(Splitphone[2])
+             makeAPhoneCall(phoneNumber: Splitphone[2])
+
+        }))
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            print("Cancel")
+        }))
+            self.present(alert, animated: true)
     }
     
     @IBAction func clickSms(_ sender: Any) {
@@ -342,15 +372,22 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             lblProductPrice.text = ProductDetail.cost.toCurrency()
         }
         
-        lblBrand.text = ProductDetail.getBrand
-        lblYear.text = ProductDetail.getYear
+        lblBrand.text = ProductDetail.post_code
+//        lblYear.text = ProductDetail.getYear
         lblCondition.text = ProductDetail.condition
-        lblColor.text = ProductDetail.color
+//        lblColor.text = ProductDetail.post_code
         lblDescription.text = ProductDetail.description
-        lblPrice.text = ProductDetail.cost.toCurrency()
+//        lblPrice.text = ProductDetail.cost.toCurrency()
 
 //        lblDuration.text = ProductDetail.create_at?.getDuration()
-
+        RequestHandle.CountView(postID: self.ProductDetail.id) { (count) in
+            performOn(.Main, closure: {
+                let view = "Views: "+count.toString()
+                print(view)
+            })
+            
+            
+        }
         
         let create_by = ProductDetail.created_by
         let userid = User.getUserID()
@@ -369,19 +406,24 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             self.lblAddress.text = "Address: \(self.ProductDetail.vin_code)"
             
             let Phonenumber = Profile.PhoneNumber
+
             let SplitNumber = Phonenumber.components(separatedBy: ",")
             print(SplitNumber.count)
-            if SplitNumber.count == 2 {
+           
+
+            if SplitNumber.count > 1 {
+            if SplitNumber[1] != "" {
+
                self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0] + " / " + SplitNumber[1]
-            }else if SplitNumber.count == 3 {
+                }; else if SplitNumber[2] != "" {
                  self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0] + " / " + SplitNumber[1]  + " / " + SplitNumber[2]
             }else {
                   self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0]
-            }
-
-        }
+                }
+            } else { self.lblUserPhoneNumber.text = Profile.PhoneNumber }
         
-    }
+        
+            
     
     
     func ImageSlideConfig(){
@@ -417,7 +459,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             counter = 1
         }
     }
-}
+            
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

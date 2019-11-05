@@ -18,7 +18,7 @@ class AccountViewModel {
     var email: String = ""
     var group: [Int] = [1]
     var password: String = User.getPassword()
-    var allshop = AccountShop()
+    var Shops :  [AccountShop] = []
    
     var ProfileData = AccountSubProfile()
 
@@ -114,10 +114,8 @@ class AccountViewModel {
                     self.ProfileData.group = profile["group"].stringValue.toInt()
                     self.ProfileData.responsible_officer = profile["responsible_officer"].stringValue
                   
-                    self.shops = JSON(json["shops"]).arrayValue.map{ AccountShop(json: $0).ShopDictionary
-                        
-                    }
-                    
+//                    self.shops = JSON(json["shops"]).arrayValue.map{ AccountShop(json: $0).ShopDictionary                    }
+     
                     completion()
                 case .failure(let error):
                     print(error.localizedDescription)

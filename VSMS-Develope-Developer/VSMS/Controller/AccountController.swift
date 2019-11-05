@@ -195,9 +195,10 @@ class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMap
         txtWingNumber.text = UserAccount.ProfileData.wing_account_number
         txtaddress.text = UserAccount.ProfileData.responsible_officer
        
-//        shop_Name =  UserAccount.shop_name
-    
-        print( UserAccount.shops)
+   
+        print("shop_name")
+//        print(shop_Name)
+        print(UserAccount.shops)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

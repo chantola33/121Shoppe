@@ -87,57 +87,57 @@ extension String {
         return ""
     }
 
+    // close by samang
+//    func formationDate() -> String{
+//
+//        if self == "" {
+//            return ""
+//        }
+//
+//        let dateFormatter = DateFormatter()
+//        let tempLocale = dateFormatter.locale // save locale temporarily
+//        dateFormatter.locale = Locale(identifier: "Asia/Tehran") // set locale to reliable US_POSIX
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+//        let date = dateFormatter.date(from: self)!
+//        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss" ; //"dd-MM-yyyy HH:mm:ss"
+//        dateFormatter.locale = tempLocale // reset the locale --> but no need here
+//        let dateString = dateFormatter.string(from: date)
+//        return dateString
+//    }
     
-    func formationDate() -> String{
-        
-        if self == "" {
-            return ""
-        }
-        
-        let dateFormatter = DateFormatter()
-        let tempLocale = dateFormatter.locale // save locale temporarily
-        dateFormatter.locale = Locale(identifier: "Asia/Tehran") // set locale to reliable US_POSIX
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        let date = dateFormatter.date(from: self)!
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss" ; //"dd-MM-yyyy HH:mm:ss"
-        dateFormatter.locale = tempLocale // reset the locale --> but no need here
-        let dateString = dateFormatter.string(from: date)
-        return dateString
-    }
-    
-    func getDuration() -> String{
-        let startDate = self.formationDate()
-        
-        if startDate == "" {
-            return ""
-        }
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
-        let formatedStartDate = dateFormatter.date(from: startDate)
-        let currentDate = Date()
-        let components = Set<Calendar.Component>([.minute, .hour, .day, .month, .year])
-        let differenceOfDate = Calendar.current.dateComponents(components, from: formatedStartDate!, to: currentDate)
-        
-        if differenceOfDate.year! > 0 {
-            return "\(differenceOfDate.year ?? 1) year\(differenceOfDate.year! > 1 ? "s" : "")"
-        }
-        if differenceOfDate.month! > 0 {
-            return "\(differenceOfDate.month!) month ago"
-        }
-        if differenceOfDate.day! > 0 {
-            return "\(differenceOfDate.day!) day ago"
-        }
-        if differenceOfDate.hour! > 0 {
-            return "\(differenceOfDate.hour!) hour ago"
-        }
-        if differenceOfDate.minute! > 0 {
-            return "\(differenceOfDate.minute!) minute ago"
-        }
-        else {
-            return "a minute ago"
-        }
-    }
+//    func getDuration() -> String{
+//        let startDate = self.formationDate()
+//
+//        if startDate == "" {
+//            return ""
+//        }
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+//        let formatedStartDate = dateFormatter.date(from: startDate)
+//        let currentDate = Date()
+//        let components = Set<Calendar.Component>([.minute, .hour, .day, .month, .year])
+//        let differenceOfDate = Calendar.current.dateComponents(components, from: formatedStartDate!, to: currentDate)
+//
+//        if differenceOfDate.year! > 0 {
+//            return "\(differenceOfDate.year ?? 1) year\(differenceOfDate.year! > 1 ? "s" : "")"
+//        }
+//        if differenceOfDate.month! > 0 {
+//            return "\(differenceOfDate.month!) month ago"
+//        }
+//        if differenceOfDate.day! > 0 {
+//            return "\(differenceOfDate.day!) day ago"
+//        }
+//        if differenceOfDate.hour! > 0 {
+//            return "\(differenceOfDate.hour!) hour ago"
+//        }
+//        if differenceOfDate.minute! > 0 {
+//            return "\(differenceOfDate.minute!) minute ago"
+//        }
+//        else {
+//            return "a minute ago"
+//        }
+//    }
     
     func toDouble() -> Double {
         if let double = Double(self) {

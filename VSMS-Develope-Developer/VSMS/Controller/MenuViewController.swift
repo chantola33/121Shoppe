@@ -50,7 +50,7 @@ class MenuViewController: BaseViewController,UITableViewDelegate,UITableViewData
     }
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 8
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -63,14 +63,15 @@ class MenuViewController: BaseViewController,UITableViewDelegate,UITableViewData
         case 2:
             self.delegate?.cellClick(list: "Your Like")
         case 3:
-            break
             self.delegate?.cellClick(list: "Your Loan")
             //self.delegate?.cellClick(list: "share")
         case 4:
              self.delegate?.cellClick(list: "Setting")
         case 5:
-             self.delegate?.cellClick(list: "About Us")
+             self.delegate?.cellClick(list: "About 121")
         case 6:
+            self.delegate?.cellClick(list: "Contact 121")
+        case 7:
              self.delegate?.cellClick(list: "Term of Privacy")
         default:
             break
@@ -96,6 +97,8 @@ class MenuViewController: BaseViewController,UITableViewDelegate,UITableViewData
         } else if row == 5 {
             cell.titleLabel.text = "aboutus".localizable()
         } else if row == 6 {
+            cell.titleLabel.text = "Contact 121"
+        } else if row == 7 {
             cell.titleLabel.text = "termofprivancy".localizable()
         } else{
         }

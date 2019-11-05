@@ -62,7 +62,7 @@ class LikesTableViewCell: UITableViewCell {
                 self.LikesImage.LoadFromURL(url: val.imagefront)
 //                self.lblName.text = val.post_sub_title.capitalizingFirstLetter()
                 self.lblPrice.text = val.cost.toCurrency()
-                self.lblDuration.text = val.create_at?.getDuration()
+//                self.lblDuration.text = val.create_at?.getDuration()
                 self.lblPostType.SetPostType(postType: val.postType)
                 
                 self.ImgPath = val.imagefront

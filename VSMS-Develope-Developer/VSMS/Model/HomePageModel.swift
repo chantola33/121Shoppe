@@ -92,9 +92,10 @@ class HomePageModel {
         self.discount = json["discount"].stringValue
         self.imagefront = json["front_image_path"].stringValue
         self.postType = json["post_type"].stringValue
-        self.create_at = json["created"].stringValue
+        self.create_at = json["created_by"].stringValue
         self.status = json["status"].stringValue.toInt()
         self.post_sub_title = json["post_sub_title"].stringValue
+        
     }
     
 }
