@@ -261,7 +261,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         }
         else
         {
-            let refreshAlert = UIAlertController(title: "LIKE", message: "Are you sure to like this Product.", preferredStyle: UIAlertController.Style.alert)
+            let refreshAlert = UIAlertController(title: "LIKE", message: "Like successfully.", preferredStyle: UIAlertController.Style.alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
                 self.Btnlikebyuser()
@@ -351,7 +351,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     
     func InitailDetail(){
         let ProductName = ProductDetail.post_sub_title
-        let SplitName = ProductName.components(separatedBy: ",")
+        var SplitName = ProductName.components(separatedBy: ",")
         if SplitName.count > 1 {
             if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
                 lblProductName.text = SplitName[0]
@@ -406,24 +406,19 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             self.lblAddress.text = "Address: \(self.ProductDetail.vin_code)"
             
             let Phonenumber = Profile.PhoneNumber
-
-            let SplitNumber = Phonenumber.components(separatedBy: ",")
-            print(SplitNumber.count)
-           
-
+            var SplitNumber = Phonenumber.components(separatedBy: ",")
             if SplitNumber.count > 1 {
             if SplitNumber[1] != "" {
-
                self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0] + " / " + SplitNumber[1]
-                }; else if SplitNumber[2] != "" {
+            } else if SplitNumber[2] != "" {
                  self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0] + " / " + SplitNumber[1]  + " / " + SplitNumber[2]
             }else {
                   self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0]
                 }
-            } else { self.lblUserPhoneNumber.text = Profile.PhoneNumber }
+            }else { self.lblUserPhoneNumber.text = Profile.PhoneNumber }
+        }
         
-        
-            
+    }
     
     
     func ImageSlideConfig(){
@@ -459,7 +454,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             counter = 1
         }
     }
-            
+}
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -513,6 +508,7 @@ extension DetailViewController: CellClickProtocol
     }
 }
 
+
 extension CLPlacemark {
     var compactAddrss: String?{
         if let name = name {
@@ -530,4 +526,6 @@ extension CLPlacemark {
         }
         return nil
     }
+    
+    
 }
