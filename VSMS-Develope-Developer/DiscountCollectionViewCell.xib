@@ -103,8 +103,8 @@
                 <outlet property="MotoName" destination="Q9e-hQ-9D4" id="89O-mC-Fpd"/>
                 <outlet property="MotoPrice" destination="cNb-cO-BXE" id="SbO-zR-15w"/>
                 <outlet property="imgProduct" destination="kPU-VV-FNg" id="gJ1-xA-i5b"/>
-                <outlet property="imgUser" destination="hCa-dk-6X4" id="MuY-kw-oOO"/>
-                <outlet property="lblView" destination="hjZ-qB-pTC" id="6Gy-RP-diG"/>
+                <outlet property="imgUser" destination="hCa-dk-6X4" id="TeL-hd-sWU"/>
+                <outlet property="lblView" destination="hjZ-qB-pTC" id="bTy-ay-jD3"/>
             </connections>
             <point key="canvasLocation" x="-726.39999999999998" y="-59.370314842578715"/>
         </collectionViewCell>

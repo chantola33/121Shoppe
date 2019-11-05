@@ -16,6 +16,8 @@ class DiscountCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var MotoDiscount: UILabel!
     @IBOutlet weak var MotoPrice: UILabel!
     @IBOutlet weak var MotoName: UILabel!
+    @IBOutlet weak var imgUser: UIImageView!
+    @IBOutlet weak var lblView: UILabel!
     
     var data: HomePageModel!
     weak var delegate: CellClickProtocol?
@@ -23,6 +25,9 @@ class DiscountCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        imgUser.layer.cornerRadius = imgUser.frame.width * 0.5
+               imgUser.clipsToBounds = true
+        
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handerCellClick)))
     }
     
@@ -38,6 +43,7 @@ class DiscountCollectionViewCell: UICollectionViewCell {
             performOn(.Main, closure: {
                 print("count")
                 print(count.toString())
+                self.lblView.text = "views".localizable()+count.toString()
             })
         }
     }
