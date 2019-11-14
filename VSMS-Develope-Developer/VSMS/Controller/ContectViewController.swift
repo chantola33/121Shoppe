@@ -57,11 +57,18 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
             }
         }
         
-        if let img = self.userdetail?.Profile {
-            imageprofile.image = img
-        }
+        
 
         labelName.text = self.userdetail?.FirstName
+    
+        let username = userdetail?.Name
+        UserFireBase.LoadProfile(proName: username!) { (coverurl) in
+            performOn(.Main, closure: {
+                print(coverurl + "completion")
+                let img = coverurl
+                self.imageprofile.ImageLoadFromURL(url: img )
+            })
+        }
     }
     
     func XibRegister(){
@@ -164,6 +171,7 @@ class ContectViewController: UIViewController,UITableViewDelegate,UITableViewDat
             } else if indexPath.row == 1 {
                 cell?.textLabel?.text = "Email"
                 cell?.detailTextLabel?.text = userdetail?.email
+                
             } else {
                 let map = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath) as! MapTableViewCell
                 map.userdetail = userdetail

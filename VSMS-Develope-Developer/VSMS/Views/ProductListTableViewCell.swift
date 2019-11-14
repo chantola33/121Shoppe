@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseAuth
 class ProductListTableViewCell: UITableViewCell {
 
 
@@ -26,7 +27,9 @@ class ProductListTableViewCell: UITableViewCell {
     var ProductID: Int?
     var ProductData = HomePageModel()
     weak var delegate: CellClickProtocol?
-    
+    // user account
+    var UserAccount = AccountViewModel()
+    var username = ""
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -40,15 +43,30 @@ class ProductListTableViewCell: UITableViewCell {
     func reload()
     {
         profileuser.ImageLoadFromURL(url: ProfileHandleRequest.Profile.profile.profile_image)
-        UserFireBase.Load { (user) in
-            print("User")
-            print(user)
-            if user != nil {
-                performOn(.Main, closure: {
-                    self.profileuser.ImageLoadFromURL(url: user.imageURL)
-                })
-            }
+//        UserFireBase.Load { (user) in
+//            print("User")
+//            print(user)
+//            if user != nil {
+//                performOn(.Main, closure: {
+//                    self.profileuser.ImageLoadFromURL(url: user.imageURL)
+//                })
+//            }
+//        }
+ // get user profile by samang 07/11/19
+        let createby = ProductData.create_at?.toInt()
+        AccountViewModel.LoadUserAccountByID(postID: createby!) { (user) in
+            performOn(.Main, closure: {
+                self.username = user
+                UserFireBase.LoadProfile(proName: self.username) { (coverurl) in
+                    performOn(.Main, closure: {
+                        print(coverurl + "completion")
+                        let img = coverurl
+                        self.profileuser.ImageLoadFromURL(url: img )
+                    })
+                }
+            })
         }
+        
         let ProductName = ProductData.post_sub_title
         let SplitName = ProductName.components(separatedBy: ",")
 

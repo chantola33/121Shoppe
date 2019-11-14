@@ -53,6 +53,19 @@ class DiscountCollectionViewCell: UICollectionViewCell {
                 self.lblView.text = "views".localizable()+count.toString()
             })
         }
+        let createby = data.create_at?.toInt()
+        AccountViewModel.LoadUserAccountByID(postID: createby!) { (user) in
+            performOn(.Main, closure: {
+                let username = user
+                UserFireBase.LoadProfile(proName: username) { (coverurl) in
+                    performOn(.Main, closure: {
+                        print(coverurl + "completion")
+                        let img = coverurl
+                        self.imgUser.ImageLoadFromURL(url: img )
+                    })
+                }
+            })
+        }
     }
     
     @objc

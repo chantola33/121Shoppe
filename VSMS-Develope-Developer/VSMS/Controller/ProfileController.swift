@@ -11,6 +11,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SideMenuSwift
+import Firebase
 
 
 class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDataSource {
@@ -332,12 +333,34 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
         profileImage.ImageLoadFromURL(url: ProfileHandleRequest.Profile.profile.profile_image)
         CoverImage.ImageLoadFromURL(url: ProfileHandleRequest.Profile.profile.cover_image)
         
-        UserFireBase.Load { (user) in
-            if user != nil {
-                performOn(.Main, closure: {
-                    self.profileImage.ImageLoadFromURL(url: user.imageURL)
-                    self.CoverImage.ImageLoadFromURL(url: user.coverURL)
-                })
+//        UserFireBase.Load { (user) in
+//            if user != nil {
+//                performOn(.Main, closure: {
+//                    self.profileImage.ImageLoadFromURL(url: user.imageURL)
+//                    self.CoverImage.ImageLoadFromURL(url: user.coverURL)
+//                })
+//            }
+//        }
+        let username = User.getUsername()
+        let userFir = Database.database().reference().child("users")
+        userFir.observe(.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                for item in snapshot.children.allObjects as![DataSnapshot]{
+                    let dictionary = item.value as? [String: String]
+                    let userFir = dictionary?["username"]
+                    if userFir == username
+                    {
+                        let imgurl = dictionary?["imageURL"]
+                        let coverurl = dictionary?["coverURL"]
+                        print(imgurl)
+                        if imgurl == "default"{
+                            print("default")
+                        }else {
+                            self.profileImage.ImageLoadFromURL(url: imgurl ?? "")
+                            self.CoverImage.ImageLoadFromURL(url: coverurl ?? "")
+                        }
+                    }
+                }
             }
         }
 
