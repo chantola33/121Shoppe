@@ -123,6 +123,24 @@ class AccountViewModel {
         }
     }
     
+    static func LoadUserAccountByID(postID: Int, completion: @escaping (String) -> Void){
+        Alamofire.request(PROJECT_API.GETUSERDETAIL(ID: postID),
+                          method: .get,
+                          encoding: JSONEncoding.default
+            ).responseJSON
+            { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+//                    self.username = json["username"].stringValue
+                 completion(json["username"].stringValue)
+                   
+                case .failure:
+                    print("error")
+                }
+        }
+        
+    }
     func Shop(completion: @escaping (Bool) -> Void)
     {
         let headers: HTTPHeaders = [

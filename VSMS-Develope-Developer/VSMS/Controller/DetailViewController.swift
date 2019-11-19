@@ -405,7 +405,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     func LoadUserDetail(){
         User.getUserInfo(id: ProductDetail.created_by) { (Profile) in
             self.userdetail = Profile
-            self.imgProfilePic.image = Profile.Profile
+//            self.imgProfilePic.image = Profile.Profile
             self.lblProfileName.text = Profile.FirstName
             self.lblUserEmail.text = ": \(Profile.email)"
             self.lblAddress.text = ": \(self.ProductDetail.vin_code)"
@@ -416,11 +416,23 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             if SplitNumber[1] != "" {
                self.lblUserPhoneNumber.text = ": " + SplitNumber[0] + " / " + SplitNumber[1]
             } else if SplitNumber[2] != "" {
+                
                  self.lblUserPhoneNumber.text = ": " + SplitNumber[0] + " / " + SplitNumber[1]  + " / " + SplitNumber[2]
             }else {
                   self.lblUserPhoneNumber.text = ": " + SplitNumber[0]
+
                 }
             }else { self.lblUserPhoneNumber.text = Profile.PhoneNumber }
+            
+            let username = Profile.Name
+            print(username)
+            UserFireBase.LoadProfile(proName: username) { (coverurl) in
+                performOn(.Main, closure: {
+                    print(coverurl + "completion")
+                    let img = coverurl
+                    self.imgProfilePic.ImageLoadFromURL(url: img )
+                })
+            }
         }
         
     }

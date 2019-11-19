@@ -81,6 +81,28 @@ class UserFireBase
         }
     }
 
+  static  func LoadProfile(proName: String, completion: @escaping (String) -> Void)
+    {
+        let userFir = Database.database().reference().child("users")
+        userFir.observe(.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                for item in snapshot.children.allObjects as![DataSnapshot]{
+                    let dictionary = item.value as? [String: String]
+                    let userFir = dictionary?["username"]
+                    if userFir == proName
+                    {
+                        let imgurl = dictionary?["imageURL"]
+                        print(imgurl)
+                        if imgurl == "default"{
+                            print("default")
+                        }else {
+                            completion(imgurl!)
+                        }
+                    }
+            }
+            }
+        }
+    }
     
     var asDictionary : [String:Any] {
         let mirror = Mirror(reflecting: self)
