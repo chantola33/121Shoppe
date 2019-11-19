@@ -45,10 +45,12 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     @IBOutlet weak var lblProductPrice: UILabel!
     @IBOutlet weak var lblOldPrice: UILabel!
     
-    @IBOutlet weak var lblDuration: UILabel!
+    
     @IBOutlet weak var lblBrand: UILabel!
-    @IBOutlet weak var lblYear: UILabel!
-    @IBOutlet weak var lblColor: UILabel!
+//    @IBOutlet weak var lblYear: UILabel!
+//    @IBOutlet weak var lblColor: UILabel!
+    
+    @IBOutlet weak var lblViews: UILabel!
     @IBOutlet weak var lblCondition: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblDescription: UITextView!
@@ -60,6 +62,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     @IBOutlet weak var lblAddress: UILabel!
     
     @IBOutlet weak var buttonView: UIView!
+    @IBOutlet weak var bottomView: NSLayoutConstraint!
     
     
     @IBOutlet weak var mapView: GMSMapView!
@@ -81,14 +84,19 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         imgProfilePic.addGestureRecognizer(tap)
         imgProfilePic.isUserInteractionEnabled = true
-        txtinterestRate.text = "1.5"
-        txtTerm.text = "1"
+//        txtinterestRate.text = "1.5"
+//        txtTerm.text = "1"
+        let create_by = ProductDetail.created_by
+        let userid = User.getUserID()
+        if create_by == userid {
+           self.buttonView.isHidden = true
+            self.bottomView.constant = 0
+        }
         
-        
-        txtTerm.bordercolor()
-        txtinterestRate.bordercolor()
-        txtdeposit.bordercolor()
-        txtprice.bordercolor()
+//        txtTerm.bordercolor()
+//        txtinterestRate.bordercolor()
+//        txtdeposit.bordercolor()
+//        txtprice.bordercolor()
         imgProfilePic.layer.cornerRadius = imgProfilePic.frame.width * 0.5
         // Do any additional setup after loading the view.
         config()
@@ -118,9 +126,9 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             
         }
         
-        txtprice.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
-        txtinterestRate.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
-        txtTerm.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+//        txtprice.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+//        txtinterestRate.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+//        txtTerm.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
         mapView.delegate = self
         mapView.settings.setAllGesturesEnabled(false)
         
@@ -172,7 +180,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             lblAddress.text = "Unable to Find Address for Location"
         }else{
             if let placemarks = placemarks, let placemark = placemarks.first{
-                lblAddress.text = "Address: \(placemark.compactAddrss ?? "")"
+                lblAddress.text = ": \(placemark.compactAddrss ?? "")"
             }else{
                 lblAddress.text = "No Maching Address Found"
             }
@@ -351,7 +359,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     
     func InitailDetail(){
         let ProductName = ProductDetail.post_sub_title
-        var SplitName = ProductName.components(separatedBy: ",")
+        let SplitName = ProductName.components(separatedBy: ",")
         if SplitName.count > 1 {
             if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
                 lblProductName.text = SplitName[0]
@@ -382,18 +390,15 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
 //        lblDuration.text = ProductDetail.create_at?.getDuration()
         RequestHandle.CountView(postID: self.ProductDetail.id) { (count) in
             performOn(.Main, closure: {
-                let view = "Views: "+count.toString()
-                print(view)
+                self.lblViews.text = "Views: "+count.toString()
+//                let view = "Views: "+count.toString()
+//                print(view)
             })
             
             
         }
         
-        let create_by = ProductDetail.created_by
-        let userid = User.getUserID()
-        if create_by == userid {
-            self.buttonView.isHidden = true
-        }
+        
         
     }
     
@@ -402,18 +407,18 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             self.userdetail = Profile
             self.imgProfilePic.image = Profile.Profile
             self.lblProfileName.text = Profile.FirstName
-            self.lblUserEmail.text = "Email: \(Profile.email)"
-            self.lblAddress.text = "Address: \(self.ProductDetail.vin_code)"
+            self.lblUserEmail.text = ": \(Profile.email)"
+            self.lblAddress.text = ": \(self.ProductDetail.vin_code)"
             
             let Phonenumber = Profile.PhoneNumber
-            var SplitNumber = Phonenumber.components(separatedBy: ",")
+            let SplitNumber = Phonenumber.components(separatedBy: ",")
             if SplitNumber.count > 1 {
             if SplitNumber[1] != "" {
-               self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0] + " / " + SplitNumber[1]
+               self.lblUserPhoneNumber.text = ": " + SplitNumber[0] + " / " + SplitNumber[1]
             } else if SplitNumber[2] != "" {
-                 self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0] + " / " + SplitNumber[1]  + " / " + SplitNumber[2]
+                 self.lblUserPhoneNumber.text = ": " + SplitNumber[0] + " / " + SplitNumber[1]  + " / " + SplitNumber[2]
             }else {
-                  self.lblUserPhoneNumber.text = "Tel: " + SplitNumber[0]
+                  self.lblUserPhoneNumber.text = ": " + SplitNumber[0]
                 }
             }else { self.lblUserPhoneNumber.text = Profile.PhoneNumber }
         }

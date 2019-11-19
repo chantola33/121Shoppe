@@ -358,6 +358,7 @@ extension HomePageController
     {
         lblbestDeal.text = "bestdeal".localizable()
         lblNewpost.text = "newpost".localizable()
+        tableView.reloadData()
     }
     
     func handleFilterClick(btnIndex: Int)

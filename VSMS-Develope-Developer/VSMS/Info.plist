@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>CFBundleDisplayName</key>
 	<string>121 Shopping</string>
 	<key>CFBundleExecutable</key>
@@ -40,7 +38,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0.02</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>FacebookAppID</key>
 	<string>596607940863011</string>
 	<key>FacebookDisplayName</key>
@@ -65,7 +63,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Turn on your location to determine your current location.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This App</string>
+	<string>Allow Motorbike 121 app to access your photo libraby for uploading the photo when posting.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
@@ -92,6 +90,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

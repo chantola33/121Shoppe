@@ -21,7 +21,8 @@
 
 "rent" = "RENT";
 
-
+"sell" = "Sell";
+"rent" = "Rent";
 
 "sell" = "SELL";
 "search" = "Search here.......";
