@@ -16,6 +16,7 @@ let imageCache = NSCache<AnyObject, AnyObject>()
 struct DropDownTemplate: Codable, UniquePropertyDelegate {
     let ID: String?
     let Text: String?
+    let Text_kh: String?
     let Fkey: String?
     
     func getUniquePropertyName() -> String {

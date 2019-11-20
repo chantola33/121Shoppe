@@ -352,7 +352,6 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
                     {
                         let imgurl = dictionary?["imageURL"]
                         let coverurl = dictionary?["coverURL"]
-                        print(imgurl)
                         if imgurl == "default"{
                             print("default")
                         }else {

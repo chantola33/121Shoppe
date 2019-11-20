@@ -557,6 +557,7 @@ class PostAdViewModel
 //                                pfb.Save {
 //                                    completion(true)
 //                                }
+                                completion(true)
                             case .failure(let error):
                                 print(error)
                                 completion(false)
@@ -576,6 +577,7 @@ class PostAdViewModel
             ).responseJSON { response in
                             switch response.result{
                             case .success(let value):
+                                print(value)
                                 let data = JSON(value)
                                 if IsNilorEmpty(value: data["id"].stringValue) {
                                     print("something Wrong")
@@ -587,6 +589,7 @@ class PostAdViewModel
 //                                pfb.Update {
 //                                    completion(true)
 //                                }
+                                completion(true)
                             case .failure(let error):
                                 print(error)
                                 completion(false)

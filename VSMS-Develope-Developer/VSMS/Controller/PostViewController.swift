@@ -98,7 +98,8 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
     
     var is_edit = false
     var post_id: Int?
-    
+    var sub_title: [String] = ["","","",""]
+    var sub_title_kh: [String] = ["","","",""]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -187,7 +188,7 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
         alertMessage.addActivityIndicator()
         self.present(alertMessage, animated: true, completion: nil)
         
-        post_obj.post_sub_title = txtTitle.Value
+        post_obj.post_sub_title = sub_title[0] + " " + sub_title[1] + " " + sub_title[2] + " " + sub_title[3] + "," + sub_title_kh[0] + " " + sub_title_kh[1] + " " + sub_title_kh[2] + " " + sub_title_kh[3]
         post_obj.cost = txtPrice.Value
         post_obj.description = txtDescription.Value
         post_obj.discount = txtDiscountAmount.Value == "" ? "0": txtDiscountAmount.Value
@@ -225,6 +226,7 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
                        PresentController.ProfileController()
                     })
                 }
+
             }
         }
         else{
@@ -416,12 +418,28 @@ extension PostViewController {
                 
                 let Brand = self.model_arr.first(where: {$0.ID == data.modeling.toString()})!
                 self.cboBrand.Value = self.brand_arr.first(where: {$0.ID == Brand.Fkey})!.Text!
+                //set value post sub title
+                self.sub_title.insert(self.brand_arr.first(where: {$0.ID == Brand.Fkey})!.Text!, at: 0)
+                self.sub_title_kh.insert(self.brand_arr.first(where: {$0.ID == Brand.Fkey})!.Text_kh!, at: 0)
+                
                 self.post_obj.brand = (self.brand_arr.first(where: {$0.ID == Brand.Fkey})?.ID?.toInt())!
                 
                 self.cboModel.Value = self.model_arr.first(where: {$0.ID == data.modeling.toString()})!.Text!
+                //set value post sub title
+                self.sub_title.insert(self.model_arr.first(where: {$0.ID == data.modeling.toString()})!.Text!, at: 1)
+                self.sub_title_kh.insert(self.model_arr.first(where: {$0.ID == data.modeling.toString()})!.Text_kh!, at: 1)
+                
                 self.cboYear.Value = self.year_arr.first(where: {$0.ID == data.year.toString()})!.Text!
+                //set value post sub title
+                self.sub_title.insert(self.year_arr.first(where: {$0.ID == data.year.toString()})!.Text!, at: 2)
+                self.sub_title_kh.insert(self.year_arr.first(where: {$0.ID == data.year.toString()})!.Text_kh!, at: 2)
+                
                 self.cboCondition.Value = self.condition_arr.first(where: {$0.ID == data.condition})!.Text!
                 self.cboColor.Value = self.color_arr.first(where: {$0.ID == data.color})!.Text!
+                //set value post sub title
+                self.sub_title.insert(self.color_arr.first(where: {$0.ID == data.color})!.Text!, at: 3)
+                self.sub_title_kh.insert(self.color_arr.first(where: {$0.ID == data.color})!.Text_kh!, at: 3)
+                
                 self.txtDescription.Value = data.description
                 self.txtPrice.Value = data.cost
                 
@@ -442,7 +460,6 @@ extension PostViewController {
                 self.txtConsole.Value = data.used_machine4
                 self.txtAccessories.Value = data.used_other1
                
-                self.imagePicker.front_image = data.front_image_path
                 self.imagePicker.back_image = data.back_image_path
                 self.tableView.reloadData()
             }
@@ -515,6 +532,8 @@ extension PostViewController {
             self?.brand_selected = selectedItems
             self?.cboBrand.Value = text!.Text!
             self?.post_obj.brand = (text?.ID?.toInt())!
+            self?.sub_title.insert(text!.Text!, at: 0)
+            self?.sub_title_kh.insert(text!.Text_kh!, at: 0)
             self?.tableView.reloadData()
         }
         selectionMenu.navigationItem.title = "Brand"
@@ -533,6 +552,8 @@ extension PostViewController {
             self?.model_selected = selectedItems
             self?.cboModel.Value = text!.Text!
             self?.post_obj.modeling = (text?.ID?.toInt())!
+            self?.sub_title.insert(text!.Text!, at: 1)
+            self?.sub_title_kh.insert(text!.Text_kh!, at: 1)
             self?.tableView.reloadData()
         }
         selectionMenu.navigationItem.title = "Model"
@@ -551,6 +572,8 @@ extension PostViewController {
             self?.year_selected = selectedItems
             self?.cboYear.Value = text!.Text!
             self?.post_obj.year = (text?.ID?.toInt())!
+            self?.sub_title.insert(text!.Text!, at: 2)
+            self?.sub_title_kh.insert(text!.Text!, at: 2)
             self?.tableView.reloadData()
         }
         selectionMenu.navigationItem.title = "Year"
@@ -587,6 +610,8 @@ extension PostViewController {
             self?.color_selected = selectedItems
             self?.cboColor.Value = text!.Text!
             self?.post_obj.color = (text?.ID)!
+            self?.sub_title.insert(text!.Text!, at: 3)
+            self?.sub_title_kh.insert(text!.Text_kh!, at: 3)
             self?.tableView.reloadData()
         }
         selectionMenu.navigationItem.title = "Color"
