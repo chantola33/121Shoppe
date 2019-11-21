@@ -77,7 +77,8 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
     var condition_selected = [DropDownTemplate]()
     var color_selected = [DropDownTemplate]()
     var discount_type_selected = [DropDownTemplate]()
-    
+    var random = Int.random(in: 0...1000000000)
+    var post_code: String = ""
     //Internal Properties
     var post_obj = PostAdViewModel()
     var dispatch = DispatchGroup()
@@ -184,6 +185,7 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
     // MARK: - Table view data source
     
     @IBAction func SubmitHandler(_ sender: UIButton) {
+      
         let alertMessage = UIAlertController(title: nil, message: "Uploading Product", preferredStyle: .alert)
         alertMessage.addActivityIndicator()
         self.present(alertMessage, animated: true, completion: nil)
@@ -198,7 +200,7 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
         post_obj.vin_code = txtaddress.text!
         post_obj.contact_address = latlog        
         post_obj.machine_code = txtName.Value
-        
+     
         //machine section by samangy 24/10/19
         post_obj.used_eta1 = txtWholeink.Value == "" ? "0": txtWholeink.Value
         post_obj.used_eta2 = txtFrontWheelset.Value == "" ? "0": txtFrontWheelset.Value
@@ -230,6 +232,7 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
             }
         }
         else{
+            post_obj.post_code = random.toString()
             post_obj.Save { (result) in
                     alertMessage.dismissActivityIndicator()
                     if result{
@@ -461,6 +464,9 @@ extension PostViewController {
                 self.txtAccessories.Value = data.used_other1
                
                 self.imagePicker.back_image = data.back_image_path
+                self.imagePicker.front_image = data.front_image_path
+                self.imagePicker.left_image = data.left_image_path
+                self.imagePicker.right_image = data.right_image_path
                 self.tableView.reloadData()
             }
         }

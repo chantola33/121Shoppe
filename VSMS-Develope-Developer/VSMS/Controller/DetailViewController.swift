@@ -395,11 +395,15 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
 //                print(view)
             })
             
-            
         }
-        
-        
-        
+    }
+    
+    func isRent_Product() -> Bool {
+        let rent = ProductDetail.post_type
+        if rent == "rent" {
+            return true
+        }
+        return false
     }
     
     func LoadUserDetail(){

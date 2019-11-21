@@ -15,7 +15,7 @@ import SwiftyJSON
 class FireBaseRealTime
 {
     static var USER = "users"
-    static var POST = "Testing"
+    static var POST = "postssit"
     static var MESSAGE = "Testing"
 }
 
@@ -124,8 +124,10 @@ class PostFireBase
     var discountType: String = ""
     var isProduction: Bool = false
     var location: String = ""
+    var postCode: String = ""
     var price: String = ""
     var status: Int = 3
+    var subTitle: String = ""
     var title: String = ""
     var type: String = ""
     var viewCount: String = ""
@@ -142,8 +144,10 @@ class PostFireBase
         self.discountType = json["discountType"].stringValue
         self.isProduction = json["isProduction"].stringValue.StringToBoolean()
         self.location = json["location"].stringValue
+        self.postCode = json["postCode"].stringValue
         self.price = json["price"].stringValue
         self.status = json["status"].stringValue.toInt()
+        self.subTitle = json["subTitle"].stringValue
         self.title = json["title"].stringValue
         self.type = json["type"].stringValue
         self.viewCount = json["viewCount"].stringValue
@@ -159,8 +163,10 @@ class PostFireBase
         self.discountType = PostJson["discount_type"].stringValue
         self.isProduction = false
         self.location = PostJson["vin_code"].stringValue
+        self.postCode = PostJson["post_code"].stringValue
         self.price = PostJson["cost"].stringValue
         self.status = PostJson["status"].stringValue.toInt()
+        self.subTitle = PostJson["post_sub_title"].stringValue
         self.title = PostJson["title"].stringValue
         self.type = PostJson["post_type"].stringValue
         self.viewCount = "0"
@@ -179,28 +185,28 @@ class PostFireBase
     
     func Save(_ completion: @escaping (() -> Void))
     {
-        if Auth.auth().currentUser != nil {
+//        if Auth.auth().currentUser != nil {
             let post = Database.database().reference().child(FireBaseRealTime.POST)
             post.child(self.id).setValue(self.asDictionary) { (error, dbReferrenc) in
                 completion()
             }
-        }
-        else {
-            print("Not authenticated")
-        }
+//        }
+//        else {
+//            print("Not authenticated")
+//        }
     }
     
     func Update(_ completion: @escaping (() -> Void))
     {
-        if Auth.auth().currentUser != nil {
+//        if Auth.auth().currentUser != nil {
             let post = Database.database().reference().child(FireBaseRealTime.POST).child(self.id)
             post.setValue(self.asDictionary) { (error, dbReferrenc) in
                 completion()
             }
-        }
-        else {
-            print("Not authenticated")
-        }
+//        }
+//        else {
+//            print("Not authenticated")
+//        }
     }
     
     func Delete(_ completion: @escaping (() -> Void))

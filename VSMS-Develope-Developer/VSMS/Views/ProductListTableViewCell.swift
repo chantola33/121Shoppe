@@ -42,6 +42,7 @@ class ProductListTableViewCell: UITableViewCell {
     
     func reload()
     {
+        
         profileuser.ImageLoadFromURL(url: ProfileHandleRequest.Profile.profile.profile_image)
 //        UserFireBase.Load { (user) in
 //            print("User")
