@@ -404,6 +404,7 @@ class PostAdViewModel
     var contact_email: String = ""
     var contact_address: String = ""
     var post_sub_title: String = ""
+    var post_code: String = ""
     //Image
     var front_image_path: String?
     var front_image_base64: String?
@@ -457,6 +458,7 @@ class PostAdViewModel
         self.description = json["description"].stringValue
         self.cost = json["cost"].stringValue
         
+        self.post_code = json["post_code"].stringValue
         self.post_sub_title = json["post_sub_title"].stringValue
         // machine section
         self.used_eta1 = json["used_eta1"].stringValue
@@ -553,10 +555,11 @@ class PostAdViewModel
                                     return
                                 }
                                 //Save post to Firebase
-//                                let pfb = PostFireBase(PostJson: data)
-//                                pfb.Save {
-//                                    completion(true)
-//                                }
+                                let pfb = PostFireBase(PostJson: data)
+                                pfb.Save {
+                                    completion(true)
+                                }
+//                                completion(true)
                             case .failure(let error):
                                 print(error)
                                 completion(false)
@@ -576,6 +579,7 @@ class PostAdViewModel
             ).responseJSON { response in
                             switch response.result{
                             case .success(let value):
+                                print(value)
                                 let data = JSON(value)
                                 if IsNilorEmpty(value: data["id"].stringValue) {
                                     print("something Wrong")
@@ -583,10 +587,11 @@ class PostAdViewModel
                                     return
                                 }
                                 //Update post to Firebase
-//                                let pfb = PostFireBase(PostJson: data)
-//                                pfb.Update {
-//                                    completion(true)
-//                                }
+                                let pfb = PostFireBase(PostJson: data)
+                                pfb.Update {
+                                    completion(true)
+                                }
+//                                completion(true)
                             case .failure(let error):
                                 print(error)
                                 completion(false)

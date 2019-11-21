@@ -350,11 +350,11 @@ class Functions {
 
     static func getMaritalStautsList() -> [DropDownTemplate]
     {
-        return [DropDownTemplate(ID: "single", Text: "Single", Fkey: nil),
-                DropDownTemplate(ID: "married", Text: "Married", Fkey: nil),
-                DropDownTemplate(ID: "separated", Text: "Separated", Fkey: nil),
-                DropDownTemplate(ID: "divorced", Text: "Divorced", Fkey: nil),
-                DropDownTemplate(ID: "windowed", Text: "Windowed", Fkey: nil)
+        return [DropDownTemplate(ID: "single", Text: "Single",Text_kh:"", Fkey: nil),
+                DropDownTemplate(ID: "married", Text: "Married",Text_kh:"", Fkey: nil),
+                DropDownTemplate(ID: "separated", Text: "Separated",Text_kh:"", Fkey: nil),
+                DropDownTemplate(ID: "divorced", Text: "Divorced",Text_kh:"", Fkey: nil),
+                DropDownTemplate(ID: "windowed", Text: "Windowed",Text_kh:"", Fkey: nil)
                 ]
     }
     
@@ -379,6 +379,7 @@ class Functions {
                     result = json["results"].array?.map {
                         DropDownTemplate(ID: $0["id"].stringValue,
                                          Text: $0["province"].stringValue,
+                                         Text_kh: $0["province_kh"].stringValue,
                                          Fkey: nil)
                         } ?? []
                     semephore.leave()
@@ -526,8 +527,8 @@ class GenerateList
     static func getPostType() -> [DropDownTemplate]
     {
         return [//DropDownTemplate(ID: "buy", Text: "Buy", Fkey: nil),
-                DropDownTemplate(ID: "rent", Text: "Rent", Fkey: nil),
-                DropDownTemplate(ID: "sell", Text: "Sell", Fkey: nil)]
+                DropDownTemplate(ID: "rent", Text: "Rent",Text_kh: "", Fkey: nil),
+                DropDownTemplate(ID: "sell", Text: "Sell",Text_kh: "", Fkey: nil)]
     }
     
     static func getCategory(completion: @escaping ([DropDownTemplate]) -> Void)
@@ -542,6 +543,7 @@ class GenerateList
                 let arrData = json["results"].array?.map {
                     DropDownTemplate(ID: $0["id"].stringValue,
                                      Text: $0["cat_name"].stringValue,
+                                     Text_kh: $0["cat_name_kh"].stringValue,
                                      Fkey: nil)
                 }
                 completion(arrData ?? [])
@@ -563,6 +565,7 @@ class GenerateList
                     let arrData = json["results"].array?.map {
                         DropDownTemplate(ID: $0["id"].stringValue,
                                          Text: $0["type"].stringValue,
+                                         Text_kh: $0["type_kh"].stringValue,
                                          Fkey: nil)
                     }
                     completion(arrData ?? [])
@@ -584,6 +587,7 @@ class GenerateList
                     let arrData = json["results"].array?.map {
                         DropDownTemplate(ID: $0["id"].stringValue,
                                          Text: $0["brand_name"].stringValue,
+                                         Text_kh: $0["brand_name_as_kh"].stringValue,
                                          Fkey: $0["category"].stringValue)
                     }
                     completion(arrData ?? [])
@@ -605,6 +609,7 @@ class GenerateList
                     let arrData = json["results"].array?.map {
                         DropDownTemplate(ID: $0["id"].stringValue,
                                          Text: $0["modeling_name"].stringValue,
+                                         Text_kh: $0["modeling_name_kh"].stringValue,
                                          Fkey: $0["brand"].stringValue)
                     }
                     completion(arrData ?? [])
@@ -626,6 +631,7 @@ class GenerateList
                     let arrData = json["results"].array?.map {
                         DropDownTemplate(ID: $0["id"].stringValue,
                                          Text: $0["year"].stringValue,
+                                         Text_kh:"",
                                          Fkey: nil)
                     }
                     completion(arrData ?? [])
@@ -637,28 +643,29 @@ class GenerateList
     
     static func getCondition() -> [DropDownTemplate]
     {
-        return [DropDownTemplate(ID: "new", Text: "New", Fkey: nil),
-                DropDownTemplate(ID: "used", Text: "Used", Fkey: nil)]
+        return [DropDownTemplate(ID: "new", Text: "New",Text_kh:"", Fkey: nil),
+                DropDownTemplate(ID: "used", Text: "Used",Text_kh:"", Fkey: nil)]
     }
     
     static func getColor() -> [DropDownTemplate]
     {
-        return [DropDownTemplate(ID: "blue", Text: "Blue", Fkey: nil),
-                DropDownTemplate(ID: "black", Text: "Black", Fkey: nil),
-                DropDownTemplate(ID: "silver", Text: "Silver", Fkey: nil),
-                DropDownTemplate(ID: "red", Text: "Red", Fkey: nil),
-                DropDownTemplate(ID: "gray", Text: "Gray", Fkey: nil),
-                DropDownTemplate(ID: "yellow", Text: "Yellow", Fkey: nil),
-                DropDownTemplate(ID: "pink", Text: "Pink", Fkey: nil),
-                DropDownTemplate(ID: "purple", Text: "Purple", Fkey: nil),
-                DropDownTemplate(ID: "orange", Text: "Orange", Fkey: nil),
-                DropDownTemplate(ID: "green", Text: "Green", Fkey: nil),]
+        
+        return [DropDownTemplate(ID: "blue", Text: "Blue",Text_kh:"ខៀវ", Fkey: nil),
+                DropDownTemplate(ID: "black", Text: "Black",Text_kh:"ខ្មៅ", Fkey: nil),
+                DropDownTemplate(ID: "silver", Text: "Silver",Text_kh:"ប្រាក់", Fkey: nil),
+                DropDownTemplate(ID: "red", Text: "Red",Text_kh:"ក្រហម", Fkey: nil),
+                DropDownTemplate(ID: "gray", Text: "Gray",Text_kh: "ប្រផេះ", Fkey: nil),
+                DropDownTemplate(ID: "yellow", Text: "Yellow",Text_kh: "លឿង", Fkey: nil),
+                DropDownTemplate(ID: "pink", Text: "Pink",Text_kh: "ផ្កាឈូក", Fkey: nil),
+                DropDownTemplate(ID: "purple", Text: "Purple",Text_kh: "ស្វាយ", Fkey: nil),
+                DropDownTemplate(ID: "orange", Text: "Orange",Text_kh: "ទឹកក្រូច", Fkey: nil),
+                DropDownTemplate(ID: "green", Text: "Green",Text_kh: "បៃតង", Fkey: nil),]
     }
     
     static func getDiscountType() -> [DropDownTemplate]
     {
-        return [DropDownTemplate(ID: "amount", Text: "Amount", Fkey: nil),
-                DropDownTemplate(ID: "percentage", Text: "Percentage", Fkey: nil)]
+        return [DropDownTemplate(ID: "amount", Text: "Amount",Text_kh:"", Fkey: nil),
+                DropDownTemplate(ID: "percentage", Text: "Percentage",Text_kh:"", Fkey: nil)]
     }
 }
 

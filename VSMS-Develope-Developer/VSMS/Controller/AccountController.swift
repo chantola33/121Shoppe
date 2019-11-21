@@ -325,9 +325,13 @@ extension AccountController {
         alertShopName.textFields![0].placeholder = "Shop Name"
         alertShopName.textFields![1].placeholder = "Address"
         let image = UIImage(named: "121logo")
-//        let imgView = UIImageView(frame: CGRect(x: 75, y: 75, width:30, height: 30))
-//        imgView.image = image
-//        alertShopName.view.addSubview(imgView)
+        
+
+        let imgView = UIImageView(frame: CGRect(x: 75, y: 75, width:30, height: 30))
+        imgView.image = image
+        alertShopName.view.addSubview(imgView)
+        
+        
         alertShopName.addAction(UIAlertAction( title: "Cancel", style: .cancel, handler: {(action) in
             print("Canceled....")
         }))
@@ -337,6 +341,7 @@ extension AccountController {
             let shop = alertShopName.textFields![0].text
             let address = alertShopName.textFields![1].text
             print(user)
+           
 //            self.UserAccount.user = user
 //            self.UserAccount.shop_name = shop!
 //            self.UserAccount.shop_address = address!
@@ -348,6 +353,7 @@ extension AccountController {
 //                    }
 //                })
 //            }
+            
             self.putshop = AccountViewModel(user: user, shop_name: shop!, shop_address: address!, shop_image: (image?.toBase64())!)
             self.ShopData.append(self.putshop)
            

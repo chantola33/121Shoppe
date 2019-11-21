@@ -42,6 +42,7 @@ class ProductListTableViewCell: UITableViewCell {
     
     func reload()
     {
+        
         profileuser.ImageLoadFromURL(url: ProfileHandleRequest.Profile.profile.profile_image)
 //        UserFireBase.Load { (user) in
 //            print("User")
@@ -59,7 +60,6 @@ class ProductListTableViewCell: UITableViewCell {
                 self.username = user
                 UserFireBase.LoadProfile(proName: self.username) { (coverurl) in
                     performOn(.Main, closure: {
-                    
                         let img = coverurl
                         self.profileuser.ImageLoadFromURL(url: img )
                     })
