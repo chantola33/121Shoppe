@@ -22,6 +22,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     //Internal Properties
     var ProductID:Int = -1
     var ProductDetail = DetailViewModel()
+    var CountView = CountViewModel()
     var timer = Timer()
     var counter = 0
     var relateArr: [HomePageModel] = []
@@ -101,6 +102,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         // Do any additional setup after loading the view.
         config()
         ImageSlideConfig()
+        SubmitCountView()
         InitailDetail()
         LoadUserDetail()
         XibRegister()
@@ -397,7 +399,13 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             
         }
     }
-    
+    func SubmitCountView(){
+        CountView.number = 1
+        CountView.post = 1
+        CountView.SubmitCountView { (result) in
+            print("Successful")
+        }
+    }
     func isRent_Product() -> Bool {
         let rent = ProductDetail.post_type
         if rent == "rent" {
