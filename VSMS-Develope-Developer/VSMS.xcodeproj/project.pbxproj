@@ -128,6 +128,7 @@
 		D55FA97B223EBD34005B0C8D /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FA97A223EBD34005B0C8D /* SettingController.swift */; };
 		D56B83C9234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */; };
 		D581EFC1234B8BFE00C89A2D /* laonn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D581EFC0234B8BFA00C89A2D /* laonn.jpg */; };
+		D5D83603238641FE0060E4D0 /* CountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D83602238641FE0060E4D0 /* CountViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -261,6 +262,7 @@
 		D55FA97A223EBD34005B0C8D /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTypeViewController.swift; sourceTree = "<group>"; };
 		D581EFC0234B8BFA00C89A2D /* laonn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = laonn.jpg; sourceTree = "<group>"; };
+		D5D83602238641FE0060E4D0 /* CountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -549,6 +551,7 @@
 				86EDF12F22F9862E00CBA118 /* AccountViewModel.swift */,
 				863D30B923011C20002C2725 /* LoanViewModel.swift */,
 				863220832303B0F5002B9DF6 /* StructTemplate.swift */,
+				D5D83602238641FE0060E4D0 /* CountViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 				86E8F0B222CCBE4D0093D7A9 /* Protocol.swift in Sources */,
 				863D30B623010F3B002C2725 /* CusDropDownUIView.swift in Sources */,
 				86F4017822DF0E4500AB9ECD /* ProductImageTableViewCell.swift in Sources */,
+				D5D83603238641FE0060E4D0 /* CountViewModel.swift in Sources */,
 				863220882303F828002B9DF6 /* CusTextAreaInput.swift in Sources */,
 				C49A53ED22FDAE7F0017E122 /* CusInputUIView.swift in Sources */,
 				865B5DB7221FDD3600864F7E /* ViewController.swift in Sources */,
