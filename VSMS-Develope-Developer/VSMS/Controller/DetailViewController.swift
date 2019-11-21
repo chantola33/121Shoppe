@@ -62,7 +62,23 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     @IBOutlet weak var lblAddress: UILabel!
     
     @IBOutlet weak var buttonView: UIView!
+    
+    //ConstrainLoan
     @IBOutlet weak var bottomView: NSLayoutConstraint!
+    @IBOutlet weak var lineDescription: NSLayoutConstraint!
+    @IBOutlet weak var heightLoan: NSLayoutConstraint!
+    @IBOutlet weak var labelPrice: NSLayoutConstraint!
+    @IBOutlet weak var Labelinterate: NSLayoutConstraint!
+    @IBOutlet weak var TextPrice: NSLayoutConstraint!
+    @IBOutlet weak var TextInterate: NSLayoutConstraint!
+    @IBOutlet weak var LabelDeposit: NSLayoutConstraint!
+    @IBOutlet weak var LabelTerm: NSLayoutConstraint!
+    @IBOutlet weak var TextDeposit: NSLayoutConstraint!
+    @IBOutlet weak var TextTerm: NSLayoutConstraint!
+    @IBOutlet weak var LabelPayment: NSLayoutConstraint!
+    @IBOutlet weak var LabelShowPrice: NSLayoutConstraint!
+    
+    @IBOutlet weak var HeightViewDetail: NSLayoutConstraint!
     
     
     @IBOutlet weak var mapView: GMSMapView!
@@ -81,13 +97,33 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let ProPrice = ProductDetail.cost
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         imgProfilePic.addGestureRecognizer(tap)
         imgProfilePic.isUserInteractionEnabled = true
         txtinterestRate.text = "1.5"
         txtTerm.text = "24"
         txtdeposit.text = "0.0"
-        txtprice.text = ProductDetail.cost.toCurrency()
+        txtprice.text = ProPrice
+        
+        
+        let rent = ProductDetail.post_type
+        if rent == "rent"{
+            lineDescription.constant = 0
+            heightLoan.constant = 0
+            labelPrice.constant = 0
+            Labelinterate.constant = 0
+            LabelDeposit.constant = 0
+            LabelTerm.constant = 0
+            LabelPayment.constant = 0
+            LabelShowPrice.constant = 0
+            TextPrice.constant = 0
+            TextInterate.constant = 0
+            TextTerm.constant = 0
+            TextDeposit.constant = 0
+            HeightViewDetail.constant = 855
+            
+        }
         let create_by = ProductDetail.created_by
         let userid = User.getUserID()
         if create_by == userid {
@@ -106,6 +142,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         InitailDetail()
         LoadUserDetail()
         XibRegister()
+        CalculatorLoan()
         tblView.reloadData()
         tblView.delegate = self
         tblView.dataSource = self
@@ -128,9 +165,9 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             
         }
         
-        txtprice.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
-        txtinterestRate.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
-        txtTerm.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+//        txtprice.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+//        txtinterestRate.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+//        txtTerm.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
         mapView.delegate = self
         mapView.settings.setAllGesturesEnabled(false)
         
@@ -309,10 +346,11 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     
     //Function and Selector
     
-    @objc
+    //@objc
     func CalculatorLoan(){
+        let productprice = ProductDetail.cost.toDouble()
         let Year = txtTerm.text?.toDouble() ?? 1
-        let SalePrice = txtprice.text?.toDouble() ?? 0
+        let SalePrice = productprice //txtprice.text?.toDouble() ?? 0
         let rate = txtinterestRate.text?.toDouble() ?? 0
   
         let MonthCount = Year
@@ -321,11 +359,13 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         let UnderValue = (1 - PowValue) / interate
         let result = SalePrice / UnderValue
         
-        if (txtprice.text == "") && (txtTerm.text == "") {
-            lblmonthlypayment.text = " $0.00"
-        }else{
-         lblmonthlypayment.text = "\(result)".toCurrency()
-        }
+        lblmonthlypayment.text = "\(result)".toCurrency()
+        
+//        if (txtprice.text == "") && (txtTerm.text == "") {
+//            lblmonthlypayment.text = " $0.00"
+//        }else{
+//         lblmonthlypayment.text = "\(result)".toCurrency()
+//        }
     }
     
     func Btnlikebyuser(){
@@ -399,14 +439,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             
         }
     }
-    
-    func isRent_Product() -> Bool {
-        let rent = ProductDetail.post_type
-        if rent == "rent" {
-            return true
-        }
-        return false
-    }
+
     
     func LoadUserDetail(){
         User.getUserInfo(id: ProductDetail.created_by) { (Profile) in
