@@ -85,8 +85,10 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         imgProfilePic.addGestureRecognizer(tap)
         imgProfilePic.isUserInteractionEnabled = true
-//        txtinterestRate.text = "1.5"
-//        txtTerm.text = "1"
+        txtinterestRate.text = "1.5"
+        txtTerm.text = "24"
+        txtdeposit.text = "0.0"
+        txtprice.text = ProductDetail.cost.toCurrency()
         let create_by = ProductDetail.created_by
         let userid = User.getUserID()
         if create_by == userid {
@@ -94,10 +96,10 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             self.bottomView.constant = 0
         }
         
-//        txtTerm.bordercolor()
-//        txtinterestRate.bordercolor()
-//        txtdeposit.bordercolor()
-//        txtprice.bordercolor()
+        txtTerm.bordercolor()
+        txtinterestRate.bordercolor()
+        txtdeposit.bordercolor()
+        txtprice.bordercolor()
         imgProfilePic.layer.cornerRadius = imgProfilePic.frame.width * 0.5
         // Do any additional setup after loading the view.
         config()
@@ -128,9 +130,9 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             
         }
         
-//        txtprice.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
-//        txtinterestRate.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
-//        txtTerm.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+        txtprice.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+        txtinterestRate.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+        txtTerm.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
         mapView.delegate = self
         mapView.settings.setAllGesturesEnabled(false)
         

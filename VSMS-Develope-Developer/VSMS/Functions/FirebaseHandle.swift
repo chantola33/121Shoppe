@@ -93,7 +93,7 @@ class UserFireBase
                     {
                         let imgurl = dictionary?["imageURL"]
                         if imgurl == "default"{
-                            print("default")
+                            
                         }else {
                             completion(imgurl!)
                         }
