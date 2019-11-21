@@ -59,7 +59,6 @@ class DiscountCollectionViewCell: UICollectionViewCell {
                 let username = user
                 UserFireBase.LoadProfile(proName: username) { (coverurl) in
                     performOn(.Main, closure: {
-                        print(coverurl + "completion")
                         let img = coverurl
                         self.imgUser.ImageLoadFromURL(url: img )
                     })

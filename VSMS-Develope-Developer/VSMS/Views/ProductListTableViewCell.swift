@@ -59,7 +59,7 @@ class ProductListTableViewCell: UITableViewCell {
                 self.username = user
                 UserFireBase.LoadProfile(proName: self.username) { (coverurl) in
                     performOn(.Main, closure: {
-                        print(coverurl + "completion")
+                    
                         let img = coverurl
                         self.profileuser.ImageLoadFromURL(url: img )
                     })

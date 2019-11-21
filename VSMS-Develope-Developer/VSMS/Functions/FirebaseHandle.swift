@@ -92,9 +92,9 @@ class UserFireBase
                     if userFir == proName
                     {
                         let imgurl = dictionary?["imageURL"]
-                        print(imgurl)
+
                         if imgurl == "default"{
-                            print("default")
+                            
                         }else {
                             completion(imgurl!)
                         }
