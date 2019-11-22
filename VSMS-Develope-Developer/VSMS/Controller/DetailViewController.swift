@@ -149,7 +149,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         tblView.reloadData()
         tblView.delegate = self
         tblView.dataSource = self
-        
+      
         performOn(.Main) {
             RequestHandle.LoadRelated(postType: self.ProductDetail.post_type,
                                       category: self.ProductDetail.category.toString(),
@@ -440,6 +440,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
 //                let view = "Views: "+count.toString()
 //                print(view)
               Database.database().reference().child("postssit").child(self.ProductDetail.id.toString()).updateChildValues(["viewCount" : self.views])
+                self.lblViews.reloadInputViews()
             })
         }
        

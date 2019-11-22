@@ -128,6 +128,7 @@
 		D55FA97B223EBD34005B0C8D /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FA97A223EBD34005B0C8D /* SettingController.swift */; };
 		D56B83C9234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */; };
 		D581EFC1234B8BFE00C89A2D /* laonn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D581EFC0234B8BFA00C89A2D /* laonn.jpg */; };
+		D5985DA72387D492004E4058 /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5985DA62387D492004E4058 /* BannerModel.swift */; };
 		D5D83603238641FE0060E4D0 /* CountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D83602238641FE0060E4D0 /* CountViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -262,6 +263,7 @@
 		D55FA97A223EBD34005B0C8D /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTypeViewController.swift; sourceTree = "<group>"; };
 		D581EFC0234B8BFA00C89A2D /* laonn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = laonn.jpg; sourceTree = "<group>"; };
+		D5985DA62387D492004E4058 /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
 		D5D83602238641FE0060E4D0 /* CountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -552,6 +554,7 @@
 				863D30B923011C20002C2725 /* LoanViewModel.swift */,
 				863220832303B0F5002B9DF6 /* StructTemplate.swift */,
 				D5D83602238641FE0060E4D0 /* CountViewModel.swift */,
+				D5985DA62387D492004E4058 /* BannerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				863220882303F828002B9DF6 /* CusTextAreaInput.swift in Sources */,
 				C49A53ED22FDAE7F0017E122 /* CusInputUIView.swift in Sources */,
 				865B5DB7221FDD3600864F7E /* ViewController.swift in Sources */,
+				D5985DA72387D492004E4058 /* BannerModel.swift in Sources */,
 				86AAF0D722C0C4D4003C46F3 /* MenuViewController.swift in Sources */,
 				86D7E64D231942A300B2035A /* PhotoListCollectionViewCell.swift in Sources */,
 				864997D822F2D93B005BD2DF /* ActiveDeactiveTableViewCell.swift in Sources */,

@@ -77,7 +77,8 @@ class ProductGridTableViewCell: UITableViewCell {
             //lbl_1_duration.text = data1?.create_at?.getDuration()
             lbl_1_postTy.SetPostType(postType: data1!.postType)
             RequestHandle.CountView(postID: (data1?.product)!) { (count) in
-                self.lbl_1_Views.text = "views".localizable()+count.toString() 
+                self.lbl_1_Views.text = "views".localizable()+count.toString()
+                self.lbl_1_Views.reloadInputViews()
             }
         }
         
@@ -99,6 +100,7 @@ class ProductGridTableViewCell: UITableViewCell {
             lbl_2_postTy.SetPostType(postType: data2!.postType)
             RequestHandle.CountView(postID: (data2?.product)!) { (count) in
                 self.lbl_2_Views.text = "views".localizable()+count.toString()
+                self.lbl_2_Views.reloadInputViews()
             }
             
         }

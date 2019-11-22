@@ -49,6 +49,7 @@ class ProductImageTableViewCell: UITableViewCell {
        // lblDuration.text = data.create_at?.getDuration()
         RequestHandle.CountView(postID: data.product) { (count) in
             self.lblViews.text = "views".localizable()+count.toString()
+            self.lblViews.reloadInputViews()
         }
         lblPostType.SetPostType(postType: data.postType)
     }

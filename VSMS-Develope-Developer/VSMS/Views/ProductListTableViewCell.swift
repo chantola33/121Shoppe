@@ -85,11 +85,9 @@ class ProductListTableViewCell: UITableViewCell {
         RequestHandle.CountView(postID: self.ProductData.product) { (count) in
             performOn(.Main, closure: {
                 self.lblView.text = "views".localizable()+count.toString()
+                self.lblView.reloadInputViews()
             })
-            
-            
         }
-        
     }
     
    

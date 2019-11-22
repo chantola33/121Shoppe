@@ -51,6 +51,7 @@ class DiscountCollectionViewCell: UICollectionViewCell {
         RequestHandle.CountView(postID: self.data.product ){ (count) in
             performOn(.Main, closure: {
                 self.lblView.text = "views".localizable()+count.toString()
+                self.lblView.reloadInputViews()
             })
         }
         let createby = data.create_at?.toInt()
