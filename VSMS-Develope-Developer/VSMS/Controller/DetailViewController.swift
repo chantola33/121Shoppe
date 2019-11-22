@@ -23,6 +23,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     var ProductID:Int = -1
     var ProductDetail = DetailViewModel()
     var CountView = CountViewModel()
+    var CountViewFirebase = PostFireBase()
     var timer = Timer()
     var counter = 0
     var relateArr: [HomePageModel] = []
@@ -78,7 +79,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     @IBOutlet weak var LoanView: UIView!
     @IBOutlet weak var lblmonthlypayment: UILabel!
     
-    
+    var views:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -394,18 +395,24 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
 //        lblDuration.text = ProductDetail.create_at?.getDuration()
         RequestHandle.CountView(postID: self.ProductDetail.id) { (count) in
             performOn(.Main, closure: {
-                self.lblViews.text = "Views: "+count.toString()
+                self.views = count.toString()
+                self.lblViews.text = "Views: " + self.views
 //                let view = "Views: "+count.toString()
 //                print(view)
+              Database.database().reference().child("postssit").child(self.ProductDetail.id.toString()).updateChildValues(["viewCount" : self.views])
             })
-            
         }
+       
     }
     func SubmitCountView(){
         CountView.number = 1
-        CountView.post = 1
+        CountView.post = ProductDetail.id
         CountView.SubmitCountView { (result) in
-            print("Successful")
+            if result {
+                print("Successful submit countview")
+            }else {
+                print("submit countview fail")
+            }
         }
     }
     func isRent_Product() -> Bool {
