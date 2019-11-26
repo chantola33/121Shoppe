@@ -11,6 +11,7 @@ import RSSelectionMenu
 import GoogleMaps
 import GooglePlaces
 import MapKit
+import TLPhotoPicker
 
 
 class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMapViewDelegate {
@@ -66,7 +67,7 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
     var condition_arr = [DropDownTemplate]()
     var color_arr = [DropDownTemplate]()
     var discount_type_arr = [DropDownTemplate]()
-    
+ 
     /////selected arr
     var post_selected = [DropDownTemplate]()
     var category_selected = [DropDownTemplate]()
@@ -468,6 +469,8 @@ extension PostViewController {
                 self.imagePicker.left_image = data.left_image_path
                 self.imagePicker.right_image = data.right_image_path
                 self.tableView.reloadData()
+               
+              
             }
         }
     }
