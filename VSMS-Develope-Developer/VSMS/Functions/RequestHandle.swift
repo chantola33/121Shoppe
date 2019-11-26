@@ -118,6 +118,26 @@ class RequestHandle {
         
     }
     
+    static func getWallpaper(completion: @escaping ([String]) -> Void){
+        var post: [String] = []
+        Alamofire.request(PROJECT_API.WALLPAPER,
+                          method: .get,
+                          encoding: JSONEncoding.default
+                          ).responseJSON
+            { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    post = json["results"].array?.map{
+                            $0["wallpaper_image"].stringValue
+                    } ?? []
+                 completion(post)
+                 
+                case .failure:
+                    print("error")
+                }
+        }
+    }
    
     static func CountView(postID: Int, completion: @escaping (Int) -> Void){
         Alamofire.request(PROJECT_API.COUNT_VIEWS(ProID: postID),

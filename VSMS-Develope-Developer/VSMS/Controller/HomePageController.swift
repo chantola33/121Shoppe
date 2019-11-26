@@ -57,8 +57,10 @@ class HomePageController: BaseViewController {
     var imgArr = [  UIImage(named:"Dream191"),
                     UIImage(named:"Dream192"),
                     UIImage(named:"Dream193")]
+    var imgBanner: [String] = []
+    var bannerCount: Int = 0
     var buttonFilter = ["All Post","Category","Brand","Years","Prices"]
-    
+    var banner = BannerModel()
     
     var timer = Timer()
     var counter = 0
@@ -101,6 +103,7 @@ class HomePageController: BaseViewController {
         SideMenuController.preferences.basic.defaultCacheKey = "0"
         SideMenuController.preferences.basic.statusBarBehavior = .hideOnMenu
         ButtonFilterCollection.allowsMultipleSelection = true
+      
         
         configuration()
         setupNavigationBarItem()
@@ -260,19 +263,43 @@ class HomePageController: BaseViewController {
     }
     
     @objc func changeImage() {
-        if counter < imgArr.count {
-            let index = IndexPath.init(item: counter, section: 0)
-            self.SliderCollection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
-            counter += 1
-        } else {
-            counter = 0
-            let index = IndexPath.init(item: counter, section: 0)
-            self.SliderCollection.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
-           
-            counter = 1
+        RequestHandle.getWallpaper { (val) in
+            performOn(.Main,closure: {
+            
+                if self.counter < val.count {
+                    let index = IndexPath.init(item: self.counter, section: 0)
+                    self.SliderCollection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+                    self.counter += 1
+                } else {
+                    self.counter = 0
+                    let index = IndexPath.init(item: self.counter, section: 0)
+                    self.SliderCollection.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+                    
+                    self.counter = 1
+                }
+            })
+        }
+
+    }
+    func getWallpaper(){
+        Alamofire.request(PROJECT_API.WALLPAPER,
+                          method: .get,
+                          encoding: JSONEncoding.default
+            ).responseJSON
+            { (response) in
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    self.imgBanner = json["results"].array?.map{
+                        $0["wallpaper_image"].stringValue
+                        } ?? []
+                self.tableView.reloadData()
+                case .failure:
+                    print("error")
+                }
         }
     }
-    
+
     func RegisterXib(){
         let imagehomepage = UINib(nibName: "DiscountCollectionViewCell", bundle: nil)
         DiscountCollection.register(imagehomepage, forCellWithReuseIdentifier: "imgediscount")
@@ -392,8 +419,9 @@ extension HomePageController
     
 extension HomePageController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+      
         if collectionView == SliderCollection {
-            return imgArr.count
+            return 5
         }
         else if collectionView == ButtonFilterCollection {
             return buttonFilter.count
@@ -406,10 +434,16 @@ extension HomePageController: UICollectionViewDataSource, UICollectionViewDelega
    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if collectionView == SliderCollection {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath)
             if let vc = cell.viewWithTag(111) as? UIImageView {
-                vc.image = imgArr[indexPath.row]
+                RequestHandle.getWallpaper { (val) in
+                    vc.ImageLoadFromURL(url: val[indexPath.row])
+
+                    }
+//                vc.image = imgArr[indexPath.row]
+//                  vc.ImageLoadFromURL(url: imgBanner[indexPath.row])
             }
             return cell
         }

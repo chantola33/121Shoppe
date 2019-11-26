@@ -46,6 +46,7 @@ class PROJECT_API {
     static var CHANGEPASSWORD = "\(http_absoluteString)/api/v1/changepassword/"
     
     //Homepage
+    static var WALLPAPER = "\(http_absoluteString)/api/v1/wallpaper/"
     static var HOMEPAGE = "\(http_absoluteString)/allposts/"
     static var BESTDEAL = "\(http_absoluteString)/bestdeal/"
     static func filterUsernameAndFacebookKey(username: String, fbKey: String) -> String

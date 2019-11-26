@@ -13,15 +13,15 @@ import SwiftyJSON
 class BannerModel {
 
     var id: Int = 0
-    var wallpaper_image: String = ""
+    var wallpaper_image: [String] = []
     var position: String = ""
 
     init() { }
     
     
-    init(json: JSON) {
-        self.id = json["id"].stringValue.toInt()
-        self.wallpaper_image = json["wallpaper_image"].stringValue
-        self.position = json["position"].stringValue
+    init(id: Int, wallpaper_image: [String], position: String) {
+        self.id = id
+        self.wallpaper_image = wallpaper_image
+        self.position = position
     }
 }
