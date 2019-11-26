@@ -81,7 +81,7 @@ class ProductListTableViewCell: UITableViewCell {
        
         lblProductPrice.text = ProductData.cost.toCurrency()
        // lblDuration.text = ProductData.create_at?.getDuration()
-        lblPostType.SetPostType(postType: ProductData.postType)
+        lblPostType.SetPostType(postType: ProductData.postType.localizable())
         RequestHandle.CountView(postID: self.ProductData.product) { (count) in
             performOn(.Main, closure: {
                 self.lblView.text = "views".localizable()+count.toString()

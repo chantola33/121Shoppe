@@ -75,7 +75,7 @@ class ProductGridTableViewCell: UITableViewCell {
             img_1_Product.LoadFromURL(url: data1!.imagefront)
             lbl_1_Productprice.text = data1?.cost.toCurrency()
             //lbl_1_duration.text = data1?.create_at?.getDuration()
-            lbl_1_postTy.SetPostType(postType: data1!.postType)
+            lbl_1_postTy.SetPostType(postType: data1!.postType.localizable())
             RequestHandle.CountView(postID: (data1?.product)!) { (count) in
                 self.lbl_1_Views.text = "views".localizable()+count.toString() 
             }
@@ -96,7 +96,7 @@ class ProductGridTableViewCell: UITableViewCell {
             img_2_Product.LoadFromURL(url: data2!.imagefront)
             lbl_2_productprice.text = data2?.cost.toCurrency()
            // lbl_2_duration.text = data2?.create_at?.getDuration()
-            lbl_2_postTy.SetPostType(postType: data2!.postType)
+            lbl_2_postTy.SetPostType(postType: data2!.postType.localizable())
             RequestHandle.CountView(postID: (data2?.product)!) { (count) in
                 self.lbl_2_Views.text = "views".localizable()+count.toString()
             }

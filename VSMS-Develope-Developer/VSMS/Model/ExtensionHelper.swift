@@ -381,7 +381,7 @@ extension UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0, green: 0.3411764706, blue: 0.2941176471, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1882352941, green: 0.2470588235, blue: 0.6235294118, alpha: 1)
             
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
@@ -485,16 +485,19 @@ extension UITableView {
 extension UILabel {
     func SetPostType(postType: String)
     {
-        if postType == "sell"
+        if postType == "sell".localizable()
         {
             self.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         }
-        else if postType == "rent"
+        else if postType == "rent".localizable()
         {
             self.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         }
-        else{
+        else if postType == "buy".localizable()
+        {
             self.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+        }else {
+            self.backgroundColor = .white
         }
         self.textColor = UIColor.white
         self.text = postType.capitalizingFirstLetter()

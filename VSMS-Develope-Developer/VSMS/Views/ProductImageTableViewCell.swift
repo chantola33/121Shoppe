@@ -50,7 +50,7 @@ class ProductImageTableViewCell: UITableViewCell {
         RequestHandle.CountView(postID: data.product) { (count) in
             self.lblViews.text = "views".localizable()+count.toString()
         }
-        lblPostType.SetPostType(postType: data.postType)
+        lblPostType.SetPostType(postType: data.postType.localizable())
     }
     
     @objc

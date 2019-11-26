@@ -15,6 +15,7 @@ class ActiveDeactiveTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        sagement.reloadInputViews()
         // Initialization code
     }
 
@@ -25,9 +26,11 @@ class ActiveDeactiveTableViewCell: UITableViewCell {
     }
     @IBAction func segmentClickHandle(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
+            self.sagement.setTitle("active".localizable(), forSegmentAt: 0)
             self.sagementclick!(true)
         }
         else{
+            self.sagement.setTitle("history".localizable(), forSegmentAt: 1)
             self.sagementclick!(false)
         }
     }

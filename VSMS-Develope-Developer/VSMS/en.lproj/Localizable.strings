@@ -33,9 +33,14 @@
 "yourposts" = "Your Posts";
 "yourlike" = "Your Likes";
 "yourloan" = "Your Loan";
-
+"post" = "Post";
 
 "setting" = "Setting";
 
 "termofprivancy" = "Term of Privancy";
 "views" = "Views: ";
+"like" = "LIKE";
+"loan" = "LOAN";
+"upload" = "UPLOAD";
+"active" = "Active";
+"history" = "History";

@@ -167,9 +167,9 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             
         }
         
-//        txtprice.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
-//        txtinterestRate.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
-//        txtTerm.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+        //txtprice.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+        txtinterestRate.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
+        txtTerm.addTarget(self, action: #selector(CalculatorLoan), for: UIControl.Event.editingChanged)
         mapView.delegate = self
         mapView.settings.setAllGesturesEnabled(false)
         
@@ -348,7 +348,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     
     //Function and Selector
     
-    //@objc
+    @objc
     func CalculatorLoan(){
         let productprice = ProductDetail.cost.toDouble()
         let Year = txtTerm.text?.toDouble() ?? 1

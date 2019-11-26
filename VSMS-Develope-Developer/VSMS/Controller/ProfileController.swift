@@ -86,6 +86,11 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
     
     override func localizeUI() {
         tableView.reloadData()
+        btnPost.setTitle("post".localizable(), for: .normal)
+        btnLike.setTitle("like".localizable(), for: .normal)
+        btnLoan.setTitle("loan".localizable(), for: .normal)
+        btnCoverChange.setTitle("upload".localizable(), for: .normal)
+        
     }
     
     override func viewDidLoad() {
@@ -526,7 +531,7 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
                 activeCell.sagementclick = { check in
                     self.isPostActiveOrHistory = check
                     self.tableView.reloadData()
-                }
+                } 
                 return activeCell
             }
             if isPostActiveOrHistory
