@@ -531,7 +531,7 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
                 activeCell.sagementclick = { check in
                     self.isPostActiveOrHistory = check
                     self.tableView.reloadData()
-                } 
+                }
                 return activeCell
             }
             if isPostActiveOrHistory

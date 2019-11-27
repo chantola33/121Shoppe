@@ -421,7 +421,7 @@ extension HomePageController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
       
         if collectionView == SliderCollection {
-            return 5
+            return 7
         }
         else if collectionView == ButtonFilterCollection {
             return buttonFilter.count

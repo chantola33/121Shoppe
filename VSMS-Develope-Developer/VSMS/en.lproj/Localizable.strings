@@ -44,3 +44,23 @@
 "upload" = "UPLOAD";
 "active" = "Active";
 "history" = "History";
+"home" = "Home";
+"profile" = "Profile";
+"notification" = "Notification";
+"chat" = "Chat";
+"camera" = "Camera";
+//Detail
+"description" = "Description";
+"postcode" = "Posts Code";
+"condition" = "Condition";
+"loancal" = "LOAN CALCULATION";
+"price" = "Price";
+"interate" = "interest Rate";
+"deposit" = "Deposti";
+"term" = "Term";
+"monthly" = "Monthly Payment";
+"contact" = "Contact";
+"related" = "Related Posts";
+"detail" = "Detail";
+"new" = "New";
+"use" = "Used";

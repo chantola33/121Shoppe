@@ -51,21 +51,31 @@ class TabBarButton: UIView {
         if HomeActive
         {
             Home.image = UIImage(named: "tabHomeActive")
+            lblHome.text = "home".localizable()
+        }
+        
+        if CameraActive
+        {
+            Camera.image = UIImage(named: "tabCameraActive")
+            lblCamera.text = "camera".localizable()
         }
         
         if ProfileActive
         {
             Profile.image = UIImage(named: "tabUserActive")
+            lblProfile.text = "profile".localizable()
         }
         
         if NotificationActive
         {
             Notification.image = UIImage(named: "tabNotificationActive")
+            lblNotification.text = "notification".localizable()
         }
         
         if ChatActive
         {
             Chat.image = UIImage(named: "tabChatActive")
+            lblChat.text = "chat".localizable()
         }
     }
     
