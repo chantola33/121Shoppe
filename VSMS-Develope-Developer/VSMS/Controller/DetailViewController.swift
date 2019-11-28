@@ -17,7 +17,7 @@ import FirebaseDatabase
 
 
 
-class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewDelegate {
+class DetailViewController: BaseViewController,CLLocationManagerDelegate, GMSMapViewDelegate {
     
     //Internal Properties
     var ProductID:Int = -1
@@ -48,6 +48,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     @IBOutlet weak var lblOldPrice: UILabel!
     
     
+    
     @IBOutlet weak var lblBrand: UILabel!
 //    @IBOutlet weak var lblYear: UILabel!
 //    @IBOutlet weak var lblColor: UILabel!
@@ -62,6 +63,18 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     @IBOutlet weak var lblUserPhoneNumber: UILabel!
     @IBOutlet weak var lblUserEmail: UILabel!
     @IBOutlet weak var lblAddress: UILabel!
+    @IBOutlet weak var lbldescrition: UILabel!
+    @IBOutlet weak var lblpostcode: UILabel!
+    @IBOutlet weak var lblcondtion: UILabel!
+    @IBOutlet weak var lblLoanCatulation: UILabel!
+    @IBOutlet weak var lblPriceloan: UILabel!
+    @IBOutlet weak var lblInterestRateloan: UILabel!
+    @IBOutlet weak var lblDepositloan: UILabel!
+    @IBOutlet weak var lblTermloan: UILabel!
+    @IBOutlet weak var lblMonthPay: UILabel!
+    @IBOutlet weak var lblContect: UILabel!
+    @IBOutlet weak var lblRelatepost: UILabel!
+    
     
     @IBOutlet weak var buttonView: UIView!
     
@@ -245,6 +258,11 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         self.tabBarController?.tabBar.isHidden = true
     }
     
+    //Change Language
+    override func localizeUI() {
+        tblView.reloadData()
+    }
+    
     //Events Handler
     @IBAction func clickCall(_ sender: Any) {
         print("click call")
@@ -399,7 +417,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
     }
     
     func config(){
-        self.navigationItem.title = "Detail"
+        self.navigationItem.title = "detail".localizable()
     }
     
     func InitailDetail(){
@@ -412,6 +430,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
                 lblProductName.text = SplitName[1]
             }
         }
+        
 
         lblProductPrice.text = ProductDetail.cost.toCurrency()
         if ProductDetail.discount.toDouble() != 0.0
@@ -425,9 +444,29 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
             lblProductPrice.text = ProductDetail.cost.toCurrency()
         }
         
+        self.lbldescrition.text = "description".localizable()
+        self.lblpostcode.text = "postcode".localizable()
+        self.lblcondtion.text = "condition".localizable()
+        self.lblLoanCatulation.text = "loancal".localizable()
+        self.lblRelatepost.text = "related".localizable()
+        self.lblContect.text = "contact".localizable()
+        self.lblMonthPay.text = "monthly".localizable()
+        self.lblPriceloan.text = "price".localizable()
+        self.lblTermloan.text = "term".localizable()
+        self.lblInterestRateloan.text = "interate".localizable()
+        self.lblDepositloan.text = "deposit".localizable()
+        
+        if ProductDetail.condition == "new" {
+            lblCondition.text = "new".localizable()
+        }else if ProductDetail.condition == "used"{
+            lblCondition.text = "use".localizable()
+        }else{
+            lblCondition.text = "Defail"
+        }
+        
         lblBrand.text = ProductDetail.post_code
 //        lblYear.text = ProductDetail.getYear
-        lblCondition.text = ProductDetail.condition
+     //   lblCondition.text = ProductDetail.condition
 //        lblColor.text = ProductDetail.post_code
         lblDescription.text = ProductDetail.description
 //        lblPrice.text = ProductDetail.cost.toCurrency()
@@ -436,7 +475,7 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate, GMSMapVi
         RequestHandle.CountView(postID: self.ProductDetail.id) { (count) in
             performOn(.Main, closure: {
                 self.views = count.toString()
-                self.lblViews.text = "Views: " + self.views
+                self.lblViews.text = "views".localizable() + self.views
 //                let view = "Views: "+count.toString()
 //                print(view)
               Database.database().reference().child("postssit").child(self.ProductDetail.id.toString()).updateChildValues(["viewCount" : self.views])

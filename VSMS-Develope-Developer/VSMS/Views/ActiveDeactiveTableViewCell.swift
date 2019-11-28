@@ -15,13 +15,11 @@ class ActiveDeactiveTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        sagement.reloadInputViews()
         // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     @IBAction func segmentClickHandle(_ sender: UISegmentedControl) {
