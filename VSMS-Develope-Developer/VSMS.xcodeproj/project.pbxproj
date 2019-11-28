@@ -122,6 +122,8 @@
 		C4CCAE4922F9676B00E21EC4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCAE4822F9676A00E21EC4 /* BaseViewController.swift */; };
 		C4CCAE4B22F9679300E21EC4 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCAE4A22F9679300E21EC4 /* LanguageManager.swift */; };
 		C4CCAE5322F9732C00E21EC4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4CCAE5122F9732C00E21EC4 /* Localizable.strings */; };
+		D5467A11238E552D0064DD45 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5467A10238E552D0064DD45 /* Popup.storyboard */; };
+		D5467A13238E5DA90064DD45 /* PopupviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5467A12238E5DA90064DD45 /* PopupviewController.swift */; };
 		D54C4811224223BD004FE033 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C4810224223BD004FE033 /* LoginController.swift */; };
 		D54C48132242249D004FE033 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C48122242249D004FE033 /* RegisterController.swift */; };
 		D54C481522422F20004FE033 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C481422422F20004FE033 /* AccountController.swift */; };
@@ -257,6 +259,8 @@
 		C4CCAE5022F9726400E21EC4 /* km-KH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "km-KH"; path = "km-KH.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		C4CCAE5222F9732C00E21EC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4CCAE5422F9734000E21EC4 /* km-KH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "km-KH"; path = "km-KH.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D5467A10238E552D0064DD45 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		D5467A12238E5DA90064DD45 /* PopupviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupviewController.swift; sourceTree = "<group>"; };
 		D54C4810224223BD004FE033 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D54C48122242249D004FE033 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		D54C481422422F20004FE033 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 				865B5DC7221FDD6400864F7E /* Views */,
 				865B5DB6221FDD3600864F7E /* ViewController.swift */,
 				865B5DB8221FDD3600864F7E /* Main.storyboard */,
+				D5467A10238E552D0064DD45 /* Popup.storyboard */,
 				865B5DBD221FDD3700864F7E /* LaunchScreen.storyboard */,
 				865B5DC0221FDD3700864F7E /* Info.plist */,
 				86E63AF2230D184200421EAB /* GoogleService-Info.plist */,
@@ -435,6 +440,7 @@
 				8613E8EC231CFB1B006C9D60 /* NewMessageViewController.swift */,
 				862F6B00233A0FA40009DC4D /* FilterBottonViewController.swift */,
 				D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */,
+				D5467A12238E5DA90064DD45 /* PopupviewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -745,6 +751,7 @@
 				86EE08BA22FFC6B7001EF3A8 /* AboutUsTableViewCell.xib in Resources */,
 				863AFE0122F7E8C8002D3D5D /* LoadingTableViewCell.xib in Resources */,
 				86763E2022D4A70700391237 /* DiscountInputTableViewCell.xib in Resources */,
+				D5467A11238E552D0064DD45 /* Popup.storyboard in Resources */,
 				C45661B422CE6D6200973945 /* PostsTableViewCell.xib in Resources */,
 				86F4DEE122E30BDE000ACA12 /* ListFromNavigationViewController.xib in Resources */,
 				863D30B823010F67002C2725 /* CusDropDownUIView.xib in Resources */,
@@ -868,6 +875,7 @@
 				86022E0D22D445FC00D4C9C2 /* ExtensionHelper.swift in Sources */,
 				86FD6F28231E2C6D009C7D07 /* MessageViewModel.swift in Sources */,
 				D54C4811224223BD004FE033 /* LoginController.swift in Sources */,
+				D5467A13238E5DA90064DD45 /* PopupviewController.swift in Sources */,
 				86E8F0B222CCBE4D0093D7A9 /* Protocol.swift in Sources */,
 				863D30B623010F3B002C2725 /* CusDropDownUIView.swift in Sources */,
 				86F4017822DF0E4500AB9ECD /* ProductImageTableViewCell.swift in Sources */,

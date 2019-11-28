@@ -98,6 +98,7 @@ class HomePageController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.Prepare()
+        
 
         SideMenuController.preferences.basic.menuWidth = 240
         SideMenuController.preferences.basic.defaultCacheKey = "0"
@@ -118,7 +119,7 @@ class HomePageController: BaseViewController {
         performOn(.Main) {
             RequestHandle.LoadBestDeal(completion: { (val) in
                 self.bestDealArr = val
-                self.DiscountCollection.reloadData()
+                                self.DiscountCollection.reloadData()
             })
         }
         
@@ -166,8 +167,10 @@ class HomePageController: BaseViewController {
     
     ///////////////////functions & Selectors
     func configuration(){
+      
         SliderCollection.delegate = self
         SliderCollection.dataSource = self
+        SliderCollection.reloadData()
         
         DiscountCollection.delegate = self
         DiscountCollection.dataSource = self
@@ -281,24 +284,7 @@ class HomePageController: BaseViewController {
         }
 
     }
-    func getWallpaper(){
-        Alamofire.request(PROJECT_API.WALLPAPER,
-                          method: .get,
-                          encoding: JSONEncoding.default
-            ).responseJSON
-            { (response) in
-                switch response.result{
-                case .success(let value):
-                    let json = JSON(value)
-                    self.imgBanner = json["results"].array?.map{
-                        $0["wallpaper_image"].stringValue
-                        } ?? []
-                self.tableView.reloadData()
-                case .failure:
-                    print("error")
-                }
-        }
-    }
+  
 
     func RegisterXib(){
         let imagehomepage = UINib(nibName: "DiscountCollectionViewCell", bundle: nil)
@@ -417,11 +403,16 @@ extension HomePageController
    
 }
     
-extension HomePageController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension HomePageController:   UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+     
       
         if collectionView == SliderCollection {
-            return 5
+            getwill()
+               print("second response")
+            return 8
         }
         else if collectionView == ButtonFilterCollection {
             return buttonFilter.count
@@ -430,11 +421,9 @@ extension HomePageController: UICollectionViewDataSource, UICollectionViewDelega
             return bestDealArr.count
         }
     }
-    
-   
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+    
         if collectionView == SliderCollection {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath)
             if let vc = cell.viewWithTag(111) as? UIImageView {
@@ -443,7 +432,7 @@ extension HomePageController: UICollectionViewDataSource, UICollectionViewDelega
 
                     }
 //                vc.image = imgArr[indexPath.row]
-//                  vc.ImageLoadFromURL(url: imgBanner[indexPath.row])
+
             }
             return cell
         }
@@ -466,7 +455,6 @@ extension HomePageController: UICollectionViewDataSource, UICollectionViewDelega
     
 
   
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == DiscountCollection
         {
@@ -487,6 +475,14 @@ extension HomePageController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 4
     }
+    
+    func getwill(){
+        print("111111")
+           RequestHandle.getWallpaper { (val) in
+            print(val.count)
+        }
+    }
+    
 }
 
 extension HomePageController: UITableViewDelegate, UITableViewDataSource {
