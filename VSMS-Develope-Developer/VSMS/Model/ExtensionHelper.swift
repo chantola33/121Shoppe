@@ -584,12 +584,16 @@ extension UIButton
     {
         switch status
         {
+    
         case 3:
             self.setTitle("Pending", for: .normal)
             self.setTitleColor(#colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1), for: .normal)
         case 4:
-            self.setTitle("Approved", for: .normal)
-            self.setTitleColor(#colorLiteral(red: 0.16155532, green: 0.6208058596, blue: 0.002179143718, alpha: 1), for: .normal)
+            self.setTitle("Renew", for: .normal)
+            self.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+//            self.setImage(UIImage(named:"like"), for: .normal)
+//            self.imageView?.contentMode = .scaleAspectFit
+//            self.imageEdgeInsets = UIEdgeInsets(top: 0, left: -30,bottom: 0, right: 0)
         default:
             break
         }

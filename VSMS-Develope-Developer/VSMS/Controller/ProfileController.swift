@@ -12,7 +12,7 @@ import Alamofire
 import SwiftyJSON
 import SideMenuSwift
 import Firebase
-
+import FirebaseDatabase
 
 class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDataSource {
     
@@ -778,6 +778,7 @@ extension ProfileController: UIImagePickerControllerDelegate, UINavigationContro
                     selectedImage.UpLoadProfile(completion: {
                         self.profileImage.image = selectedImage
                     })
+              
                 }
                 else if self.pickPhotoCheck == "cover" {
                     selectedImage.UpLoadCover(completion: {

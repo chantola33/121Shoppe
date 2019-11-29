@@ -80,7 +80,9 @@ class AccountController: BaseTableViewController, CLLocationManagerDelegate,GMSM
     
     var maritalStatusArr: [DropDownTemplate] = []
     var maritalStatusSelected = [DropDownTemplate]()
-    var shop_Name: String = ""
+    var shop_nameArr = [String]()
+    var shop_addressArr = [String]()
+    var shop_imageArr = [String]()
 
     //selected Data
     
@@ -227,10 +229,11 @@ class AccountController: BaseTableViewController, CLLocationManagerDelegate,GMSM
         txtWingNumber.text = UserAccount.ProfileData.wing_account_number
         txtaddress.text = UserAccount.ProfileData.responsible_officer
        
-   
-        print("shop_name")
-//        print(shop_Name)
-        print(UserAccount.shops)
+        shop_nameArr = UserAccount.Shop_Name
+        shop_addressArr = UserAccount.Shop_Address
+        shop_imageArr = UserAccount.Shop_Image
+     
+
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -351,22 +354,19 @@ extension AccountController {
     }
     
     func SelectShopNameOption (){
+        
         let alertShopName = UIAlertController(title: "Shop Name", message: "", preferredStyle: .alert)
         alertShopName.addTextField()
         alertShopName.addTextField()
         alertShopName.textFields![0].placeholder = "Shop Name"
         alertShopName.textFields![1].placeholder = "Address"
         let image = UIImage(named: "121logo")
-        
 
-        let imgView = UIImageView(frame: CGRect(x: 75, y: 75, width:30, height: 30))
+        
+        let imgView = UIImageView(frame: CGRect(x: 100, y: 100, width:30, height: 30))
         imgView.image = image
         alertShopName.view.addSubview(imgView)
-        
-        
-        alertShopName.addAction(UIAlertAction( title: "Cancel", style: .cancel, handler: {(action) in
-            print("Canceled....")
-        }))
+     
         alertShopName.addAction(UIAlertAction( title: "Submit", style: .default, handler: {(action) in
             print("Submitted....")
             let user = User.getUserID()
@@ -391,8 +391,7 @@ extension AccountController {
            
             }))
         self.present(alertShopName, animated: true)
-        
-      
+
     }
     
     func ShowGenderOption(style: PresentationStyle)

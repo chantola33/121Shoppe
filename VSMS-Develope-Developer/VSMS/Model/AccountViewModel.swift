@@ -18,10 +18,13 @@ class AccountViewModel {
     var email: String = ""
     var group: [Int] = [1]
     var password: String = User.getPassword()
-    var Shops :  [AccountShop] = []
    
     var ProfileData = AccountSubProfile()
 
+    // get shops array object
+    var Shop_Name: [String] = []
+    var Shop_Address: [String] = []
+    var Shop_Image: [String] = []
     // shop field
     var shops: [[String: Any]] = [[:]]
     var user: Int?
@@ -115,7 +118,9 @@ class AccountViewModel {
                     self.ProfileData.responsible_officer = profile["responsible_officer"].stringValue
                   
 //                    self.shops = JSON(json["shops"]).arrayValue.map{ AccountShop(json: $0).ShopDictionary                    }
-     
+                    self.Shop_Name = json["shops"].array?.map{ $0["shop_name"].stringValue } ?? []
+                    self.Shop_Address = json["shops"].array?.map{ $0["shop_address"].stringValue } ?? []
+                    self.Shop_Image = json["shops"].array?.map{ $0["shop_image"].stringValue } ?? []
                     completion()
                 case .failure(let error):
                     print(error.localizedDescription)

@@ -36,10 +36,16 @@ class MenuViewController: BaseViewController,UITableViewDelegate,UITableViewData
         tableView.dataSource = self
         lblProfileName.text = User.getfirstname() == "" ? User.getUsername() : User.getfirstname()
         
-        UserFireBase.Load { (user) in
-            if user.imageURL != "" {
-                self.imageprofile.ImageLoadFromURL(url: user.imageURL)
-            }
+//        UserFireBase.Load { (user) in
+//            if user.imageURL != "" {
+//                self.imageprofile.ImageLoadFromURL(url: user.imageURL)
+//            }
+//        }
+        UserFireBase.LoadProfile(proName: User.getUsername()) { (coverurl) in
+            performOn(.Main, closure: {
+                let img = coverurl
+                self.imageprofile.ImageLoadFromURL(url: img )
+            })
         }
     }
    
