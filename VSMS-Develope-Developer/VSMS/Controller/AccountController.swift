@@ -15,12 +15,13 @@ import GooglePlaces
 import CoreLocation
 import MapKit
 
-class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMapViewDelegate {
+class AccountController: BaseTableViewController, CLLocationManagerDelegate,GMSMapViewDelegate {
     
     //Storyboard Properties
     @IBOutlet weak var lblUserGroup: UILabel!
     @IBOutlet weak var txtUsername: UITextField!
-
+    @IBOutlet weak var UserGroupLabel: UILabel!
+    
     
     @IBOutlet weak var txtaddress: UITextField!
     @IBOutlet weak var lblGender: UILabel!
@@ -32,6 +33,19 @@ class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMap
     @IBOutlet weak var txtPhoneNumber: UITextField!
     @IBOutlet weak var lblLocation: UILabel!
     
+    
+    @IBOutlet weak var lblUserName: UILabel!
+    @IBOutlet weak var ShopeNameLabel: UILabel!
+    @IBOutlet weak var GenderLabel: UILabel!
+    @IBOutlet weak var lblDateOfbirth: UILabel!
+    @IBOutlet weak var lblPlaceOfbirth: UILabel!
+    @IBOutlet weak var MaritalLabel: UILabel!
+    @IBOutlet weak var Location: UILabel!
+    @IBOutlet weak var lblPhoneNumber1: UILabel!
+    @IBOutlet weak var lblPhoneNumber2: UILabel!
+    @IBOutlet weak var lblPhoneNumber3: UILabel!
+    @IBOutlet weak var lblWingAccountName: UILabel!
+    @IBOutlet weak var lblWingAccountNumber: UILabel!
     
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var btnPin: UIButton!
@@ -58,9 +72,8 @@ class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMap
     var ShopData : [AccountViewModel] = []
     var putshop = AccountViewModel()
     //Dropdown Array
-    let genderArr = ["Male", "Female"]
+    let genderArr = ["male".localizable(), "female".localizable()]
     var gender = [String]()
-    
     var provinceArr: [DropDownTemplate] = []
     var provinceSelected = [DropDownTemplate]()
     var locationSelected = [DropDownTemplate]()
@@ -82,7 +95,7 @@ class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMap
         // Do any additional setup after loading the view.
         //configuration
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-        self.navigationItem.title = "My Account"
+        self.navigationItem.title = "myaccount".localizable()
         
         PrepareForDropDown()
         
@@ -126,7 +139,26 @@ class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMap
         wrapperFunctionToShowPosition(mapView: mapView)
     }
     
-    
+   override func localizeUI() {
+           tableView.reloadData()
+    UserGroupLabel.text = "usergroup".localizable()
+    lblUserName.text = "username".localizable()
+    ShopeNameLabel.text = "shopename".localizable()
+    GenderLabel.text = "gender".localizable()
+    lblDateOfbirth.text = "dateofbirth".localizable()
+    lblPlaceOfbirth.text = "placeofbirth".localizable()
+    MaritalLabel.text = "marital".localizable()
+    Location.text = "location".localizable()
+    lblPhoneNumber1.text = "phone1".localizable()
+    lblPhoneNumber2.text = "phone2".localizable()
+    lblPhoneNumber3.text = "phone3".localizable()
+    lblWingAccountName.text = "wingname".localizable()
+    lblWingAccountNumber.text = "wingnumber".localizable()
+       
+  
+   
+      
+    }
     
     func wrapperFunctionToShowPosition(mapView:GMSMapView){
         let geocoder = GMSGeocoder()
@@ -459,13 +491,11 @@ extension UILabel {
                     performOn(.Main, closure: {
                         self.text = groups["name"].stringValue
                     })
-
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
         }
     }
 }
-
 
 

@@ -97,7 +97,7 @@ class MenuViewController: BaseViewController,UITableViewDelegate,UITableViewData
         } else if row == 5 {
             cell.titleLabel.text = "aboutus".localizable()
         } else if row == 6 {
-            cell.titleLabel.text = "Contact 121"
+            cell.titleLabel.text = "contact121".localizable()
         } else if row == 7 {
             cell.titleLabel.text = "termofprivancy".localizable()
         } else{
