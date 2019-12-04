@@ -11,11 +11,17 @@ import Alamofire
 import SwiftyJSON
 import Firebase
 
-class LoginPasswordController: UIViewController {
+class LoginPasswordController: BaseViewController {
     
     @IBOutlet weak var textphonenumber: UITextField!
     @IBOutlet weak var textpassword: UITextField!
     @IBOutlet weak var loginbutton: UIButton!
+    @IBOutlet weak var Facebookbutton: BottomDetail!
+    
+    @IBOutlet weak var lblLogin: UILabel!
+    @IBOutlet weak var lblForgetpassword: UILabel!
+    @IBOutlet weak var lblQuickFacebook: UILabel!
+    
     
     var account = AccountViewModel()
     
@@ -32,7 +38,20 @@ class LoginPasswordController: UIViewController {
         textpassword.returnKeyType = .done
         textpassword.addDoneButtonOnKeyboard()
         textpassword.delegate = self
+        self.navigationItem.title = "loginavigation".localizable()
+        lblLogin.text = "login".localizable()
+                  lblQuickFacebook.text = "quickwithfacebook".localizable()
+                  lblForgetpassword.text = "forgotpassword".localizable()
+                  loginbutton.setTitle("loginbutton".localizable(), for: .normal)
+                  Facebookbutton.setTitle("loginwihtfacebook".localizable(), for: .normal)
+                  textphonenumber.placeholder = "phoneorusername".localizable()
+                  textpassword.placeholder = "password".localizable()
+        
     }
+    
+    override func localizeUI() {
+        
+       }
     
     override func viewWillAppear(_ animated: Bool) {
         textpassword.text = ""

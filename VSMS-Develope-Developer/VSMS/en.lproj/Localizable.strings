@@ -5,20 +5,14 @@
   Created by Rathana on 8/6/19.
   Copyright © 2019 121. All rights reserved.
 */
-"aboutus" = "About Us";
-
+"aboutus" = "About 121";
+"contact121" = "Contact 121";
 "buy" = "BUY";
 "brand" = "Brand";
 "bestdeal" = "Best Deal";
-
 "category" = "Caterogy";
-
-
 "language" = "English";
-
-
 "newpost" = "New Post";
-
 "rent" = "RENT";
 
 "sell" = "Sell";
@@ -27,17 +21,16 @@
 "sell" = "SELL";
 "search" = "Search here.......";
 
-
+//Menu
 "year" = "Year";
 "yourprofile" = "Your Profile";
 "yourposts" = "Your Posts";
 "yourlike" = "Your Likes";
 "yourloan" = "Your Loan";
 "post" = "Post";
-
 "setting" = "Setting";
-
 "termofprivancy" = "Term of Privancy";
+//Default
 "views" = "Views: ";
 "like" = "LIKE";
 "loan" = "LOAN";
@@ -64,3 +57,73 @@
 "detail" = "Detail";
 "new" = "New";
 "use" = "Used";
+//Account
+"myaccount" = "My Account";
+"usergroup" = "User Type";
+"username" = "Username";
+"shopename" = "Shop Name 1";
+"gender" = "Gender";
+"dateofbirth" = "Date of Birth";
+"placeofbirth" = "Place of Birth";
+"marital" = "Marital Status";
+"location" = "Locaton";
+"phone1" = "Phone 1";
+"phone2" = "Phone 2";
+"phone3" = "Phone 3";
+"wingname" = "Wing Account Name";
+"wingnumber" = "Wing Account Number";
+"publicuser" = "Public User";
+"otherDealers" = "Other Dealers";
+"male" = "Male";
+"female" = "Female";
+// Login Or Resigiter
+
+"login" = "Login";
+"or" = "Or";
+"quick" = "Quick Connect with Facebook";
+"loginbutton" = "LOGIN";
+"registerbutton" = "REGISTER";
+"facebook" = "Register or Login with Facebook";
+//Login controller
+"loginavigation" = "Login";
+"login" = "Login";
+"quickwithfacebook" = "Login by using your Facebook Account";
+"loginwihtfacebook" = "Log in With Facebook account";
+"phoneorusername" = "Phone number";
+"password" = "Password";
+"forgotpassword" = "Fogot Password?";
+"loginbutton" = "Login";
+//Setting controller
+"btnlogout" = "Log Out";
+"changpassword" = "Change Password";
+"language" = "Language";
+"notification" = "Notification";
+"version" = "Version";
+
+//Change Password
+"navigation" = "Change Password";
+"txtoldpassword" = "Old Password";
+"txtnewpassword" = "New Password";
+"txtcomfirmpassword" = "Comfirm Password";
+"submit" = "Submit";
+"message" = "You will use the new password to access your account.";
+"messageout" = "Are you sure to log out?";
+"logout" = "Log Out";
+"cancel" = "Canal";
+"langauge" = "Langauge";
+"english" = "English";
+"khmer" = "Khmer";
+
+//Register Controller
+"selectaccount" = "Select Account Type";
+"publicuser" = "Public User";
+"otherdealer" = "Other Dealer";
+"next" = "NEXT";
+//Alert Popup
+"error" = "Error";
+"successfully" = "Successfully";
+"ok" = "OK";
+"unlike" = "Unlike";
+"remove" = "Remove";
+"delete" = "Delte";
+"waring" = "Warning";

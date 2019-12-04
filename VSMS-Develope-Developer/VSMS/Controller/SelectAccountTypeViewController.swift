@@ -8,15 +8,26 @@
 
 import UIKit
 
-class SelectAccountTypeViewController: UIViewController {
+class SelectAccountTypeViewController: BaseViewController {
 
     @IBOutlet weak var btnPublic: UIButton!
     @IBOutlet weak var btnDealer: UIButton!
+    @IBOutlet weak var lblSelectAccount: UILabel!
+    @IBOutlet weak var btnNext: UIButton!
+    
     var user_group = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        lblSelectAccount.text = "selectaccount".localizable()
+        btnPublic.setTitle("publicuser".localizable(), for: .normal)
+        btnDealer.setTitle("otherdealer".localizable(), for: .normal)
+        btnNext.setTitle("next".localizable(), for: .normal)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func localizeUI() {
+        
     }
     
     @IBAction func btnPublicAction(_ sender: Any) {

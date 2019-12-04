@@ -17,43 +17,43 @@ class Message {
     static var alert: UIAlertController?
     
     public static func ErrorMessage(message: String, View: UIViewController) {
-        let AlertMessage = UIAlertController(title: "Error",
+        let AlertMessage = UIAlertController(title: "error".localizable(),
                                              message: message,
                                              preferredStyle: .alert)
-        AlertMessage.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        AlertMessage.addAction(UIAlertAction(title: "cancel".localizable(), style: .cancel, handler: nil))
         View.present(AlertMessage, animated: true, completion: nil)
     }
     
     public static func SuccessMessage(message: String, View: UIViewController, callback:@escaping (() -> Void)){
-        let AlertMessage = UIAlertController(title: "Successfully",
+        let AlertMessage = UIAlertController(title: "successfully".localizable(),
                                              message: message,
                                              preferredStyle: .alert)
-        AlertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+        AlertMessage.addAction(UIAlertAction(title: "ok".localizable(), style: .default, handler: { (alert) in
             callback()
         }))
         View.present(AlertMessage, animated: true, completion: nil)
     }
     
     public static func ConfirmUnlike(message: String, callback:@escaping (() -> Void)){
-        let AlertMessage = UIAlertController(title: "Unlike",
+        let AlertMessage = UIAlertController(title: "unlike".localizable(),
                                              message: message,
                                              preferredStyle: .alert)
-        AlertMessage.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { (alert) in
+        AlertMessage.addAction(UIAlertAction(title: "remove".localizable(), style: .destructive, handler: { (alert) in
             callback()
         }))
-        AlertMessage.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        AlertMessage.addAction(UIAlertAction(title: "cancel".localizable(), style: .default, handler: nil))
         let view = UIApplication.topViewController()
         view!.present(AlertMessage, animated: true, completion: nil)
     }
     
     public static func ConfirmDeleteMessage(message: String, callback:@escaping (() -> Void)){
-        let AlertMessage = UIAlertController(title: "Delete",
+        let AlertMessage = UIAlertController(title: "delete".localizable(),
                                              message: message,
                                              preferredStyle: .alert)
-        AlertMessage.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (alert) in
+        AlertMessage.addAction(UIAlertAction(title: "delete".localizable(), style: .destructive, handler: { (alert) in
             callback()
         }))
-        AlertMessage.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        AlertMessage.addAction(UIAlertAction(title: "cancel".localizable(), style: .default, handler: nil))
         let view = UIApplication.topViewController()
         view!.present(AlertMessage, animated: true, completion: nil)
     }
@@ -62,10 +62,10 @@ class Message {
         let AlertMessage = UIAlertController(title: header,
                                              message: message,
                                              preferredStyle: .alert)
-        AlertMessage.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert) in
+        AlertMessage.addAction(UIAlertAction(title: "Cancel".localizable(), style: .cancel, handler: { (alert) in
             callback()
         }))
-        AlertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+        AlertMessage.addAction(UIAlertAction(title: "ok".localizable(), style: .default, handler: { (alert) in
             callback()
         }))
         
@@ -73,11 +73,11 @@ class Message {
     }
     
     public static func WarningMessage(message: String, View: UIViewController, callback:@escaping (() -> Void)){
-        let AlertMessage = UIAlertController(title: "Warning",
+        let AlertMessage = UIAlertController(title: "warning".localizable(),
                                              message: message,
                                              preferredStyle: .alert)
         
-        AlertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+        AlertMessage.addAction(UIAlertAction(title: "ok".localizable(), style: .default, handler: { (alert) in
             callback()
         }))
         
@@ -85,11 +85,11 @@ class Message {
     }
     
     public static func AttentionMessage(message: String, View: UIViewController, callback:@escaping (() -> Void)){
-        let AlertMessage = UIAlertController(title: "Attention",
+        let AlertMessage = UIAlertController(title: "attention".localizable(),
                                              message: message,
                                              preferredStyle: .alert)
         
-        AlertMessage.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (alert) in
+        AlertMessage.addAction(UIAlertAction(title: "cancel".localizable(), style: .default, handler: { (alert) in
             callback()
         }))
         
@@ -98,28 +98,28 @@ class Message {
     
     static func AlertLogOutMessage(from: UIViewController, completion: @escaping () -> Void)
     {
-        let alertCon = UIAlertController(title: "Are you sure to log out?", message: nil, preferredStyle: .actionSheet)
-        alertCon.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (alert) in
+        let alertCon = UIAlertController(title: "messageout".localizable(), message: nil, preferredStyle: .actionSheet)
+        alertCon.addAction(UIAlertAction(title: "logout".localizable(), style: .destructive, handler: { (alert) in
             completion()
         }))
-        alertCon.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertCon.addAction(UIAlertAction(title: "cancel".localizable(), style: .cancel, handler: nil))
         from.present(alertCon, animated: true, completion: nil)
     }
     
     static func AlertChangeLanguage(from: UIViewController, completion: @escaping (LanguageCode) -> Void)
     {
-        let alertCon = UIAlertController(title: "Langauge", message: nil, preferredStyle: .actionSheet)
-        alertCon.addAction(UIAlertAction(title: "English", style: .default, handler: { (alert) in
+        let alertCon = UIAlertController(title: "langauge".localizable(), message: nil, preferredStyle: .actionSheet)
+        alertCon.addAction(UIAlertAction(title: "english".localizable(), style: .default, handler: { (alert) in
             completion(LanguageCode.english)
         }))
-        alertCon.addAction(UIAlertAction(title: "Khmer", style: .default, handler: { (alert) in
+        alertCon.addAction(UIAlertAction(title: "khmer".localizable(), style: .default, handler: { (alert) in
             completion(LanguageCode.khmer)
         }))
-        alertCon.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertCon.addAction(UIAlertAction(title: "cancel".localizable(), style: .cancel, handler: nil))
         from.present(alertCon, animated: true, completion: nil)
     }
     
-    static func Loading(from: UIViewController, text: String = "Please wait...")
+    static func Loading(from: UIViewController, text: String = "Please wait...".localizable())
     {
         alert = UIAlertController(title: nil, message: text, preferredStyle: .alert)
         

@@ -57,11 +57,11 @@
 	<key>NSCameraUsageDescription</key>
 	<string>YES</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Turn on your location to determine your current location.</string>
+	<string>Allow Motorbike 121 app to  access your location service to determine where is your location or your shop.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This app requires access to your location when the screen is on and the app is displayed.</string>
+	<string>Allow Motorbike 121 app to  access your location service to determine where is your location or your shop.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Turn on your location to determine your current location.</string>
+	<string>Allow Motorbike 121 app to  access your location service to determine where is your location or your shop.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow Motorbike 121 app to access your photo libraby for uploading the photo when posting.</string>
 	<key>UIBackgroundModes</key>
