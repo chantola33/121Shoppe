@@ -12,16 +12,31 @@ import SwiftyJSON
 import RSSelectionMenu
 
     
-class SettingTableController: UITableViewController
+class SettingTableController: BaseTableViewController
 {
     
     @IBOutlet weak var btnLogOut: BottomDetail!
     @IBOutlet weak var lblLanguage: UILabel!
+    @IBOutlet weak var lblChangpassword: UILabel!
+    @IBOutlet weak var LanguageLabel: UILabel!
+    @IBOutlet weak var lblNotification: UILabel!
+    @IBOutlet weak var lblVersion: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func localizeUI() {
+        tableView.reloadData()
+        btnLogOut.setTitle("btnlogout".localizable(), for: .normal)
+        lblChangpassword.text = "changpassword".localizable()
+        LanguageLabel.text = "language".localizable()
+        lblNotification.text = "notification".localizable()
+        lblVersion.text = "version".localizable()
+        lblLanguage.text = "language".localizable()
+       
     }
     
     

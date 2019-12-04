@@ -76,3 +76,54 @@
 "otherDealers" = "Other Dealers";
 "male" = "Male";
 "female" = "Female";
+// Login Or Resigiter
+
+"login" = "Login";
+"or" = "Or";
+"quick" = "Quick Connect with Facebook";
+"loginbutton" = "LOGIN";
+"registerbutton" = "REGISTER";
+"facebook" = "Register or Login with Facebook";
+//Login controller
+"loginavigation" = "Login";
+"login" = "Login";
+"quickwithfacebook" = "Login by using your Facebook Account";
+"loginwihtfacebook" = "Log in With Facebook account";
+"phoneorusername" = "Phone number";
+"password" = "Password";
+"forgotpassword" = "Fogot Password?";
+"loginbutton" = "Login";
+//Setting controller
+"btnlogout" = "Log Out";
+"changpassword" = "Change Password";
+"language" = "Language";
+"notification" = "Notification";
+"version" = "Version";
+
+//Change Password
+"navigation" = "Change Password";
+"txtoldpassword" = "Old Password";
+"txtnewpassword" = "New Password";
+"txtcomfirmpassword" = "Comfirm Password";
+"submit" = "Submit";
+"message" = "You will use the new password to access your account.";
+"messageout" = "Are you sure to log out?";
+"logout" = "Log Out";
+"cancel" = "Canal";
+"langauge" = "Langauge";
+"english" = "English";
+"khmer" = "Khmer";
+
+//Register Controller
+"selectaccount" = "Select Account Type";
+"publicuser" = "Public User";
+"otherdealer" = "Other Dealer";
+"next" = "NEXT";
+//Alert Popup
+"error" = "Error";
+"successfully" = "Successfully";
+"ok" = "OK";
+"unlike" = "Unlike";
+"remove" = "Remove";
+"delete" = "Delte";
+"waring" = "Warning";

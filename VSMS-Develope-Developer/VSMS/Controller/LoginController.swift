@@ -14,7 +14,7 @@ import SCLAlertView
 import SwiftyJSON
 
 
-class LoginController: UIViewController {
+class LoginController: BaseViewController {
     
     @IBOutlet weak var logo121: UIImageView!
     @IBOutlet weak var Loginbutton: UIButton!
@@ -23,11 +23,24 @@ class LoginController: UIViewController {
     @IBOutlet weak var fbButton: UIButton!
     
     
+    @IBOutlet weak var lblLogin: UILabel!
+    @IBOutlet weak var lblOr: UILabel!
+    @IBOutlet weak var lblFacebook: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
         ShowDefaultNavigation()
         fbButton.addTarget(self, action: #selector(LogInFacebook), for: UIControl.Event.touchUpInside)
+    }
+    
+    override func localizeUI() {
+        lblLogin.text = "login".localizable()
+        lblOr.text = "or".localizable()
+        lblFacebook.text = "quick".localizable()
+        Loginbutton.setTitle("loginbutton".localizable(), for: .normal)
+        Registerbutton.setTitle("registerbutton".localizable(), for: .normal)
+        fbButton.setTitle("facebook".localizable(), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

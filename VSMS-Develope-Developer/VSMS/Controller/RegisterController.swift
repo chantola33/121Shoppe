@@ -11,13 +11,18 @@ import Alamofire
 import SwiftyJSON
 import Firebase
 
-class RegisterController: UIViewController {
+class RegisterController: BaseViewController {
     
     var defaultUser = UserDefaults.standard
     var user_group = 0
     @IBOutlet weak var txtPhoneNumber: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtConfirmPassword: UITextField!
+    
+    @IBOutlet weak var lblRegister: UILabel!
+    @IBOutlet weak var lblRegisteFacebook: UILabel!
+    
+    
     
     var account = AccountViewModel()
     

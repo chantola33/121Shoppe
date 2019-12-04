@@ -73,3 +73,50 @@
 "otherDealers" = "អ្នកចែកចាយផ្សេងទៀត";
 "male" = "ប្រុស";
 "female" = "ស្រី";
+// Login Or Resigiter
+"login" = "ចូលឬចុះឈ្មោះជាមួយលេខទូរស័ព្ទរបស់អ្នក";
+"or" = "ឬ";
+"quick" = "ភ្ជាប់រហ័សជាមួយហ្វេសប៊ុក";
+"loginbutton" = "ចូលគណនេយ្យ";
+"registerbutton" = "ចុះឈ្មោះ";
+"facebook" = "ចុះឈ្មោះ ឬ ចូលជាមួយ Facebook";
+//Login controller
+"loginavigation" = "ចូលគណេន្យ";
+"login" = "លេខទូរសព្ទ័";
+"loginbutton" = "ចូលគណេន្យ";
+"quickwithfacebook" = "ចូលដោយប្រើប្រាស់គណនី Facebook របស់អ្នក";
+"loginwihtfacebook" = "ចូលជាមួយ Facebook";
+"phoneorusername" = "លេខទូរស័ព្ទ";
+"password" = "លេខសំងាត់";
+"forgotpassword" = "ភ្លេចលេខសម្ងាត់?";
+//Setting controller
+"btnlogout" = "ចាកចេញ";
+"changpassword" = "ប្តូរលេខសំងាត់";
+"language" = "ភាសា";
+"notification" = "ការជូនដំណឹង";
+"version" = "កំណែ";
+//Change Password
+"navigation" = "ប្តូលេខសម្ងាត់";
+"txtoldpassword" = "លេខសម្ងាត់ចាស់";
+"txtnewpassword" = "លេខសម្ងាត់ថ្មី";
+"txtcomfirmpassword" = "បញ្ជាក់លេខសម្ងាត់";
+"submit" = "បញ្ជូន";
+"message" = "អ្នកនឹងប្រើពាក្យសម្ងាត់ថ្មីដើម្បីចូលប្រើគណីរបស់អ្នក";
+"logout" = "ចាកចេញ";
+"cancel" = "បោះបង់";
+"langauge" = "ភាសា";
+"english" = "អង់គ្លេស";
+"khmer" = "ខ្មែរ";
+//Register Controller
+"selectaccount" = "ជ្រើសរើសប្រភេទគណនី";
+"publicuser" = "អ្នកប្រើសាធារណះ";
+"otherdealer" = "អ្នកចែកចាយផ្សេងទៀត";
+"next" = "បន្ទាប់";
+//Alert Popup
+"error" = "បរាជ័យ";
+"successfully" = "ជោកជ័យ";
+"ok" = "យល់ព្រម";
+"unlike" = "មិនចូលចិត្ត";
+"remove" = "លុបចោរ";
+"delete" = "លុបចោរ";
+"waring" = "";

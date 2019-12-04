@@ -10,12 +10,14 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ChangePasswordController: UIViewController {
+class ChangePasswordController: BaseViewController {
   
     @IBOutlet weak var txtOldPassword: HideShowPasswordTextField!
     @IBOutlet weak var txtComfirmPassword: HideShowPasswordTextField!
     @IBOutlet weak var txtNewPassword: HideShowPasswordTextField!
     @IBOutlet weak var btnSubmit: UIButton!
+    @IBOutlet weak var lblMessage: UILabel!
+    
     
     var oldPassword: String = ""
     var Newpassword: String = ""
@@ -36,6 +38,13 @@ class ChangePasswordController: UIViewController {
         txtOldPassword.isSecureTextEntry.toggle()
         txtNewPassword.isSecureTextEntry.toggle()
         txtComfirmPassword.isSecureTextEntry.toggle()
+        txtOldPassword.placeholder = "txtoldpassword".localizable()
+        txtNewPassword.placeholder = "txtnewpassword".localizable()
+        txtComfirmPassword.placeholder = "txtcomfirmpassword".localizable()
+        btnSubmit.setTitle("submit".localizable(), for: .normal)
+        lblMessage.text = "message".localizable()
+        self.navigationController?.navigationItem.title = "navigation".localizable()
+        
     }
     
     func textField(){
@@ -54,6 +63,10 @@ class ChangePasswordController: UIViewController {
         txtNewPassword.returnKeyType = .next
         txtComfirmPassword.returnKeyType = .done
        
+    }
+    
+    override func localizeUI() {
+        
     }
     
     
