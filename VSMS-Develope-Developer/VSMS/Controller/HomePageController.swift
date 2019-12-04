@@ -406,12 +406,10 @@ extension HomePageController
 extension HomePageController:   UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-     
-      
+
         if collectionView == SliderCollection {
             getwill()
-               print("second response")
+            print("second response")
             return 8
 
         }

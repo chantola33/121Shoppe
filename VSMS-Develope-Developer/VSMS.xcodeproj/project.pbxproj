@@ -122,6 +122,7 @@
 		C4CCAE4922F9676B00E21EC4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCAE4822F9676A00E21EC4 /* BaseViewController.swift */; };
 		C4CCAE4B22F9679300E21EC4 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCAE4A22F9679300E21EC4 /* LanguageManager.swift */; };
 		C4CCAE5322F9732C00E21EC4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4CCAE5122F9732C00E21EC4 /* Localizable.strings */; };
+		D50238472394F9F5005C7C12 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50238462394F9F5005C7C12 /* AlertService.swift */; };
 		D5467A11238E552D0064DD45 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5467A10238E552D0064DD45 /* Popup.storyboard */; };
 		D5467A13238E5DA90064DD45 /* PopupviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5467A12238E5DA90064DD45 /* PopupviewController.swift */; };
 		D54C4811224223BD004FE033 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C4810224223BD004FE033 /* LoginController.swift */; };
@@ -259,6 +260,7 @@
 		C4CCAE5022F9726400E21EC4 /* km-KH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "km-KH"; path = "km-KH.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		C4CCAE5222F9732C00E21EC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4CCAE5422F9734000E21EC4 /* km-KH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "km-KH"; path = "km-KH.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D50238462394F9F5005C7C12 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		D5467A10238E552D0064DD45 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
 		D5467A12238E5DA90064DD45 /* PopupviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupviewController.swift; sourceTree = "<group>"; };
 		D54C4810224223BD004FE033 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				862F6B00233A0FA40009DC4D /* FilterBottonViewController.swift */,
 				D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */,
 				D5467A12238E5DA90064DD45 /* PopupviewController.swift */,
+				D50238462394F9F5005C7C12 /* AlertService.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -870,6 +873,7 @@
 				86D6FC2722CDE1BF00B27B25 /* PostViewModel.swift in Sources */,
 				8615106022D5845800A37835 /* ContactInputTableViewCell.swift in Sources */,
 				86FD6F2F231E5F2E009C7D07 /* ChatHandle.swift in Sources */,
+				D50238472394F9F5005C7C12 /* AlertService.swift in Sources */,
 				86F4DEDB22E2D42C000ACA12 /* SearchViewController.swift in Sources */,
 				86D6FC2522CDA4F500B27B25 /* Functions.swift in Sources */,
 				86022E0D22D445FC00D4C9C2 /* ExtensionHelper.swift in Sources */,

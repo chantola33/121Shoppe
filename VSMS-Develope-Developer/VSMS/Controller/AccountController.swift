@@ -72,7 +72,7 @@ class AccountController: UITableViewController, CLLocationManagerDelegate,GMSMap
     var shop_imageArr = [String]()
 
     //selected Data
-    
+    let alertService = AlertService()
     
 
     let simpleDataArray = ["Sachin", "Rahul", "Saurav", "Virat", "Suresh", "Ravindra", "Chris"]
@@ -323,43 +323,51 @@ extension AccountController {
     
     func SelectShopNameOption (){
         
-        let alertShopName = UIAlertController(title: "Shop Name", message: "", preferredStyle: .alert)
-        alertShopName.addTextField()
-        alertShopName.addTextField()
-        alertShopName.textFields![0].placeholder = "Shop Name"
-        alertShopName.textFields![1].placeholder = "Address"
-        let image = UIImage(named: "121logo")
-
+//        let alertShopName = UIAlertController(title: "Shop Name", message: "", preferredStyle: .alert)
+//        alertShopName.addTextField()
+//        alertShopName.addTextField()
+//        alertShopName.textFields![0].placeholder = "Shop Name"
+//        alertShopName.textFields![1].placeholder = "Address"
+////        let image = UIImage(named: "121logo")
+////
+////
+////        let imgView = UIImageView(frame: CGRect(x: 100, y: 100, width:30, height: 30))
+////        imgView.image = image
+////        alertShopName.view.addSubview(imgView)
+//
+//        let image = UIImage(named: "121logo")
+//        alertShopName.addImage(image: image!)
+//        alertShopName.addAction(UIAlertAction( title: "Submit", style: .default, handler: {(action) in
+//            print("Submitted....")
+//            let user = User.getUserID()
+//            let shop = alertShopName.textFields![0].text
+//            let address = alertShopName.textFields![1].text
+//            print(user)
+//
+////            self.UserAccount.user = user
+////            self.UserAccount.shop_name = shop!
+////            self.UserAccount.shop_address = address!
+////            self.UserAccount.shop_image = (image?.toBase64())!
+////            self.UserAccount.Shop { (result) in
+////                performOn(.Main, closure: {
+////                    if result {
+////                        print("Successful")
+////                    }
+////                })
+////            }
+//
+//            self.putshop = AccountViewModel(user: user, shop_name: shop!, shop_address: address!, shop_image: (image?.toBase64())!)
+//            self.ShopData.append(self.putshop)
+//
+//            }))
+//        self.present(alertShopName, animated: true)
         
-        let imgView = UIImageView(frame: CGRect(x: 100, y: 100, width:30, height: 30))
-        imgView.image = image
-        alertShopName.view.addSubview(imgView)
-     
-        alertShopName.addAction(UIAlertAction( title: "Submit", style: .default, handler: {(action) in
-            print("Submitted....")
-            let user = User.getUserID()
-            let shop = alertShopName.textFields![0].text
-            let address = alertShopName.textFields![1].text
-            print(user)
-           
-//            self.UserAccount.user = user
-//            self.UserAccount.shop_name = shop!
-//            self.UserAccount.shop_address = address!
-//            self.UserAccount.shop_image = (image?.toBase64())!
-//            self.UserAccount.Shop { (result) in
-//                performOn(.Main, closure: {
-//                    if result {
-//                        print("Successful")
-//                    }
-//                })
-//            }
-            
-            self.putshop = AccountViewModel(user: user, shop_name: shop!, shop_address: address!, shop_image: (image?.toBase64())!)
-            self.ShopData.append(self.putshop)
-           
-            }))
-        self.present(alertShopName, animated: true)
+      let alertVC = alertService.alert()
+        present(alertVC, animated: true)
 
+   	
+        
+	
     }
     
     func ShowGenderOption(style: PresentationStyle)
