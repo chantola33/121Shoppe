@@ -85,8 +85,10 @@ class AccountController: BaseTableViewController, CLLocationManagerDelegate,GMSM
     var shop_imageArr = [String]()
 
     //selected Data
+    var imgView: UIImageView!
     let alertService = AlertService()
-    
+    var pickPhotoCheck = ""
+    let picker = UIImagePickerController()
 
     let simpleDataArray = ["Sachin", "Rahul", "Saurav", "Virat", "Suresh", "Ravindra", "Chris"]
     var simpleSelectedArray = [String]()
@@ -156,10 +158,7 @@ class AccountController: BaseTableViewController, CLLocationManagerDelegate,GMSM
     lblPhoneNumber3.text = "phone3".localizable()
     lblWingAccountName.text = "wingname".localizable()
     lblWingAccountNumber.text = "wingnumber".localizable()
-       
-  
-   
-      
+
     }
     
     func wrapperFunctionToShowPosition(mapView:GMSMapView){
@@ -355,52 +354,86 @@ extension AccountController {
     
     func SelectShopNameOption (){
         
-//        let alertShopName = UIAlertController(title: "Shop Name", message: "", preferredStyle: .alert)
-//        alertShopName.addTextField()
-//        alertShopName.addTextField()
-//        alertShopName.textFields![0].placeholder = "Shop Name"
-//        alertShopName.textFields![1].placeholder = "Address"
-////        let image = UIImage(named: "121logo")
-////
-////
-////        let imgView = UIImageView(frame: CGRect(x: 100, y: 100, width:30, height: 30))
-////        imgView.image = image
-////        alertShopName.view.addSubview(imgView)
-//
-//        let image = UIImage(named: "121logo")
-//        alertShopName.addImage(image: image!)
-//        alertShopName.addAction(UIAlertAction( title: "Submit", style: .default, handler: {(action) in
-//            print("Submitted....")
-//            let user = User.getUserID()
-//            let shop = alertShopName.textFields![0].text
-//            let address = alertShopName.textFields![1].text
-//            print(user)
-//
-////            self.UserAccount.user = user
-////            self.UserAccount.shop_name = shop!
-////            self.UserAccount.shop_address = address!
-////            self.UserAccount.shop_image = (image?.toBase64())!
-////            self.UserAccount.Shop { (result) in
-////                performOn(.Main, closure: {
-////                    if result {
-////                        print("Successful")
-////                    }
-////                })
-////            }
-//
-//            self.putshop = AccountViewModel(user: user, shop_name: shop!, shop_address: address!, shop_image: (image?.toBase64())!)
-//            self.ShopData.append(self.putshop)
-//
-//            }))
-//        self.present(alertShopName, animated: true)
-        
-      let alertVC = alertService.alert()
-        present(alertVC, animated: true)
+        let alertShopName = UIAlertController(title: "Shop Name", message: "", preferredStyle: .alert)
+        alertShopName.addTextField()
+        alertShopName.addTextField()
+        alertShopName.textFields![0].placeholder = "Shop Name"
+        alertShopName.textFields![1].placeholder = "Address"
+        let image = UIImage(named: "121logo")
 
-   	
+
+         imgView = UIImageView(frame: CGRect(x: 100, y: 100, width:30, height: 30))
+        imgView.image = image
+        imgView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture))
+        imgView.addGestureRecognizer(tapGesture)
+        alertShopName.view.addSubview(imgView)
+
+     
+       
+        alertShopName.addAction(UIAlertAction( title: "Submit", style: .default, handler: {(action) in
+            print("Submitted....")
+            let user = User.getUserID()
+            let shop = alertShopName.textFields![0].text
+            let address = alertShopName.textFields![1].text
+            print(user)
+
+//            self.UserAccount.user = user
+//            self.UserAccount.shop_name = shop!
+//            self.UserAccount.shop_address = address!
+//            self.UserAccount.shop_image = (image?.toBase64())!
+//            self.UserAccount.Shop { (result) in
+//                performOn(.Main, closure: {
+//                    if result {
+//                        print("Successful")
+//                    }
+//                })
+//            }
+
+            self.putshop = AccountViewModel(user: user, shop_name: shop!, shop_address: address!, shop_image: (image?.toBase64())!)
+            self.ShopData.append(self.putshop)
+
+            }))
+        self.present(alertShopName, animated: true)
         
-	
+//      let alertVC = alertService.alert()
+//
+//        present(alertVC, animated: true)
+
+
     }
+    
+    @objc func tapGesture(){
+        dismiss(animated: true)
+        print("Click image view ban hz")
+        self.pickPhotoCheck = "profile"
+        let alertCon = UIAlertController(title: "Edit Profile", message: nil, preferredStyle: .alert)
+        let uploadBtn = UIAlertAction(title: "Upload", style: .default) { (alert) in
+            self.picker.sourceType = .photoLibrary
+            self.picker.allowsEditing = true
+            self.present(self.picker, animated: true, completion: nil)
+        }
+        let takeNewCover = UIAlertAction(title: "Take a Photo", style: .default) { (alert) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                self.picker.sourceType = .camera
+                self.picker.allowsEditing = true
+                self.present(self.picker, animated: true, completion: nil)
+            }
+            else{
+                Message.ErrorMessage(message: "Camera in your device is not avialable.", View: self)
+            }
+        }
+        let cancelBtn = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alertCon.addAction(uploadBtn)
+        alertCon.addAction(takeNewCover)
+        alertCon.addAction(cancelBtn)
+        self.present(alertCon, animated: true, completion: nil)
+
+        print("end click image view ")
+        
+    }
+    
     
     func ShowGenderOption(style: PresentationStyle)
     {
@@ -506,3 +539,12 @@ extension UILabel {
 }
 
 
+extension AccountController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+   
+        if let selectedImage = info[.originalImage] as? UIImage {
+             imgView.image = selectedImage
+                 picker.dismiss(animated: true)
+        }
+    }
+}

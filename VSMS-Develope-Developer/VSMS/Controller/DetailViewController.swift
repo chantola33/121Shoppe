@@ -352,16 +352,16 @@ class DetailViewController: BaseViewController,CLLocationManagerDelegate, GMSMap
     
     @IBAction func clickLoan(_ sender: Any) {
         
-        if !User.IsUserAuthorized()
-        {
-            PresentController.LogInandRegister()
-            return
-        }
-        
-        let loanVC:LoanViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoanViewController") as! LoanViewController
-        loanVC.Loan.loan_to = ProductDetail.created_by
-        loanVC.Loan.post = ProductDetail.id
-        self.navigationController?.pushViewController(loanVC, animated: true)
+//        if !User.IsUserAuthorized()
+//        {
+//            PresentController.LogInandRegister()
+//            return
+//        }
+//
+//        let loanVC:LoanViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoanViewController") as! LoanViewController
+//        loanVC.Loan.loan_to = ProductDetail.created_by
+//        loanVC.Loan.post = ProductDetail.id
+//        self.navigationController?.pushViewController(loanVC, animated: true)
     }
     
     
