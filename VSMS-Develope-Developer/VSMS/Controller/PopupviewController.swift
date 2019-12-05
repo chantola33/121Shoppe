@@ -16,6 +16,7 @@ class PopupviewController: BaseViewController {
     @IBOutlet weak var shop_image: UIImageView!
     var ShopData : [AccountViewModel] = []
     var putshop = AccountViewModel()
+    let alertService = AlertService()
     
     var pickPhotoCheck = ""
     let picker = UIImagePickerController()
@@ -67,11 +68,13 @@ class PopupviewController: BaseViewController {
     
     
     @IBAction func onClickSubmit(_ sender: Any) {
-        let image = UIImage(named: "121logo")
-        self.putshop = AccountViewModel(user: 86, shop_name: shop_name.text!, shop_address: shop_address.text!, shop_image: (image?.toBase64())!)
-        self.ShopData.append(self.putshop)
+//        let user = User.getUserID()
+//        let image = UIImage(named: "121logo")
+        let pushAlert = alertService.setData(name: shop_name.text!, address: shop_address.text!)
+        present(pushAlert, animated: true)
+        dismiss(animated: true)
     }
-    
+
 }
 
 extension PopupviewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
