@@ -19,9 +19,9 @@
 "rent" = "ជួល";
 
 "yourprofile" = "គណនីរបស់អ្នក";
-"yourposts" = "កាប្រកាសរបស់អ្នក";
+"yourposts" = "ការប្រកាសរបស់អ្នក";
 "yourlike" = "ការចូលចិត្តរបស់អ្នក";
-"yourloan" = "ឥណាទានរបស់អ្នក";
+"yourloan" = "ឥណទានរបស់អ្នក";
 "setting" = "ការកំណត់";
 "aboutus" = "អំពីយើង ១២១";
 "contact121" = "ទំនាក់ទំនង​ ១២១";
@@ -38,19 +38,19 @@
 "profile" = "គណនី";
 "notification" = "ការជូនដំណើង";
 "chat" = "ជជែក";
-"camera" = "ប្រកាស";
+"camera" = "កាមេរ៉ា";
 //Detail
 "description" = "ការពណ៏នា";
 "postcode" = "លេខកូដ";
-"condition" = "លក្ខខណ្ឋ";
+"condition" = "លក្ខខណ្ឌ";
 "loancal" = " ព៏ត័មានលម្អិតឥណទាន";
 "price" = "តម្លៃ ($)";
 "interate" = "អត្រាការប្រាក់ (%)";
 "deposit" = "ដាក់ប្រាក់ ($)";
-"term" = "រយះពេល (ខែ)";
+"term" = "រយ:ពេល (ខែ)";
 "monthly" = "ការចំណាយប្រចាំខែ";
 "contact" = "ទំនាក់ទំនង";
-"related" = "ការប្រកាសដែលពាក់ព៍ន្ធគ្នា";
+"related" = "ការប្រកាសដែលពាក់ព័ន្ធ";
 "detail" = "ព៍ត៏មានលម្អិត";
 "new" = "ថ្មី";
 "use" = "ប្រើ";
@@ -67,9 +67,9 @@
 "phone1" = "លេខទូរសព្ទ័ទី ១";
 "phone2" = "លេខទូរសព្ទ័ទី ២";
 "phone3" = "លេខទូរសព្ទ័ទី ៣";
-"wingname" = "ឈ្មោះគណីវីង";
-"wingnumber" = "លេខគណីវីង";
-"publicuser" = "អ្នកប្រើប្រាស់សាធារណ៖";
+"wingname" = "ឈ្មោះគណនីវីង";
+"wingnumber" = "លេខគណនីវីង";
+"publicuser" = "អ្នកប្រើប្រាស់សាធារណ:";
 "otherDealers" = "អ្នកចែកចាយផ្សេងទៀត";
 "male" = "ប្រុស";
 "female" = "ស្រី";
@@ -81,27 +81,27 @@
 "registerbutton" = "ចុះឈ្មោះ";
 "facebook" = "ចុះឈ្មោះ ឬ ចូលជាមួយ Facebook";
 //Login controller
-"loginavigation" = "ចូលគណេន្យ";
+"loginavigation" = "ចូលគណនី";
 "login" = "លេខទូរសព្ទ័";
-"loginbutton" = "ចូលគណេន្យ";
+"loginbutton" = "ចូលគណនី";
 "quickwithfacebook" = "ចូលដោយប្រើប្រាស់គណនី Facebook របស់អ្នក";
 "loginwihtfacebook" = "ចូលជាមួយ Facebook";
 "phoneorusername" = "លេខទូរស័ព្ទ";
-"password" = "លេខសំងាត់";
+"password" = "លេខសម្ងាត់";
 "forgotpassword" = "ភ្លេចលេខសម្ងាត់?";
 //Setting controller
 "btnlogout" = "ចាកចេញ";
-"changpassword" = "ប្តូរលេខសំងាត់";
+"changpassword" = "ប្តូរលេខសម្ងាត់";
 "language" = "ភាសា";
 "notification" = "ការជូនដំណឹង";
-"version" = "កំណែ";
+"version" = "ជំនាន់";
 //Change Password
-"navigation" = "ប្តូលេខសម្ងាត់";
+"navigation" = "ប្តូរលេខសម្ងាត់";
 "txtoldpassword" = "លេខសម្ងាត់ចាស់";
 "txtnewpassword" = "លេខសម្ងាត់ថ្មី";
 "txtcomfirmpassword" = "បញ្ជាក់លេខសម្ងាត់";
 "submit" = "បញ្ជូន";
-"message" = "អ្នកនឹងប្រើពាក្យសម្ងាត់ថ្មីដើម្បីចូលប្រើគណីរបស់អ្នក";
+"message" = "អ្នកនឹងប្រើពាក្យសម្ងាត់ថ្មីដើម្បីចូលប្រើគណនីរបស់អ្នក";
 "logout" = "ចាកចេញ";
 "cancel" = "បោះបង់";
 "langauge" = "ភាសា";
@@ -114,9 +114,9 @@
 "next" = "បន្ទាប់";
 //Alert Popup
 "error" = "បរាជ័យ";
-"successfully" = "ជោកជ័យ";
+"successfully" = "ជោគជ័យ";
 "ok" = "យល់ព្រម";
 "unlike" = "មិនចូលចិត្ត";
-"remove" = "លុបចោរ";
-"delete" = "លុបចោរ";
+"remove" = "លុបចោល";
+"delete" = "លុបចោល";
 "waring" = "";

@@ -117,7 +117,7 @@ class DetailViewModel {
     static func LoadProductByID(ProID: Int, completion: @escaping (DetailViewModel) -> ()){
         var data = DetailViewModel()
         let dispatchGroup = DispatchGroup()
-        let headers: HTTPHeaders = [
+         let headers: HTTPHeaders = [
             "Cookie": "",
             "Accept": "application/json",
             "Content-Type": "application/json",

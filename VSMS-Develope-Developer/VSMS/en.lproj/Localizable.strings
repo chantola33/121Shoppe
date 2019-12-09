@@ -26,10 +26,10 @@
 "yourprofile" = "Your Profile";
 "yourposts" = "Your Posts";
 "yourlike" = "Your Likes";
-"yourloan" = "Your Loan";
+"yourloan" = "Your Loans";
 "post" = "Post";
 "setting" = "Setting";
-"termofprivancy" = "Term of Privancy";
+"termofprivancy" = "Term of Privacy";
 //Default
 "views" = "Views: ";
 "like" = "LIKE";
@@ -44,12 +44,12 @@
 "camera" = "Camera";
 //Detail
 "description" = "Description";
-"postcode" = "Posts Code";
+"postcode" = "Post Code";
 "condition" = "Condition";
 "loancal" = "LOAN CALCULATION";
 "price" = "Price";
-"interate" = "interest Rate";
-"deposit" = "Deposti";
+"interate" = "Interest Rate";
+"deposit" = "Deposit";
 "term" = "Term";
 "monthly" = "Monthly Payment";
 "contact" = "Contact";
@@ -91,7 +91,7 @@
 "loginwihtfacebook" = "Log in With Facebook account";
 "phoneorusername" = "Phone number";
 "password" = "Password";
-"forgotpassword" = "Fogot Password?";
+"forgotpassword" = "Forgot Password?";
 "loginbutton" = "Login";
 //Setting controller
 "btnlogout" = "Log Out";
@@ -109,7 +109,7 @@
 "message" = "You will use the new password to access your account.";
 "messageout" = "Are you sure to log out?";
 "logout" = "Log Out";
-"cancel" = "Canal";
+"cancel" = "Cancel";
 "langauge" = "Langauge";
 "english" = "English";
 "khmer" = "Khmer";
@@ -117,7 +117,7 @@
 //Register Controller
 "selectaccount" = "Select Account Type";
 "publicuser" = "Public User";
-"otherdealer" = "Other Dealer";
+"otherdealer" = "Other Dealers";
 "next" = "NEXT";
 //Alert Popup
 "error" = "Error";
@@ -125,5 +125,5 @@
 "ok" = "OK";
 "unlike" = "Unlike";
 "remove" = "Remove";
-"delete" = "Delte";
+"delete" = "Delete";
 "waring" = "Warning";
