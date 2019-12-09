@@ -42,6 +42,7 @@ class HomePageController: BaseViewController {
     @IBOutlet weak var lblNewpost: UILabel!
     @IBOutlet weak var lblbestDeal: UILabel!
     @IBOutlet weak var BtnCollection: UICollectionView!
+    @IBOutlet weak var bbSearch: UIBarButtonItem!
     
     
     
@@ -147,6 +148,9 @@ class HomePageController: BaseViewController {
     }
     
     
+    @IBAction func searchClick(_ sender: Any) {
+        print("search click")
+    }
     @IBAction func imgClick(_ sender: Any) {
         refrestButtonFilter(type: 1)
     }

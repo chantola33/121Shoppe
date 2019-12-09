@@ -82,20 +82,20 @@ class ListFromNavigationViewController: UIViewController {
 //                }
 //            }
         }
-//        else if listType == "Your Loan" {
-//            if let currentView = UIApplication.topViewController() {
-//                index = 2
-//                tabActive = 3
-//                let ProfileTab: UINavigationController = {
-//                    let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
-//                    profile.index = index
-//                    profile.tabActive = tabActive
-//                    return UINavigationController(rootViewController: profile)
-//                }()
-//                ProfileTab.modalPresentationStyle = .fullScreen
-//                currentView.present(ProfileTab, animated: false, completion: nil)
-//            }
-//        }
+        else if listType == "Your Loan" {
+            if let currentView = UIApplication.topViewController() {
+                index = 2
+                tabActive = 3
+                let ProfileTab: UINavigationController = {
+                    let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+                    profile.index = index
+                    profile.tabActive = tabActive
+                    return UINavigationController(rootViewController: profile)
+                }()
+                ProfileTab.modalPresentationStyle = .fullScreen
+                currentView.present(ProfileTab, animated: false, completion: nil)
+            }
+        }
      }
 }
 

@@ -21,7 +21,7 @@
 "yourprofile" = "គណនីរបស់អ្នក";
 "yourposts" = "កាប្រកាសរបស់អ្នក";
 "yourlike" = "ការចូលចិត្តរបស់អ្នក";
-"yourloan" = "ឥណាទានរបស់អ្នក";
+"yourloan" = "ឥណទានរបស់អ្នក";
 "setting" = "ការកំណត់";
 "aboutus" = "អំពីយើង ១២១";
 "contact121" = "ទំនាក់ទំនង​ ១២១";
@@ -114,9 +114,13 @@
 "next" = "បន្ទាប់";
 //Alert Popup
 "error" = "បរាជ័យ";
-"successfully" = "ជោកជ័យ";
+"successfully" = "ជោគជ័យ";
 "ok" = "យល់ព្រម";
 "unlike" = "មិនចូលចិត្ត";
-"remove" = "លុបចោរ";
-"delete" = "លុបចោរ";
+"remove" = "លុបចោល";
+"delete" = "លុបចោល";
 "waring" = "";
+
+//Renewal
+"renew" = "ប្រកាសឡើងវិញ";
+"renewmessage" = "តើអ្នកចង់ប្រកាសឡើងវិញដែរទេ?";

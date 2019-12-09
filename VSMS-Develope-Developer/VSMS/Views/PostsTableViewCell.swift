@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostsTableViewCell: UITableViewCell {
+class PostsTableViewCell:  UITableViewCell {
     
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
@@ -27,7 +27,7 @@ class PostsTableViewCell: UITableViewCell {
     var ProID: Int?
     var Data = HomePageModel()
     weak var delelgate: ProfileCellClickProtocol?
-    
+    var PostRenew = Renewaldelete()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -66,6 +66,31 @@ class PostsTableViewCell: UITableViewCell {
     
     @IBAction func buttonTransterTapped(_ sender: Any) {
         print("Transfer")
+        let d = Date()
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let formattedDate = df.string(from: d)
+        print(formattedDate)
+        if Data.status == 3 {
+            print("pending")
+        }else {
+         
+            Message.ConfirmRenewMessage(message: "renewmessage".localizable()) {
+                let productid = self.Data.product
+                self.PostRenew.id = productid
+                self.PostRenew.status = 4
+                self.PostRenew.modified = formattedDate
+                self.PostRenew.modified_by = User.getUserID()
+                self.PostRenew.rejected_comments = ""
+                self.PostRenew.Renewal(PostID: productid ) { (result) in
+                    if result {
+                        print("Successful")
+                    }else {
+                        print("fail")
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func buttonEditTepped(_ sender: Any) {

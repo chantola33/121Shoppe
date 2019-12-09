@@ -109,7 +109,7 @@
 "message" = "You will use the new password to access your account.";
 "messageout" = "Are you sure to log out?";
 "logout" = "Log Out";
-"cancel" = "Canal";
+"cancel" = "Cancel";
 "langauge" = "Langauge";
 "english" = "English";
 "khmer" = "Khmer";
@@ -125,5 +125,8 @@
 "ok" = "OK";
 "unlike" = "Unlike";
 "remove" = "Remove";
-"delete" = "Delte";
+"delete" = "Delete";
 "waring" = "Warning";
+// Renewal
+"renew" = "Post Renewal";
+"renewmessage" = "Do you want to renew this post?";
