@@ -58,6 +58,18 @@ class Message {
         view!.present(AlertMessage, animated: true, completion: nil)
     }
     
+    public static func ConfirmRenewMessage(message: String, callback:@escaping (()-> Void )){
+        let AlertMessage = UIAlertController(title: "renew".localizable(),
+                                             message: message,
+                                             preferredStyle: .alert)
+        AlertMessage.addAction(UIAlertAction(title: "ok".localizable(), style: .destructive, handler: { (alert) in
+            callback()
+        }))
+        AlertMessage.addAction(UIAlertAction(title: "cancel".localizable(), style: .default, handler: nil))
+        let view = UIApplication.topViewController()
+        view!.present(AlertMessage, animated: true, completion: nil)
+    }
+    
     public static func AlertMessage(message: String, header: String, View: UIViewController, callback:@escaping (() -> Void)){
         let AlertMessage = UIAlertController(title: header,
                                              message: message,

@@ -157,15 +157,15 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
                 self.tableView.reloadData()
             })
 
-//            self.ProfileHandleRequest.LoadLoanActiveByUser {
-//                self.isLoanActive = false
-//                self.tableView.reloadData()
-//            }
-//
-//            self.ProfileHandleRequest.LoadLoanHistoryByUser {
-//                self.isLoanHistory = false
-//                self.tableView.reloadData()
-//            }
+            self.ProfileHandleRequest.LoadLoanActiveByUser {
+                self.isLoanActive = false
+                self.tableView.reloadData()
+            }
+
+            self.ProfileHandleRequest.LoadLoanHistoryByUser {
+                self.isLoanHistory = false
+                self.tableView.reloadData()
+            }
         }
         
     }
@@ -393,20 +393,20 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
                 self.refresher.endRefreshing()
                 self.tableView.reloadData()
             }
-//        case 2:
-//            if isLoadActiveOrHistory
-//            {
-//                ProfileHandleRequest.LoadLoanActiveByUser {
-//                    self.refresher.endRefreshing()
-//                    self.tableView.reloadData()
-//                }
-//            }
-//            else{
-//                ProfileHandleRequest.LoadLoanHistoryByUser {
-//                    self.refresher.endRefreshing()
-//                    self.tableView.reloadData()
-//                }
-//            }
+        case 2:
+            if isLoadActiveOrHistory
+            {
+                ProfileHandleRequest.LoadLoanActiveByUser {
+                    self.refresher.endRefreshing()
+                    self.tableView.reloadData()
+                }
+            }
+            else{
+                ProfileHandleRequest.LoadLoanHistoryByUser {
+                    self.refresher.endRefreshing()
+                    self.tableView.reloadData()
+                }
+            }
         default:
             break
         }
@@ -734,16 +734,11 @@ extension ProfileController {
             BorderActiveLike.isHidden = false
             BorderActiveLoan.isHidden = true
         case btnLoan:
-//            index = 2
-//            self.tableView.reloadData()
-//            BorderActivePost.isHidden = true
-//            BorderActiveLike.isHidden = true
-//            BorderActiveLoan.isHidden = false
-            index = 0
+            index = 2
             self.tableView.reloadData()
-            BorderActivePost.isHidden = false
+            BorderActivePost.isHidden = true
             BorderActiveLike.isHidden = true
-            BorderActiveLoan.isHidden = true
+            BorderActiveLoan.isHidden = false
         default:
             break
         }

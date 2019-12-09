@@ -21,7 +21,7 @@ class AlertService {
     func setData(name: String, address: String) -> AccountController {
         let storyboad = UIStoryboard(name: "Main", bundle: .main)
         let alertVC = storyboad.instantiateViewController(withIdentifier: "AccountController") as! AccountController
-        alertVC.ShopeNameLabel.text = name
+        alertVC.name_shop = name
         
         return alertVC
     }

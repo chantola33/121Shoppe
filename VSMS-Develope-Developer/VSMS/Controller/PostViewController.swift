@@ -21,7 +21,6 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
     
     ///Detail
     @IBOutlet weak var postType: CusDropDownUIView!
-    @IBOutlet weak var txtTitle: CusInputUIView!
     @IBOutlet weak var cboCategory: CusDropDownUIView!
     @IBOutlet weak var cboType: CusDropDownUIView!
     @IBOutlet weak var cboBrand: CusDropDownUIView!
@@ -305,7 +304,7 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
         case 0:
             return 1
         case 1:
-            return 11
+            return 10
         case 2:
             if isMotorBike_Used() {
                 return 0
@@ -415,8 +414,7 @@ extension PostViewController {
                 self.post_obj = data
                 
                 self.postType.Value = data.post_type.capitalizingFirstLetter()
-                
-                self.txtTitle.Value = data.title
+            
                 self.cboCategory.Value = self.category_arr.first(where: {$0.ID == data.category.toString()})!.Text!
                 self.cboType.Value = self.type_arr.first(where: {$0.ID == data.type.toString()})!.Text!
                 

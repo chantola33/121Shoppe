@@ -70,7 +70,7 @@ class PopupviewController: BaseViewController {
     @IBAction func onClickSubmit(_ sender: Any) {
 //        let user = User.getUserID()
 //        let image = UIImage(named: "121logo")
-        let pushAlert = alertService.setData(name: shop_name.text!, address: shop_address.text!)
+        let pushAlert = alertService.setData(name: "shop_name.text!", address: shop_address.text!)
         present(pushAlert, animated: true)
         dismiss(animated: true)
     }

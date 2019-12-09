@@ -99,6 +99,83 @@ class ImageSubClass {
     }
 }
 
+class Renewaldelete {
+    var id: Int = -1
+    var status: Int = 0
+    var modified: String = Date().iso8601
+    var modified_by: Int = 0
+    var rejected_comments: String = ""
+    
+    
+//    init(id: Int, status: Int, modified: Date, modified_by: Int, rejected_comments: String ) {
+//        self.id = id
+//        self.status = status
+//        self.modified = modified
+//        self.modified_by = modified_by
+//        self.rejected_comments = rejected_comments
+//    }
+//
+//
+//
+//    var asRenewal : [String:Any] {
+//        let parameter: Parameters = [
+//            "id": self.id,
+//            "status": self.status,
+//            "modified": self.modified,
+//            "modified_by": self.modified_by,
+//            "rejected_comments": self.rejected_comments
+//        ]
+//        return parameter
+//    }
+    init(){}
+    
+    init(json: JSON)
+    {
+        self.id = json["id"].stringValue.toInt()
+        self.status = json["status"].stringValue.toInt()
+        self.modified = json["modified"].stringValue
+        self.modified_by = json["modified_by"].stringValue.toInt()
+        self.rejected_comments = json["rejected_comments"].stringValue
+    }
+    func Renewal(PostID: Int, completion: @escaping (Bool) -> Void)
+    {
+        Alamofire.request("\(PROJECT_API.UpdateProductStatus)\(PostID)/",
+            method: .put,
+            parameters: self.asDictionary,
+            encoding: JSONEncoding.default,
+            headers: httpHeader()
+            ).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                        print(value)
+//                        let json = JSON(value)
+//
+//                    self.id = json["id"].stringValue.toInt()
+//                    self.status = json["status"].stringValue.toInt()
+//                    self.modified = json["modified"].stringValue
+//                    self.modified_by = json["modified_by"].stringValue.toInt()
+//                    self.rejected_comments = json["rejected_comments"].stringValue
+                    case .failure(let error):
+                        print(error)
+                        completion(false)
+                }
+        }
+   
+    }
+    
+    var asDictionary : [String:Any]
+    {
+        let mirror = Mirror(reflecting: self)
+        let dict = Dictionary(uniqueKeysWithValues: mirror.children.lazy.map({ (label:String?, value: Any) ->
+            (String,Any)? in
+            guard label != nil  else { return nil }
+            return (label!,value)
+            
+        }).compactMap{ $0})
+        return dict
+    }
+    
+}
 
 
 class LikebyUserModel {
@@ -141,3 +218,5 @@ class LikebyUserModel {
         }
     }
 }
+
+

@@ -127,3 +127,6 @@
 "remove" = "Remove";
 "delete" = "Delete";
 "waring" = "Warning";
+// Renewal
+"renew" = "Post Renewal";
+"renewmessage" = "Do you want to renew this post?";

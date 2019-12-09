@@ -56,6 +56,8 @@ class PostViewModel {
     var rent_post: [[String: Any]] = [[:]]
     var buy_post: [[String: Any]] = [[:]]
     
+    // renewal field
+    
     
     //helper fields
     var PostTypeVal: String?
@@ -424,7 +426,7 @@ class PostAdViewModel
     //record
     var status: Int = 3
     var modified: Date?
-    
+    var rejected_comments: String = ""
     //Array Post
     var sale_post: [[String: Any]] = [[:]]
     var rent_post: [[String: Any]] = [[:]]
@@ -435,6 +437,7 @@ class PostAdViewModel
     var rent: RentPost?
     var buy: BuyPost?
     
+  
     init(){}
     
     init(PostIDToDelete: Int)
@@ -629,7 +632,9 @@ class PostAdViewModel
                 }
         }
     }
+   
     
+
     var asDictionary : [String:Any]
     {
         let mirror = Mirror(reflecting: self)
