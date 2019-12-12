@@ -588,6 +588,7 @@ extension HomePageController : CellClickProtocol {
 extension HomePageController: navigationToHomepage {
     func menuClick(list: String) {
         sideMenuController?.hideMenu()
+    
         switch list {
         case "profile":
             let profileVC: AccountController = self.storyboard?.instantiateViewController(withIdentifier: "AccountController") as! AccountController
