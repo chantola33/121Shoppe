@@ -31,12 +31,8 @@
                                         <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRz-WC-tYr">
-                                        <rect key="frame" x="0.0" y="54" width="398" height="305.5"/>
-                                        <mutableString key="text">	Welcome to 121 online market platform!
-A new modern online market in Cambodia. User friendly, super quick and easy to use in online market, helps you Buy, Sell or Rent anything in your neighborhood. 121 Online Market Platform is the future of E-Commerce in Cambodia, aiming to make up for all inconveniences of other markets, and replace them with new modern solutions.
-For example possibility to add products by signing up for an account with very clear information details, and marking the position of dealers’ shop on the map, its help you can understand more clearly about dealer. You can use it through the website, or download our free application from Play Store, App Store or Google Play.
-    	</mutableString>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRz-WC-tYr">
+                                        <rect key="frame" x="0.0" y="54" width="398" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -71,6 +67,9 @@ For example possibility to add products by signing up for an account with very c
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblabout121" destination="JRz-WC-tYr" id="6PS-Sq-AaC"/>
+            </connections>
             <point key="canvasLocation" x="249.27536231884059" y="129.24107142857142"/>
         </tableViewCell>
     </objects>

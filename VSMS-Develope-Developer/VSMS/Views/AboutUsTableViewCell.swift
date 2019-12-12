@@ -9,14 +9,16 @@
 import UIKit
 
 class AboutUsTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var lblabout: UILabel!
     
+    @IBOutlet weak var lblabout121: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
       
         // Initialization code
+        
+//        lblabout121.text = NSLocalizedString("abount121", comment: "String")
+        lblabout121.text = "about121".localized
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,5 +26,9 @@ class AboutUsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+}
+extension String {
+    var localized: String {
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
+    }
 }

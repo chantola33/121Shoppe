@@ -102,6 +102,8 @@
 		86FD6F2C231E478B009C7D07 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FD6F2A231E478B009C7D07 /* ChatTableViewCell.swift */; };
 		86FD6F2D231E478B009C7D07 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86FD6F2B231E478B009C7D07 /* ChatTableViewCell.xib */; };
 		86FD6F2F231E5F2E009C7D07 /* ChatHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FD6F2E231E5F2E009C7D07 /* ChatHandle.swift */; };
+		C129097223A1FB2C00671C45 /* AboutContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129097123A1FB2C00671C45 /* AboutContact.swift */; };
+		C129097423A1FDCA00671C45 /* AboutContact.xib in Resources */ = {isa = PBXBuildFile; fileRef = C129097323A1FDCA00671C45 /* AboutContact.xib */; };
 		C40213A822574D08007920C4 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40213A322574D08007920C4 /* HomePageController.swift */; };
 		C456204022D0BAE300DBF21D /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456203F22D0BAE300DBF21D /* ProfileModel.swift */; };
 		C45661B322CE6D6200973945 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45661B122CE6D6200973945 /* PostsTableViewCell.swift */; };
@@ -237,6 +239,8 @@
 		86FD6F2A231E478B009C7D07 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		86FD6F2B231E478B009C7D07 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		86FD6F2E231E5F2E009C7D07 /* ChatHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHandle.swift; sourceTree = "<group>"; };
+		C129097123A1FB2C00671C45 /* AboutContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutContact.swift; sourceTree = "<group>"; };
+		C129097323A1FDCA00671C45 /* AboutContact.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutContact.xib; sourceTree = "<group>"; };
 		C402139B22574CD4007920C4 /* VSMS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VSMS-Bridging-Header.h"; sourceTree = "<group>"; };
 		C40213A322574D08007920C4 /* HomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
 		C456203F22D0BAE300DBF21D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
@@ -496,6 +500,8 @@
 				86EE08B822FFC6B7001EF3A8 /* AboutUsTableViewCell.xib */,
 				C4826FC623000FD000494DB0 /* TermofprivacyTableViewCell.swift */,
 				C4826FC723000FD000494DB0 /* TermofprivacyTableViewCell.xib */,
+				C129097123A1FB2C00671C45 /* AboutContact.swift */,
+				C129097323A1FDCA00671C45 /* AboutContact.xib */,
 			);
 			name = AboutandTermofprivancy;
 			sourceTree = "<group>";
@@ -743,6 +749,7 @@
 				86FD6F2D231E478B009C7D07 /* ChatTableViewCell.xib in Resources */,
 				86F4DEDC22E2D42C000ACA12 /* SearchViewController.xib in Resources */,
 				864222B522DEFB44002E41E7 /* ProductListTableViewCell.xib in Resources */,
+				C129097423A1FDCA00671C45 /* AboutContact.xib in Resources */,
 				C4826FC923000FD100494DB0 /* TermofprivacyTableViewCell.xib in Resources */,
 				86B94E1722E83FEC00C793D2 /* CustomCell_Instagram.xib in Resources */,
 				86F4017922DF0E4500AB9ECD /* ProductImageTableViewCell.xib in Resources */,
@@ -891,6 +898,7 @@
 				86AAF0D722C0C4D4003C46F3 /* MenuViewController.swift in Sources */,
 				86D7E64D231942A300B2035A /* PhotoListCollectionViewCell.swift in Sources */,
 				864997D822F2D93B005BD2DF /* ActiveDeactiveTableViewCell.swift in Sources */,
+				C129097223A1FB2C00671C45 /* AboutContact.swift in Sources */,
 				C48F457722E4618D0097370F /* ContectViewController.swift in Sources */,
 				8615106522D5914600A37835 /* PhoneNumberInputHeaderTableViewCell.swift in Sources */,
 				86F4DEE022E30BDE000ACA12 /* ListFromNavigationViewController.swift in Sources */,
