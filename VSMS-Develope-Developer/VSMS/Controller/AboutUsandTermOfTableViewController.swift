@@ -16,10 +16,11 @@ class AboutUsandTermOfTableViewController: UIViewController, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+          print("List Type \(listType)")
+        
         tableView.register(UINib(nibName: "AboutUsTableViewCell", bundle: nil),
                            forCellReuseIdentifier: "AboutUs")
-        tableView.register(UINib(nibName: "TermofprivacyTableViewCell",bundle: nil),
-                           forCellReuseIdentifier: "Termofprivacy")
+        tableView.register(UINib(nibName: "TermofprivacyTableViewCell",bundle: nil),forCellReuseIdentifier: "Termofprivacy")
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -28,7 +29,7 @@ class AboutUsandTermOfTableViewController: UIViewController, UITableViewDelegate
     }
  
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if listType == "About Us" {
+        if listType == "About 121" {
             return 468
         }else if listType == "Term of Privacy" {
             return 1300
@@ -44,7 +45,8 @@ class AboutUsandTermOfTableViewController: UIViewController, UITableViewDelegate
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "AboutUs")
 //                    as! AboutUsTableViewCell
 //                   return cell
-        if listType == "About Us" {
+      
+        if listType == "About 121" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AboutUs")
                 as! AboutUsTableViewCell
             return cell
