@@ -11,9 +11,11 @@ import UIKit
 class SearchViewController: UIViewController {
 
     
+//    @IBOutlet weak var txtSearchBar: UISearchBar!
+//    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var txtSearchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    
     //Internal Properties
     var parameter = SearchFilter()
     var resultArr: [HomePageModel] = []
