@@ -597,6 +597,8 @@ extension HomePageController : CellClickProtocol {
 extension HomePageController: navigationToHomepage {
     func menuClick(list: String) {
         sideMenuController?.hideMenu()
+         print("List Type \(list)")
+
         switch list {
         case "profile":
             let profileVC: AccountController = self.storyboard?.instantiateViewController(withIdentifier: "AccountController") as! AccountController
@@ -607,10 +609,10 @@ extension HomePageController: navigationToHomepage {
                 self.storyboard?.instantiateViewController(withIdentifier: "SettingTableController") as! SettingTableController
            // let navi = UINavigationController(rootViewController: settingVC)
             self.navigationController?.pushViewController(settingVC, animated: true)
-        case "About Us":
+        case "About 121":
             let about_usVC: AboutUsandTermOfTableViewController =
             self.storyboard?.instantiateViewController(withIdentifier: "AboutUsandTermOfTableViewController") as! AboutUsandTermOfTableViewController
-            about_usVC.listType = "About Us"
+            about_usVC.listType = "About 121"
             self.navigationController?.pushViewController(about_usVC, animated: true)
         case "Term of Privacy":
             let termof: AboutUsandTermOfTableViewController =

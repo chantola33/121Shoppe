@@ -104,6 +104,7 @@ class UserFireBase
         }
     }
     
+    
     var asDictionary : [String:Any] {
         let mirror = Mirror(reflecting: self)
         let dict = Dictionary(uniqueKeysWithValues: mirror.children.lazy.map({ (label:String?,value:Any) -> (String,Any)? in
@@ -171,6 +172,17 @@ class PostFireBase
         self.title = PostJson["title"].stringValue
         self.type = PostJson["post_type"].stringValue
         self.viewCount = "0"
+    }
+    
+    static  func getAllActivePostFromFirebase(_ completion: @escaping ((PostFireBase) -> Void))
+    {
+        let allPost = Database.database().reference().child(FireBaseRealTime.POST)
+        allPost.observe(.value) { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                
+            }
+            }
+        
     }
     
     static func Load(PostID: String, _ completion: @escaping ((PostFireBase) -> Void))

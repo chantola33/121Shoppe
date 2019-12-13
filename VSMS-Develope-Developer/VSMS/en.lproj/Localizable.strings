@@ -26,10 +26,10 @@
 "yourprofile" = "Your Profile";
 "yourposts" = "Your Posts";
 "yourlike" = "Your Likes";
-"yourloan" = "Your Loan";
+"yourloan" = "Your Loans";
 "post" = "Post";
 "setting" = "Setting";
-"termofprivancy" = "Term of Privancy";
+"termofprivancy" = "Term of Privacy";
 //Default
 "views" = "Views: ";
 "like" = "LIKE";
@@ -44,12 +44,12 @@
 "camera" = "Camera";
 //Detail
 "description" = "Description";
-"postcode" = "Posts Code";
+"postcode" = "Post Code";
 "condition" = "Condition";
 "loancal" = "LOAN CALCULATION";
 "price" = "Price";
-"interate" = "interest Rate";
-"deposit" = "Deposti";
+"interate" = "Interest Rate";
+"deposit" = "Deposit";
 "term" = "Term";
 "monthly" = "Monthly Payment";
 "contact" = "Contact";
@@ -91,7 +91,7 @@
 "loginwihtfacebook" = "Log in With Facebook account";
 "phoneorusername" = "Phone number";
 "password" = "Password";
-"forgotpassword" = "Fogot Password?";
+"forgotpassword" = "Forgot Password?";
 "loginbutton" = "Login";
 //Setting controller
 "btnlogout" = "Log Out";
@@ -117,7 +117,7 @@
 //Register Controller
 "selectaccount" = "Select Account Type";
 "publicuser" = "Public User";
-"otherdealer" = "Other Dealer";
+"otherdealer" = "Other Dealers";
 "next" = "NEXT";
 //Alert Popup
 "error" = "Error";
@@ -130,3 +130,7 @@
 // Renewal
 "renew" = "Post Renewal";
 "renewmessage" = "Do you want to renew this post?";
+//About 121
+"about121" =" Welcome to 121 online market platform! A new modern online market in Cambodia. User friendly, super quick and easy to use in online market, helps you Buy, Sell or Rent anything in your neighborhood. 121 Online Market Platform is the future of E-Commerce in Cambodia, aiming to make up for all inconveniences of other markets, and replace them with new modern solutions.For example possibility to add products by signing up for an account with very clear information details, and marking the position of dealers’ shop on the map, its help you can understand more clearly about dealer. You can use it through the website, or download our free application from Play Store, App Store or Google Play.";
+//contact 121
+"contact121" = "Address: LSI Building (3rd floor), Phnom Penh-Hanio Friedship Blvd.(#1019),SK. Kouk Khleang,KH. Sen Sok, Phnom Penh\n Telephone : 069 99 00 37 / 089 99 00 37 / 069 99 00 57 / 089 99 00 57 \n E-mail : Info.121shoppe@gmil.com \n Website : 121shoppe.com";
