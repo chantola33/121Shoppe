@@ -605,9 +605,14 @@ extension HomePageController: navigationToHomepage {
             self.storyboard?.instantiateViewController(withIdentifier: "AboutUsandTermOfTableViewController") as! AboutUsandTermOfTableViewController
             about_usVC.listType = "About 121"
             self.navigationController?.pushViewController(about_usVC, animated: true)
+        case "Contact 121":
+            let about_usVC: AboutUsandTermOfTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "AboutUsandTermOfTableViewController") as! AboutUsandTermOfTableViewController
+            about_usVC.listType = "Contact 121"
+            self.navigationController?.pushViewController(about_usVC, animated: true)
+            break
         case "Term of Privacy":
             let termof: AboutUsandTermOfTableViewController =
-            self.storyboard?.instantiateViewController(withIdentifier: "AboutUsandTermOfTableViewController") as!
+       self.storyboard?.instantiateViewController(withIdentifier: "AboutUsandTermOfTableViewController") as!
             AboutUsandTermOfTableViewController
             termof.listType = "Term of Privacy"
             self.navigationController?.pushViewController(termof, animated: true)

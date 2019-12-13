@@ -18,8 +18,8 @@ class AboutUsandTermOfTableViewController: UIViewController, UITableViewDelegate
         
           print("List Type \(listType)")
         
-        tableView.register(UINib(nibName: "AboutUsTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: "AboutUs")
+        tableView.register(UINib(nibName: "AboutUsTableViewCell", bundle: nil),forCellReuseIdentifier: "AboutUs")
+        tableView.register(UINib(nibName: "AboutContactTableViewCell", bundle: nil),forCellReuseIdentifier: "AboutContact")
         tableView.register(UINib(nibName: "TermofprivacyTableViewCell",bundle: nil),forCellReuseIdentifier: "Termofprivacy")
         tableView.delegate = self
         tableView.dataSource = self
@@ -31,7 +31,10 @@ class AboutUsandTermOfTableViewController: UIViewController, UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if listType == "About 121" {
             return 468
-        }else if listType == "Term of Privacy" {
+        }else if listType == "Contact 121"{
+            return 468
+        }
+        else if listType == "Term of Privacy" {
             return 1300
         }
         return 0
@@ -50,7 +53,11 @@ class AboutUsandTermOfTableViewController: UIViewController, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: "AboutUs")
                 as! AboutUsTableViewCell
             return cell
-        }else if listType == "Term of Privacy" {
+        }else if listType == "Contact 121"{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AboutContact") as! AboutContactTableViewCell
+            return cell
+        }
+        else if listType == "Term of Privacy" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Termofprivacy")
                 as! TermofprivacyTableViewCell
             return cell
