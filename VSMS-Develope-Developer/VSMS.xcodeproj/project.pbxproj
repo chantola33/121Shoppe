@@ -125,6 +125,7 @@
 		C4CCAE4B22F9679300E21EC4 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCAE4A22F9679300E21EC4 /* LanguageManager.swift */; };
 		C4CCAE5322F9732C00E21EC4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4CCAE5122F9732C00E21EC4 /* Localizable.strings */; };
 		D50238472394F9F5005C7C12 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50238462394F9F5005C7C12 /* AlertService.swift */; };
+		D50A0677239E09EC0071062D /* SearchFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50A0676239E09EC0071062D /* SearchFilterController.swift */; };
 		D5467A11238E552D0064DD45 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5467A10238E552D0064DD45 /* Popup.storyboard */; };
 		D5467A13238E5DA90064DD45 /* PopupviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5467A12238E5DA90064DD45 /* PopupviewController.swift */; };
 		D54C4811224223BD004FE033 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C4810224223BD004FE033 /* LoginController.swift */; };
@@ -132,6 +133,8 @@
 		D54C481522422F20004FE033 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C481422422F20004FE033 /* AccountController.swift */; };
 		D55FA97B223EBD34005B0C8D /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55FA97A223EBD34005B0C8D /* SettingController.swift */; };
 		D56B83C9234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */; };
+		D57CBD6223A0D4500048A446 /* SearchTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CBD6123A0D4500048A446 /* SearchTesting.swift */; };
+		D57CBD6623A0F4690048A446 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CBD6523A0F4690048A446 /* TableViewCell.swift */; };
 		D581EFC1234B8BFE00C89A2D /* laonn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D581EFC0234B8BFA00C89A2D /* laonn.jpg */; };
 		D5985DA72387D492004E4058 /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5985DA62387D492004E4058 /* BannerModel.swift */; };
 		D5D83603238641FE0060E4D0 /* CountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D83602238641FE0060E4D0 /* CountViewModel.swift */; };
@@ -265,6 +268,7 @@
 		C4CCAE5222F9732C00E21EC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4CCAE5422F9734000E21EC4 /* km-KH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "km-KH"; path = "km-KH.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D50238462394F9F5005C7C12 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		D50A0676239E09EC0071062D /* SearchFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterController.swift; sourceTree = "<group>"; };
 		D5467A10238E552D0064DD45 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
 		D5467A12238E5DA90064DD45 /* PopupviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupviewController.swift; sourceTree = "<group>"; };
 		D54C4810224223BD004FE033 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -272,6 +276,8 @@
 		D54C481422422F20004FE033 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		D55FA97A223EBD34005B0C8D /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountTypeViewController.swift; sourceTree = "<group>"; };
+		D57CBD6123A0D4500048A446 /* SearchTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTesting.swift; sourceTree = "<group>"; };
+		D57CBD6523A0F4690048A446 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		D581EFC0234B8BFA00C89A2D /* laonn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = laonn.jpg; sourceTree = "<group>"; };
 		D5985DA62387D492004E4058 /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
 		D5D83602238641FE0060E4D0 /* CountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountViewModel.swift; sourceTree = "<group>"; };
@@ -448,6 +454,9 @@
 				D56B83C8234DCD2800EFB0E8 /* SelectAccountTypeViewController.swift */,
 				D5467A12238E5DA90064DD45 /* PopupviewController.swift */,
 				D50238462394F9F5005C7C12 /* AlertService.swift */,
+				D50A0676239E09EC0071062D /* SearchFilterController.swift */,
+				D57CBD6123A0D4500048A446 /* SearchTesting.swift */,
+				D57CBD6523A0F4690048A446 /* TableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -859,6 +868,7 @@
 				8613197F23165C3700F35772 /* SetPhoneViewController.swift in Sources */,
 				8602E5A822FE71F100C31805 /* TabBarButton.swift in Sources */,
 				863D30BA23011C20002C2725 /* LoanViewModel.swift in Sources */,
+				D57CBD6623A0F4690048A446 /* TableViewCell.swift in Sources */,
 				C4CCAE4922F9676B00E21EC4 /* BaseViewController.swift in Sources */,
 				86D6FC2322CDA25600B27B25 /* APIModel.swift in Sources */,
 				8613E8E6231CB585006C9D60 /* ChatViewController.swift in Sources */,
@@ -902,6 +912,8 @@
 				C48F457722E4618D0097370F /* ContectViewController.swift in Sources */,
 				8615106522D5914600A37835 /* PhoneNumberInputHeaderTableViewCell.swift in Sources */,
 				86F4DEE022E30BDE000ACA12 /* ListFromNavigationViewController.swift in Sources */,
+				D57CBD6223A0D4500048A446 /* SearchTesting.swift in Sources */,
+				D50A0677239E09EC0071062D /* SearchFilterController.swift in Sources */,
 				86E46AB122D875FF0028C93E /* DetailViewController.swift in Sources */,
 				864222B422DEFB44002E41E7 /* ProductListTableViewCell.swift in Sources */,
 				86840CEE23347A3D00DCA3D2 /* BtnFilterCollectionViewCell.swift in Sources */,

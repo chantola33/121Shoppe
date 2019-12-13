@@ -61,9 +61,9 @@ class PROJECT_API {
     static func RELATED_PRODUCT(postType: String, category: String, modeling: String) -> String {
         return "\(http_absoluteString)/relatedpost/?post_type=\(postType)&category=\(category)&modeling=\(modeling)&min_price=&max_price="
     }
-//    static func SEARCH_PRODUCT(filter: SearchFilter) -> String {
-//        return "\(http_absoluteString)/postsearch/?search=\(filter.search)&category=\(filter.category)&modeling=\(filter.model)&year=\(filter.year)"
-//    }
+    static func SEARCH_PRODUCT(filter: SearchFilter) -> String {
+        return "\(http_absoluteString)/postsearch/?search=\(filter.search)&category=\(filter.category)&modeling=\(filter.model)&year=\(filter.year)"
+    }
     
 //    static func FILTER_BUTTON(postType: String, category: String, modeling: String, min_price: String, max_price: String, years: String) -> String {
 //        return "\(http_absoluteString)/relatedpost/??post_type=\(postType)&category=\(category)&modeling\(modeling)&min_price=\(min_price)&max_price=\(max_price)&year=\(years)"
