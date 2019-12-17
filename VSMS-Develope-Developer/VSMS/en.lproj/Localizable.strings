@@ -35,7 +35,7 @@
 "like" = "LIKE";
 "loan" = "LOAN";
 "upload" = "UPLOAD";
-"active" = "Active";
+"active" = "Active";   
 "history" = "History";
 "home" = "Home";
 "profile" = "Profile";
