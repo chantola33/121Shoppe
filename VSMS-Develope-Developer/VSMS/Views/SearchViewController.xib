@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,8 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="VSMS" customModuleProvider="target">
             <connections>
                 <outlet property="searchDisplayController" destination="Zbg-mt-2Z3" id="knR-8E-XF9"/>
-                <outlet property="tableView" destination="7rN-7k-0Xh" id="9xM-EW-9QM"/>
-                <outlet property="txtSearchBar" destination="Bpt-IG-5zk" id="Rlb-8X-yhv"/>
+                <outlet property="tableView" destination="Ag3-PP-Pe3" id="MQj-kf-kK9"/>
+                <outlet property="txtSearchBar" destination="1Pa-fF-a9v" id="Pf5-Tj-H2k"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -53,5 +53,36 @@
                 <outlet property="searchResultsDelegate" destination="-1" id="aBZ-I5-chH"/>
             </connections>
         </searchDisplayController>
+        <viewController restorationIdentifier="SearchViewController" id="VEw-Us-j5X" customClass="SearchViewController" customModule="VSMS" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="vwA-uh-Ycl">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="1Pa-fF-a9v">
+                        <rect key="frame" x="0.0" y="56" width="414" height="56"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="56" id="ea1-qc-Bty"/>
+                        </constraints>
+                        <textInputTraits key="textInputTraits"/>
+                    </searchBar>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ag3-PP-Pe3">
+                        <rect key="frame" x="0.0" y="112" width="414" height="750"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tableView>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="Ag3-PP-Pe3" firstAttribute="trailing" secondItem="osL-iW-bhW" secondAttribute="trailing" id="3ml-B3-YeA"/>
+                    <constraint firstItem="Ag3-PP-Pe3" firstAttribute="leading" secondItem="osL-iW-bhW" secondAttribute="leading" id="IbW-kW-zeD"/>
+                    <constraint firstItem="Ag3-PP-Pe3" firstAttribute="top" secondItem="1Pa-fF-a9v" secondAttribute="bottom" id="YtE-8B-Rvd"/>
+                    <constraint firstItem="1Pa-fF-a9v" firstAttribute="trailing" secondItem="osL-iW-bhW" secondAttribute="trailing" id="ZCM-eP-f1P"/>
+                    <constraint firstItem="1Pa-fF-a9v" firstAttribute="leading" secondItem="osL-iW-bhW" secondAttribute="leading" id="pF1-wz-s3u"/>
+                    <constraint firstItem="Ag3-PP-Pe3" firstAttribute="bottom" secondItem="osL-iW-bhW" secondAttribute="bottom" id="v0f-gZ-puv"/>
+                    <constraint firstItem="1Pa-fF-a9v" firstAttribute="top" secondItem="osL-iW-bhW" secondAttribute="top" constant="12" id="xzs-Cg-zfa"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="osL-iW-bhW"/>
+            </view>
+            <point key="canvasLocation" x="-1352.1739130434785" y="274.55357142857139"/>
+        </viewController>
     </objects>
 </document>

@@ -6,22 +6,21 @@
 //  Copyright © 2019 121. All rights reserved.
 //
 
-import Foundation
 import UIKit
-class AboutContach: UITableViewCell {
+class AboutContactTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblcontact: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+      
         // Initialization code
         
-        lblcontact.text = "contact121".localized
-
+        lblcontact.text = "contact_121".localized
     }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
         // Configure the view for the selected state
     }
 }

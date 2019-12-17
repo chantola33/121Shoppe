@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutContact121" rowHeight="468" id="kjW-AZ-kgd" customClass="AboutContach" customModule="VSMS" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="AboutContact121" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutContact" rowHeight="468" id="kjW-AZ-kgd" customClass="AboutContactTableViewCell" customModule="VSMS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="438" height="468"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kjW-AZ-kgd" id="bxp-wn-grd">
-                <rect key="frame" x="0.0" y="0.0" width="438" height="467.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="438" height="468"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBZ-sH-ubx">
-                        <rect key="frame" x="20" y="11" width="398" height="446"/>
+                        <rect key="frame" x="20" y="11" width="398" height="446.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ctf-g0-MRE">
-                                <rect key="frame" x="0.0" y="0.0" width="398" height="446"/>
+                                <rect key="frame" x="0.0" y="0.0" width="398" height="446.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" About Contact" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trb-em-hWj">
                                         <rect key="frame" x="0.0" y="10" width="398" height="29"/>
@@ -68,8 +66,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="tID-E9-NqI"/>
             <connections>
-                <outlet property="lblabout121" destination="KN5-0J-16Y" id="d6i-S8-pwt"/>
-                <outlet property="lblcontact" destination="KN5-0J-16Y" id="pTM-9e-Tyj"/>
+                <outlet property="lblcontact" destination="KN5-0J-16Y" id="YIV-DV-llM"/>
             </connections>
             <point key="canvasLocation" x="249.27536231884059" y="129.24107142857142"/>
         </tableViewCell>
