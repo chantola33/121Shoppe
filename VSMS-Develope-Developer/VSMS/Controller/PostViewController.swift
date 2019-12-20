@@ -511,6 +511,7 @@ extension PostViewController {
     
     func ShowTypeOption(style: PresentationStyle)
     {
+        
         let selectionMenu = RSSelectionMenu(dataSource: type_arr)
         { (cell, item, indexPath) in
             cell.textLabel?.text = item.Text

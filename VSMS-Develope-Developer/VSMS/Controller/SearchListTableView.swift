@@ -8,16 +8,19 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class SearchListTableView: UITableViewCell {
 
     @IBOutlet var imgProduct: UIImageView!
     @IBOutlet var lblProName: UILabel!
-   
-    @IBOutlet var imgUser: CustomImage!
+
+    @IBOutlet weak var imgUser: UIImageView!
+//    @IBOutlet var imgUser: CustomImage!
     @IBOutlet var lblPrice: UILabel!
-    
+
     @IBOutlet var lblViews: UILabel!
     @IBOutlet var lblType: UILabel!
+    
+    
     weak var delegate: CellClickProtocol?
     var ProductData = HomePageModel()
     

@@ -154,10 +154,7 @@ class HomePageController: BaseViewController {
             self.storyboard?.instantiateViewController(withIdentifier: "SearchFilterController") as!
         SearchFilterController
         self.navigationController?.pushViewController(termof, animated: true)
-//        let termof: SearchTesting =
-//            self.storyboard?.instantiateViewController(withIdentifier: "SearchTesting") as!
-//        SearchTesting
-//        self.navigationController?.pushViewController(termof, animated: true)
+
     }
     @IBAction func imgClick(_ sender: Any) {
         refrestButtonFilter(type: 1)
@@ -168,13 +165,6 @@ class HomePageController: BaseViewController {
     @IBAction func listClick(_ sender: Any) {
         refrestButtonFilter(type: 3)
     }
-    
-    
-//    @IBAction func Searchclick(_ sender: Any) {
-//        let searchVC = SearchViewController()
-//        searchVC.parameter = self.searchFilter
-//        self.navigationController?.pushViewController(searchVC, animated: true)
-//    }
     
     
     ///////////////////functions & Selectors

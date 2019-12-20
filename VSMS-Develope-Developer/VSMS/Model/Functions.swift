@@ -600,6 +600,41 @@ class GenerateList
         }
     }
     
+    static func getBrandFilter(category: [Int], completion: @escaping ([DropDownTemplate]) -> Void)
+    {
+        Alamofire.request(PROJECT_API.BRANDS,
+                          method: .get,
+                          encoding: JSONEncoding.default
+            ).responseJSON { (response) in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    
+                    let cate = json["results"].arrayValue.map { $0["category"].stringValue.toInt() }
+                    if cate == category  {
+                        let arrData = json["results"].array?.map {
+                            DropDownTemplate(ID: $0["id"].stringValue,
+                                             Text: $0["brand_name"].stringValue,
+                                             Text_kh: $0["brand_name_as_kh"].stringValue,
+                                             Fkey: $0["category"].stringValue)
+                        }
+                        completion(arrData ?? [])
+                    }else {
+                        let arrData = json["results"].array?.map {
+                            DropDownTemplate(ID: $0["id"].stringValue,
+                                             Text: $0["brand_name"].stringValue,
+                                             Text_kh: $0["brand_name_as_kh"].stringValue,
+                                             Fkey: $0["category"].stringValue)
+                        }
+                        completion(arrData ?? [])
+                    }
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        }
+    }
+    
     static func getModel(completion: @escaping ([DropDownTemplate]) -> Void)
     {
         Alamofire.request(PROJECT_API.MODELS,
