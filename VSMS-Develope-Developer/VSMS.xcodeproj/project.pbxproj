@@ -104,6 +104,7 @@
 		86FD6F2F231E5F2E009C7D07 /* ChatHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FD6F2E231E5F2E009C7D07 /* ChatHandle.swift */; };
 		C129097223A1FB2C00671C45 /* AboutContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129097123A1FB2C00671C45 /* AboutContactTableViewCell.swift */; };
 		C129097423A1FDCA00671C45 /* AboutContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C129097323A1FDCA00671C45 /* AboutContactTableViewCell.xib */; };
+		C194347C23B0B95A003DC552 /* ProfileNewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C194347B23B0B95A003DC552 /* ProfileNewController.swift */; };
 		C40213A822574D08007920C4 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40213A322574D08007920C4 /* HomePageController.swift */; };
 		C456204022D0BAE300DBF21D /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456203F22D0BAE300DBF21D /* ProfileModel.swift */; };
 		C45661B322CE6D6200973945 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45661B122CE6D6200973945 /* PostsTableViewCell.swift */; };
@@ -244,6 +245,7 @@
 		86FD6F2E231E5F2E009C7D07 /* ChatHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHandle.swift; sourceTree = "<group>"; };
 		C129097123A1FB2C00671C45 /* AboutContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutContactTableViewCell.swift; sourceTree = "<group>"; };
 		C129097323A1FDCA00671C45 /* AboutContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutContactTableViewCell.xib; sourceTree = "<group>"; };
+		C194347B23B0B95A003DC552 /* ProfileNewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNewController.swift; sourceTree = "<group>"; };
 		C402139B22574CD4007920C4 /* VSMS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VSMS-Bridging-Header.h"; sourceTree = "<group>"; };
 		C40213A322574D08007920C4 /* HomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
 		C456203F22D0BAE300DBF21D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 		865B5DC9221FDD7200864F7E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C194347A23B0B90E003DC552 /* New Screen update */,
 				864F7A5C222E607C00437C24 /* AppDelegate.swift */,
 				C40213A322574D08007920C4 /* HomePageController.swift */,
 				86626B96229C464B00FE25DD /* LocationService.swift */,
@@ -558,6 +561,14 @@
 				422454760A29C3178F1F4F7C /* Pods_VSMS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C194347A23B0B90E003DC552 /* New Screen update */ = {
+			isa = PBXGroup;
+			children = (
+				C194347B23B0B95A003DC552 /* ProfileNewController.swift */,
+			);
+			path = "New Screen update";
 			sourceTree = "<group>";
 		};
 		C402139822574BE2007920C4 /* Model */ = {
@@ -893,6 +904,7 @@
 				D50238472394F9F5005C7C12 /* AlertService.swift in Sources */,
 				86F4DEDB22E2D42C000ACA12 /* SearchViewController.swift in Sources */,
 				86D6FC2522CDA4F500B27B25 /* Functions.swift in Sources */,
+				C194347C23B0B95A003DC552 /* ProfileNewController.swift in Sources */,
 				86022E0D22D445FC00D4C9C2 /* ExtensionHelper.swift in Sources */,
 				86FD6F28231E2C6D009C7D07 /* MessageViewModel.swift in Sources */,
 				D54C4811224223BD004FE033 /* LoginController.swift in Sources */,

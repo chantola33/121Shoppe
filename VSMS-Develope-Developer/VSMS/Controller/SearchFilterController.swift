@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var Searchbar: UISearchBar!
     @IBOutlet weak var lblSlideValue: UILabel!
@@ -110,6 +110,10 @@ class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerV
         imageView.frame = CGRect(x: 2, y: 0, width: txField.frame.height, height: txField.frame.height)
         txField.rightView = imageView
        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        Searchbar.resignFirstResponder()
     }
     
     override var prefersStatusBarHidden: Bool {

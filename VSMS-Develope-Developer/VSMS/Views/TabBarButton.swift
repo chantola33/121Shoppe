@@ -136,7 +136,7 @@ class TabBarButton: UIView {
         
         if let currentView = UIApplication.topViewController() {
             let ProfileTab: UINavigationController = {
-                let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+                let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileNewController") as! ProfileNewController
                 return UINavigationController(rootViewController: profile)
             }()
             ProfileTab.modalPresentationStyle = .fullScreen
