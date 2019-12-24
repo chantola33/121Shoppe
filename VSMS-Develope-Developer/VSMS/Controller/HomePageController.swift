@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import SideMenuSwift
 import RSSelectionMenu
+import Firebase
 
 class MyNavigation: UINavigationController, leftMenuClick {
     
@@ -26,6 +27,9 @@ class MyNavigation: UINavigationController, leftMenuClick {
         
         self.menuDelegate = rootVC
         self.viewControllers = [rootVC]
+        let token = Messaging.messaging().fcmToken
+        print("FCM token: \(token ?? "")")
+         
     }
 }
 
@@ -48,8 +52,6 @@ class HomePageController: BaseViewController {
     
 //    @IBOutlet weak var txtSearch: UISearchBar!
    
-    
-    
     var KhmerFlatButton: UIBarButtonItem!
     var EnglishFlatButton: UIBarButtonItem!
     
