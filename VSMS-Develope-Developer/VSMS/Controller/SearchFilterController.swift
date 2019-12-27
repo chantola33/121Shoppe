@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var Searchbar: UISearchBar!
@@ -37,6 +38,8 @@ class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerV
     override func viewDidLoad(){
         super.viewDidLoad()
       
+        
+        
         textFieldImagesetup(txField: txType)
          textFieldImagesetup(txField: txCategory)
          textFieldImagesetup(txField: txBrand)

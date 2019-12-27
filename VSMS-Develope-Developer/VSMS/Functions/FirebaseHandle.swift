@@ -94,9 +94,10 @@ class UserFireBase
                     {
                         let imgurl = dictionary?["imageURL"]
                         if imgurl == "default"{
-                            
+                            print("no image")
                         }else {
                             completion(imgurl!)
+                           
                         }
                     }
             }

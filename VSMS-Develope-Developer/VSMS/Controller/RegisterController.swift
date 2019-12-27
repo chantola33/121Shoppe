@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class RegisterController: BaseViewController {
     
@@ -29,6 +31,8 @@ class RegisterController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        let current = Auth.auth().currentUser?.uid
+        print("Current UID" + "\(current)")
         configuration()
     }
     
@@ -110,7 +114,8 @@ class RegisterController: BaseViewController {
             }
             else
             {
-//       close by samang         PhoneAuthProvider.provider().verifyPhoneNumber(phonenumber.ISOTelephone(), uiDelegate: nil) { (verificationID, error) in
+//       close by samang
+//                PhoneAuthProvider.provider().verifyPhoneNumber(phonenumber.ISOTelephone(), uiDelegate: nil) { (verificationID, error) in
 //                    if let error = error {
 //                        print(error)
 //                        Message.AlertMessage(message: "\(error)", header: "Error", View: self, callback: {
@@ -124,12 +129,15 @@ class RegisterController: BaseViewController {
 //                }
                 self.account.username = self.txtPhoneNumber.text!
                 self.account.ProfileData.telephone = self.txtPhoneNumber.text!
+                self.account.group_user = self.user_group
                 self.account.password = self.txtConfirmPassword.text!
                 self.account.ProfileData.group = self.user_group
                 self.account.RegisterUser { (result) in
                     performOn(.Main, closure: {
                         if result {
                             Message.SuccessMessage(message: "Your Account has been registered.", View: self, callback: {
+                                
+                               
                                 if self.user_group == 1 {
                                       PresentController.ProfileController(animate: true)
                                 }else {

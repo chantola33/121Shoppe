@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import Photos
+import FirebaseAuth
 
 var http_absoluteString = "http://103.205.26.103:8000"
 //var http_absoluteString = "http://121shoppe.com"
@@ -198,6 +199,7 @@ class User {
     
     static func resetUserDefault()
     {
+        try! Auth.auth().signOut()
         let defaults = UserDefaults.standard
         let dictionary = defaults.dictionaryRepresentation()
         dictionary.keys.forEach { key in

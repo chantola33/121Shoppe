@@ -9,6 +9,10 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+
 
 class AccountViewModel {
     var id: Int?
@@ -17,6 +21,7 @@ class AccountViewModel {
     var lastname: String = ""
     var email: String = ""
     var group: [Int] = [1]
+    var group_user: Int = 1
     var password: String = User.getPassword()
    
     var ProfileData = AccountSubProfile()
@@ -222,10 +227,17 @@ class AccountViewModel {
                     }
                     else
                     {
+                       
                         User.setupNewUserLogIn(pk: json["id"].stringValue.toInt(),
                                                username: json["username"].stringValue,
                                                firstname: json["first_name"].stringValue,
                                                password: self.password)
+                // add to firebase
+                        let uid = json["id"].stringValue
+                        let email = "user121" + uid + "@email.com"
+                        
+                        self.CreateUserAuth(email: email, password: self.password)
+
                         completion(true)
                     }
                 case .failure(let error):
@@ -233,6 +245,34 @@ class AccountViewModel {
                     completion(false)
                 }
                 
+        }
+    }
+    func CreateUserAuth(email: String, password: String) {
+        var passwords = password
+        if password.count <= 4  {
+           passwords = password + "__"
+        }
+        print(passwords)
+        Auth.auth().createUser(withEmail: email, password: passwords, completion: { (user, error) in
+            
+            if user != nil {
+                print("successful create")
+                print(user ?? "default ")
+                self.CurrentUser(email: email, password: passwords)
+            }else {
+                print("error")
+            }
+        })
+    }
+    func CurrentUser(email: String, password: String) {
+        let current = Auth.auth().currentUser?.uid
+        print("Current UID" + "\(String(describing: current))")
+        if current != nil {
+        let data = [ "coverURL": "default", "email": email, "group": self.group_user , "id": current , "imageURL": "default" , "password": password, "search": self.username, "status": "online", "username": self.username ] as [String : Any]
+            print(data)
+        Database.database().reference().child(FireBaseRealTime.USER).child(current!).setValue(data)
+        } else {
+            print("current nil")
         }
     }
     

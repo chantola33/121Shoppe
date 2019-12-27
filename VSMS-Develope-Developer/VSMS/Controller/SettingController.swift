@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import RSSelectionMenu
-
+import FirebaseAuth
     
 class SettingTableController: BaseTableViewController
 {
