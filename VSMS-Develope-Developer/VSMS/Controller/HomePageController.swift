@@ -29,6 +29,10 @@ class MyNavigation: UINavigationController, leftMenuClick {
         self.viewControllers = [rootVC]
         let token = Messaging.messaging().fcmToken
         print("FCM token: \(token ?? "")")
+        let token2 = "fWFSDsUjuxk:APA91bGcOU1uuLd6OMluez37ZZzG5uGibnlNquzXZLVV-boLx51XqRhSgdrV3LlRZNZ1wZKkoORYigxOWkgbOaMViXNmLzUphxr6pwKYpoZMEaUmS23BBY3TMf9JlKmKLElkyhlt9tRY"
+         let sender = PushNotificationSender()
+        //sender.sendPushNotification(to: token2, title: "Notification title", body: "Notification body")
+        //sender.sendPushNotification(to: token!, title: "Notification title", body: "Notification body")
          
     }
 }
