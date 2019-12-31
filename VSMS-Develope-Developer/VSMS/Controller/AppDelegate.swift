@@ -73,13 +73,14 @@ class AppDelegate: UIResponder,
         
         //Start up with Slide Menu
         //day-13-08-2019
-        let contentViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SideMenu") as! MyNavigation
-
-        let menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "leftMenu") as! MenuViewController
-        menuViewController.delegate = contentViewController
-
-        let sideMenuController = SideMenuController(contentViewController: contentViewController, menuViewController: menuViewController)
-        self.window?.rootViewController = sideMenuController
+//        let contentViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SideMenu") as! MyNavigation
+//
+//        let menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "leftMenu") as! MenuViewController
+//        menuViewController.delegate = contentViewController
+//
+//        let sideMenuController = SideMenuController(contentViewController: contentViewController, menuViewController: menuViewController)
+           let contentViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CustomTabBarController") as! CustomTabBarController
+        self.window?.rootViewController = contentViewController
         self.window?.makeKeyAndVisible()
 
         //////////////////

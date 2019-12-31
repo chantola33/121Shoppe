@@ -107,6 +107,7 @@
 		C129097223A1FB2C00671C45 /* AboutContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129097123A1FB2C00671C45 /* AboutContactTableViewCell.swift */; };
 		C129097423A1FDCA00671C45 /* AboutContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C129097323A1FDCA00671C45 /* AboutContactTableViewCell.xib */; };
 		C194347C23B0B95A003DC552 /* ProfileNewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C194347B23B0B95A003DC552 /* ProfileNewController.swift */; };
+		C1BC984F23B9B20D004F89CF /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BC984E23B9B20D004F89CF /* MainTabController.swift */; };
 		C40213A822574D08007920C4 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40213A322574D08007920C4 /* HomePageController.swift */; };
 		C456204022D0BAE300DBF21D /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456203F22D0BAE300DBF21D /* ProfileModel.swift */; };
 		C45661B322CE6D6200973945 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45661B122CE6D6200973945 /* PostsTableViewCell.swift */; };
@@ -250,6 +251,7 @@
 		C129097123A1FB2C00671C45 /* AboutContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutContactTableViewCell.swift; sourceTree = "<group>"; };
 		C129097323A1FDCA00671C45 /* AboutContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutContactTableViewCell.xib; sourceTree = "<group>"; };
 		C194347B23B0B95A003DC552 /* ProfileNewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNewController.swift; sourceTree = "<group>"; };
+		C1BC984E23B9B20D004F89CF /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		C402139B22574CD4007920C4 /* VSMS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VSMS-Bridging-Header.h"; sourceTree = "<group>"; };
 		C40213A322574D08007920C4 /* HomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
 		C456203F22D0BAE300DBF21D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 			isa = PBXGroup;
 			children = (
 				C194347B23B0B95A003DC552 /* ProfileNewController.swift */,
+				C1BC984E23B9B20D004F89CF /* MainTabController.swift */,
 			);
 			path = "New Screen update";
 			sourceTree = "<group>";
@@ -943,6 +946,7 @@
 				D57CBD6223A0D4500048A446 /* SearchResult.swift in Sources */,
 				D50A0677239E09EC0071062D /* SearchFilterController.swift in Sources */,
 				86E46AB122D875FF0028C93E /* DetailViewController.swift in Sources */,
+				C1BC984F23B9B20D004F89CF /* MainTabController.swift in Sources */,
 				864222B422DEFB44002E41E7 /* ProductListTableViewCell.swift in Sources */,
 				86840CEE23347A3D00DCA3D2 /* BtnFilterCollectionViewCell.swift in Sources */,
 				C45661B322CE6D6200973945 /* PostsTableViewCell.swift in Sources */,
