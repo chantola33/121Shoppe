@@ -10,14 +10,18 @@ import UIKit
 import SideMenuSwift
 
 enum VSMSTabBar: Int {
-    case home, camera, profile
+    case home, notification, camera, chat,profile
     
     var title: String {
         switch self {
         case .home:
-         return "Home"
+            return "Home"
+        case .notification:
+            return "Notification"
         case .camera:
-         return "Camera"
+            return "Camera"
+        case .chat:
+            return "Chat"
         case .profile:
          return "Profile"
         
@@ -28,8 +32,12 @@ enum VSMSTabBar: Int {
         switch self {
         case .home:
             return UIImage.init(named: "icons8-home-50")!
+        case .notification:
+            return UIImage.init(named: "icons8-notification-50")!
         case .camera:
             return UIImage.init(named: "icons8-camera-50")!
+        case .chat:
+            return UIImage.init(named: "icons8-chat-bubble-50")!
         case .profile:
             return UIImage.init(named: "icon-messages-app-27x20")!
         }
@@ -62,10 +70,19 @@ class CustomTabBarController: UITabBarController {
             menuViewController: menuViewController)
         return sideMenuController
     }()
+    let NotificationTab: UINavigationController = {
+        let notication = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NotificationViewController") as! NotificationViewController
+        return UINavigationController(rootViewController: notication)
+    }()
     
     let PostAdTab: UINavigationController = {
         let postAd = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
         return UINavigationController(rootViewController: postAd)
+    }()
+    
+    let ChatTab: UINavigationController = {
+        let chat = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        return UINavigationController(rootViewController: chat)
     }()
     
     override var tabBar: UITabBar {
@@ -94,7 +111,7 @@ class CustomTabBarController: UITabBarController {
 
     fileprivate func setuptabBar () {
         
-        viewControllers = [SideMenuTab, PostAdTab, ProfileTab]
+        viewControllers = [SideMenuTab, NotificationTab, PostAdTab, ChatTab, ProfileTab]
         
        for (index, bar) in self.tabBar.items!.enumerated() {
             bar.image = VSMSTabBar(rawValue: index)?.image
@@ -112,8 +129,24 @@ extension CustomTabBarController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         switch viewController {
-        case ProfileTab:
+        case PostAdTab:
+            if tabBarController.selectedIndex == 1 && !User.IsUserAuthorized(){
+                return false
+            }
+            self.tabBar.isHidden = true
+            return true
+        case NotificationTab:
             if tabBarController.selectedIndex == 2 && !User.IsUserAuthorized(){
+                return false
+            }
+            return true
+        case ChatTab:
+            if tabBarController.selectedIndex == 3 && !User.IsUserAuthorized(){
+                return false
+            }
+            return true
+        case ProfileTab:
+            if tabBarController.selectedIndex == 4 && !User.IsUserAuthorized(){
                 return false
             }
             return true

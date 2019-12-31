@@ -100,6 +100,7 @@ class ProfileController: BaseViewController, UITableViewDelegate , UITableViewDa
         SlidingPhoto()
         tableView.reloadData()
         
+        
         if UserDefaults.standard.string(forKey: currentLangKey) == "en" {
             navigationItem.rightBarButtonItem = KhmerFlatButton
         }else{

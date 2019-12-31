@@ -251,7 +251,11 @@ class PostViewController: UITableViewController,CLLocationManagerDelegate,GMSMap
             self.navigationController?.popViewController(animated: true)
         }
         else{
-            PresentController.ProfileController()
+            
+            let termof: ProfileController =
+                self.storyboard?.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+            
+            self.navigationController?.pushViewController(termof, animated: true)
         }
     }
     

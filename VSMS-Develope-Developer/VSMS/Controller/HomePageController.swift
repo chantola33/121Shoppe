@@ -159,8 +159,8 @@ class HomePageController: BaseViewController {
         let termof: SearchFilterController =
             self.storyboard?.instantiateViewController(withIdentifier: "SearchFilterController") as!
         SearchFilterController
-        self.navigationController?.pushViewController(termof, animated: true)
-
+//        self.navigationController?.pushViewController(termof, animated: true)
+        self.present(termof, animated: true, completion: nil)
     }
     @IBAction func imgClick(_ sender: Any) {
         refrestButtonFilter(type: 1)

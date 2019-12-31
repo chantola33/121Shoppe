@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UISearchBarDelegate {
+class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var Searchbar: UISearchBar!
     @IBOutlet weak var lblSlideValue: UILabel!
@@ -44,6 +44,7 @@ class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerV
          textFieldImagesetup(txField: txCategory)
          textFieldImagesetup(txField: txBrand)
          textFieldImagesetup(txField: txyear)
+        
         
         self.post_arr = GenerateList.getPostType()
         GenerateList.getCategory { (val) in
@@ -97,7 +98,8 @@ class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerV
             break
         }
     }
-//    @objc func onClickType() {
+   
+    //    @objc func onClickType() {
 //        print("thleak")
 ////        let story: UIStoryboard = UIStoryboard(name: "Alert", bundle: nil)
 ////        let vc: AlertDialog = story.instantiateViewController(withIdentifier: "AlertDialog") as! AlertDialog
@@ -115,10 +117,7 @@ class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerV
        
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        Searchbar.resignFirstResponder()
-    }
-    
+   
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -151,10 +150,30 @@ class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerV
     @objc func doneClick() {
         switch (s) {
         case 1: txType.resignFirstResponder()
+                if post_type.isEmpty {
+                   self.txType.text = post_arr[0].Text
+                    post_type = post_arr[0].Text ?? ""
+                }
+                print(post_type)
         case 2: txCategory.resignFirstResponder()
+                if category.isEmpty {
+                    self.txCategory.text = category_arr[0].Text
+                    category = category_arr[0].ID ?? ""
+                 }
+             print(category)
         case 3: txBrand.resignFirstResponder()
+                if brand.isEmpty {
+                    self.txBrand.text = brand_arr[0].Text
+                    brand = brand_arr[0].ID ?? ""
+                 }
+              print(brand)
         case 4: txyear.resignFirstResponder()
-        default: break
+                if year.isEmpty {
+                    self.txyear.text = year_arr[0].Text
+                    year = year_arr[0].ID ?? ""
+                 }
+              print(year)
+            default: break
         }
         
     }
@@ -164,8 +183,9 @@ class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerV
         case 2: txCategory.resignFirstResponder()
         case 3: txBrand.resignFirstResponder()
         case 4: txyear.resignFirstResponder()
-        default: break
+            default: break
         }
+       
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -229,7 +249,7 @@ class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerV
         termof.post_type = post_type
         termof.category = category
         termof.year = year
-        self.navigationController?.pushViewController(termof, animated: true)
+        self.present(termof, animated: true)
     }
     
     @IBAction func onScrollSlider(_ sender: UISlider) {
@@ -239,4 +259,20 @@ class SearchFilterController:  UIViewController, UIPickerViewDelegate, UIPickerV
     
 }
 
-
+extension SearchFilterController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        self.Searchbar.endEditing(true)
+        Searchbar.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        self.Searchbar.endEditing(true)
+        Searchbar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        Searchbar.resignFirstResponder()
+    }
+}
