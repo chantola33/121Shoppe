@@ -64,6 +64,7 @@
 		867B4EE5231FBC0C00D03757 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867B4EE4231FBC0B00D03757 /* CoreLocation.framework */; };
 		86840CEE23347A3D00DCA3D2 /* BtnFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86840CEC23347A3D00DCA3D2 /* BtnFilterCollectionViewCell.swift */; };
 		86840CEF23347A3D00DCA3D2 /* BtnFilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86840CED23347A3D00DCA3D2 /* BtnFilterCollectionViewCell.xib */; };
+		86A19DCC23B5DF690059BAF0 /* ChatSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86A19DCB23B5DF690059BAF0 /* ChatSB.storyboard */; };
 		86A5F7F123B33B4A001B147A /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A5F7F023B33B4A001B147A /* NotificationHelper.swift */; };
 		86AAF0C722C081C3003C46F3 /* DiscountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAF0BD22C081C2003C46F3 /* DiscountCollectionViewCell.swift */; };
 		86AAF0C822C081C3003C46F3 /* DiscountCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86AAF0BE22C081C3003C46F3 /* DiscountCollectionViewCell.xib */; };
@@ -205,6 +206,7 @@
 		867B4EE4231FBC0B00D03757 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		86840CEC23347A3D00DCA3D2 /* BtnFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BtnFilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		86840CED23347A3D00DCA3D2 /* BtnFilterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BtnFilterCollectionViewCell.xib; sourceTree = "<group>"; };
+		86A19DCB23B5DF690059BAF0 /* ChatSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatSB.storyboard; sourceTree = "<group>"; };
 		86A5F7F023B33B4A001B147A /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		86AAF0BD22C081C2003C46F3 /* DiscountCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		86AAF0BE22C081C3003C46F3 /* DiscountCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -392,6 +394,7 @@
 		865B5DB3221FDD3600864F7E /* VSMS */ = {
 			isa = PBXGroup;
 			children = (
+				86A19DCA23B5DEFF0059BAF0 /* StoryBoard */,
 				86E63AF4230D1FA000421EAB /* VSMS.entitlements */,
 				86E5494A22D6F578002B2980 /* Functions */,
 				C402139822574BE2007920C4 /* Model */,
@@ -473,6 +476,14 @@
 				86840CED23347A3D00DCA3D2 /* BtnFilterCollectionViewCell.xib */,
 			);
 			name = ButtonFilter;
+			sourceTree = "<group>";
+		};
+		86A19DCA23B5DEFF0059BAF0 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				86A19DCB23B5DF690059BAF0 /* ChatSB.storyboard */,
+			);
+			path = StoryBoard;
 			sourceTree = "<group>";
 		};
 		86B94E0F22E83D9200C793D2 /* TLPicker */ = {
@@ -765,6 +776,7 @@
 				C45661B822CE6D9200973945 /* LikesTableViewCell.xib in Resources */,
 				86F4017D22DF12B400AB9ECD /* ProductGridTableViewCell.xib in Resources */,
 				864502E522FBB7DD00E6396C /* LoanHistoryTableViewCell.xib in Resources */,
+				86A19DCC23B5DF690059BAF0 /* ChatSB.storyboard in Resources */,
 				864997D922F2D93B005BD2DF /* ActiveDeactiveTableViewCell.xib in Resources */,
 				C49A53EF22FDAEB90017E122 /* CusInputUIView.xib in Resources */,
 				865B5DBF221FDD3700864F7E /* LaunchScreen.storyboard in Resources */,
